@@ -48,7 +48,7 @@ class ActorController extends Controller
      */
     public function edit(Actor $actor)
     {
-        return view('website.actors.edit');
+        return view('website.actors.edit', compact($actor));
     }
 
     /**
