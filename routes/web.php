@@ -17,8 +17,10 @@ Auth::routes(['register' => false]);
 
 Route::view('/', 'welcome');
 
-Route::group(['prefix' => 'panel','as' => 'panel.'], function() {
+Route::group(['prefix' => 'panel'], function() {
 
-    Route::get('/', 'HomeController@index')->name('index');
+    Route::get('/', 'HomeController@index')->name('dashboard');
+
+    Route::resource('categories', 'CategoryController');
 
 });
