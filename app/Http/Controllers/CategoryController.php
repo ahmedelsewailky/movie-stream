@@ -14,8 +14,7 @@ class CategoryController extends Controller
     public function index()
     {
         return view('dashboard.categories.index', [
-            'parents' => Category::whereNull('parent_id')->get(),
-            'categories' => Category::whereNotNull('parent_id')->get()
+            'categories' => new Category
         ]);
     }
 
@@ -49,7 +48,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('categories.edit', compact($category));
+        return view('dashboard.categories.edit', compact('category'));
     }
 
     /**
