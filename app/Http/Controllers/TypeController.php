@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tag;
-use App\Http\Requests\StoreTagRequest;
-use App\Http\Requests\UpdateTagRequest;
+use App\Models\Type;
+use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\UpdateTypeRequest;
 
-class TagController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('website.categories.index', [
-            'categories' => Tag::all()
+        return view('types.index', [
+            'types' => Type::all()
         ]);
     }
 
@@ -23,22 +23,22 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('website.categories.create');
+        return view('types.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTagRequest $request)
+    public function store(StoreTypeRequest $request)
     {
-        Tag::create($request->all());
+        Type::create($request->all());
         return back();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Tag $tag)
+    public function show(Type $type)
     {
         abort(404);
     }
@@ -46,26 +46,26 @@ class TagController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tag $tag)
+    public function edit(Type $type)
     {
-        return view('website.categories.edit', compact($tag));
+        return view('types.edit', compact($type));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTagRequest $request, Tag $tag)
+    public function update(UpdateTypeRequest $request, Type $type)
     {
-        $tag->update($request->all());
+        $type->update($request->all());
         return back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tag $tag)
+    public function destroy(Type $type)
     {
-        $tag->delete();
+        $type->delete();
         return back();
     }
 }

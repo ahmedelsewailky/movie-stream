@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class TagSeeder extends Seeder
+class TypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,18 +13,19 @@ class TagSeeder extends Seeder
     public function run(): void
     {
         // Create main categories
-        $tags = [
+        $types = [
             'comedy' => 'كوميدي',
             'drama' => 'دراما',
             'action' => 'اكشن',
+            'suspense' => 'اثارة وتشويق',
             'terror' => 'رعب',
-            'historical' => 'تاريخي',
+            'documentary' => 'وثائقي',
             'fiction' => 'خيال علمي',
             'adventure' => 'مغامرة',
         ];
 
-        foreach ($tags as $key => $value) {
-            \App\Models\Tag::create([
+        foreach ($types as $key => $value) {
+            \App\Models\Type::create([
                 'name' => $value,
                 'slug' => $key
             ]);

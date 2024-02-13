@@ -13,7 +13,7 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         // Create main categories
-        $main_categories = ['movies' => 'افلام', 'series' => 'مسلسلات'];
+        $main_categories = ['movies' => 'افلام', 'series' => 'مسلسلات', 'tvshows' => 'برامج تلفزيونية'];
 
         foreach ($main_categories as $key => $value) {
             \App\Models\Category::create([
@@ -127,7 +127,7 @@ class CategorySeeder extends Seeder
         \App\Models\Category::create([
             'name' => 'برامج تلفزيونية',
             'slug' => 'tv-shows',
-            'parent_id' => 2
+            'parent_id' => 3
         ]);
     }
 }

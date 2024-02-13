@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateTagRequest extends FormRequest
+class UpdateTypeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,8 @@ class UpdateTagRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255|unique:tags,name,' . $this->tag->id,
-            'slug' => 'required|string|max:255|unique:tags,slug,' . $this->tag->id,
+            'name' => 'required|string|max:255|unique:Types,name,' . $this->Type->id,
+            'slug' => 'required|string|max:255|unique:Types,slug,' . $this->Type->id,
         ];
     }
 }
