@@ -13,7 +13,7 @@ class ActorController extends Controller
      */
     public function index()
     {
-        return view('website.actors.index', [
+        return view('actors.index', [
             'actors' => Actor::get()
         ]);
     }
@@ -23,7 +23,7 @@ class ActorController extends Controller
      */
     public function create()
     {
-        return view('website.actors.create');
+        return view('actors.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class ActorController extends Controller
      */
     public function edit(Actor $actor)
     {
-        return view('website.actors.edit', compact($actor));
+        return view('actors.edit', compact($actor));
     }
 
     /**
