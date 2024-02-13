@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\{Auth, Route};
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes(['register' => false]);
 
-Route::group([
-    'prefix' => 'panel',
-    'as' => 'panel.'
-], function() {
+Route::view('/', 'welcome');
 
-    Route::get('/', DashboardController::class);
+Route::group(['prefix' => 'panel','as' => 'panel.'], function() {
+
+    Route::get('/', 'HomeController@index')->name('index');
 
 });
