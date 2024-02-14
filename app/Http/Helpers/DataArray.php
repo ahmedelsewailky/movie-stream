@@ -4,6 +4,16 @@ namespace App\Http\Helpers;
 
 class DataArray
 {
+    const TYPES = [
+        'دراما',
+        'اكشن',
+        'مغامرة',
+        'إثارة وتشويق',
+        'رعب',
+        'كوميدي',
+        'وثائقي',
+    ];
+
     const LANGUAGES = [
         'عربي',
         'اجنبي',
