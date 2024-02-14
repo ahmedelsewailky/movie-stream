@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('dashboard.categories.index', [
+        return view('categories.index', [
             'categories' => new Category
         ]);
     }
@@ -24,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('dashboard.categories.create');
+        return view('categories.create');
     }
 
     /**
@@ -50,7 +50,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('dashboard.categories.edit', compact('category'));
+        return view('categories.edit', compact('category'));
     }
 
     /**

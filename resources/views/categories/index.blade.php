@@ -30,7 +30,7 @@
                                     <a href="javascript:void('0')" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $category->id }}" class="btn btn-sm btn-danger">حذف</a>
                                 </div>
                             </div>
-                            @include('dashboard.categories.confirm-modal')
+                            @include('categories.confirm-modal')
                         @endforeach
                     </div>
                 </div>

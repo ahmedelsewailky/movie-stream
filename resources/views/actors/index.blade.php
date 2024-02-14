@@ -38,7 +38,7 @@
                         <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $actor->id }}" class="btn btn-sm btn-danger">حذف</a>
                     </td>
                 </tr>
-                @include('dashboard.actors.confirm-modal')
+                @include('actors.confirm-modal')
             @empty
                 <tr>
                     <td colspan="6">لا توجد بيانات</td>

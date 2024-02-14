@@ -14,7 +14,7 @@ class ActorController extends Controller
      */
     public function index()
     {
-        return view('dashboard.actors.index', [
+        return view('actors.index', [
             'actors' => Actor::orderByDesc('id')->get()
         ]);
     }
@@ -24,7 +24,7 @@ class ActorController extends Controller
      */
     public function create()
     {
-        return view('dashboard.actors.create');
+        return view('actors.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class ActorController extends Controller
      */
     public function edit(Actor $actor)
     {
-        return view('dashboard.actors.edit', compact('actor'));
+        return view('actors.edit', compact('actor'));
     }
 
     /**
