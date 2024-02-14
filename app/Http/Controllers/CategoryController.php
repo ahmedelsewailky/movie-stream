@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 
@@ -23,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        return view('dashboard.categories.create');
     }
 
     /**
@@ -32,7 +33,8 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         Category::create($request->all());
-        return back();
+        Alert::success('رائع', 'تمت العملية بنجاح');
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -57,6 +59,7 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, Category $category)
     {
         $category->update($request->all());
+        Alert::success('تهانينا', 'تمت العملية بنجاح');
         return back();
     }
 
@@ -66,6 +69,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
+        Alert::success('تهانينا', 'تمت العملية بنجاح');
         return back();
     }
 }

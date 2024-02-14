@@ -27,4 +27,27 @@ class StoreCategoryRequest extends FormRequest
             'parent_id' => 'nullable|sometimes|exists:categories,id'
         ];
     }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'ادخل اسم القسم',
+            'name.string' => 'ادخل رابط الوصول',
+            'name.max' => 'اسم القسم طويل للغاية ، يجب ألا يتعدي الاسم عن 255 حرفا',
+            'name.unique' => 'هذا الاسم موجود بالفعل ، فضلاً جرب اسم اخر',
+
+            'slug.required' => 'لا يمكن ترك رابط الوصول فارغاً',
+            'slug.string' => 'رابط الوصول لا بد ان يكون نصاً',
+            'slug.max' => 'رابط الوصول طويل للغاية ، يجب ألا يتعدي الاسم عن 255 حرفا',
+            'slug.unique' => 'هذا الاسم موجود بالفعل ، فضلاً جرب اسم اخر',
+
+            'parent_id.required' => 'يجب تحديد القسم الرئيسي',
+            'parent_id.exists' => 'القسم المحدد غير صحيح',
+        ];
+    }
 }

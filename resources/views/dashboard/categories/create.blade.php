@@ -7,18 +7,17 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
             <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">الأقسام</a></li>
-            <li class="breadcrumb-item active" aria-current="page">تعديل بيانات قسم</li>
+            <li class="breadcrumb-item active" aria-current="page">اضافة قسم جديد</li>
         </ol>
     </nav>
 
-    <form action="{{ route('categories.update', $category->id) }}" method="post" class="w-50">
+    <form action="{{ route('categories.store') }}" method="post" class="w-50">
         @csrf
-        @method('PUT')
         {{-- Category Name --}}
         <div class="mb-3">
             <label for="category_name" class="form-label">اسم القسم</label>
             <input type="text" name="name" id="category_name" class="form-control @error('name') is-invalid @enderror"
-                value="{{ old('name') ?? $category->name }}">
+                value="{{ old('name') }}" placeholder="قسم تجريبي">
             @error('name')
                 <p class="invalid-feedback">{{ $message }}</p>
             @enderror
@@ -28,7 +27,7 @@
         <div class="mb-3">
             <label for="slug" class="form-label">رابط الوصول</label>
             <input type="text" name="slug" id="slug" class="form-control @error('slug') is-invalid @enderror"
-                value="{{ old('slug') ?? $category->slug }}">
+                value="{{ old('slug') }}" placeholder="testing-category-slug">
             @error('slug')
                 <p class="invalid-feedback">{{ $message }}</p>
             @enderror
@@ -40,7 +39,7 @@
             <select name="parent_id" id="parent_id" class="form-select @error('parent_id') is-invalid @enderror">
                 <option value="" hidden>-- اختار --</option>
                 @foreach (\App\Models\Category::whereNull('parent_id')->get() as $cate)
-                    <option value="{{ $cate->id }}" @selected($cate->id == $category->parent_id)>
+                    <option value="{{ $cate->id }}">
                         {{ $cate->name }}</option>
                 @endforeach
             </select>
@@ -49,6 +48,6 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-sm btn-primary">حفظ التغيرات</button>
+        <button type="submit" class="btn btn-sm btn-primary">حفظ</button>
     </form>
 @endsection

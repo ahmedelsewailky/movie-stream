@@ -3,6 +3,17 @@
 
 {{-- Page content --}}
 @section('content')
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
+            <li class="breadcrumb-item active" aria-current="page">الأقسام</li>
+        </ol>
+    </nav>
+
+    <div class="mb-3">
+        <a href="{{ route('categories.create') }}" class="btn btn-sm btn-primary">اضافة قسم جديد</a>
+    </div>
+
     <div class="row">
         @forelse ($categories->whereNull('parent_id')->get() as $parent)
             <div class="col-md-4">
