@@ -35,6 +35,10 @@
                         <li class="nav-item">
                             <a href="{{ route('categories.index') }}" @class(['nav-link', 'active' => Request::routeIs('categories.*')])>الأقسام</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('actors.index') }}" @class(['nav-link', 'active' => Request::routeIs('actors.*')])>قائمة الممثلين</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

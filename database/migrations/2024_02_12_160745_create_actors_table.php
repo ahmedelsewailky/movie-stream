@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('actors', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->unsignedSmallInteger('country')->nullable();
+            $table->string('country')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

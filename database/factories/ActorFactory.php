@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Http\Helpers\DataArray;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,7 @@ class ActorFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->name,
-            'country' => rand(1,10),
+            'country' => $this->faker->randomElement(DataArray::COUNTRIES),
         ];
     }
 }

@@ -1,0 +1,48 @@
+{{-- Extend master app layout --}}
+@extends('layouts.app')
+
+{{-- Page content --}}
+@section('content')
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
+            <li class="breadcrumb-item active" aria-current="page">قائمة الممثلين</li>
+        </ol>
+    </nav>
+
+    <div class="mb-3">
+        <a href="{{ route('actors.create') }}" class="btn btn-sm btn-primary">اضافة ممثل </a>
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>الصورة</th>
+                <th>اسم الممثل</th>
+                <th>الدولة</th>
+                <th>عدد الأعمال بالموقع</th>
+                <th>الخيارات</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($actors as $actor)
+                <tr>
+                    <td>{{ $loop->index+1 }}</td>
+                    <td><img src="https://via.placeholder.com/80" alt="{{ $actor->name }}"></td>
+                    <td>{{ $actor->name }}</td>
+                    <td>{{ $actor->country }}</td>
+                    <td>{{ number_format(35) }}</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-success me-1">تعديل</a>
+                        <a href="#" class="btn btn-sm btn-danger">حذف</a>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="6">لا توجد بيانات</td>
+                </tr>
+            @endforelse
+        </tbody>
+    </table>
+@endsection
