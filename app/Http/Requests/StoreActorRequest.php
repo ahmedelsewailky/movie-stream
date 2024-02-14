@@ -23,8 +23,25 @@ class StoreActorRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255|unique:actors',
-            'country' => 'nullable|sometimes|between:1,25',
-            'image' => 'nullable|sometimes|image|mimes:png,jpg,jpeg|max:2048'
+            'avatar' => 'nullable|sometimes|image|mimes:png,jpg,jpeg|max:2048'
+        ];
+    }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'يرجي إدخال اسم الممثل',
+            'name.string' => 'هذا الاسم لا يبدو صحيحا',
+            'name.max' => 'الحد الأقصي لإسم الممثل لا يتعدي 255 حرفا',
+            'name.unique' => 'هذا الاسم موجود بالفعل',
+            'avatar.image' => 'هذا الملف غير صالح',
+            'avatar.mimes' => 'الصيغ المقبولة للصورة jpg, png, jpeg',
+            'avatar.max' => 'حجم الصورة كبير للغاية',
         ];
     }
 }

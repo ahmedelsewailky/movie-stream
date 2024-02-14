@@ -15,7 +15,7 @@ class Actor extends Model
      * @var array<string>
      */
     protected $fillable = [
-        'name', 'country', 'image', 'created_at', 'updated_at'
+        'name', 'country', 'avatar', 'created_at', 'updated_at'
     ];
 
     /**
@@ -26,5 +26,19 @@ class Actor extends Model
     protected $hidden = [
         'created_at', 'updated_at'
     ];
+
+    /**
+     * HanRetrieve the actor's avatar from the storage folder
+     * if actor image avatar is available, or return the NULL value in the other case
+     *
+     * @return mixed<string|null>
+     */
+    public function get_image_avatar()
+    {
+        if ($this->avatar) {
+            return asset('storage') . '/' . $this->avatar;
+        }
+        return null;
+    }
 
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('country')->nullable();
-            $table->string('image')->nullable();
+            $table->string('avatar')->nullable();
             $table->timestamps();
         });
     }

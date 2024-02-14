@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Actor;
 use App\Http\Requests\StoreActorRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\UpdateActorRequest;
 
 class ActorController extends Controller
@@ -14,7 +15,7 @@ class ActorController extends Controller
     public function index()
     {
         return view('dashboard.actors.index', [
-            'actors' => Actor::get()
+            'actors' => Actor::orderByDesc('id')->get()
         ]);
     }
 
@@ -31,8 +32,13 @@ class ActorController extends Controller
      */
     public function store(StoreActorRequest $request)
     {
-        Actor::create($request->all());
-        return back();
+        $input = $request->except('_token');
+        if ($request->has('avatar')) {
+            $input['avatar'] = $request->avatar->store('actors', 'public');
+        }
+        Actor::create($input);
+        Alert::success('رائع', 'تمت العملية بنجاح');
+        return redirect()->route('actors.index');
     }
 
     /**
@@ -48,7 +54,7 @@ class ActorController extends Controller
      */
     public function edit(Actor $actor)
     {
-        return view('dashboard.actors.edit', compact($actor));
+        return view('dashboard.actors.edit', compact('actor'));
     }
 
     /**
@@ -56,8 +62,18 @@ class ActorController extends Controller
      */
     public function update(UpdateActorRequest $request, Actor $actor)
     {
-        $actor->update($request->all());
-        return back();
+        $input = $request->except('_token');
+
+        if ($request->has('avatar')) {
+            if ($actor->avatar) {
+                unlink(storage_path('app/public/') . $actor->avatar);
+            }
+            $input['avatar'] = $request->avatar->store('actors', 'public');
+        }
+
+        $actor->update($input);
+        Alert::success('تهانينا', 'تمت العملية بنجاح');
+        return redirect()->route('actors.index');
     }
 
     /**
@@ -66,6 +82,7 @@ class ActorController extends Controller
     public function destroy(Actor $actor)
     {
         $actor->delete();
+        Alert::success('نهانينا', 'تمت العملية بنجاح');
         return back();
     }
 }
