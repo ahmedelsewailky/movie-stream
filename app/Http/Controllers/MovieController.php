@@ -13,7 +13,9 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        return view('movies.index', [
+            'movies' => Movie::orderByDesc('id')->get()
+        ]);
     }
 
     /**
@@ -21,7 +23,9 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        return view('movies.create',[
+            'categories' => \App\Models\Category::all()
+        ]);
     }
 
     /**

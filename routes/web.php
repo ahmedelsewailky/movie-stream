@@ -24,4 +24,6 @@ Route::group(['prefix' => 'panel'], function() {
     Route::resource('categories', 'CategoryController');
 
     Route::resource('actors', 'ActorController');
+
+    Route::resource('movies', 'MovieController');
 });

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('quality');
             $table->string('language');
             $table->unsignedTinyInteger('year');
-            $table->string('types');
+            $table->json('types');
             $table->unsignedTinyInteger('duration');
             $table->string('poster');
             $table->text('story');

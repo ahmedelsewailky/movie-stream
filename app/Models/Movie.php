@@ -29,4 +29,13 @@ class Movie extends Model
         'views',
         'size',
     ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'types' => 'array'
+    ];
 }
