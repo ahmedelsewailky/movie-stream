@@ -30,11 +30,27 @@
                     <td>{{ $loop->index }}</td>
                     <td>
                         <div class="d-flex">
-                            <div class="flex-shrink-0">
+                            <div class="flex-shrink-0 me-3">
                                 <img src="{{ $movie->get_movie_poster() }}" width="120" height="70" alt="{{ $movie->title }}">
                             </div>
                             <div class="flex-grow-1">
                                 <h6>{{ $movie->title }}</h6>
+                                <div class="d-flex">
+                                    <div class="meta-category">
+                                        <i class="bx bx-folder"></i>
+                                        {{ $movie->category->name }}
+                                    </div>
+
+                                    <div class="meta-author">
+                                        <i class="bx bx-user"></i>
+                                        {{ $movie->user->name }}
+                                    </div>
+
+                                    <div class="meta-language">
+                                        <i class="bx bx-globe"></i>
+                                        {{ DataArray::LANGUAGES[$movie->language] }}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </td>
