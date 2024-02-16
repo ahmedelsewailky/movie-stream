@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Movie;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MovieController extends Controller
 {
@@ -24,7 +25,8 @@ class MovieController extends Controller
     public function create()
     {
         return view('movies.create',[
-            'categories' => \App\Models\Category::all()
+            'categories' => \App\Models\Category::whereParentId(1)->get(),
+            'actors' => \App\Models\Actor::all()
         ]);
     }
 
@@ -33,7 +35,12 @@ class MovieController extends Controller
      */
     public function store(StoreMovieRequest $request)
     {
-        //
+        $inputs = $request->all();
+        $inputs['poster'] = $request->poster->store('movies', 'public');
+        $inputs['user_id'] = auth()->user()->id;
+        Movie::create($inputs);
+        Alert::success('تهانينا', 'تمت العملية بنجاح');
+        return redirect()->route('movies.index');
     }
 
     /**

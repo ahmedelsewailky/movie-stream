@@ -20,13 +20,15 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
             $table->unsignedTinyInteger('quality');
             $table->string('language');
-            $table->unsignedTinyInteger('year');
+            $table->unsignedInteger('year');
             $table->json('types');
-            $table->unsignedTinyInteger('duration');
             $table->string('poster');
             $table->text('story');
+            $table->json('links');
+            $table->json('actors');
+            $table->string('watch_link');
+            $table->string('dubbed_status')->nullable();
             $table->unsignedInteger('views')->default(0);
-            $table->unsignedTinyInteger('size');
             $table->timestamps();
         });
     }

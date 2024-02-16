@@ -38,7 +38,7 @@
                             </div>
                         </div>
                     </td>
-                    <td>{{ number_formate($movie->views) }}</td>
+                    <td>{{ number_format($movie->views) }}</td>
                     <td>0</td>
                     <td>
                         <a href="{{ route('movies.edit', $movie->id) }}" class="btn btn-sm btn-success">تعديل</a>
