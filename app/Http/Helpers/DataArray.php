@@ -4,6 +4,11 @@ namespace App\Http\Helpers;
 
 class DataArray
 {
+    const DUBBED_STATUS = [
+        '1' => 'مدبلج',
+        '2' => 'مترجم',
+    ];
+
     const TYPES = [
         'دراما',
         'اكشن',
