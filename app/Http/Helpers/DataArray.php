@@ -5,8 +5,8 @@ namespace App\Http\Helpers;
 class DataArray
 {
     const DUBBED_STATUS = [
-        '1' => 'مدبلج',
-        '2' => 'مترجم',
+        '10' => 'مدبلج',
+        '20' => 'مترجم',
     ];
 
     const TYPES = [

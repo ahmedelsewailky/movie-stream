@@ -44,8 +44,11 @@
             <div class="row">
                 @foreach (DataArray::TYPES as $key => $value)
                     <div class="col-md-3">
-                        <input type="checkbox" name="types[]" id="type-{{ $key }}" value="{{ $value }}"
-                            class="form-check-input">
+                        @if (old('types'))
+                            <input type="checkbox" name="types[]" id="type-{{ $key }}" value="{{ $value }}" class="form-check-input">
+                        @else
+                            <input type="checkbox" name="types[]" id="type-{{ $key }}" value="{{ $value }}" class="form-check-input">
+                        @endif
                         <label for="type-{{ $key }}" class="form-check-label">{{ $value }}</label>
                     </div>
                 @endforeach
@@ -54,7 +57,7 @@
 
         <div class="row">
             {{-- Qualties --}}
-            <div class="col-md-6 mb-3">
+            <div class="mb-3 col-md-6">
                 <label for="quality" class="form-label">جودة الفيديو</label>
                 <select id="quality" class="form-select @error('quality') is-invalid @enderror" name="quality">
                     <option value="" hidden>--اختار--</option>
@@ -68,7 +71,7 @@
             </div>
 
             {{-- Production year --}}
-            <div class="col-md-6 mb-3">
+            <div class="mb-3 col-md-6">
                 <label for="year" class="form-label">سنة الإنتاج</label>
                 <select name="year" id="year" class="form-select">
                     <option value="" hidden>--اختار--</option>
@@ -99,16 +102,19 @@
                 <div class="col-md-3">
                     <input type="radio" name="dubbed_status" class="form-check-input" id="dubded_status_0" value="0"
                         checked>
-                    <label for="dubded_status_0" class="form-check-label">لا شئ</label>
+                    <label for="dubded_status_0" class="form-check-label">اللغة الأصلية</label>
                 </div>
                 <div class="col-md-3">
-                    <input type="radio" name="dubbed_status" class="form-check-input" id="dubded_status_1" value="1">
+                    <input type="radio" name="dubbed_status" class="form-check-input" id="dubded_status_1" value="1" @checked(old('dubbed_status') == 1)>
                     <label for="dubded_status_1" class="form-check-label">مدبلج</label>
                 </div>
                 <div class="col-md-3">
-                    <input type="radio" name="dubbed_status" class="form-check-input" id="dubded_status_2" value="2">
+                    <input type="radio" name="dubbed_status" class="form-check-input" id="dubded_status_2" value="2" @checked(old('dubbed_status') == 2)>
                     <label for="dubded_status_2" class="form-check-label">مترجم</label>
                 </div>
+                @error('dubbed_status')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
         </div>
 
@@ -157,14 +163,30 @@
         {{-- Watched Links --}}
         <div class="mb-3">
             <label for="" class="form-label">سيرفر المشاهدة</label>
-            <input type="text" class="form-control mb-3" name="watch_link">
+            <input type="text" class="mb-3 form-control @error('watch_link') is-invalid @enderror" name="watch_link">
+            @error('watch_link')
+                <p class="invalid-feedback">{{ $message }}</p>
+            @enderror
         </div>
 
         {{-- Download Links --}}
         <div class="mb-3">
             <label for="" class="form-label">روابط التحميل</label>
             <div class="links-fields">
-                <input type="text" class="form-control mb-3" name="links[]">
+                @if (old('links'))
+                    @foreach (old('links') as $old_link )
+                        <input type="text" class="mb-3 form-control @error('links.*') is-invalid @enderror" name="links[]" value="{{ $old_link }}">
+                        @error('links.*')
+                            <p class="invalid-feedback">{{ $message }}</p>
+                        @enderror
+                    @endforeach
+                @else
+                    <input type="text" class="mb-3 form-control @error('links.*') is-invalid @enderror" name="links[]">
+                    @error('links.*')
+                        <p class="invalid-feedback">{{ $message }}</p>
+                    @enderror
+                @endif
+
             </div>
             <button type="button" id="addLink" class="btn btn-sm btn-light">اضف رابط اخر</button>
         </div>
@@ -183,7 +205,8 @@
         $(function() {
             $(".select-2").select2();
 
-            let new_input_link = `<input type="text" class="form-control mb-3" name="links[]" placeholder="https://www.test.download/link/here">`;
+            let new_input_link =
+                `<input type="text" class="mb-3 form-control" name="links[]" placeholder="https://www.test.download/link/here">`;
 
             $("#addLink").on("click", function() {
                 $(".links-fields").append(new_input_link);

@@ -35,12 +35,13 @@ class MovieController extends Controller
      */
     public function store(StoreMovieRequest $request)
     {
-        $inputs = $request->all();
-        $inputs['poster'] = $request->poster->store('movies', 'public');
-        $inputs['user_id'] = auth()->user()->id;
-        Movie::create($inputs);
-        Alert::success('تهانينا', 'تمت العملية بنجاح');
-        return redirect()->route('movies.index');
+        return $request->errors();
+        // $inputs = $request->all();
+        // $inputs['poster'] = $request->poster->store('movies', 'public');
+        // $inputs['user_id'] = auth()->user()->id;
+        // Movie::create($inputs);
+        // Alert::success('تهانينا', 'تمت العملية بنجاح');
+        // return redirect()->route('movies.index');
     }
 
     /**

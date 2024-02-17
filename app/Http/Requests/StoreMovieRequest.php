@@ -2,6 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Http\Helpers\DataArray;
+use App\Rules\NumberBetweenArray;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreMovieRequest extends FormRequest
@@ -27,6 +30,8 @@ class StoreMovieRequest extends FormRequest
             'poster' => 'required|image|mimes:png,jpg,jpeg',
             'watch_link' => 'required|url',
             'links.*' => 'required|url',
+            'actors' => 'required|exists:actors,id',
+            'dubbed_status' => [new NumberBetweenArray(DataArray::DUBBED_STATUS)]
         ];
     }
 
@@ -51,6 +56,20 @@ class StoreMovieRequest extends FormRequest
             'watch_link.url' => 'هذا الرابط غير صحيح',
             'links.*.required' => 'رابط التحميل مطلوب',
             'links.*.url' => 'هذا الرابط غير صحيح',
+            'actors.required' => 'اختر واحد من الممثلين علي الأقل',
+            'actors.exists' => 'هذا الإختيار غير صحيح',
+        ];
+    }
+
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'dubbed_status' => 'لغة الفيديو'
         ];
     }
 }
