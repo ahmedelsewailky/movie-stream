@@ -44,14 +44,17 @@
             <div class="row">
                 @foreach (DataArray::TYPES as $key => $value)
                     <div class="col-md-3">
-                        @if (old('types'))
-                            <input type="checkbox" name="types[]" id="type-{{ $key }}" value="{{ $value }}" class="form-check-input">
-                        @else
-                            <input type="checkbox" name="types[]" id="type-{{ $key }}" value="{{ $value }}" class="form-check-input">
-                        @endif
+                        <input type="checkbox" name="types[]" id="type-{{ $key }}" value="{{ $key }}-3" class="form-check-input"
+                        @checked( is_array(old('types')) && in_array($key, old('types'))  )>
                         <label for="type-{{ $key }}" class="form-check-label">{{ $value }}</label>
                     </div>
                 @endforeach
+
+                @error('types')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+
+                {{ array_key_first(DataArray::TYPES) }}
             </div>
         </div>
 

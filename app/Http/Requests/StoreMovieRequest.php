@@ -25,12 +25,14 @@ class StoreMovieRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255|unique:movies',
-            'category_id' => 'required|exists:categories,id',
-            'poster' => 'required|image|mimes:png,jpg,jpeg',
-            'watch_link' => 'required|url',
-            'links.*' => 'required|url',
-            'actors' => 'required|exists:actors,id',
+            'title' => ['required', 'string', 'max:255', 'unique:movies'],
+            'category_id' => ['required', 'exists:categories,id'],
+            'poster' => ['required', 'image', 'mimes:png,jpg,jpeg'],
+            'watch_link' => ['required', 'url'],
+            'links.*' => ['required', 'url'],
+            'types' => ['required', new NumberBetweenArray(DataArray::TYPES)],
+            'actors' => ['required', 'exists:actors,id'],
+            'quality' => [new NumberBetweenArray(DataArray::QUALITIES)],
             'dubbed_status' => [new NumberBetweenArray(DataArray::DUBBED_STATUS)]
         ];
     }
@@ -58,6 +60,7 @@ class StoreMovieRequest extends FormRequest
             'links.*.url' => 'هذا الرابط غير صحيح',
             'actors.required' => 'اختر واحد من الممثلين علي الأقل',
             'actors.exists' => 'هذا الإختيار غير صحيح',
+            'types' => 'حدد النوع الخاص بالفيلم'
         ];
     }
 
