@@ -30,10 +30,6 @@ class StoreMovieRequest extends FormRequest
             'poster' => ['required', 'image', 'mimes:png,jpg,jpeg'],
             'watch_link' => ['required', 'url'],
             'links.*' => ['required', 'url'],
-            'types' => ['required', new NumberBetweenArray(DataArray::TYPES)],
-            'actors' => ['required', 'exists:actors,id'],
-            'quality' => [new NumberBetweenArray(DataArray::QUALITIES)],
-            'dubbed_status' => [new NumberBetweenArray(DataArray::DUBBED_STATUS)]
         ];
     }
 

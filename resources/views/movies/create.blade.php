@@ -44,17 +44,15 @@
             <div class="row">
                 @foreach (DataArray::TYPES as $key => $value)
                     <div class="col-md-3">
-                        <input type="checkbox" name="types[]" id="type-{{ $key }}" value="{{ $key }}-3" class="form-check-input"
-                        @checked( is_array(old('types')) && in_array($key, old('types'))  )>
-                        <label for="type-{{ $key }}" class="form-check-label">{{ $value }}</label>
+                        <input type="checkbox" name="types[]" id="type-{{ $value }}" value="{{ $value }}" class="form-check-input"
+                        @checked( is_array(old('types')) && in_array($value, old('types'))  )>
+                        <label for="type-{{ $value }}" class="form-check-label">{{ $value }}</label>
                     </div>
                 @endforeach
 
-                @error('types')
+                @error('types.*')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
-
-                {{ array_key_first(DataArray::TYPES) }}
             </div>
         </div>
 

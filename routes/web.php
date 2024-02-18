@@ -17,7 +17,7 @@ Auth::routes(['register' => false]);
 
 Route::view('/', 'welcome');
 
-Route::group(['prefix' => 'panel'], function() {
+Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function() {
 
     Route::get('/', 'HomeController@index')->name('dashboard');
 
