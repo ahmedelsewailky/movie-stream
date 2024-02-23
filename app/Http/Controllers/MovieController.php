@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Helpers\DataArray;
 use App\Models\Movie;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
@@ -56,7 +57,12 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        //
+        // return $movie;
+        return view('movies.edit',[
+            'categories' => \App\Models\Category::whereParentId(1)->get(),
+            'actors' => \App\Models\Actor::all(),
+            'movie' => $movie
+        ]);
     }
 
     /**
@@ -64,7 +70,18 @@ class MovieController extends Controller
      */
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
-        //
+        $inputs = $request->all();
+        // return $inputs;
+        if ($request->has('poster')) {
+            unlink(storage_path('app\\public\\' . $movie->poster ));
+            $inputs['poster'] = $request->poster->store('movies', 'public');
+        } else {
+            $inputs = $request->except('poster');
+        }
+        $inputs['user_id'] = auth()->user()->id;
+        $movie->update($inputs);
+        Alert::success('تهانينا', 'تمت العملية بنجاح');
+        return back();
     }
 
     /**
