@@ -11,7 +11,7 @@
     </nav>
 
     <div class="mb-3">
-        <a href="{{ route('movies.create') }}" class="btn btn-sm btn-primary">اضافة فيلم جديد</a>
+        <a href="{{ route('series.create') }}" class="btn btn-sm btn-primary">اضافة فيلم جديد</a>
     </div>
 
     <table class="table table-striped table-hover">
@@ -25,43 +25,43 @@
             </tr>
         </thead>
         <tbody>
-            @forelse ($movies as $movie)
+            @forelse ($series as $series)
                 <tr>
                     <td>{{ $loop->index }}</td>
                     <td>
                         <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
-                                <img src="{{ $movie->get_poster() ?? 'https://via.placeholder.com/120x80' }}" width="120" height="70" alt="{{ $movie->title }}">
+                                <img src="{{ $series->get_poster() ?? 'https://via.placeholder.com/120x80' }}" width="120" height="70" alt="{{ $series->title }}">
                             </div>
                             <div class="flex-grow-1">
-                                <h6>{{ $movie->title }}</h6>
+                                <h6>{{ $series->title }}</h6>
                                 <div class="d-flex">
                                     <div class="meta-category">
                                         <i class="bx bx-folder"></i>
-                                        {{ $movie->category->name }}
+                                        {{ $series->category->name }}
                                     </div>
 
                                     <div class="meta-author">
                                         <i class="bx bx-user"></i>
-                                        {{ $movie->user->name }}
+                                        {{ $series->user->name }}
                                     </div>
 
                                     <div class="meta-language">
                                         <i class="bx bx-globe"></i>
-                                        {{ DataArray::LANGUAGES[$movie->language] }}
+                                        {{ DataArray::LANGUAGES[$series->language] }}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </td>
-                    <td>{{ number_format($movie->views) }}</td>
+                    <td>{{ number_format($series->views) }}</td>
                     <td>0</td>
                     <td>
-                        <a href="{{ route('movies.edit', $movie->id) }}" class="btn btn-sm btn-success">تعديل</a>
-                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $movie->id }}" class="btn btn-sm btn-danger">حذف</a>
+                        <a href="{{ route('series.edit', $series->id) }}" class="btn btn-sm btn-success">تعديل</a>
+                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $series->id }}" class="btn btn-sm btn-danger">حذف</a>
                     </td>
                 </tr>
-                @include('movies.confirm-modal')
+                @include('series.confirm-modal')
             @empty
                 <tr>
                     <td colspan="5" class="text-center">لا توجد منشورات</td>
@@ -69,5 +69,4 @@
             @endforelse
         </tbody>
     </table>
-    {!! $movies->links('pagination::bootstrap-5') !!}
 @endsection

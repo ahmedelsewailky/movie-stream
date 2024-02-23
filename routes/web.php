@@ -26,4 +26,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function() {
     Route::resource('actors', 'ActorController');
 
     Route::resource('movies', 'MovieController');
+
+    Route::resource('series', 'SeriesController');
 });

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('language');
             $table->unsignedInteger('year');
             $table->json('types');
-            $table->string('poster');
+            $table->string('poster')->nullable();
             $table->text('story');
             $table->json('links');
             $table->json('actors');

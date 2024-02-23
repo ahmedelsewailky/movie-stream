@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Movie;
-use App\Http\Requests\{UpdateMovieRequest, StoreMovieRequest};
+use App\Models\Series;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\StoreSeriesRequest;
+use App\Http\Requests\UpdateSeriesRequest;
 
-class MovieController extends Controller
+class SeriesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('movies.index', [
-            'movies' => Movie::orderByDesc('id')->paginate(10)
+        return view('series.index', [
+            'series' => Series::orderByDesc('id')->get()
         ]);
     }
 
@@ -23,7 +24,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        return view('movies.create',[
+        return view('series.create',[
             'categories' => \App\Models\Category::whereParentId(1)->get(),
             'actors' => \App\Models\Actor::all()
         ]);
@@ -32,52 +33,50 @@ class MovieController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMovieRequest $request)
+    public function store(StoreSeriesRequest $request)
     {
         $inputs = $request->all();
-        $inputs['poster'] = $request->poster->store('movies', 'public');
+        $inputs['poster'] = $request->poster->store('series', 'public');
         $inputs['user_id'] = auth()->user()->id;
-        Movie::create($inputs);
+        Series::create($inputs);
         Alert::success('تهانينا', 'تمت العملية بنجاح');
-        return redirect()->route('movies.index');
+        return redirect()->route('series.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Movie $movie)
+    public function show(Series $series)
     {
-        //
+        abort(404);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Movie $movie)
+    public function edit(Series $series)
     {
-        // return $movie;
-        return view('movies.edit',[
+        return view('series.edit',[
             'categories' => \App\Models\Category::whereParentId(1)->get(),
             'actors' => \App\Models\Actor::all(),
-            'movie' => $movie
+            'movie' => $series
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMovieRequest $request, Movie $movie)
+    public function update(UpdateSeriesRequest $request, Series $series)
     {
         $inputs = $request->all();
-        // return $inputs;
         if ($request->has('poster')) {
-            unlink(storage_path('app\\public\\' . $movie->poster ));
-            $inputs['poster'] = $request->poster->store('movies', 'public');
+            unlink(storage_path('app\\public\\' . $series->poster ));
+            $inputs['poster'] = $request->poster->store('series', 'public');
         } else {
             $inputs = $request->except('poster');
         }
         $inputs['user_id'] = auth()->user()->id;
-        $movie->update($inputs);
+        $series->update($inputs);
         Alert::success('تهانينا', 'تمت العملية بنجاح');
         return back();
     }
@@ -85,12 +84,12 @@ class MovieController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Movie $movie)
+    public function destroy(Series $series)
     {
-        if ($movie->poster) {
-            unlink(storage_path('app\\public\\' . $movie->poster ));
+        if ($series->poster) {
+            unlink(storage_path('app\\public\\' . $series->poster ));
         }
-        $movie->delete();
+        $series->delete();
         Alert::success('تهانينا', 'تمت العملية بنجاح');
         return back();
     }
