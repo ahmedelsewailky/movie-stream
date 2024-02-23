@@ -19,6 +19,7 @@
             <tr>
                 <th>#</th>
                 <th>البيان</th>
+                <th>الحلقات</th>
                 <th>المشاهدات</th>
                 <th>التحميلات</th>
                 <th>الخيارات</th>
@@ -40,20 +41,11 @@
                                         <i class="bx bx-folder"></i>
                                         {{ $series->category->name }}
                                     </div>
-
-                                    <div class="meta-author">
-                                        <i class="bx bx-user"></i>
-                                        {{ $series->user->name }}
-                                    </div>
-
-                                    <div class="meta-language">
-                                        <i class="bx bx-globe"></i>
-                                        {{ DataArray::LANGUAGES[$series->language] }}
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </td>
+                    <td>53</td>
                     <td>{{ number_format($series->views) }}</td>
                     <td>0</td>
                     <td>

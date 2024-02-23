@@ -15,8 +15,10 @@
 
     <!-- Bootstrap Css File -->
     <link rel="stylesheet" href="{{ asset('assets/libs/bootstrap/css/bootstrap.rtl.min.css') }}">
+
     <!-- Boxicons Css File -->
     <link rel="stylesheet" href="{{ asset('assets/libs/boxicons/css/boxicons.min.css') }}">
+
     @yield('css')
 </head>
 <body>
@@ -98,8 +100,10 @@
 
     <!-- jQuery -->
     <script src="{{ asset('assets/libs/jquery/jquery-3.7.1.min.js') }}"></script>
+
     <!-- Bootstrap Bundle Js File -->
     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
     @yield('js')
     @include('sweetalert::alert')
 </body>

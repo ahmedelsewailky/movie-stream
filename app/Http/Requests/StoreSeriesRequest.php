@@ -25,8 +25,6 @@ class StoreSeriesRequest extends FormRequest
             'title' => ['required', 'string', 'max:255', 'unique:movies'],
             'category_id' => ['required', 'exists:categories,id'],
             'poster' => ['required', 'image', 'mimes:png,jpg,jpeg'],
-            'watch_link' => ['required', 'url'],
-            'links.*' => ['required', 'url'],
         ];
     }
 
@@ -47,13 +45,6 @@ class StoreSeriesRequest extends FormRequest
             'poster.required' => 'اضف بوستر الفيلم',
             'poster.image' => 'هذا الملف غير صالح',
             'poster.mimes' => 'الامتدادات المقبولة فقط jpg,jpeg,png',
-            'watch_link.required' => 'اضف سيرفر المشاهدة',
-            'watch_link.url' => 'هذا الرابط غير صحيح',
-            'links.*.required' => 'رابط التحميل مطلوب',
-            'links.*.url' => 'هذا الرابط غير صحيح',
-            'actors.required' => 'اختر واحد من الممثلين علي الأقل',
-            'actors.exists' => 'هذا الإختيار غير صحيح',
-            'types' => 'حدد النوع الخاص بالفيلم'
         ];
     }
 
@@ -64,8 +55,6 @@ class StoreSeriesRequest extends FormRequest
      */
     public function attributes()
     {
-        return [
-            'dubbed_status' => 'لغة الفيديو'
-        ];
+        return [];
     }
 }

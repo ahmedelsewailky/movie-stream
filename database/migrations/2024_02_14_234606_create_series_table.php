@@ -17,18 +17,11 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->foreignIdFor(Category::class);
-            $table->foreignIdFor(User::class);
-            $table->unsignedTinyInteger('quality');
-            $table->string('language');
             $table->unsignedInteger('year');
             $table->json('types');
             $table->string('poster')->nullable();
             $table->text('story');
-            $table->json('links');
             $table->json('actors');
-            $table->string('watch_link');
-            $table->string('dubbed_status')->nullable();
-            $table->unsignedInteger('views')->default(0);
             $table->timestamps();
         });
     }

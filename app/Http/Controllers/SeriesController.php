@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Series;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Http\Requests\StoreSeriesRequest;
-use App\Http\Requests\UpdateSeriesRequest;
+use App\Http\Requests\{StoreSeriesRequest, UpdateSeriesRequest};
 
 class SeriesController extends Controller
 {
@@ -25,7 +24,7 @@ class SeriesController extends Controller
     public function create()
     {
         return view('series.create',[
-            'categories' => \App\Models\Category::whereParentId(1)->get(),
+            'categories' => \App\Models\Category::whereParentId(2)->get(),
             'actors' => \App\Models\Actor::all()
         ]);
     }
@@ -37,7 +36,6 @@ class SeriesController extends Controller
     {
         $inputs = $request->all();
         $inputs['poster'] = $request->poster->store('series', 'public');
-        $inputs['user_id'] = auth()->user()->id;
         Series::create($inputs);
         Alert::success('تهانينا', 'تمت العملية بنجاح');
         return redirect()->route('series.index');
@@ -48,7 +46,7 @@ class SeriesController extends Controller
      */
     public function show(Series $series)
     {
-        abort(404);
+        return 'هنا يتم عرض الحلقات بناءاً علي المسلسل';
     }
 
     /**
