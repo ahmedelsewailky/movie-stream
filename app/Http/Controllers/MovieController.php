@@ -89,6 +89,11 @@ class MovieController extends Controller
      */
     public function destroy(Movie $movie)
     {
-        //
+        if ($movie->poster) {
+            unlink(storage_path('app\\public\\' . $movie->poster ));
+        }
+        $movie->delete();
+        Alert::success('تهانينا', 'تمت العملية بنجاح');
+        return back();
     }
 }

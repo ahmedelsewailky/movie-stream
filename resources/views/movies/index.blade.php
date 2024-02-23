@@ -58,7 +58,7 @@
                     <td>0</td>
                     <td>
                         <a href="{{ route('movies.edit', $movie->id) }}" class="btn btn-sm btn-success">تعديل</a>
-                        <a href="javascript:void(0)" class="btn btn-sm btn-danger">حذف</a>
+                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $movie->id }}" class="btn btn-sm btn-danger">حذف</a>
                     </td>
                 </tr>
                 @include('movies.confirm-modal')
