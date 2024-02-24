@@ -55,9 +55,9 @@ class SeriesController extends Controller
     public function edit(Series $series)
     {
         return view('series.edit',[
-            'categories' => \App\Models\Category::whereParentId(1)->get(),
+            'categories' => \App\Models\Category::whereParentId(2)->get(),
             'actors' => \App\Models\Actor::all(),
-            'movie' => $series
+            'series' => $series
         ]);
     }
 
@@ -73,7 +73,6 @@ class SeriesController extends Controller
         } else {
             $inputs = $request->except('poster');
         }
-        $inputs['user_id'] = auth()->user()->id;
         $series->update($inputs);
         Alert::success('تهانينا', 'تمت العملية بنجاح');
         return back();

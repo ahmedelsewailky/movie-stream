@@ -22,10 +22,9 @@ class UpdateSeriesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:255', 'unique:movies,title,' . $this->movie->id],
+            'title' => ['required', 'string', 'max:255', 'unique:series,title,' . $this->series->id],
             'category_id' => ['required', 'exists:categories,id'],
             'poster' => ['nullable', 'sometimes', 'image', 'mimes:png,jpg,jpeg'],
-            'watch_link' => ['required', 'url'],
         ];
     }
 

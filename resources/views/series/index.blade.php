@@ -11,7 +11,7 @@
     </nav>
 
     <div class="mb-3">
-        <a href="{{ route('series.create') }}" class="btn btn-sm btn-primary">اضافة فيلم جديد</a>
+        <a href="{{ route('series.create') }}" class="btn btn-sm btn-primary">اضافة مسلسل جديد</a>
     </div>
 
     <table class="table table-striped table-hover">
