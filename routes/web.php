@@ -44,5 +44,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function() {
 
         Route::put('{episode}/update', 'EpisodeController@update')
             ->name('update');
+
+        Route::delete('{episode}', 'EpisodeController@destroy')
+            ->name('destroy');
     });
 });

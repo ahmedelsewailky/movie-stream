@@ -22,11 +22,12 @@
                         <h6>الحلقة رقم {{ $episode->episode }}</h6>
                         <div class="d-flex ms-auto">
                             <a href="{{ route('episodes.edit', [$episode->id, $series->id]) }}" class="btn btn-sm btn-success">تعديل</a>
-                            <a href="" class="btn btn-sm btn-danger ms-1">حذف</a>
+                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $episode->id }}" class="btn btn-sm btn-danger ms-1">حذف</a>
                         </div>
                     </div>
                 </div>
             </div>
+            @include('episodes.confirm-modal')
         @endforeach
     </div>
 @endsection

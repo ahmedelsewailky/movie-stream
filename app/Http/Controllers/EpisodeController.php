@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Episode;
-use App\Http\Requests\StoreEpisodeRequest;
-use App\Http\Requests\UpdateEpisodeRequest;
 use App\Models\Series;
+use App\Models\Episode;
+use App\Http\Requests\{UpdateEpisodeRequest, StoreEpisodeRequest};
 use RealRashid\SweetAlert\Facades\Alert;
 
 class EpisodeController extends Controller
@@ -33,7 +32,7 @@ class EpisodeController extends Controller
     {
         Episode::create($request->except('_token'));
         Alert::success('تهانينا', 'تمت العملية بنجاح');
-        return redirect()->route('series.index');
+        return redirect()->route('series.show', $request->series_id);
     }
 
     /**
@@ -57,7 +56,6 @@ class EpisodeController extends Controller
      */
     public function update(UpdateEpisodeRequest $request, Episode $episode)
     {
-        return $request;
         $episode->update($request->only(['episode', 'quality', 'watch_link', 'links']));
         Alert::success('تهانينا', 'تمت العملية بنجاح');
         return back();
@@ -68,6 +66,8 @@ class EpisodeController extends Controller
      */
     public function destroy(Episode $episode)
     {
-        //
+        $episode->delete();
+        Alert::success('تهانينا', 'تمت العملية بنجاح');
+        return back();
     }
 }

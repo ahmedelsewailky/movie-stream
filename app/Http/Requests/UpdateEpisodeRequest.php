@@ -24,7 +24,23 @@ class UpdateEpisodeRequest extends FormRequest
         return [
             'episode' => ['required', 'numeric'],
             'watch_link' => ['required', 'url'],
-            'links.*' => ['required', 'url'],
+            'links.*' => ['sometimes', 'nullable', 'url'],
+        ];
+    }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'episode.required' => 'حدد رقم الحلقة',
+            'episode.numeric' => 'اختيار غير صحيح',
+            'watch_link.required' => 'اضف رابط المشاهدة',
+            'watch_link.url' => 'هذا الرابط غير صحيح',
+            'links.*.url' => 'هذا الرابط غير صحيح',
         ];
     }
 }

@@ -28,4 +28,23 @@ class StoreEpisodeRequest extends FormRequest
             'links.*' => ['required', 'url'],
         ];
     }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'series.required' => 'يرجي تحديد المسلسل',
+            'series.exists' => 'المسلسل المحدد غير صحيح',
+            'episode.required' => 'حدد رقم الحلقة',
+            'episode.numeric' => 'اختيار غير صحيح',
+            'watch_link.required' => 'اضف رابط المشاهدة',
+            'watch_link.url' => 'هذا الرابط غير صحيح',
+            'links.*.required' => 'اضف رابط تحميل واحد علي الأقل',
+            'links.*.url' => 'هذا الرابط غير صحيح',
+        ];
+    }
 }
