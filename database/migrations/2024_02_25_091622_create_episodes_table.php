@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
             $table->unsignedSmallInteger('episode');
             $table->string('watch_link');
-            $table->json('links');
+            $table->text('links');
             $table->unsignedTinyInteger('quality');
             $table->string('views')->nullable();
             $table->timestamps();

@@ -24,20 +24,12 @@ class SeriesFactory extends Factory
             'title' => $title,
             'slug' => str($title)->slug(),
             'category_id' => Category::all()->random()->id,
-            'user_id' => 1,
-            'quality' => array_rand(DataArray::QUALITIES),
-            'language' => array_rand(DataArray::LANGUAGES),
             'year' => rand(2005,2024),
+            'language' => array_rand(DataArray::LANGUAGES),
             'types' => array_keys(DataArray::TYPES),
             'story' => $this->faker->paragraph(5),
-            'links' => [
-                $this->faker->url,
-                $this->faker->url,
-            ],
-            'actors' => Actor::factory(),
-            'watch_link' => $this->faker->url,
             'dubbed_status' => array_rand(DataArray::DUBBED_STATUS),
-            'views' => rand(0,85000)
+            'actors' => Actor::factory()
         ];
     }
 }

@@ -6,7 +6,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
-            <li class="breadcrumb-item active" aria-current="page">الأفلام</li>
+            <li class="breadcrumb-item active" aria-current="page">مسلسلات</li>
         </ol>
     </nav>
 

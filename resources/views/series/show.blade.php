@@ -6,7 +6,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
-            <li class="breadcrumb-item active" aria-current="page">الأفلام</li>
+            <li class="breadcrumb-item"><a href="{{ route('series.index') }}">مسلسلات</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('series.show', $series->id) }}">{{ $series->title }}</a></li>
         </ol>
     </nav>
 
@@ -17,7 +18,7 @@
     <div class="row">
         @foreach ($series->episodes as $episode)
             <div class="col-md-3">
-                <div class="card">
+                <div class="card mb-3">
                     <div class="card-body d-flex">
                         <h6>الحلقة رقم {{ $episode->episode }}</h6>
                         <div class="d-flex ms-auto">

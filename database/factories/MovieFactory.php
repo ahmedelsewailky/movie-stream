@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\{Actor, Category};
+use App\Models\{Actor, Category, User};
 use App\Http\Helpers\DataArray;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,7 +24,7 @@ class MovieFactory extends Factory
             'title' => $title,
             'slug' => str($title)->slug(),
             'category_id' => Category::all()->random()->id,
-            'user_id' => 1,
+            'user_id' => User::all()->random()->id,
             'quality' => array_rand(DataArray::QUALITIES),
             'language' => array_rand(DataArray::LANGUAGES),
             'year' => rand(2005,2024),
