@@ -38,5 +38,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function() {
 
         Route::post('store', 'EpisodeController@store')
             ->name('store');
+
+        Route::get('{episode}/edit/series/{series}', 'EpisodeController@edit')
+            ->name('edit');
+
+        Route::put('{episode}/update', 'EpisodeController@update')
+            ->name('update');
     });
 });

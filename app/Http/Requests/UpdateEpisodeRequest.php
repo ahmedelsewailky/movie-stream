@@ -22,8 +22,6 @@ class UpdateEpisodeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:255', 'unique:episodes,title,' . $this->episode->id],
-            'series_id' => ['required', 'exists:series,id'],
             'episode' => ['required', 'numeric'],
             'watch_link' => ['required', 'url'],
             'links.*' => ['required', 'url'],

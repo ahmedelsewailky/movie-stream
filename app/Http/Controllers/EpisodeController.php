@@ -41,15 +41,15 @@ class EpisodeController extends Controller
      */
     public function show(Episode $episode)
     {
-        //
+        abort(404);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Episode $episode)
+    public function edit(Episode $episode, Series $series)
     {
-        //
+        return view('episodes.edit', compact('episode', 'series'));
     }
 
     /**
@@ -57,7 +57,10 @@ class EpisodeController extends Controller
      */
     public function update(UpdateEpisodeRequest $request, Episode $episode)
     {
-        //
+        return $request;
+        $episode->update($request->only(['episode', 'quality', 'watch_link', 'links']));
+        Alert::success('تهانينا', 'تمت العملية بنجاح');
+        return back();
     }
 
     /**
