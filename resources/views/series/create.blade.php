@@ -69,6 +69,42 @@
             </div>
         </div>
 
+        {{-- Language --}}
+        <div class="mb-3">
+            <label for="language" class="form-label">لغة المسلسل الأصلية</label>
+            <select id="language" class="form-select @error('language') is-invalid @enderror" name="language">
+                <option value="" hidden>--اختار--</option>
+                @foreach (DataArray::LANGUAGES as $key => $value)
+                    <option value="{{ $key }}" @selected($key == old('language'))>{{ $value }}</option>
+                @endforeach
+            </select>
+            @error('language')
+                <p class="invalid-feedback">{{ $message }}</p>
+            @enderror
+        </div>
+
+        {{-- Budded Status --}}
+        <div class="mb-3">
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="radio" name="dubbed_status" class="form-check-input" id="dubded_status_0" value="0"
+                        checked>
+                    <label for="dubded_status_0" class="form-check-label">اللغة الأصلية</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="radio" name="dubbed_status" class="form-check-input" id="dubded_status_1" value="1" @checked(old('dubbed_status') == 1)>
+                    <label for="dubded_status_1" class="form-check-label">مدبلج</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="radio" name="dubbed_status" class="form-check-input" id="dubded_status_2" value="2" @checked(old('dubbed_status') == 2)>
+                    <label for="dubded_status_2" class="form-check-label">مترجم</label>
+                </div>
+                @error('dubbed_status')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+        </div>
+
         {{-- Poster --}}
         <div class="mb-3">
             <label for="poster" class="form-label">بوستر المسلسل</label>

@@ -46,7 +46,7 @@ class SeriesController extends Controller
      */
     public function show(Series $series)
     {
-        return 'هنا يتم عرض الحلقات بناءاً علي المسلسل';
+        return view('series.show', compact('series'));
     }
 
     /**

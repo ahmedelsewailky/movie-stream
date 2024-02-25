@@ -48,6 +48,17 @@ class Series extends Model
     }
 
     /**
+     * The relation with episodes table
+     * one of series has many of episodes
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function episodes(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Episode::class);
+    }
+
+    /**
      * Bootstrap the model and its traits.
      *
      * @return void

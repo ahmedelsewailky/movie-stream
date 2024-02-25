@@ -28,4 +28,15 @@ Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function() {
     Route::resource('movies', 'MovieController');
 
     Route::resource('series', 'SeriesController');
+
+    Route::group([
+        'prefix' => 'episodes',
+        'as' => 'episodes.'
+    ], function() {
+        Route::get('create/{series}', 'EpisodeController@create')
+            ->name('create');
+
+        Route::post('store', 'EpisodeController@store')
+            ->name('store');
+    });
 });

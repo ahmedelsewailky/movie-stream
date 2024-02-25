@@ -35,7 +35,7 @@
                                 <img src="{{ $series->get_poster() ?? 'https://via.placeholder.com/120x80' }}" width="120" height="70" alt="{{ $series->title }}">
                             </div>
                             <div class="flex-grow-1">
-                                <h6>{{ $series->title }}</h6>
+                                <h6><a href="{{ route('series.show', $series->id) }}">{{ $series->title }}</a></h6>
                                 <div class="d-flex">
                                     <div class="meta-category">
                                         <i class="bx bx-folder"></i>
@@ -45,18 +45,19 @@
                             </div>
                         </div>
                     </td>
-                    <td>53</td>
+                    <td>{{ $series->episodes->count() }}</td>
                     <td>{{ number_format($series->views) }}</td>
                     <td>0</td>
                     <td>
                         <a href="{{ route('series.edit', $series->id) }}" class="btn btn-sm btn-success">تعديل</a>
                         <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $series->id }}" class="btn btn-sm btn-danger">حذف</a>
+                        <a href="{{ route('episodes.create', $series->id) }}" class="btn btn-sm btn-primary">اضافة حلقة</a>
                     </td>
                 </tr>
                 @include('series.confirm-modal')
             @empty
                 <tr>
-                    <td colspan="5" class="text-center">لا توجد منشورات</td>
+                    <td colspan="6" class="text-center">لا توجد منشورات</td>
                 </tr>
             @endforelse
         </tbody>

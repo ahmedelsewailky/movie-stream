@@ -18,9 +18,11 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->foreignIdFor(Category::class);
             $table->unsignedInteger('year');
+            $table->string('language');
             $table->json('types');
             $table->string('poster')->nullable();
             $table->text('story');
+            $table->string('dubbed_status')->nullable();
             $table->json('actors');
             $table->timestamps();
         });
