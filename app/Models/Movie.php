@@ -58,7 +58,7 @@ class Movie extends Model
 
         self::creating(function($movie) {
             $movie->slug = self::slug_translator($movie->title);
-            $movie->user_id = auth()->user()->id;
+            $movie->user_id = auth()->user()->id ?? 1; // 1 is using for seeding
             return;
         });
     }

@@ -35,7 +35,7 @@ class Episode extends Model
         parent::boot();
 
         self::creating(function($movie) {
-            return $movie->user_id = auth()->user()->id;
+            return $movie->user_id = auth()->user()->id ?? 1;
         });
     }
 }
