@@ -36,7 +36,6 @@ class MovieController extends Controller
     {
         $inputs = $request->all();
         $inputs['poster'] = $request->poster->store('movies', 'public');
-        $inputs['user_id'] = auth()->user()->id;
         Movie::create($inputs);
         Alert::success('تهانينا', 'تمت العملية بنجاح');
         return redirect()->route('movies.index');
@@ -76,7 +75,6 @@ class MovieController extends Controller
         } else {
             $inputs = $request->except('poster');
         }
-        $inputs['user_id'] = auth()->user()->id;
         $movie->update($inputs);
         Alert::success('تهانينا', 'تمت العملية بنجاح');
         return back();

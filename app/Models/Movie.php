@@ -57,7 +57,9 @@ class Movie extends Model
         parent::boot();
 
         self::creating(function($movie) {
-            return $movie->slug = self::slug_translator($movie->title);
+            $movie->slug = self::slug_translator($movie->title);
+            $movie->user_id = auth()->user()->id;
+            return;
         });
     }
 
