@@ -24,7 +24,6 @@ class Movie extends Model
     protected $casts = [
         'types' => 'array',
         'links' => 'array',
-        'actors' => 'array',
     ];
 
     /**

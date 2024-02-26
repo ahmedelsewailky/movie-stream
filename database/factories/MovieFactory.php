@@ -23,7 +23,7 @@ class MovieFactory extends Factory
         return [
             'title' => $title,
             'slug' => str($title)->slug(),
-            'category_id' => Category::all()->random()->id,
+            'category_id' => rand(4,11), // get only movies category form id 4 to id 11
             'user_id' => User::all()->random()->id,
             'quality' => array_rand(DataArray::QUALITIES),
             'language' => array_rand(DataArray::LANGUAGES),
@@ -34,7 +34,6 @@ class MovieFactory extends Factory
                 $this->faker->url,
                 $this->faker->url,
             ],
-            'actors' => Actor::factory(),
             'watch_link' => $this->faker->url,
             'dubbed_status' => array_rand(DataArray::DUBBED_STATUS),
             'views' => rand(0,85000)

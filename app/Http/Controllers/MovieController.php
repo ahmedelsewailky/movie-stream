@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
-use App\Http\Requests\{UpdateMovieRequest, StoreMovieRequest};
+use App\Models\MovieActor;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\{UpdateMovieRequest, StoreMovieRequest};
 
 class MovieController extends Controller
 {
@@ -34,9 +36,17 @@ class MovieController extends Controller
      */
     public function store(StoreMovieRequest $request)
     {
-        $inputs = $request->all();
+        $inputs = $request->except('actors');
         $inputs['poster'] = $request->poster->store('movies', 'public');
-        Movie::create($inputs);
+        $movie = Movie::create($inputs);
+        if ($movie) {
+            foreach ($request->actors as $movieActor) {
+                DB::table('movie_actor')->insert([
+                    'movie_id' => $movie->id,
+                    'actor_id' => $movieActor
+                ]);
+            }
+        }
         Alert::success('تهانينا', 'تمت العملية بنجاح');
         return redirect()->route('movies.index');
     }
@@ -54,11 +64,11 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        // return $movie;
         return view('movies.edit',[
             'categories' => \App\Models\Category::whereParentId(1)->get(),
             'actors' => \App\Models\Actor::all(),
-            'movie' => $movie
+            'movie' => $movie,
+            'movieActors' => DB::table('movie_actor')->where('movie_id', $movie->id)->pluck('actor_id')->toArray()
         ]);
     }
 
@@ -67,15 +77,21 @@ class MovieController extends Controller
      */
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
-        $inputs = $request->all();
-        // return $inputs;
+        $inputs = $request->except('actors');
         if ($request->has('poster')) {
             unlink(storage_path('app\\public\\' . $movie->poster ));
             $inputs['poster'] = $request->poster->store('movies', 'public');
         } else {
-            $inputs = $request->except('poster');
+            $inputs = $request->except('poster', 'actors');
         }
         $movie->update($inputs);
+        DB::table('movie_actor')->where('movie_id', $movie->id)->delete();
+        foreach ($request->actors as $movieActor) {
+            DB::table('movie_actor')->insert([
+                'movie_id' => $movie->id,
+                'actor_id' => $movieActor
+            ]);
+        }
         Alert::success('تهانينا', 'تمت العملية بنجاح');
         return back();
     }

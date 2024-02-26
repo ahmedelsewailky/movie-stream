@@ -32,7 +32,10 @@
                     <td><img src="{{ $actor->get_image_avatar() ?? 'https://via.placeholder.com/65' }}" width="65" height="65" alt="{{ $actor->name }}"></td>
                     <td>{{ $actor->name }}</td>
                     <td>{{ $actor->country }}</td>
-                    <td>{{ number_format(35) }}</td>
+                    <td>
+                        فيلم: {{ $actor->getMoviesCount($actor) }}
+                        مسلسل: 35
+                    </td>
                     <td>
                         <a href="{{ route('actors.edit', $actor->id) }}" class="btn btn-sm btn-success me-1">تعديل</a>
                         <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $actor->id }}" class="btn btn-sm btn-danger">حذف</a>

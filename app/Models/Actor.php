@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Actor extends Model
 {
@@ -39,6 +40,11 @@ class Actor extends Model
             return asset('storage') . '/' . $this->avatar;
         }
         return null;
+    }
+
+    public function getMoviesCount(Actor $actor)
+    {
+        return DB::table('movie_actor')->where('actor_id', $actor->id)->count();
     }
 
 }

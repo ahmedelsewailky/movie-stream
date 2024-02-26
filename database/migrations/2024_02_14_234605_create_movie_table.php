@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\{Category, User};
+use App\Models\{Category, User, Actor, Movie};
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -25,11 +25,16 @@ return new class extends Migration
             $table->string('poster')->nullable();
             $table->text('story');
             $table->json('links');
-            $table->json('actors');
             $table->string('watch_link');
             $table->string('dubbed_status')->nullable();
             $table->unsignedInteger('views')->default(0);
             $table->timestamps();
+        });
+
+        Schema::create('movie_actor', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(Movie::class);
+            $table->foreignIdFor(Actor::class);
         });
     }
 
@@ -39,5 +44,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('movies');
+        Schema::dropIfExists('movie_actor');
     }
 };

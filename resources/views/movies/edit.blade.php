@@ -44,8 +44,8 @@
             <div class="row">
                 @foreach (DataArray::TYPES as $key => $value)
                     <div class="col-md-3">
-                        <input type="checkbox" name="types[]" id="type-{{ $value }}" value="{{ $value }}" class="form-check-input"
-                        @checked( is_array($movie->types) && in_array($value, $movie->types)  )>
+                        <input type="checkbox" name="types[]" id="type-{{ $value }}" value="{{ $key }}" class="form-check-input"
+                        @checked( is_array($movie->types) && in_array($key, $movie->types)  )>
                         <label for="type-{{ $value }}" class="form-check-label">{{ $value }}</label>
                     </div>
                 @endforeach
@@ -153,7 +153,7 @@
                 multiple="multiple">
                 <option value="" hidden>--اختار--</option>
                 @foreach ($actors as $actor)
-                    <option value="{{ $actor->id }}" {{ is_array($movie->actors) && in_array($actor->id, $movie->actors) ? 'selected' : false }}>{{ $actor->name }}</option>
+                    <option value="{{ $actor->id }}" {{ is_array($movieActors) && in_array($actor->id, $movieActors) ? 'selected' : false }}>{{ $actor->name }}</option>
                 @endforeach
             </select>
             @error('actors')
