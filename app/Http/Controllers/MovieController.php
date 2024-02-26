@@ -78,14 +78,28 @@ class MovieController extends Controller
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
         $inputs = $request->except('actors');
+
+        /**
+         * Handling movie image poster updating operation
+         */
         if ($request->has('poster')) {
             unlink(storage_path('app\\public\\' . $movie->poster ));
             $inputs['poster'] = $request->poster->store('movies', 'public');
         } else {
             $inputs = $request->except('poster', 'actors');
         }
+
+        /**
+         * Update movie record
+         */
         $movie->update($inputs);
+
+        /**
+         * Handling movie actors
+         * first delete all actors from table movie_actor and thene insert theme again
+         */
         DB::table('movie_actor')->where('movie_id', $movie->id)->delete();
+
         foreach ($request->actors as $movieActor) {
             DB::table('movie_actor')->insert([
                 'movie_id' => $movie->id,
