@@ -40,7 +40,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('actors.index') }}" @class(['nav-link', 'active' => Request::routeIs('actors.*')])>قائمة الممثلين</a>
+                            <a href="{{ route('actors.index') }}" @class(['nav-link', 'active' => Request::routeIs('actors.*')])>الممثلين</a>
                         </li>
 
                         <li class="nav-item">
