@@ -24,7 +24,6 @@ class Series extends Model
     protected $casts = [
         'types' => 'array',
         'links' => 'array',
-        'actors' => 'array',
     ];
 
     /**

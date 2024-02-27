@@ -33,8 +33,8 @@
                     <td>{{ $actor->name }}</td>
                     <td>{{ $actor->country }}</td>
                     <td>
-                        فيلم: {{ $actor->getMoviesCount($actor) }}
-                        مسلسل: 35
+                        فيلم: {{ $actor->getActorMovies($actor)->count() }}
+                        مسلسل: {{ $actor->getActorSeries($actor)->count() }}
                     </td>
                     <td>
                         <a href="{{ route('actors.edit', $actor->id) }}" class="btn btn-sm btn-success me-1">تعديل</a>

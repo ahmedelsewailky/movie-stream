@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\{Category, User};
+use App\Models\{Category, Series, Actor};
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -23,8 +23,13 @@ return new class extends Migration
             $table->string('poster')->nullable();
             $table->text('story');
             $table->string('dubbed_status')->nullable();
-            $table->json('actors');
             $table->timestamps();
+        });
+
+        Schema::create('series_actor', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(Series::class);
+            $table->foreignIdFor(Actor::class);
         });
     }
 
@@ -34,5 +39,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('series');
+        Schema::dropIfExists('series_actor');
     }
 };

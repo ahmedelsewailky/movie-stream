@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Series;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\{StoreSeriesRequest, UpdateSeriesRequest};
 
@@ -34,9 +35,17 @@ class SeriesController extends Controller
      */
     public function store(StoreSeriesRequest $request)
     {
-        $inputs = $request->all();
+        $inputs = $request->except('actors');
         $inputs['poster'] = $request->poster->store('series', 'public');
-        Series::create($inputs);
+        $series = Series::create($inputs);
+        if ($series) {
+            foreach ($request->actors as $actor) {
+                DB::table('series_actor')->insert([
+                    'series_id' => $series->id,
+                    'actor_id' => $actor
+                ]);
+            }
+        }
         Alert::success('تهانينا', 'تمت العملية بنجاح');
         return redirect()->route('series.index');
     }
@@ -66,14 +75,21 @@ class SeriesController extends Controller
      */
     public function update(UpdateSeriesRequest $request, Series $series)
     {
-        $inputs = $request->all();
+        $inputs = $request->except('actors');
         if ($request->has('poster')) {
             unlink(storage_path('app\\public\\' . $series->poster ));
             $inputs['poster'] = $request->poster->store('series', 'public');
         } else {
-            $inputs = $request->except('poster');
+            $inputs = $request->except(['poster', 'actors']);
         }
         $series->update($inputs);
+        DB::table('series_actor')->where('series_id', $series->id)->delete();
+        foreach ($request->actors as $actor) {
+            DB::table('series_actor')->insert([
+                'series_id' => $series->id,
+                'actor_id' => $actor
+            ]);
+        }
         Alert::success('تهانينا', 'تمت العملية بنجاح');
         return back();
     }

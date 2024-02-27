@@ -29,7 +29,6 @@ class SeriesFactory extends Factory
             'types' => array_keys(DataArray::TYPES),
             'story' => $this->faker->paragraph(5),
             'dubbed_status' => array_rand(DataArray::DUBBED_STATUS),
-            'actors' => Actor::factory()
         ];
     }
 }
