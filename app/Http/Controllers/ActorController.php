@@ -14,9 +14,11 @@ class ActorController extends Controller
      */
     public function index()
     {
-        return view('actors.index', [
-            'actors' => Actor::orderByDesc('id')->get()
-        ]);
+        $actors = new Actor;
+        $actors = request()->has('q') ? $actors->where('name', 'like', '%' . request()->get('q') . '%') : $actors;
+        $actors = request()->has('country') ? $actors->whereIn('country', request()->get('country')) : $actors;
+        $actors = $actors->orderByDesc('id')->get();
+        return view('actors.index', compact('actors'));
     }
 
     /**

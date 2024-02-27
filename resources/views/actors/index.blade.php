@@ -1,6 +1,8 @@
 {{-- Extend master app layout --}}
 @extends('layouts.app')
 
+@use('\App\Models\Actor', 'Actor')
+
 {{-- Page content --}}
 @section('content')
     <nav aria-label="breadcrumb">
@@ -17,10 +19,10 @@
     <div class="row">
         <div class="col-md-3">
             <form action="?" method="get" class="d-flex">
-                <input type="search" class="form-control" name="q">
+                <input type="search" class="form-control" name="q" value="{{ request()->has('q') ? request()->get('q') : false }}">
                 <button type="submit" class="btn btn-sm btn-success">بحث</button>
             </form>
-            <form class="filter-box" method="get" action="/">
+            <form class="filter-box" method="get" action="?">
                 <div class="dropdown mt-2">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                         عرض حسب الدولة
@@ -28,8 +30,8 @@
                     <div class="dropdown-menu filter-menu" style="height: 250px; overflow-y: scroll">
                         @foreach (DataArray::COUNTRIES as $country)
                             <label for="county-{{ $country }}" class="form-label d-flex">
-                                <input type="checkbox" id="county-{{ $country }}" class="form-check me-2" name="county">
-                                {{ $country }}
+                                <input type="checkbox" id="county-{{ $country }}" class="form-check me-2" name="country[]" value="{{ $country }}">
+                                {{ $country }} ({{ Actor::where('country', $country)->count() }})
                             </label>
                         @endforeach
                     </div>
