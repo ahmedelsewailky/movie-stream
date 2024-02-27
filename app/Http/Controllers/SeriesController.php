@@ -14,9 +14,13 @@ class SeriesController extends Controller
      */
     public function index()
     {
-        return view('series.index', [
-            'series' => Series::orderByDesc('id')->get()
-        ]);
+        $series = new Series;
+        $series = request()->has('q') ? $series->where('title', 'like', '%'.request()->get('q').'%') : $series;
+        $series = request()->has('category') ? $series->whereIn('category_id',request()->get('category')) : $series;
+        $series = request()->has('language') ? $series->whereIn('language', request()->get('language')) : $series;
+        $series = request()->has('year') ? $series->where('year', request()->get('year')) : $series;
+        $series = $series->orderByDesc('id')->paginate(10);
+        return view('series.index', compact('series'));
     }
 
     /**

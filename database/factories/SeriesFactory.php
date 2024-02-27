@@ -25,7 +25,7 @@ class SeriesFactory extends Factory
             'slug' => str($title)->slug(),
             'category_id' => Category::all()->random()->id,
             'year' => rand(2005,2024),
-            'language' => array_rand(DataArray::LANGUAGES),
+            'language' => $this->faker->randomElement(DataArray::LANGUAGES),
             'types' => array_keys(DataArray::TYPES),
             'story' => $this->faker->paragraph(5),
             'dubbed_status' => array_rand(DataArray::DUBBED_STATUS),

@@ -75,7 +75,7 @@
             <select id="language" class="form-select @error('language') is-invalid @enderror" name="language">
                 <option value="" hidden>--اختار--</option>
                 @foreach (DataArray::LANGUAGES as $key => $value)
-                    <option value="{{ $key }}" @selected($key == old('language'))>{{ $value }}</option>
+                    <option value="{{ $value }}" @selected($value == old('language'))>{{ $value }}</option>
                 @endforeach
             </select>
             @error('language')
