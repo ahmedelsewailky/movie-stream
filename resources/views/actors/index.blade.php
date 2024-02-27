@@ -30,7 +30,12 @@
                     <div class="dropdown-menu filter-menu" style="height: 250px; overflow-y: scroll">
                         @foreach (DataArray::COUNTRIES as $country)
                             <label for="county-{{ $country }}" class="form-label d-flex">
-                                <input type="checkbox" id="county-{{ $country }}" class="form-check me-2" name="country[]" value="{{ $country }}">
+                                <input type="checkbox"
+                                    id="county-{{ $country }}"
+                                    class="form-check-input me-2"
+                                    name="country[]"
+                                    value="{{ $country }}"
+                                    @checked(request()->has('country') && in_array($country, request()->get('country')))>
                                 {{ $country }} ({{ Actor::where('country', $country)->count() }})
                             </label>
                         @endforeach

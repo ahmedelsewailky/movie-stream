@@ -44,9 +44,9 @@
             <div class="row">
                 @foreach (DataArray::TYPES as $key => $value)
                     <div class="col-md-3">
-                        <input type="checkbox" name="types[]" id="type-{{ $value }}" value="{{ $key }}" class="form-check-input"
+                        <input type="checkbox" name="types[]" id="type-{{ $value }}" value="{{ $key }}" class="form-check-input-input"
                         @checked( is_array($movie->types) && in_array($key, $movie->types)  )>
-                        <label for="type-{{ $value }}" class="form-check-label">{{ $value }}</label>
+                        <label for="type-{{ $value }}" class="form-check-input-label">{{ $value }}</label>
                     </div>
                 @endforeach
 
@@ -89,7 +89,7 @@
             <select id="language" class="form-select @error('language') is-invalid @enderror" name="language">
                 <option value="" hidden>--اختار--</option>
                 @foreach (DataArray::LANGUAGES as $key => $value)
-                    <option value="{{ $key }}" @selected($key == $movie->language)>{{ $value }}</option>
+                    <option value="{{ $value }}" @selected($value == $movie->language)>{{ $value }}</option>
                 @endforeach
             </select>
             @error('language')
@@ -101,17 +101,17 @@
         <div class="mb-3">
             <div class="row">
                 <div class="col-md-3">
-                    <input type="radio" name="dubbed_status" class="form-check-input" id="dubded_status_0" value="0"
+                    <input type="radio" name="dubbed_status" class="form-check-input-input" id="dubded_status_0" value="0"
                         @checked($movie->dubbed_status == 0)>
-                    <label for="dubded_status_0" class="form-check-label">اللغة الأصلية</label>
+                    <label for="dubded_status_0" class="form-check-input-label">اللغة الأصلية</label>
                 </div>
                 <div class="col-md-3">
-                    <input type="radio" name="dubbed_status" class="form-check-input" id="dubded_status_1" value="1" @checked($movie->dubbed_status == 1)>
-                    <label for="dubded_status_1" class="form-check-label">مدبلج</label>
+                    <input type="radio" name="dubbed_status" class="form-check-input-input" id="dubded_status_1" value="1" @checked($movie->dubbed_status == 1)>
+                    <label for="dubded_status_1" class="form-check-input-label">مدبلج</label>
                 </div>
                 <div class="col-md-3">
-                    <input type="radio" name="dubbed_status" class="form-check-input" id="dubded_status_2" value="2" @checked($movie->dubbed_status == 2)>
-                    <label for="dubded_status_2" class="form-check-label">مترجم</label>
+                    <input type="radio" name="dubbed_status" class="form-check-input-input" id="dubded_status_2" value="2" @checked($movie->dubbed_status == 2)>
+                    <label for="dubded_status_2" class="form-check-input-label">مترجم</label>
                 </div>
                 @error('dubbed_status')
                     <p class="text-danger">{{ $message }}</p>

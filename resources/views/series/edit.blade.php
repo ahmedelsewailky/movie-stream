@@ -31,9 +31,9 @@
             <div class="row">
                 @foreach (DataArray::TYPES as $key => $value)
                     <div class="col-md-3">
-                        <input type="checkbox" name="types[]" id="type-{{ $value }}" value="{{ $value }}" class="form-check-input"
+                        <input type="checkbox" name="types[]" id="type-{{ $value }}" value="{{ $value }}" class="form-check-input-input"
                         @checked( is_array($series->types) && in_array($value, $series->types)  )>
-                        <label for="type-{{ $value }}" class="form-check-label">{{ $value }}</label>
+                        <label for="type-{{ $value }}" class="form-check-input-label">{{ $value }}</label>
                     </div>
                 @endforeach
 

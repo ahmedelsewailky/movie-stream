@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\{Actor, Category, User};
 use App\Http\Helpers\DataArray;
+use App\Models\{User};
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -26,7 +26,7 @@ class MovieFactory extends Factory
             'category_id' => rand(4,11), // get only movies category form id 4 to id 11
             'user_id' => User::all()->random()->id,
             'quality' => array_rand(DataArray::QUALITIES),
-            'language' => array_rand(DataArray::LANGUAGES),
+            'language' => fake()->randomElement(DataArray::LANGUAGES),
             'year' => rand(2005,2024),
             'types' => array_keys(DataArray::TYPES),
             'story' => $this->faker->paragraph(5),

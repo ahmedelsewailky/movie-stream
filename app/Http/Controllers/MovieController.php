@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
-use App\Models\MovieActor;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\{UpdateMovieRequest, StoreMovieRequest};
@@ -15,9 +14,13 @@ class MovieController extends Controller
      */
     public function index()
     {
-        return view('movies.index', [
-            'movies' => Movie::orderByDesc('id')->paginate(10)
-        ]);
+        $movies = new Movie;
+        $movies = request()->has('q') ? $movies->where('title', 'like', '%'.request()->get('q').'%') : $movies;
+        $movies = request()->has('category') ? $movies->whereIn('category_id',request()->get('category')) : $movies;
+        $movies = request()->has('language') ? $movies->whereIn('language', request()->get('language')) : $movies;
+        $movies = request()->has('year') ? $movies->where('year', request()->get('year')) : $movies;
+        $movies = $movies->orderByDesc('id')->paginate(10);
+        return view('movies.index', compact('movies'));
     }
 
     /**
