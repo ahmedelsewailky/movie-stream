@@ -43,23 +43,23 @@ class Actor extends Model
     }
 
     /**
-     * Get the count of actor movies
+     * Get actor movies
      *
-     * @param Actor $actor
      */
-    public function getActorMovies(Actor $actor)
+    public function get_actor_movies()
     {
-        return DB::table('movie_actor')->where('actor_id', $actor->id);
+        return DB::table('movie_actor')->where('actor_id', $this->id)
+            ->join('movies', 'movies.id', '=', 'movie_actor.movie_id')->get();
     }
 
     /**
-     * Get the count of actor series
+     * Get actor series
      *
-     * @param Actor $actor
      */
-    public function getActorSeries(Actor $actor)
+    public function get_actor_series()
     {
-        return DB::table('series_actor')->where('actor_id', $actor->id);
+        return DB::table('series_actor')->where('actor_id', $this->id)
+            ->join('series', 'series.id', '=', 'series_actor.series_id')->get();
     }
 
 }

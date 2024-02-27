@@ -46,7 +46,7 @@ class ActorController extends Controller
      */
     public function show(Actor $actor)
     {
-        abort(404);
+        return view('actors.show', compact('actor'));
     }
 
     /**

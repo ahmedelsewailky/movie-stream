@@ -26,4 +26,24 @@ class Category extends Model
     protected $hidden = [
         'created_at', 'updated_at'
     ];
+
+    /**
+     * Define a one-to-many relationship with movies table
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function movies(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Movie::class);
+    }
+
+    /**
+     * Define a one-to-many relationship with series table
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function series(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Series::class);
+    }
 }

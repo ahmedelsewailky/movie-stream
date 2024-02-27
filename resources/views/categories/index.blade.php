@@ -24,7 +24,14 @@
                     <div class="card-body">
                         @foreach ($categories->whereParentId($parent->id)->get() as $category)
                             <div class="d-flex my-3">
-                                <h6>{{ $category->name }}</h6>
+                                <h6>
+                                    {{ $category->name }}
+                                    @if ($parent->id == 1)
+                                        <small class="text-muted">({{ $category->movies->count() }})</small>
+                                    @elseif ($parent->id == 2)
+                                        <small class="text-muted">({{ $category->series->count() }})</small>
+                                    @endif
+                                </h6>
                                 <div class="d-flex ms-auto">
                                     <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-success me-1">تعديل</a>
                                     <a href="javascript:void('0')" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $category->id }}" class="btn btn-sm btn-danger">حذف</a>

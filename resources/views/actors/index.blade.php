@@ -30,11 +30,11 @@
                 <tr>
                     <td>{{ $loop->index+1 }}</td>
                     <td><img src="{{ $actor->get_image_avatar() ?? 'https://via.placeholder.com/65' }}" width="65" height="65" alt="{{ $actor->name }}"></td>
-                    <td>{{ $actor->name }}</td>
+                    <td><a href="{{ route('actors.show', $actor->id) }}">{{ $actor->name }}</a></td>
                     <td>{{ $actor->country }}</td>
                     <td>
-                        فيلم: {{ $actor->getActorMovies($actor)->count() }}
-                        مسلسل: {{ $actor->getActorSeries($actor)->count() }}
+                        فيلم: {{ $actor->get_actor_movies()->count() }}
+                        مسلسل: {{ $actor->get_actor_series()->count() }}
                     </td>
                     <td>
                         <a href="{{ route('actors.edit', $actor->id) }}" class="btn btn-sm btn-success me-1">تعديل</a>
