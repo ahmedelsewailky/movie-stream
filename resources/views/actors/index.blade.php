@@ -37,6 +37,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-sm btn-success">تطبيق الفلتر</button>
+                <a href="{{ route('actors.index') }}" class="btn btn-sm btn-danger">تصفية الفلاتر</a>
             </form>
         </div>
 
