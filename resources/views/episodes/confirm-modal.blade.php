@@ -1,7 +1,7 @@
 <div class="modal fade confirm-modal" id="confirmDelete{{ $episode->id }}">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form action="{{ route('episodes.destroy', $episode->id) }}" method="post">
+            <form action="{{ route('series.episodes.destroy', $episode->id) }}" method="post">
                 @csrf
                 @method('DELETE')
                 <div class="modal-body">

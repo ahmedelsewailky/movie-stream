@@ -14,7 +14,7 @@ class EpisodeController extends Controller
      */
     public function index()
     {
-        return view('episodes.index');
+        abort(404);
     }
 
     /**
@@ -46,7 +46,7 @@ class EpisodeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Episode $episode, Series $series)
+    public function edit(Series $series, Episode $episode)
     {
         return view('episodes.edit', compact('episode', 'series'));
     }

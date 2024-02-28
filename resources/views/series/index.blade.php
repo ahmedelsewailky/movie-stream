@@ -130,7 +130,7 @@
                     <td>
                         <a href="{{ route('series.edit', $series->id) }}" class="btn btn-sm btn-success">تعديل</a>
                         <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $series->id }}" class="btn btn-sm btn-danger">حذف</a>
-                        <a href="{{ route('episodes.create', $series->id) }}" class="btn btn-sm btn-primary">اضافة حلقة</a>
+                        <a href="{{ route('series.episodes.create', $series->id) }}" class="btn btn-sm btn-primary">اضافة حلقة</a>
                     </td>
                 </tr>
                 @include('series.confirm-modal')

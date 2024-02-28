@@ -12,7 +12,7 @@
         </ol>
     </nav>
 
-    <form action="{{ route('episodes.store') }}" method="POST">
+    <form action="{{ route('series.episodes.store') }}" method="POST">
         @csrf
         <div class="mb-3">
             <label for="series_id" class="form-label">حلقة جديدة من مسلسل</label>

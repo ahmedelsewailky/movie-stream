@@ -50,6 +50,10 @@
                         <li class="nav-item">
                             <a href="{{ route('series.index') }}" @class(['nav-link', 'active' => Request::routeIs('series.*')])>مسلسلات</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('tvshows.index') }}" @class(['nav-link', 'active' => Request::routeIs('tvshows.*')])>برامج تلفزيونية</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -12,7 +12,7 @@
         </ol>
     </nav>
 
-    <form action="{{ route('episodes.update', $episode->id) }}" method="POST">
+    <form action="{{ route('series.episodes.update', $episode->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="mb-3">

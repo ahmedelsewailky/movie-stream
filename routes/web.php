@@ -29,23 +29,20 @@ Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function() {
 
     Route::resource('series', 'SeriesController');
 
-    Route::group([
-        'prefix' => 'episodes',
-        'as' => 'episodes.'
-    ], function() {
-        Route::get('create/{series}', 'EpisodeController@create')
-            ->name('create');
+    Route::get('series/{series}/episodes/create', 'EpisodeController@create')
+        ->name('series.episodes.create');
 
-        Route::post('store', 'EpisodeController@store')
-            ->name('store');
+    Route::post('series/episodes/store', 'EpisodeController@store')
+        ->name('series.episodes.store');
 
-        Route::get('{episode}/edit/series/{series}', 'EpisodeController@edit')
-            ->name('edit');
+    Route::get('series/{series}/episode/{episode}/edit/', 'EpisodeController@edit')
+        ->name('series.episodes.edit');
 
-        Route::put('{episode}/update', 'EpisodeController@update')
-            ->name('update');
+    Route::put('series/episodes/{episode}/update', 'EpisodeController@update')
+        ->name('series.episodes.update');
 
-        Route::delete('{episode}', 'EpisodeController@destroy')
-            ->name('destroy');
-    });
+    Route::delete('series/episodes/{episode}', 'EpisodeController@destroy')
+        ->name('series.episodes.destroy');
+
+    Route::resource('tvshows', 'SeriesController');
 });
