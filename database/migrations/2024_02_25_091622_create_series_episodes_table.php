@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('episodes', function (Blueprint $table) {
+        Schema::create('series_episodes', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Series::class);
             $table->foreignIdFor(User::class);
             $table->unsignedSmallInteger('episode');
             $table->string('watch_link');
-            $table->text('links');
+            $table->json('links');
             $table->unsignedTinyInteger('quality');
             $table->string('views')->nullable();
             $table->timestamps();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('episodes');
+        Schema::dropIfExists('series_episodes');
     }
 };

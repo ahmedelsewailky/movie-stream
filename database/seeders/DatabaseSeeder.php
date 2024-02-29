@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Series::factory(15)->create();
 
-        $this->call([EpisodeSeeder::class, ActorWorksSeeder::class]);
+        \App\Models\SeriesEpisode::factory(25)->create();
+
+        $this->call([ActorWorksSeeder::class]);
     }
 
 }

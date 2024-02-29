@@ -54,7 +54,7 @@ class Series extends Model
      */
     public function episodes(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Episode::class);
+        return $this->hasMany(SeriesEpisode::class);
     }
 
     /**

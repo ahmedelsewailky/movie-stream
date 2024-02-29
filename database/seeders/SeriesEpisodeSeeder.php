@@ -3,10 +3,11 @@
 namespace Database\Seeders;
 
 use App\Http\Helpers\DataArray;
-use App\Models\{Episode, Series, User};
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use App\Models\{SeriesEpisode, Series, User};
 
-class EpisodeSeeder extends Seeder
+class SeriesEpisodeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,20 +16,25 @@ class EpisodeSeeder extends Seeder
     {
         $collection = collect([]);
 
-        for ($i = 0; $i < 500; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $collection->push([
                 'series_id' => Series::all()->random()->id,
                 'user_id' => User::all()->random()->id,
                 'episode' => rand(1, 100),
                 'watch_link' => fake()->unique()->url,
-                'links' => 'https://www.google.com',
+                'links' => [
+                    fake()->url,
+                    fake()->url,
+                ],
                 'quality' => array_rand(DataArray::QUALITIES),
                 'views' => rand(500,85000),
             ]);
         }
 
-        foreach ($collection->chunk(50)->toArray() as $chunk) {
-            Episode::insert($chunk);
+
+        foreach ($collection->chunk(5) as $chunk) {
+            SeriesEpisode::insert($chunk->toArray());
+            // DB::table('series_episodes')->insert($chunk);
         }
     }
 }
