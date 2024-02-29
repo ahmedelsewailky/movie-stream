@@ -25,4 +25,11 @@ class HomeController extends Controller
     {
         return view('dashboard');
     }
+
+    public function profile()
+    {
+        return view('auth.profile', [
+            'auth' => auth()->user()
+        ]);
+    }
 }

@@ -19,7 +19,11 @@ Route::view('/', 'welcome');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function () {
 
-    Route::get('/', 'HomeController@index')->name('dashboard');
+    Route::get('/', 'HomeController@index')
+        ->name('dashboard');
+
+    Route::get('profile', 'HomeController@profile')
+        ->name('profile');
 
     Route::resource('categories', 'CategoryController');
 
