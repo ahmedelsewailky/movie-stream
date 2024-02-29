@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Series extends Model
+class Tvshow extends Model
 {
     use HasFactory;
 
@@ -22,29 +22,8 @@ class Series extends Model
      * @var array
      */
     protected $casts = [
-        'types' => 'array',
         'links' => 'array',
     ];
-
-    /**
-     * Relation with user
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Relation with category
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(Category::class);
-    }
 
     /**
      * The relation with episodes table
@@ -54,7 +33,7 @@ class Series extends Model
      */
     public function episodes(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(SeriesEpisode::class);
+        return $this->hasMany(TvshowEpisode::class);
     }
 
     /**
@@ -66,15 +45,15 @@ class Series extends Model
     {
         parent::boot();
 
-        self::creating(function($series) {
-            return $series->slug = self::slug_translator($series->title);
+        self::creating(function($tvshow) {
+            return $tvshow->slug = self::slug_translator($tvshow->title);
         });
     }
 
     /**
-     * Store series title with arabic slug
+     * Store tvshow title with arabic slug
      *
-     * @param \App\Models\Series $string
+     * @param \App\Models\Tvshow $string
      * @param string $separator
      * @return string
      */

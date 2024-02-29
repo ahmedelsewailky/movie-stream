@@ -8,17 +8,17 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
-            <li class="breadcrumb-item active" aria-current="page">مسلسلات</li>
+            <li class="breadcrumb-item active" aria-current="page">برامج تلفزيونية</li>
         </ol>
     </nav>
 
     <div class="mb-3">
-        <a href="{{ route('series.create') }}" class="btn btn-sm btn-primary">اضافة مسلسل جديد</a>
+        <a href="{{ route('tvshows.create') }}" class="btn btn-sm btn-primary">اضافة برنامج جديد</a>
     </div>
 
     <div class="filter-box">
         <div class="mb-3">
-            <h6>ابحث باسم الفيلم</h6>
+            <h6>ابحث باسم البرنامج</h6>
             <form action="?" method="get" class="d-flex">
                 <input type="search" class="form-control" id="search" name="q" value="{{ request()->get('q') ?? false }}">
                 <button type="submit" class="btn btn-sm btn-primary">بحث</button>
@@ -27,26 +27,6 @@
 
         <form action="?" method="get" class="mb-3">
             <h6>فلاتر البحث</h6>
-
-            {{-- Filter by categories --}}
-            <div class="dropdown mt-2">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-                    عرض حسب القسم
-                </button>
-                <div class="dropdown-menu filter-menu" style="height: 250px; overflow-y: scroll">
-                    @foreach (Category::whereParentId(2)->get() as $category)
-                        <label for="category-{{ $category->id }}" class="form-label d-flex">
-                            <input type="checkbox"
-                                id="category-{{ $category->id }}"
-                                class="form-check-input me-2"
-                                name="category[]"
-                                value="{{ $category->id }}"
-                                @checked(request()->has('category') && in_array($category->id, request()->get('category')))>
-                            {{ $category->name }}
-                        </label>
-                    @endforeach
-                </div>
-            </div>
 
             {{-- Filter by language --}}
             <div class="dropdown mt-2">
@@ -105,35 +85,30 @@
             </tr>
         </thead>
         <tbody>
-            @forelse ($series as $ser)
+            @forelse ($tvshows as $tvshow)
                 <tr>
                     <td>{{ $loop->index }}</td>
                     <td>
                         <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
-                                <img src="{{ $ser->get_poster() ?? 'https://via.placeholder.com/120x80' }}" width="120" height="70" alt="{{ $ser->title }}">
+                                <img src="{{ $tvshow->get_poster() ?? 'https://via.placeholder.com/120x80' }}" width="120" height="70" alt="{{ $tvshow->title }}">
                             </div>
                             <div class="flex-grow-1">
-                                <h6><a href="{{ route('series.show', $ser->id) }}">{{ $ser->title }}</a></h6>
-                                <div class="d-flex">
-                                    <div class="meta-category">
-                                        <i class="bx bx-folder"></i>
-                                        {{ $ser->category->name }}
-                                    </div>
-                                </div>
+                                <h6><a href="{{ route('series.show', $tvshow->id) }}">{{ $tvshow->title }}</a></h6>
+
                             </div>
                         </div>
                     </td>
-                    <td>{{ $ser->episodes->count() }}</td>
-                    <td>{{ number_format($ser->views) }}</td>
+                    <td>{{ $tvshow->episodes->count() }}</td>
+                    <td>{{ number_format($tvshow->views) }}</td>
                     <td>0</td>
                     <td>
-                        <a href="{{ route('series.edit', $ser->id) }}" class="btn btn-sm btn-success">تعديل</a>
-                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $ser->id }}" class="btn btn-sm btn-danger">حذف</a>
-                        <a href="{{ route('series.episodes.create', $ser->id) }}" class="btn btn-sm btn-primary">اضافة حلقة</a>
+                        <a href="{{ route('series.edit', $tvshow->id) }}" class="btn btn-sm btn-success">تعديل</a>
+                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $tvshow->id }}" class="btn btn-sm btn-danger">حذف</a>
+                        <a href="{{ route('series.episodes.create', $tvshow->id) }}" class="btn btn-sm btn-primary">اضافة حلقة</a>
                     </td>
                 </tr>
-                @include('series.confirm-modal')
+                @include('tvshows.confirm-modal')
             @empty
                 <tr>
                     <td colspan="6" class="text-center">لا توجد منشورات</td>

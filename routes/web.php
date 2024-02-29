@@ -44,5 +44,20 @@ Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function() {
     Route::delete('series/episodes/{episode}', 'SeriesEpisodeController@destroy')
         ->name('series.episodes.destroy');
 
-    Route::resource('tvshows', 'SeriesController');
+    Route::resource('tvshows', 'TvshowController');
+
+    Route::get('tvshows/{tvshow}/episodes/create', 'TvshowEpisodeController@create')
+        ->name('tvshows.episodes.create');
+
+    Route::post('tvshows/episodes/store', 'TvshowEpisodeController@store')
+        ->name('tvshows.episodes.store');
+
+    Route::get('tvshows/{tvshow}/episode/{episode}/edit/', 'TvshowEpisodeController@edit')
+        ->name('tvshows.episodes.edit');
+
+    Route::put('tvshows/episodes/{episode}/update', 'TvshowEpisodeController@update')
+        ->name('tvshows.episodes.update');
+
+    Route::delete('tvshows/episodes/{episode}', 'TvshowEpisodeController@destroy')
+        ->name('tvshows.episodes.destroy');
 });
