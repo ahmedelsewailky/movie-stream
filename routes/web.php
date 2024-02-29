@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\{Auth, Route};
 |
 */
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => false, 'verify' => true]);
 
 Route::view('/', 'welcome');
 
@@ -22,8 +22,24 @@ Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function () {
     Route::get('/', 'HomeController@index')
         ->name('dashboard');
 
-    Route::get('profile', 'HomeController@profile')
-        ->name('profile');
+    Route::group([
+        'middleware' => 'verified',
+        'prefix' => 'profile',
+        'as' => 'profile.',
+    ], function () {
+        Route::get('/', 'HomeController@profile')
+            ->name('index');
+
+        Route::post('update/avatar', 'HomeController@updateImageAvatar')
+            ->name('update.avatar');
+
+        Route::post('update/personal', 'HomeController@updatePersonalInformations')
+            ->name('update.personal');
+
+        Route::post('update/password', 'HomeController@UpdatePassword')
+            ->name('update.password');
+    });
+
 
     Route::resource('categories', 'CategoryController');
 
