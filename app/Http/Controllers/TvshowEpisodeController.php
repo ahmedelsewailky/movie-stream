@@ -9,19 +9,15 @@ use RealRashid\SweetAlert\Facades\Alert;
 class TvshowEpisodeController  extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        abort(404);
-    }
-
-    /**
      * Show the form for creating a new resource.
      */
-    public function create(Tvshow $tvshow)
+    public function create()
     {
-        return view('tvshows.episodes.create', compact('series'));
+        if (request()->has('series_id')) {
+            $tvshow = Tvshow::find(request()->get('tvshow_id'));
+            return view('tvshows.episodes.create', compact('tvshow'));
+        }
+        abort(404);
     }
 
     /**
@@ -35,19 +31,12 @@ class TvshowEpisodeController  extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Tvshow $episode)
-    {
-        abort(404);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tvshow $tvshow, TvshowEpisode $episode)
+    public function edit(TvshowEpisode $episode)
     {
-        return view('tvshows.episodes.edit', compact('episode', 'series'));
+        $tvshow = Tvshow::find($episode->tvshow_id);
+        return view('tvshows.episodes.edit', compact('episode', 'tvshow'));
     }
 
     /**

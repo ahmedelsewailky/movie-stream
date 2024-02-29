@@ -16,19 +16,19 @@
     </div>
 
     <div class="row">
-        @foreach ($tvshows->episodes as $episode)
+        @foreach ($tvshow->episodes as $episode)
             <div class="col-md-3">
                 <div class="card mb-3">
                     <div class="card-body d-flex">
                         <h6>الحلقة رقم {{ $episode->episode }}</h6>
                         <div class="d-flex ms-auto">
-                            <a href="{{ route('series.episodes.edit', [$series->id, $episode->id]) }}" class="btn btn-sm btn-success">تعديل</a>
+                            <a href="{{ route('tvshows.episodes.edit', $episode->id) }}" class="btn btn-sm btn-success">تعديل</a>
                             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $episode->id }}" class="btn btn-sm btn-danger ms-1">حذف</a>
                         </div>
                     </div>
                 </div>
             </div>
-            @include('series.episodes.confirm-modal')
+            @include('tvshows.episodes.confirm-modal')
         @endforeach
     </div>
 @endsection

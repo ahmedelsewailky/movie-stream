@@ -94,7 +94,7 @@
                                 <img src="{{ $tvshow->get_poster() ?? 'https://via.placeholder.com/120x80' }}" width="120" height="70" alt="{{ $tvshow->title }}">
                             </div>
                             <div class="flex-grow-1">
-                                <h6><a href="{{ route('series.show', $tvshow->id) }}">{{ $tvshow->title }}</a></h6>
+                                <h6><a href="{{ route('tvshows.show', $tvshow->id) }}">{{ $tvshow->title }}</a></h6>
 
                             </div>
                         </div>
@@ -103,9 +103,9 @@
                     <td>{{ number_format($tvshow->views) }}</td>
                     <td>0</td>
                     <td>
-                        <a href="{{ route('series.edit', $tvshow->id) }}" class="btn btn-sm btn-success">تعديل</a>
+                        <a href="{{ route('tvshows.edit', $tvshow->id) }}" class="btn btn-sm btn-success">تعديل</a>
                         <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $tvshow->id }}" class="btn btn-sm btn-danger">حذف</a>
-                        <a href="{{ route('series.episodes.create', $tvshow->id) }}" class="btn btn-sm btn-primary">اضافة حلقة</a>
+                        <a href="{{ route('tvshows.episodes.create', $tvshow->id) }}" class="btn btn-sm btn-primary">اضافة حلقة</a>
                     </td>
                 </tr>
                 @include('tvshows.confirm-modal')

@@ -12,7 +12,7 @@
     </nav>
 
     <div class="mb-3">
-        <a href="{{ route('series.episodes.create', $series->id) }}" class="btn btn-sm btn-primary">اضافة حلقة جديدة</a>
+        <a href="{{ route('series.episodes.create') }}?series_id={{ $series->id }}" class="btn btn-sm btn-primary">اضافة حلقة جديدة</a>
     </div>
 
     <div class="row">
@@ -22,7 +22,7 @@
                     <div class="card-body d-flex">
                         <h6>الحلقة رقم {{ $episode->episode }}</h6>
                         <div class="d-flex ms-auto">
-                            <a href="{{ route('series.episodes.edit', [$series->id, $episode->id]) }}" class="btn btn-sm btn-success">تعديل</a>
+                            <a href="{{ route('series.episodes.edit', $episode->id) }}" class="btn btn-sm btn-success">تعديل</a>
                             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $episode->id }}" class="btn btn-sm btn-danger ms-1">حذف</a>
                         </div>
                     </div>
