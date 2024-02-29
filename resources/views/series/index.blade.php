@@ -93,6 +93,21 @@
         </form>
     </div>
 
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <h6>إجمالي الأفلام</h6>
+                    <p>{{ number_format($series->count()) }} /فيلم</p>
+                </div>
+
+                <div class="col-md-8">
+                    <div id="chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -143,4 +158,32 @@
     </table>
 
     {{-- {!! $series->links('pagination::bootstrap-5') !!} --}}
+@endsection
+
+@section('js')
+    <script src="{{ asset('assets/libs/apexchart/apexcharts.min.js') }}"></script>
+    <script>
+        var options = {
+            chart: {
+                type: 'bar',
+            },
+            series: [{
+                name: 'sales',
+                data: [58, 36, 12, 78, 89, 16, 41, 78, 23]
+            }],
+            xaxis: {
+                categories: {!! Category::whereParentId(2)->pluck('name') !!}
+            },
+            theme: {
+                monochrome: {
+                    enabled: true,
+                    color: '#255aee',
+                    shadeTo: 'light',
+                    shadeIntensity: 0.65
+                }
+            }
+        }
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
 @endsection
