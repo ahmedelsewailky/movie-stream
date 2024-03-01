@@ -92,7 +92,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <h6>إجمالي الأفلام</h6>
-                            <p>{{ number_format($movies->count()) }} /فيلم</p>
+                            <p>{{ number_format(\App\Models\Movie::get()->count()) }} /فيلم</p>
                         </div>
 
                         <div class="col-md-8">
@@ -166,6 +166,14 @@
     </div>
 @endsection
 
+@php
+    $categories = Category::whereParentId(1)->get();
+        $data = collect([]);
+        foreach ($categories as $category) {
+            $data->push($category->movies->count());
+        }
+@endphp
+
 @section('js')
     <script src="{{ asset('assets/libs/apexchart/apexcharts.min.js') }}"></script>
     <script>
@@ -175,7 +183,7 @@
             },
             series: [{
                 name: 'sales',
-                data: [58, 36, 12, 78, 89, 16, 41, 78, 23]
+                data: {!! $data !!}
             }],
             xaxis: {
                 categories: {!! Category::whereParentId(1)->pluck('name') !!}

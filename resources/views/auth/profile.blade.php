@@ -84,7 +84,7 @@
                                 <p>عند تغيير البريد الإلكتروني فستحتاج إلي التحقق من البريد الجديد</p>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-sm btn-dark">تغيير صورة الملف الشخصيس</button>
+                        <button type="submit" class="btn btn-sm btn-dark">حفظ التغيرات</button>
                     </form>
                 </div>
             </div>
