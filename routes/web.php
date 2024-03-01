@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\{Auth, Route};
 
 Auth::routes(['register' => false, 'verify' => true]);
 
-Route::view('/', 'welcome');
+Route::view('/', 'index')->name('website');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function () {
 

@@ -11,13 +11,16 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
 
     <!-- Bootstrap Css File -->
     <link rel="stylesheet" href="{{ asset('assets/libs/bootstrap/css/bootstrap.rtl.min.css') }}">
 
     <!-- Boxicons Css File -->
     <link rel="stylesheet" href="{{ asset('assets/libs/boxicons/css/boxicons.min.css') }}">
+
+    <!-- Css File -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
     @yield('css')
 </head>
@@ -35,6 +38,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="{{ url('/') }}" class="nav-link" target="_blank">عرض الموقع</a>
+                        </li>
+
                         <li class="nav-item">
                             <a href="{{ route('categories.index') }}" @class(['nav-link', 'active' => Request::routeIs('categories.*')])>الأقسام</a>
                         </li>

@@ -11,7 +11,7 @@
         </ol>
     </nav>
 
-    <form action="{{ route('categories.update', $category->id) }}" method="post" class="w-50">
+    <form action="{{ route('categories.update', $category->id) }}" method="post" class="border border-2 border-dashed ms-auto mt-5 p-4 translate-middle-x w-50">
         @csrf
         @method('PUT')
         {{-- Category Name --}}
@@ -49,6 +49,11 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-sm btn-primary">حفظ التغيرات</button>
+        <div class="text-center">
+            <button type="submit" class="btn btn-dark">
+                <i class="bx bx-save"></i>
+                حفظ التغيرات
+            </button>
+        </div>
     </form>
 @endsection

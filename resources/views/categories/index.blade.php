@@ -11,14 +11,17 @@
     </nav>
 
     <div class="mb-3">
-        <a href="{{ route('categories.create') }}" class="btn btn-sm btn-primary">اضافة قسم جديد</a>
+        <a href="{{ route('categories.create') }}" class="btn btn-primary">
+            <i class="bx bx-sm bx-list-plus"></i>
+            اضافة قسم جديد
+        </a>
     </div>
 
     <div class="row">
         @forelse ($categories->whereNull('parent_id')->get() as $parent)
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-header d-flex">
+                    <div class="card-header">
                         <h6>{{ $parent->name }}</h6>
                     </div>
                     <div class="card-body">
