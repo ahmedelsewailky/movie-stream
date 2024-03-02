@@ -90,6 +90,25 @@ h6 {
     direction: rtl;
 }
 
+.form-check-input:checked {
+    background-color: #5352ed;
+    border-color: #5352ed;
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: 0;
+}
+
+.form-check-input {
+    width: 14px;
+    height: 14px;
+}
+
+.form-check-input:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(83 82 237 / 25%);
+}
 /* ====================================================== Bootstrap Dropdown */
 .dropdown-menu {
     border: none;
@@ -200,7 +219,6 @@ h6 {
     border-style: dashed !important;
 }
 
-
 /* ====================================================== Confirm Deletion Modal */
 .confirm-modal .modal-dialog {
     max-width: 35% !important;
@@ -222,4 +240,32 @@ h6 {
     width: 100%;
     margin: 2rem 0;
     color: #c9d1d9;
+}
+
+/* ====================================================== Confirm Deletion Modal */
+form.position-relative button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    width: 50px;
+    color: #858484;
+    pointer-events: none;
+}
+
+.filter-widget form {
+    padding: 1.25rem;
+    border: 2px dashed #d1d1d1;
+    margin-bottom: 1.25rem;
+}
+
+.filter-box .dropdown button {
+    width: 100%;
+    display: block;
+    background-color: transparent;
+    color: red;
+    text-align: right;
+    line-height: 2rem;
 }

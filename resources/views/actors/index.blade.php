@@ -13,37 +13,46 @@
     </nav>
 
     <div class="mb-3">
-        <a href="{{ route('actors.create') }}" class="btn btn-sm btn-primary">اضافة ممثل </a>
+        <a href="{{ route('actors.create') }}" class="btn btn-primary">
+            <i class="bx bx-save"></i>
+            اضافة ممثل
+        </a>
     </div>
 
     <div class="row">
         <div class="col-md-3">
-            <form action="?" method="get" class="d-flex">
-                <input type="search" class="form-control" name="q" value="{{ request()->has('q') ? request()->get('q') : false }}">
-                <button type="submit" class="btn btn-sm btn-success">بحث</button>
-            </form>
-            <form class="filter-box" method="get" action="?">
-                <div class="dropdown mt-2">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-                        عرض حسب الدولة
-                      </button>
-                    <div class="dropdown-menu filter-menu" style="height: 250px; overflow-y: scroll">
-                        @foreach (DataArray::COUNTRIES as $country)
-                            <label for="county-{{ $country }}" class="form-label d-flex">
-                                <input type="checkbox"
-                                    id="county-{{ $country }}"
-                                    class="form-check-input me-2"
-                                    name="country[]"
-                                    value="{{ $country }}"
-                                    @checked(request()->has('country') && in_array($country, request()->get('country')))>
-                                {{ $country }} ({{ Actor::where('country', $country)->count() }})
-                            </label>
-                        @endforeach
+            <div class="filter-widget">
+                <form action="?" method="get" class="position-relative">
+                    <input type="search"
+                        class="form-control"
+                        name="q"
+                        placeholder="ابحث باسم الممثل"
+                        value="{{ request()->has('q') ? request()->get('q') : false }}">
+                    <button type="submit"><i class="bx bx-search"></i></button>
+                </form>
+                <form class="filter-box" method="get" action="?">
+                    <div class="dropdown mt-2">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                            عرض حسب الدولة
+                          </button>
+                        <div class="dropdown-menu filter-menu" style="height: 250px; overflow-y: scroll">
+                            @foreach (DataArray::COUNTRIES as $country)
+                                <label for="county-{{ $country }}" class="form-label d-flex">
+                                    <input type="checkbox"
+                                        id="county-{{ $country }}"
+                                        class="form-check-input me-2"
+                                        name="country[]"
+                                        value="{{ $country }}"
+                                        @checked(request()->has('country') && in_array($country, request()->get('country')))>
+                                    {{ $country }} ({{ Actor::where('country', $country)->count() }})
+                                </label>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
-                <button type="submit" class="btn btn-sm btn-success">تطبيق الفلتر</button>
-                <a href="{{ route('actors.index') }}" class="btn btn-sm btn-danger">تصفية الفلاتر</a>
-            </form>
+                    <button type="submit" class="btn btn-sm btn-success">تطبيق الفلتر</button>
+                    <a href="{{ route('actors.index') }}" class="btn btn-sm btn-danger">تصفية الفلاتر</a>
+                </form>
+            </div>
         </div>
 
         <div class="col-md-9">
