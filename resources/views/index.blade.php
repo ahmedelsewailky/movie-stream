@@ -3,36 +3,28 @@
 
 {{-- Page content --}}
 @section('content')
-    <div class="container">
-        <section class="section">
-            <div id="movieCarouselSlider" class="carousel slide" data-bs-ride="true">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#movieCarouselSlider" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#movieCarouselSlider" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#movieCarouselSlider" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active" style="background-image: url('{{ asset('assets/img/poster-1.jpg') }}')">
-                        <span class="overlay"></span>
-                        <div class="post">
-                            <div class="post-thumbnail">
-                                <img src="{{ asset('assets/img/poster-1.jpg') }}" alt="">
-                            </div>
+<div class="row">
+    <div class="col-md-3">
 
-                            <span class="quality">WEB-HD 720</span>
-                            <div class="post-details">
-                                <a href="" class="post-category">افلام اجنبي</a>
-                                <h6><a href="">وإن رأيت أنياب الليث بارزة فلا تحسبن الليث يبتسم</a></h6>
-                                <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص
-                                    العربى، حيث يمكنك أن تولد مثل هذا النص</p>
-                            </div>
+    </div>
+
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="post">
+                    <div class="post-thumbnail flex-shrink-0 me-4">
+                        <img src="{{ asset('assets/img/poster-2.jpg') }}" alt="">
+                    </div>
+                    <div class="post-details flex-grow-1">
+                        <span class="meta meta-category">كوميديا</span>
+                        <h3>وإن رأيت أنياب الليث بارزة فلا تحسبن الليث يبتسم</h3>
+                        <div class="d-flex align-items-center my-3">
+                            <span class="meta meta-views"><i class="bx bxs-hot"></i> 78.526</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
+</div>
 @endsection

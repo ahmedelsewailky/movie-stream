@@ -9,8 +9,15 @@ body {
     background-color: whitesmoke;
 }
 
-a {
-    color: #5352ed;
+a,
+.nav-link {
+    color: inherit;
+    text-decoration: none;
+    font-size: inherit;
+}
+
+span {
+    display: inline-block;
 }
 
 td {
@@ -109,6 +116,7 @@ h6 {
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgb(83 82 237 / 25%);
 }
+
 /* ====================================================== Bootstrap Dropdown */
 .dropdown-menu {
     border: none;
@@ -120,7 +128,6 @@ h6 {
 .dropdown-item.active,
 .dropdown-item:active {
     color: var(--bs-dropdown-link-active-color);
-    text-decoration: none;
     background-color: #a4b0be;
 }
 
@@ -270,88 +277,91 @@ form.position-relative button {
     line-height: 2rem;
 }
 
-/* ====================================================== Website: Navigation Bar */
-
-/* ====================================================== Website: Home Page Bootstrap Carousel */
-.carousel-item {
-    background-position: center;
-    background-size: cover;
-}
-
-.carousel .post {
-    width: 280px;
-    overflow: hidden;
+/* ====================================================== Website: Section Card */
+.section {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 5px 6px 15px #e1dede;
+    margin-bottom: 1.5rem;
     position: relative;
-    border-radius: 1rem;
-    height: 430px;
 }
 
-.carousel .post .post-details {
+/* ====================================================== Website: Post Item */
+.post {
+    overflow: hidden;
+    border-radius: 1rem;
+    height: 410px;
+    position: relative;
+}
+
+.post-thumbnail img {
+    width: 100%;
+}
+
+.post-details {
     position: absolute;
     bottom: 0;
+    width: 100%;
     padding: 1rem;
-    background: linear-gradient(to top, #000 10%, transparent);
-    color: white;
+    background: linear-gradient(to top, black, transparent);
 }
-
-.carousel .post .post-details h6 a {
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
-    text-decoration: none;
-    line-height: 1.5;
-    display: block;
-    margin: .5rem 0;
-}
-
-.carousel .post .post-details p {
+.meta-category {
+    background-color: #009688;
+    padding: 2px 8px;
+    border-radius: 3px;
     font-size: 12px;
-    color: #ffffff94;
-    height: 0;
-    -webkit-transition: .4s all ease;
-    -o-transition: .4s all ease;
-    transition: .4s all ease;
-    overflow: hidden;
-}
-
-.carousel .post:hover .post-details p {
-    height: auto;
-}
-
-.carousel .post .quality {
-    position: absolute;
-    top: 15px;
+    margin-left: 1rem;
     color: white;
-    background-color: #ffffff36;
-    right: 15px;
+}
+
+.meta-quality span {
+    background-color: #607D8B;
+    color: white;
+    padding: 2px 6px;
+    margin-left: 5px;
+    font-weight: 400;
+}
+
+.meta-quality {
+    border: 1px solid #607d8b;
     font-size: 11px;
-    padding: 4px 8px;
-    border-radius: 2px;
+    border-radius: 3px;
+    padding-left: 6px;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    line-height: 15px;
+    color: #607d8b;
 }
 
-.carousel .post .post-category {
-    background-color: #5352ed;
-    color: white;
-    text-decoration: none;
-    font-size: 12px;
-    padding: 3px 10px;
-    border-radius: 4px;
+/* ====================================================== Website: Navigation Bar */
+.navbar {
+    background-color: white;
 }
 
+/* ====================================================== Website: Home Page Bootstrap Carousel */
+.carousel-item .post {
+    display: flex;
+}
 
-span.overlay {
-    position: absolute;
+.carousel-item .post-thumbnail {
+    width: 280px;
+    height: 340px;
+    overflow: hidden;
+    border-radius: 1rem;
+    flex-shrink: 0;
+    margin-left: 1.5rem;
+}
+
+.carousel-item .post-thumbnail img {
     width: 100%;
-    height: 100%;
-    background-color: #181820;
-    opacity: 0.8;
-    top: 0;
-    right: 0;
 }
 
-span.overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: linear-gradient(to left, #000000cf 60%, transparent);
+.carousel-item .post-details {
+    flex-grow: 1;
+}
+
+.carousel-indicators [data-bs-target] {
+    border-top: 10px solid #607D8B;
 }

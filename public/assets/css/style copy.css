@@ -1,0 +1,357 @@
+::selection {
+    color: white;
+    background-color: #ff6b81;
+}
+
+body {
+    font-size: 0.8125rem;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    background-color: whitesmoke;
+}
+
+a {
+    color: #5352ed;
+}
+
+td {
+    vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-bottom: 0;
+}
+
+h6 {
+    font-size: inherit;
+}
+
+.bx {
+    font-size: 1rem;
+    vertical-align: middle;
+}
+
+/* ====================================================== Bootstrap Form Cards */
+.card {
+    margin-bottom: 1.5rem;
+    border: none;
+    background-color: white;
+    box-shadow: 1px 2px 5px rgb(0 0 0 / 3%);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-header {
+    border-color: #e8e5e5;
+    background-color: transparent;
+    padding: 1rem;
+}
+
+.card-header+.card-body {
+    padding-top: 0;
+}
+
+.card-header h6 {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* ====================================================== Bootstrap Form Classes */
+.form-control,
+.form-select {
+    border-radius: 4px;
+    border-color: #e8e5e5;
+    line-height: 1.75rem;
+    font-size: inherit;
+}
+
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #5352ed;
+    outline: 0;
+    box-shadow: none;
+}
+
+.form-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #747d8c;
+}
+
+[dir="rtl"] [type=email], [type=number], [type=tel], [type=url] {
+    direction: rtl;
+}
+
+.form-check-input:checked {
+    background-color: #5352ed;
+    border-color: #5352ed;
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: 0;
+}
+
+.form-check-input {
+    width: 14px;
+    height: 14px;
+}
+
+.form-check-input:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(83 82 237 / 25%);
+}
+/* ====================================================== Bootstrap Dropdown */
+.dropdown-menu {
+    border: none;
+    font-size: inherit;
+    box-shadow: 0px 0px 5px rgb(0 0 0 / 8%);
+    padding: 1rem;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    color: var(--bs-dropdown-link-active-color);
+    text-decoration: none;
+    background-color: #a4b0be;
+}
+
+/* ====================================================== Bootstrap Form Buttons */
+.btn {
+    border-radius: 3px;
+    font-size: .75rem;
+}
+
+.btn-sm {
+    font-size: 11px;
+}
+
+.btn-success {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #1abc9c;
+    --bs-btn-border-color: #1abc9c;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #16a085;
+    --bs-btn-hover-border-color: #16a085;
+    --bs-btn-focus-shadow-rgb: 60, 153, 110;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #1abc9c;
+    --bs-btn-active-border-color: #1abc9c;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #1abc9c;
+    --bs-btn-disabled-border-color: #1abc9c;
+}
+
+.btn-danger {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #ff4757;
+    --bs-btn-border-color: #ff4757;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #d63d4a;
+    --bs-btn-hover-border-color: #d63d4a;
+    --bs-btn-focus-shadow-rgb: 225, 83, 97;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #ff4757;
+    --bs-btn-active-border-color: #ff4757;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #ff4757;
+    --bs-btn-disabled-border-color: #ff4757;
+}
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #5352ed;
+    --bs-btn-border-color: #5352ed;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #4141b6;
+    --bs-btn-hover-border-color: #4141b6;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #5352ed;
+    --bs-btn-active-border-color: #5352ed;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #5352ed;
+    --bs-btn-disabled-border-color: #5352ed;
+}
+
+.btn-dark {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #57606f;
+    --bs-btn-border-color: #57606f;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #414752;
+    --bs-btn-hover-border-color: #414752;
+    --bs-btn-focus-shadow-rgb: 66, 70, 73;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #57606f;
+    --bs-btn-active-border-color: #57606f;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #57606f;
+    --bs-btn-disabled-border-color: #57606f;
+}
+
+
+/* ====================================================== Custom Classess */
+.absolute-position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.border {
+    border-color: #ddd !important;
+}
+
+.border-dashed {
+    border-style: dashed !important;
+}
+
+/* ====================================================== Confirm Deletion Modal */
+.confirm-modal .modal-dialog {
+    max-width: 35% !important;
+}
+
+.confirm-modal .modal-content {
+    border-radius: 5px;
+    text-align: center;
+}
+
+.confirm-modal .modal-footer {
+    justify-content: center;
+    border: none;
+}
+
+.confirm-modal .bx {
+    font-size: 5rem;
+    text-align: center;
+    width: 100%;
+    margin: 2rem 0;
+    color: #c9d1d9;
+}
+
+/* ====================================================== Confirm Deletion Modal */
+form.position-relative button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    width: 50px;
+    color: #858484;
+    pointer-events: none;
+}
+
+.filter-widget form {
+    padding: 1.25rem;
+    border: 2px dashed #d1d1d1;
+    margin-bottom: 1.25rem;
+}
+
+.filter-box .dropdown button {
+    width: 100%;
+    display: block;
+    background-color: transparent;
+    color: red;
+    text-align: right;
+    line-height: 2rem;
+}
+
+/* ====================================================== Website: Navigation Bar */
+
+/* ====================================================== Website: Home Page Bootstrap Carousel */
+.carousel-item {
+    background-position: center;
+    background-size: cover;
+}
+
+.carousel .post {
+    width: 280px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 1rem;
+    height: 430px;
+}
+
+.carousel .post .post-details {
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+    background: linear-gradient(to top, #000 10%, transparent);
+    color: white;
+}
+
+.carousel .post .post-details h6 a {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    line-height: 1.5;
+    display: block;
+    margin: .5rem 0;
+}
+
+.carousel .post .post-details p {
+    font-size: 12px;
+    color: #ffffff94;
+    height: 0;
+    -webkit-transition: .4s all ease;
+    -o-transition: .4s all ease;
+    transition: .4s all ease;
+    overflow: hidden;
+}
+
+.carousel .post:hover .post-details p {
+    height: auto;
+}
+
+.carousel .post .quality {
+    position: absolute;
+    top: 15px;
+    color: white;
+    background-color: #ffffff36;
+    right: 15px;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 2px;
+}
+
+.carousel .post .post-category {
+    background-color: #5352ed;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+
+span.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #181820;
+    opacity: 0.8;
+    top: 0;
+    right: 0;
+}
+
+span.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to left, #000000cf 60%, transparent);
+}

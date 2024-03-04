@@ -23,7 +23,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#">{{ env('APP_NAME') }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a href="{{ route('website') }}" @class(['nav-link', 'active' => Request::routeIs('website')])>الرئيسية</a>
+                        <a href="{{ route('website') }}" @class(['nav-link', 'active' => Request::routeIs('website')])>مضاف حديثاً</a>
                     </li>
                     @foreach (\App\Models\Category::whereNull('parent_id')->get() as $parent)
                         <li class="nav-item dropdown">
@@ -52,13 +52,23 @@
                 </ul>
                 <form class="d-flex" role="search" action="" method="">
                     <input class="form-control me-2" type="search" placeholder="بحث" aria-label="Search">
+                    <button type="submit" class="btn btn-primary">بحث</button>
                 </form>
-
             </div>
         </div>
     </nav>
 
-    @yield('content')
+    <div class="container">
+        <div class="text-center py-4">
+            <a href="https://github.com:ahmedelsewailky/movie-app" target="_blank">
+                <img src="https://via.placeholder.com/790x180?text=بوستر+إعلاني+790x180+بيكسل" alt="">
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        @yield('content')
+    </div>
 
     <!-- Bootstrap Bundle Js File -->
     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
