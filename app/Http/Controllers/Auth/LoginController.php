@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -48,5 +49,21 @@ class LoginController extends Controller
         $login_type = filter_var($input_request, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
         request()->merge([$login_type => $input_request]);
         return $login_type;
+    }
+
+    /**
+     * Validate the user login request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            'login' => 'required|string',
+            'password' => 'required|string',
+        ]);
     }
 }
