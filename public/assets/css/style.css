@@ -4,9 +4,10 @@
 }
 
 body {
+    color: #ecf0f1;
     font-size: 0.8125rem;
     font-family: "Noto Kufi Arabic", sans-serif;
-    background-color: whitesmoke;
+    background-color: #2c3e50;
 }
 
 a,
@@ -93,7 +94,10 @@ h6 {
     color: #747d8c;
 }
 
-[dir="rtl"] [type=email], [type=number], [type=tel], [type=url] {
+[dir="rtl"] [type=email],
+[type=number],
+[type=tel],
+[type=url] {
     direction: rtl;
 }
 
@@ -278,90 +282,76 @@ form.position-relative button {
 }
 
 /* ====================================================== Website: Section Card */
-.section {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 5px;
-    box-shadow: 5px 6px 15px #e1dede;
-    margin-bottom: 1.5rem;
+ul.navbar-nav {
+    background-color: #34495e;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+}
+
+.navbar .nav-link.active {
+    color: #1abc9c;
+}
+.slider-section {
+    width: 85%;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+.poster-thumbnail {
     position: relative;
+    border-radius: 1.5rem;
 }
 
-/* ====================================================== Website: Post Item */
-.post {
-    overflow: hidden;
-    border-radius: 1rem;
-    height: 410px;
-    position: relative;
-}
-
-.post-thumbnail img {
-    width: 100%;
-}
-
-.post-details {
+.poster-thumbnail::before {
+    content: '';
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(to top, black, transparent);
-}
-.meta-category {
-    background-color: #009688;
-    padding: 2px 8px;
-    border-radius: 3px;
-    font-size: 12px;
-    margin-left: 1rem;
-    color: white;
-}
-
-.meta-quality span {
-    background-color: #607D8B;
-    color: white;
-    padding: 2px 6px;
-    margin-left: 5px;
-    font-weight: 400;
-}
-
-.meta-quality {
-    border: 1px solid #607d8b;
-    font-size: 11px;
-    border-radius: 3px;
-    padding-left: 6px;
-    margin-right: 1rem;
-    display: flex;
-    align-items: center;
-    line-height: 15px;
-    color: #607d8b;
-}
-
-/* ====================================================== Website: Navigation Bar */
-.navbar {
-    background-color: white;
-}
-
-/* ====================================================== Website: Home Page Bootstrap Carousel */
-.carousel-item .post {
-    display: flex;
-}
-
-.carousel-item .post-thumbnail {
-    width: 280px;
-    height: 340px;
-    overflow: hidden;
+    /* border: 7px solid #e67e22; */
+    width: 150px;
+    height: 200px;
+    bottom: -25px;
+    left: -5px;
+    z-index: -1;
+    background-color: #3b5b7a;
+    transform: rotate(-28deg);
     border-radius: 1rem;
-    flex-shrink: 0;
-    margin-left: 1.5rem;
 }
 
-.carousel-item .post-thumbnail img {
-    width: 100%;
+.poster-thumbnail img {
+    border-radius: 1.5rem;
 }
 
-.carousel-item .post-details {
-    flex-grow: 1;
+.meta-category {
+    background-color: #e67e22;
+    color: white;
+    border-radius: .25rem;
+    padding: .25rem .75rem;
+    font-size: small;
 }
 
-.carousel-indicators [data-bs-target] {
-    border-top: 10px solid #607D8B;
+.static-item {
+    width: 145px;
+    height: 145px;
+    display: grid;
+    place-content: center;
+    background-color: #455667;
+    border-radius: .5rem;
+    text-align: center;
+}
+
+.static-item span {
+    display: block;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: .5rem;
+}
+
+.body-shape {
+    position: absolute;
+    width: 850px;
+    height: 850px;
+    background-color: #34495e;
+    z-index: -9;
+    top: 50%;
+    right: -420px;
+    transform: rotate(45deg);
 }
