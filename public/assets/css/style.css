@@ -11,6 +11,7 @@ body {
 }
 
 a,
+a:hover,
 .nav-link {
     color: inherit;
     text-decoration: none;
@@ -291,11 +292,13 @@ ul.navbar-nav {
 .navbar .nav-link.active {
     color: #1abc9c;
 }
+
 .slider-section {
     width: 85%;
     margin: 0 auto;
     padding: 2rem 0;
 }
+
 .poster-thumbnail {
     position: relative;
     border-radius: 1.5rem;
@@ -304,14 +307,12 @@ ul.navbar-nav {
 .poster-thumbnail::before {
     content: '';
     position: absolute;
-    /* border: 7px solid #e67e22; */
     width: 150px;
     height: 200px;
-    bottom: -25px;
-    left: -5px;
+    bottom: -7px;
+    left: -20px;
     z-index: -1;
-    background-color: #3b5b7a;
-    transform: rotate(-28deg);
+    background-color: #1abc9c;
     border-radius: 1rem;
 }
 
@@ -324,7 +325,7 @@ ul.navbar-nav {
     color: white;
     border-radius: .25rem;
     padding: .25rem .75rem;
-    font-size: small;
+    font-size: 11px;
 }
 
 .static-item {
@@ -354,4 +355,88 @@ ul.navbar-nav {
     top: 50%;
     right: -420px;
     transform: rotate(45deg);
+}
+
+.post {
+    position: relative;
+    border-radius: 1.25rem;
+    overflow: hidden;
+}
+
+.post-thumbnail img {
+    width: 100%;
+}
+
+.post-details {
+    position: absolute;
+    width: 100%;
+    padding: 1rem;
+    bottom: 0;
+    background: linear-gradient(to top, black, transparent);
+}
+
+.post-details h6 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: .75rem 0;
+}
+
+
+.section-title {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    background-color: #445b72;
+    border-radius: 1rem;
+    border-right: .5rem solid #1abc9c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title h6 {
+    position: relative;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.section-title h6::before {
+    content: "#";
+    color: #1abc9c;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+a.watch-more-button {
+    font-size: 12px;
+    border: 1px solid #1abc9c;
+    padding: .25rem 1rem;
+    border-radius: 1rem;
+    /* background-color: red; */
+}
+
+.carousel-indicators [data-bs-target] {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    margin-left: 3px;
+    margin-right: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: .5;
+    transition: opacity .6s ease;
+    border-radius: 100%;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+    background-color: #1abc9c;
 }
