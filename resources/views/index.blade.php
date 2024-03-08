@@ -173,15 +173,25 @@
                 <div class="owl-carousel">
                     @foreach ($movies as $movie)
                         <div class="post">
+
                             <div class="post-thumbnail">
                                 <img src="https://via.placeholder.com/230x310" alt="">
                             </div>
+
+                            <div class="meta-absolute">
+                                <span class="meta meta-quality d-block">{{ DataArray::QUALITIES[$movie->quality] }}</span>
+                                <span class="meta meta-views">
+                                    <i class="bx bx-bar-chart-alt-2"></i>
+                                    {{ $movie->views }}
+                                </span>
+                            </div>
+                            <span class="meta meta-dubbed">{{ DataArray::DUBBED_STATUS[$movie->dubbed_status] }}</span>
+                            <span class="play-icon"><i class="bx bx-play-circle"></i></span>
                             <div class="post-details">
                                 <span class="meta meta-category"><a href="">{{ $movie->category->name }}</a></span>
-                                <h6>
-                                    <a href="" target="_blank">{{ $movie->title }}</a>
-                                </h6>
+                                <h6><a href="" target="_blank">{{ $movie->title }}</a></h6>
                             </div>
+
                         </div>
                     @endforeach
                 </div>
