@@ -293,97 +293,79 @@ ul.navbar-nav {
     color: #1abc9c;
 }
 
-.slider-section {
-    width: 85%;
-    margin: 0 auto;
-    padding: 2rem 0;
-}
-
-.poster-thumbnail {
-    position: relative;
-    border-radius: 1.5rem;
-}
-
-.poster-thumbnail::before {
-    content: '';
-    position: absolute;
-    width: 150px;
-    height: 200px;
-    bottom: -7px;
-    left: -20px;
-    z-index: -1;
-    background-color: #1abc9c;
-    border-radius: 1rem;
-}
-
-.poster-thumbnail img {
-    border-radius: 1.5rem;
-}
-
-.static-item {
-    width: 145px;
-    height: 145px;
-    display: grid;
-    place-content: center;
-    background-color: #455667;
-    border-radius: .5rem;
-    text-align: center;
-}
-
-.static-item span {
-    display: block;
-    text-align: center;
-    font-size: 21px;
-    font-weight: 700;
-    margin-bottom: .5rem;
-}
-
 .body-shape {
     position: absolute;
     width: 850px;
     height: 850px;
-    background-color: #34495e;
+    background-color: #1abc9c;
     z-index: -9;
     top: 50%;
     right: -420px;
     transform: rotate(45deg);
 }
 
+
+/* ====================================================== Website: Global Post Thumbnail */
 .post {
     position: relative;
     border-radius: 1.25rem;
     overflow: hidden;
+    margin-bottom: 1.5rem;
+
 }
 
-.post-thumbnail img {
-    width: 100%;
-    transition: 0.3s ease;
+.post.post-thumbnail {
+    height: 250px;
+    background-size: contain;
+    background-position: center;
 }
 
-.post-details {
+.post-title {
     position: absolute;
-    width: 100%;
-    padding: 1rem;
     bottom: 0;
+    width: 100%;
     background: linear-gradient(to top, black, transparent);
+    padding: 1rem;
+    font-size: 15px;
+    font-weight: 600;
 }
 
-.post-details h6 {
-    font-size: 16px;
-    font-weight: 700;
-    margin: .75rem 0;
+.post-meta {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
+.post-meta>span {
+    display: inline-block;
+    background-color: #0000006e;
+    margin-bottom: 2px;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.meta-dubbed {
+    background-color: #e67e22 !important;
+}
+
+/* ====================================================== Website: Global Section Header */
+.section {
+    padding: 1.25rem;
+    background-color: #445b72;
+    border-radius: 1.5rem;
+    height: 100%;
+}
 
 .section-title {
-    padding: 1.25rem;
     margin-bottom: 1.5rem;
     background-color: #445b72;
-    border-radius: 1rem;
-    border-right: .5rem solid #1abc9c;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #5c7895;
+    padding-bottom: 1rem;
 }
 
 .section-title h6 {
@@ -406,7 +388,12 @@ a.watch-more-button {
     border: 1px solid #1abc9c;
     padding: .25rem 1rem;
     border-radius: 1rem;
-    /* background-color: red; */
+}
+
+/* ====================================================== Website: Bootstrap Carousel */
+.carousel-item>.d-flex {
+    width: 90%;
+    margin: 0 auto;
 }
 
 .carousel-indicators [data-bs-target] {
@@ -432,59 +419,4 @@ a.watch-more-button {
 .carousel-indicators .active {
     opacity: 1;
     background-color: #1abc9c;
-}
-
-.meta-absolute {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.meta-absolute > span {
-    background-color: rgb(0 0 0 /.5);
-    font-size: 11px;
-    padding: 2px 10px;
-    border-radius: 13px;
-    margin-bottom: .5rem;
-    text-align: center;
-}
-
-span.meta.meta-dubbed {
-    position: absolute;
-    left: -29px;
-    top: 9px;
-    background-color: #f7b500;
-    color: #000;
-    font-size: 12px;
-    transform: rotate(-35deg);
-    width: 130px;
-    text-align: center;
-    font-weight: 600;
-    padding: 5px;
-}
-
-.meta-category {
-    background-color: #1abc9c;
-    color: white;
-    border-radius: .25rem;
-    padding: .15rem .5rem;
-    font-size: 10px;
-}
-
-.play-icon {
-    position: absolute;
-    top: 40%;
-    left: 40%;
-    border-radius: 50%;
-    transform: scale(0);
-    transition: 0.3s ease;
-}
-
-.play-icon i {
-    font-size: 3rem;
-}
-
-.post:hover .play-icon,
-.post:hover .post-thumbnail img {
-    transform: scale(1.5);
 }
