@@ -295,13 +295,13 @@ ul.navbar-nav {
 
 .body-shape {
     position: absolute;
-    width: 850px;
-    height: 850px;
+    width: 750px;
+    height: 750px;
     background-color: #1abc9c;
     z-index: -9;
     top: 50%;
-    right: -420px;
-    transform: rotate(45deg);
+    left: 0;
+    border-radius: 50%;
 }
 
 
@@ -340,7 +340,8 @@ ul.navbar-nav {
     display: inline-block;
     background-color: #0000006e;
     margin-bottom: 2px;
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: 600;
     padding: 2px 5px;
     border-radius: 5px;
     text-align: center;
@@ -419,4 +420,19 @@ a.watch-more-button {
 .carousel-indicators .active {
     opacity: 1;
     background-color: #1abc9c;
+}
+
+.carousel-indicators {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: start;
+    padding: 0;
+    /* margin-left: 15%; */
+    margin-bottom: 1rem;
+    margin-right: 7%;
+    list-style: none;
 }

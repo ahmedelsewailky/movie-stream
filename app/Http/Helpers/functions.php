@@ -2,5 +2,5 @@
 
 function get_poster($source, string $size)
 {
-    return asset('storage') . '/' . $source ?? 'https://via.placeholder.com/' . $size;
+    return is_null($source) ? 'https://via.placeholder.com/' . $size : asset('storage') . '/' . $source;
 }

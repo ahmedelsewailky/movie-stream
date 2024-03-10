@@ -38,4 +38,14 @@ class TvshowEpisode extends Model
             return $movie->user_id = auth()->user()->id ?? 1;
         });
     }
+
+    /**
+     * One of this episode belongs to one tvshow model
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function tvshow():\Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Tvshow::class);
+    }
 }

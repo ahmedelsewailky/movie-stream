@@ -40,7 +40,7 @@
                         </div>
                         <div class="flex-shrink-0 ms-4">
                             <div class="poster-thumbnail">
-                                <img src="https://via.placeholder.com/250x340" alt="Movie Title Here">
+                                <img src="https://via.placeholder.com/250x340" width="250" height="340" class="rounded-3" alt="Movie Title Here">
                             </div>
                         </div>
                     </div>
@@ -127,61 +127,23 @@
                     </div>
 
                     <div class="section-body">
-                        <div class="d-flex mb-4">
-                            <div class="flex-shrink-0 me-3">
-                                <img src="https://via.placeholder.com/120x80" class="rounded-2" alt="">
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6 class="fs-6">Lorem ipsum dolor sit amet consectetur.</h6>
-                                <div class="d-flex align-items-center mt-2 justify-content-between">
-                                    <span>منذ 3 اسبوع</span>
+                        @forelse ($tvshows as $tvshow_episode)
+                            <div class="d-flex mb-4">
+                                <div class="flex-shrink-0 me-3">
+                                    <img src="{{ get_poster($tvshow_episode->tvshow->poster, '120x80') }}" class="rounded-2" alt="">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="fs-6">
+                                        <a href="">الحلقة رقم {{ $tvshow_episode->episode }} من برنامج {{ str($tvshow_episode->tvshow->title)->words(5) }}</a>
+                                    </h6>
+                                    <div class="d-flex align-items-center mt-2 justify-content-between">
+                                        <span>منذ 3 اسبوع</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="d-flex mb-4">
-                            <div class="flex-shrink-0 me-3">
-                                <img src="https://via.placeholder.com/120x80" class="rounded-2" alt="">
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6 class="fs-6">Lorem ipsum dolor sit amet consectetur.</h6>
-                                <div class="d-flex align-items-center mt-2 justify-content-between">
-                                    <span>منذ 3 اسبوع</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex mb-4">
-                            <div class="flex-shrink-0 me-3">
-                                <img src="https://via.placeholder.com/120x80" class="rounded-2" alt="">
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6 class="fs-6">Lorem ipsum dolor sit amet consectetur.</h6>
-                                <div class="d-flex align-items-center mt-2 justify-content-between">
-                                    <span>منذ 3 اسبوع</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex mb-4">
-                            <div class="flex-shrink-0 me-3">
-                                <img src="https://via.placeholder.com/120x80" class="rounded-2" alt="">
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6 class="fs-6">Lorem ipsum dolor sit amet consectetur.</h6>
-                                <div class="d-flex align-items-center mt-2 justify-content-between">
-                                    <span>منذ 3 اسبوع</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex mb-4">
-                            <div class="flex-shrink-0 me-3">
-                                <img src="https://via.placeholder.com/120x80" class="rounded-2" alt="">
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6 class="fs-6">Lorem ipsum dolor sit amet consectetur.</h6>
-                                <div class="d-flex align-items-center mt-2 justify-content-between">
-                                    <span>منذ 3 اسبوع</span>
-                                </div>
-                            </div>
-                        </div>
+                        @empty
+                            <p class="text-center">لا توجد حلقات</p>
+                        @endforelse
                     </div>
                 </section>
             </div>
@@ -198,13 +160,13 @@
                         <div class="row">
                             @foreach ($movies as $movie)
                                 <div class="col-md-3">
-                                    <div class="post post-thumbnail" style="background-image: url('{{ asset('https://via.placeholder.com/230x310') }}')">
+                                    <div class="post post-thumbnail" style="background-image: url('{{ get_poster($movie->poster, '230x310') }}')">
                                         <a href="">
                                             <div class="post-meta">
                                                 <span
                                                     class="meta meta-quality d-block">{{ DataArray::QUALITIES[$movie->quality] }}</span>
                                                 <span class="meta meta-views"><i
-                                                        class="bx bx-bar-chart-alt-2"></i>{{ $movie->views }}</span>
+                                                        class="bx bx-bar-chart-alt-2 me-1"></i>{{ $movie->views }}</span>
                                                 <span
                                                     class="meta meta-dubbed">{{ DataArray::DUBBED_STATUS[$movie->dubbed_status] }}</span>
                                             </div>
