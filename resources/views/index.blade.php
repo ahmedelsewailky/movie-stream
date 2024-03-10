@@ -40,7 +40,8 @@
                         </div>
                         <div class="flex-shrink-0 ms-4">
                             <div class="poster-thumbnail">
-                                <img src="https://via.placeholder.com/250x340" width="250" height="340" class="rounded-3" alt="Movie Title Here">
+                                <img src="https://via.placeholder.com/250x340" width="250" height="340"
+                                    class="rounded-3" alt="Movie Title Here">
                             </div>
                         </div>
                     </div>
@@ -130,11 +131,13 @@
                         @forelse ($tvshows as $tvshow_episode)
                             <div class="d-flex mb-4">
                                 <div class="flex-shrink-0 me-3">
-                                    <img src="{{ get_poster($tvshow_episode->tvshow->poster, '120x80') }}" class="rounded-2" alt="">
+                                    <img src="{{ get_poster($tvshow_episode->tvshow->poster, '120x80') }}" class="rounded-2"
+                                        alt="">
                                 </div>
                                 <div class="flex-grow-1">
                                     <h6 class="fs-6">
-                                        <a href="">الحلقة رقم {{ $tvshow_episode->episode }} من برنامج {{ str($tvshow_episode->tvshow->title)->words(5) }}</a>
+                                        <a href="">الحلقة رقم {{ $tvshow_episode->episode }} من برنامج
+                                            {{ str($tvshow_episode->tvshow->title)->words(5) }}</a>
                                     </h6>
                                     <div class="d-flex align-items-center mt-2 justify-content-between">
                                         <span>منذ 3 اسبوع</span>
@@ -160,7 +163,8 @@
                         <div class="row">
                             @foreach ($movies as $movie)
                                 <div class="col-md-3">
-                                    <div class="post post-thumbnail" style="background-image: url('{{ get_poster($movie->poster, '230x310') }}')">
+                                    <div class="post post-thumbnail"
+                                        style="background-image: url('{{ get_poster($movie->poster, '230x310') }}')">
                                         <a href="">
                                             <div class="post-meta">
                                                 <span
@@ -185,6 +189,38 @@
             </div>
         </div>
     </div>
+
+    <div class="container my-5">
+        <section class="section">
+            <div class="section-title">
+                <h6>جديد المسلسلات</h6>
+
+                <a href="" class="watch-more-button">شاهد المزيد</a>
+            </div>
+
+            <div class="section-body">
+                <div class="row">
+                    <div class="owl-carousel">
+                        @foreach ($series as $series_episode)
+                            <div class="post post-thumbnail"
+                                style="background-image: url('{{ get_poster($series_episode->series->poster, '230x410') }}')">
+                                <a href="">
+                                    <div class="post-meta">
+                                        <span
+                                            class="meta meta-quality d-block">{{ DataArray::QUALITIES[$series_episode->quality] }}</span>
+                                        <span class="meta meta-views"><i
+                                                class="bx bx-bar-chart-alt-2 me-1"></i>{{ $series_episode->views }}</span>
+                                            <span>{{ $series_episode->series->category->name }}</span>
+                                    </div>
+                                    <div class="post-title">تحميل </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 @endsection
 
 
@@ -199,6 +235,7 @@
             $(".owl-carousel").owlCarousel({
                 loop: true,
                 margin: 10,
+                rtl: true,
                 responsive: {
                     0: {
                         items: 1,

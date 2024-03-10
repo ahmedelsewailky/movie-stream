@@ -372,7 +372,6 @@ ul.navbar-nav {
 .section-title h6 {
     position: relative;
     font-weight: 700;
-    font-size: 1rem;
 }
 
 .section-title h6::before {

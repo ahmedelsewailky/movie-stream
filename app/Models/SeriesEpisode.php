@@ -38,4 +38,14 @@ class SeriesEpisode extends Model
             return $movie->user_id = auth()->user()->id ?? 1;
         });
     }
+
+    /**
+     * One of this episode belongs to one series model
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function series():\Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Series::class);
+    }
 }
