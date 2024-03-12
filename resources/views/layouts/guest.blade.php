@@ -62,6 +62,14 @@
 
     @yield('content')
 
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                <p>جميع الحقوق محفوظة لـ {{ env('APP_NAME') }} © {{ date('Y') }}</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Bootstrap Bundle Js File -->
     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     @yield('js')

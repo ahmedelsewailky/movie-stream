@@ -174,11 +174,13 @@
                                                 <span
                                                     class="meta meta-dubbed">{{ DataArray::DUBBED_STATUS[$movie->dubbed_status] }}</span>
                                             </div>
-                                            <div class="post-title">{{ $movie->title }}</div>
-                                            <span class="meta meta-category">
-                                                <i class="bx bxs-folder-open text-warning"></i>
-                                                <a href="">{{ $movie->category->name }}</a>
-                                            </span>
+                                            <div class="post-title">
+                                                {{ str($movie->title)->words(5) }}
+                                                <span class="meta meta-category d-flex align-items-center small fw-normal">
+                                                    <i class="bx bxs-folder-open text-warning me-1"></i>
+                                                    {{ $movie->category->name }}
+                                                </span>
+                                            </div>
                                         </a>
                                     </div>
                                 </div>
@@ -210,9 +212,11 @@
                                             class="meta meta-quality d-block">{{ DataArray::QUALITIES[$series_episode->quality] }}</span>
                                         <span class="meta meta-views"><i
                                                 class="bx bx-bar-chart-alt-2 me-1"></i>{{ $series_episode->views }}</span>
-                                            <span>{{ $series_episode->series->category->name }}</span>
                                     </div>
-                                    <div class="post-title">تحميل </div>
+                                    <div class="post-title">
+                                        <h6>تحميل ومشاهدة فيلم كذا كذا 2018</h6>
+                                        <span>{{ $series_episode->series->category->name }}</span>
+                                    </div>
                                 </a>
                             </div>
                         @endforeach
@@ -236,6 +240,7 @@
                 loop: true,
                 margin: 10,
                 rtl: true,
+                dots: false,
                 responsive: {
                     0: {
                         items: 1,

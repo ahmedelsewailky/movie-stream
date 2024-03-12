@@ -45,6 +45,10 @@ h6 {
     vertical-align: middle;
 }
 
+.small {
+    font-size: 11px;
+}
+
 /* ====================================================== Bootstrap Form Cards */
 .card {
     margin-bottom: 1.5rem;
@@ -123,8 +127,7 @@ h6 {
 }
 
 /* ====================================================== Bootstrap Dropdown */
-.dropdown-menu {
-    border: none;
+/* .dropdown-menu {
     font-size: inherit;
     box-shadow: 0px 0px 5px rgb(0 0 0 / 8%);
     padding: 1rem;
@@ -134,6 +137,25 @@ h6 {
 .dropdown-item:active {
     color: var(--bs-dropdown-link-active-color);
     background-color: #a4b0be;
+} */
+
+.dropdown-menu {
+    background-color: #445b72;
+    border: 3px solid #1abc9c;
+    color: white;
+    padding: 0;
+}
+
+a.dropdown-item:hover {
+    background-color: #1abc9c;
+    color: white;
+}
+
+a.dropdown-item {
+    color: inherit;
+    padding: .5rem 1rem;
+    border-bottom: 1px dashed #708497;
+    font-size: 12px;
 }
 
 /* ====================================================== Bootstrap Form Buttons */
@@ -282,7 +304,7 @@ form.position-relative button {
     line-height: 2rem;
 }
 
-/* ====================================================== Website: Section Card */
+/* ====================================================== Website: Navbar */
 ul.navbar-nav {
     background-color: #34495e;
     padding: .5rem 1rem;
@@ -291,6 +313,11 @@ ul.navbar-nav {
 
 .navbar .nav-link.active {
     color: #1abc9c;
+}
+
+.navbar .nav-link:focus,
+.navbar .nav-link:hover {
+    color: rgb(26 188 156);
 }
 
 .body-shape {
@@ -304,7 +331,6 @@ ul.navbar-nav {
     border-radius: 50%;
 }
 
-
 /* ====================================================== Website: Global Post Thumbnail */
 .post {
     position: relative;
@@ -315,9 +341,17 @@ ul.navbar-nav {
 }
 
 .post.post-thumbnail {
-    height: 250px;
-    background-size: contain;
+    height: 250px
+}
+
+.owl-carousel .post.post-thumbnail {
+    height: 330px;
+}
+
+.post.post-thumbnail {
+    background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 .post-title {
@@ -434,4 +468,15 @@ a.watch-more-button {
     margin-bottom: 1rem;
     margin-right: 7%;
     list-style: none;
+}
+
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel button.owl-dot {
+    background-color: #5c768f;
+    color: white;
+    border: none;
+    font-size: 23px;
+    width: 35px;
+    margin-left: 1px;
 }
