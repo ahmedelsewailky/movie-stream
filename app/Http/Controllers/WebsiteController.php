@@ -16,12 +16,10 @@ class WebsiteController extends Controller
 
     public function show($post_identifier)
     {
-        if (request()->has('movie')) {
-            $model = 'Movie';
-        } else {
-            $model = request()->getRequestUri();
-        }
-
-        return $model;
+        $request_array = explode('/', trim(request()->getRequestUri()));
+        $request_array = array_slice($request_array, 0, count($request_array) - 1);
+        // $request_array = array_filter($request_arrady, 'strlen');
+        // $request_array = ucfirst($request_array[1]) . ucfirst($request_array[count($request_array)]);
+        return $request_array;
     }
 }
