@@ -130,13 +130,17 @@
                     <div class="section-body">
                         @forelse ($tvshows as $tvshow_episode)
                             <div class="d-flex mb-4">
+                                @php
+                                   $url = preg_replace('/[A-Z]/', ' $0', class_basename($tvshow_episode));
+                                   $url = explode(" ", trim($url));
+                                @endphp
                                 <div class="flex-shrink-0 me-3">
                                     <img src="{{ get_poster($tvshow_episode->tvshow->poster, '120x80') }}" class="rounded-2"
                                         alt="">
                                 </div>
                                 <div class="flex-grow-1">
                                     <h6 class="fs-6">
-                                        <a href="">الحلقة رقم {{ $tvshow_episode->episode }} من برنامج
+                                        <a href="/{{ strtolower($url[0]) }}/{{ strtolower($url[1]) }}/{{ $tvshow_episode->episode }}">الحلقة رقم {{ $tvshow_episode->episode }} من برنامج
                                             {{ str($tvshow_episode->tvshow->title)->words(5) }}</a>
                                     </h6>
                                     <div class="d-flex align-items-center mt-2 justify-content-between">
@@ -165,7 +169,7 @@
                                 <div class="col-md-3">
                                     <div class="post post-thumbnail"
                                         style="background-image: url('{{ get_poster($movie->poster, '230x310') }}')">
-                                        <a href="">
+                                        <a href="/{{ strtolower(class_basename($movie)) }}/{{ $movie->slug }}">
                                             <div class="post-meta">
                                                 <span
                                                     class="meta meta-quality d-block">{{ DataArray::QUALITIES[$movie->quality] }}</span>
@@ -204,9 +208,12 @@
                 <div class="row">
                     <div class="owl-carousel">
                         @foreach ($series as $series_episode)
+                            @php
+                                $url = preg_replace('/(?=[A-Z])/', '/', class_basename($series_episode));
+                            @endphp
                             <div class="post post-thumbnail"
                                 style="background-image: url('{{ get_poster($series_episode->series->poster, '230x410') }}')">
-                                <a href="">
+                                <a href="{{ strtolower($url) }}/{{ $series_episode->episode }}">
                                     <div class="post-meta">
                                         <span
                                             class="meta meta-quality d-block">{{ DataArray::QUALITIES[$series_episode->quality] }}</span>

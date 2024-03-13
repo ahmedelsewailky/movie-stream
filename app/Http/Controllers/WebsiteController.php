@@ -13,4 +13,15 @@ class WebsiteController extends Controller
         $series = SeriesEpisode::orderByDesc('id')->take(10)->get();
         return view('index', get_defined_vars());
     }
+
+    public function show($post_identifier)
+    {
+        if (request()->has('movie')) {
+            $model = 'Movie';
+        } else {
+            $model = request()->getRequestUri();
+        }
+
+        return $model;
+    }
 }

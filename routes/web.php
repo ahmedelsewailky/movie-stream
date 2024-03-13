@@ -17,6 +17,12 @@ Auth::routes(['register' => false, 'verify' => true]);
 
 Route::get('/', 'WebsiteController@index')->name('website');
 
+Route::get('movie/{slug}', 'WebsiteController@show');
+
+Route::get('tvshow/episode/{number}', 'WebsiteController@show');
+
+Route::get('series/episode/{number}', 'WebsiteController@show');
+
 Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function () {
 
     Route::get('/', 'HomeController@index')
