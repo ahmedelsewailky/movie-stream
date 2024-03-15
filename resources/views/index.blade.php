@@ -3,251 +3,205 @@
 
 {{-- Page content --}}
 @section('content')
-    <div class="container my-5">
-        <section id="sliderCarousel" class="carousel slide carousel-fade" data-bs-ride="true">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#sliderCarousel" data-bs-slide-to="0" class="active" aria-current="true"
-                    aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#sliderCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#sliderCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <section class="section slider-post-trailer">
+        <div id="slide-post-trailer" class="carousel slide carousel-fade">
+            <div class="indicators">
+                <div class="indicator-image active" data-bs-target="#slide-post-trailer" data-bs-slide-to="0">
+                    <img src="{{ asset('storage/movies/posters/poster-1.jpg') }}" alt="">
+                </div>
+                <div class="indicator-image" data-bs-target="#slide-post-trailer" data-bs-slide-to="1">
+                    <img src="{{ asset('storage/movies/posters/poster-2.jpg') }}" alt="">
+                </div>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="d-flex p-4">
-                        <div class="flex-grow-1">
-                            <h3 class="mt-4">
-                                <a href="">تحميل ومشاهدة فيلم فارس بجودة عالية و روابط تحميل مباشرة</a>
-                            </h3>
-                            <div class="my-3">
-                                <span class="meta meta-category me-3"><a href="">افلام عربية</a></span>
-                                <span class="meta meta-date me-3"><i class="bx bx-calendar"></i> 07/03/2024</span>
-                                <span class="meta meta-quality">
-                                    <span>الجودة</span>
-                                    WEB-DL720
-                                </span>
-                            </div>
-                            <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز
-                                على الشكل
-                                الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة
-                                لوريم إيبسوم
-                                لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي
-                            </p>
-
-                            <a href="" class="btn btn-lg btn-success mt-4">
-                                <i class="bx bx-play-circle me-1"></i>
-                                شاهد الآن
-                            </a>
+                    <div class="trailer-video">
+                        <video autoplay muted loop>
+                            <source src="{{ asset('storage/movies/trailers/trailer-1.mp4') }}">
+                        </video>
+                    </div>
+                    <span class="blur"></span>
+                    <div class="slide-post-content">
+                        <span class="meta-category">افلام اجنبي</span>
+                        <h2>Spider Man 3</h2>
+                        <div class="align-items-center d-flex my-4 post-meta">
+                            <span class="meta-rate"><i class="bx bx-star"></i> 8</span>
+                            <span class="meta-date">2023</span>
+                            <span class="meta-duration">1 hr 25 mins</span>
+                            <span class="meta-quality"><span>الجودة</span> WEB-DL 720P</span>
                         </div>
-                        <div class="flex-shrink-0 ms-4">
-                            <div class="poster-thumbnail">
-                                <img src="https://via.placeholder.com/250x340" width="250" height="340"
-                                    class="rounded-3" alt="Movie Title Here">
-                            </div>
-                        </div>
+                        <p>
+                            هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
+                            حيث
+                            يمكنك أن
+                            تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                            إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص
+                            لن
+                            يبدو
+                            مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج
+                            العميل فى
+                            كثير من
+                            الأحيان أن يطلع على صورة حقيقية لتصميم الموقع.
+                        </p>
+                        <a href="" class="btn btn-primary"><i class="bx bx-play-circle"></i> مشاهدة الآن</a>
+                        <a href="" class="btn btn-outline-primary"><i class="bx bx-bookmark"></i> مشاهدة لاحقا</a>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="d-flex p-4">
-                        <div class="flex-grow-1">
-                            <h3 class="mt-4">
-                                <a href="">تحميل ومشاهدة فيلم فارس بجودة عالية و روابط تحميل مباشرة</a>
-                            </h3>
-                            <div class="my-3">
-                                <span class="meta meta-category me-3"><a href="">افلام عربية</a></span>
-                                <span class="meta meta-date me-3"><i class="bx bx-calendar"></i> 07/03/2024</span>
-                                <span class="meta meta-quality">
-                                    <span>الجودة</span>
-                                    WEB-DL720
-                                </span>
-                            </div>
-                            <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز
-                                على الشكل
-                                الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة
-                                لوريم إيبسوم
-                                لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي
-                            </p>
 
-                            <a href="" class="btn btn-lg btn-success mt-4">
-                                <i class="bx bx-play-circle me-1"></i>
-                                شاهد الآن
-                            </a>
-                        </div>
-                        <div class="flex-shrink-0 ms-4">
-                            <div class="poster-thumbnail">
-                                <img src="https://via.placeholder.com/250x340" alt="Movie Title Here">
-                            </div>
-                        </div>
+                <div class="carousel-item">
+                    <div class="trailer-video">
+                        <video autoplay muted loop>
+                            <source src="{{ asset('storage/movies/trailers/trailer-2.mp4') }}">
+                        </video>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="d-flex p-4">
-                        <div class="flex-grow-1">
-                            <h3 class="mt-4">
-                                <a href="">تحميل ومشاهدة فيلم فارس بجودة عالية و روابط تحميل مباشرة</a>
-                            </h3>
-                            <div class="my-3">
-                                <span class="meta meta-category me-3"><a href="">افلام عربية</a></span>
-                                <span class="meta meta-date me-3"><i class="bx bx-calendar"></i> 07/03/2024</span>
-                                <span class="meta meta-quality">
-                                    <span>الجودة</span>
-                                    WEB-DL720
-                                </span>
-                            </div>
-                            <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز
-                                على الشكل
-                                الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة
-                                لوريم إيبسوم
-                                لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي
-                            </p>
-
-                            <a href="" class="btn btn-lg btn-success mt-4">
-                                <i class="bx bx-play-circle me-1"></i>
-                                شاهد الآن
-                            </a>
+                    <span class="blur"></span>
+                    <div class="slide-post-content">
+                        <span class="meta-category">مسلسلات هندي</span>
+                        <h2>إلبس عشان خارجين</h2>
+                        <div class="align-items-center d-flex my-4 post-meta">
+                            <span class="meta-rate"><i class="bx bx-star"></i> 6</span>
+                            <span class="meta-date">2024</span>
+                            <span class="meta-duration">1 hr 45 mins</span>
+                            <span class="meta-quality"><span>الجودة</span> BLUERAY 720P</span>
                         </div>
-                        <div class="flex-shrink-0 ms-4">
-                            <div class="poster-thumbnail">
-                                <img src="https://via.placeholder.com/250x340" alt="Movie Title Here">
-                            </div>
-                        </div>
+                        <p>
+                            هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
+                            حيث
+                            يمكنك أن
+                            تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                            إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص
+                            لن
+                            يبدو
+                            مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج
+                            العميل فى
+                            كثير من
+                            الأحيان أن يطلع على صورة حقيقية لتصميم الموقع.
+                        </p>
+                        <a href="" class="btn btn-primary"><i class="bx bx-play-circle"></i> مشاهدة الآن</a>
+                        <a href="" class="btn btn-outline-primary"><i class="bx bx-bookmark"></i> مشاهدة لاحقا</a>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#slide-post-trailer" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#slide-post-trailer" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
 
-    <div class="body-shape"></div>
-
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-md-4">
-                <section class="section">
-                    <div class="section-title">
-                        <h6>أجدد البرامج التلفزيونية</h6>
-                        <a href="" class="watch-more-button">شاهد المزيد</a>
-                    </div>
-
-                    <div class="section-body">
-                        @forelse ($tvshows as $tvshow_episode)
-                            <div class="d-flex mb-4">
-                                @php
-                                   $url = preg_replace('/[A-Z]/', ' $0', class_basename($tvshow_episode));
-                                   $url = explode(" ", trim($url));
-                                @endphp
-                                <div class="flex-shrink-0 me-3">
-                                    <img src="{{ get_poster($tvshow_episode->tvshow->poster, '120x80') }}" class="rounded-2"
-                                        alt="">
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h6 class="fs-6">
-                                        <a href="/{{ strtolower($url[0]) }}/{{ strtolower($url[1]) }}/{{ $tvshow_episode->episode }}">الحلقة رقم {{ $tvshow_episode->episode }} من برنامج
-                                            {{ str($tvshow_episode->tvshow->title)->words(5) }}</a>
-                                    </h6>
-                                    <div class="d-flex align-items-center mt-2 justify-content-between">
-                                        <span>منذ 3 اسبوع</span>
-                                    </div>
-                                </div>
-                            </div>
-                        @empty
-                            <p class="text-center">لا توجد حلقات</p>
-                        @endforelse
-                    </div>
-                </section>
+    <section class="section latest-movies">
+        <div class="container-fluid">
+            <div class="section-header ">
+                <span><i class="bx bxl-play-store"></i></span>
+                <h3>جديد الأفلام</h3>
+                <a href="" class="ms-auto">عرض المزيد</a>
             </div>
-
-            <div class="col-md-8">
-                <section class="section">
-                    <div class="section-title">
-                        <h6>جديد الأفلام</h6>
-
-                        <a href="" class="watch-more-button">شاهد المزيد</a>
-                    </div>
-
-                    <div class="section-body">
-                        <div class="row">
-                            @foreach ($movies as $movie)
-                                <div class="col-md-3">
-                                    <div class="post post-thumbnail"
-                                        style="background-image: url('{{ get_poster($movie->poster, '230x310') }}')">
-                                        <a href="/{{ strtolower(class_basename($movie)) }}/{{ $movie->slug }}">
-                                            <div class="post-meta">
-                                                <span
-                                                    class="meta meta-quality d-block">{{ DataArray::QUALITIES[$movie->quality] }}</span>
-                                                <span class="meta meta-views"><i
-                                                        class="bx bx-bar-chart-alt-2 me-1"></i>{{ $movie->views }}</span>
-                                                <span
-                                                    class="meta meta-dubbed">{{ DataArray::DUBBED_STATUS[$movie->dubbed_status] }}</span>
-                                            </div>
-                                            <div class="post-title">
-                                                {{ str($movie->title)->words(5) }}
-                                                <span class="meta meta-category d-flex align-items-center small fw-normal">
-                                                    <i class="bx bxs-folder-open text-warning me-1"></i>
-                                                    {{ $movie->category->name }}
-                                                </span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            @endforeach
+            <div class="section-body">
+                <div class="owl-carousel">
+                    <div class="post">
+                        <div class="post-thumbnail">
+                            <img src="https://via.placeholder.com/230x310" alt="">
+                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
+                            <a href="">شاهد الآن</a>
+                        </div>
+                        <div class="post-content">
+                            <a href="">Spiderman 3</a>
+                            <div class="d-flex">
+                                <span>2024</span>
+                                <span>1 hr 25 mins</span>
+                                <span>DVD-720</span>
+                            </div>
+                            <span>افلام عربية</span>
                         </div>
                     </div>
-                </section>
+                    <div class="post">
+                        <div class="post-thumbnail">
+                            <img src="https://via.placeholder.com/230x310" alt="">
+                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
+                            <a href="">شاهد الآن</a>
+                        </div>
+                        <div class="post-content">
+                            <a href="">Spiderman 3</a>
+                            <div class="d-flex">
+                                <span>2024</span>
+                                <span>1 hr 25 mins</span>
+                                <span>DVD-720</span>
+                            </div>
+                            <span>افلام عربية</span>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-thumbnail">
+                            <img src="https://via.placeholder.com/230x310" alt="">
+                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
+                            <a href="">شاهد الآن</a>
+                        </div>
+                        <div class="post-content">
+                            <a href="">Spiderman 3</a>
+                            <div class="d-flex">
+                                <span>2024</span>
+                                <span>1 hr 25 mins</span>
+                                <span>DVD-720</span>
+                            </div>
+                            <span>افلام عربية</span>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-thumbnail">
+                            <img src="https://via.placeholder.com/230x310" alt="">
+                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
+                            <a href="">شاهد الآن</a>
+                        </div>
+                        <div class="post-content">
+                            <a href="">Spiderman 3</a>
+                            <div class="d-flex">
+                                <span>2024</span>
+                                <span>1 hr 25 mins</span>
+                                <span>DVD-720</span>
+                            </div>
+                            <span>افلام عربية</span>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-thumbnail">
+                            <img src="https://via.placeholder.com/230x310" alt="">
+                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
+                            <a href="">شاهد الآن</a>
+                        </div>
+                        <div class="post-content">
+                            <a href="">Spiderman 3</a>
+                            <div class="d-flex">
+                                <span>2024</span>
+                                <span>1 hr 25 mins</span>
+                                <span>DVD-720</span>
+                            </div>
+                            <span>افلام عربية</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="container my-5">
-        <section class="section">
-            <div class="section-title">
-                <h6>جديد المسلسلات</h6>
-
-                <a href="" class="watch-more-button">شاهد المزيد</a>
-            </div>
-
-            <div class="section-body">
-                <div class="row">
-                    <div class="owl-carousel">
-                        @foreach ($series as $series_episode)
-                            @php
-                                $url = preg_replace('/(?=[A-Z])/', '/', class_basename($series_episode));
-                            @endphp
-                            <div class="post post-thumbnail"
-                                style="background-image: url('{{ get_poster($series_episode->series->poster, '230x410') }}')">
-                                <a href="{{ strtolower($url) }}/{{ $series_episode->episode }}">
-                                    <div class="post-meta">
-                                        <span
-                                            class="meta meta-quality d-block">{{ DataArray::QUALITIES[$series_episode->quality] }}</span>
-                                        <span class="meta meta-views"><i
-                                                class="bx bx-bar-chart-alt-2 me-1"></i>{{ $series_episode->views }}</span>
-                                    </div>
-                                    <div class="post-title">
-                                        <h6>تحميل ومشاهدة فيلم كذا كذا 2018</h6>
-                                        <span>{{ $series_episode->series->category->name }}</span>
-                                    </div>
-                                </a>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+    </section>
 @endsection
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('assets/libs/owlcarousel/assets/owl.carousel.min.css') }}">
+@endsection
 
-{{-- Custom Files for This Page --}}
 @section('js')
-    <!-- jQuery -->
     <script src="{{ asset('assets/libs/jquery/jquery-3.7.1.min.js') }}"></script>
-    <!-- Owl Carousel -->
     <script src="{{ asset('assets/libs/owlcarousel/owl.carousel.min.js') }}"></script>
     <script>
         $(function() {
-            $(".owl-carousel").owlCarousel({
+            $('.owl-carousel').owlCarousel({
                 loop: true,
                 margin: 10,
                 rtl: true,
-                dots: false,
+                responsiveClass: true,
                 responsive: {
                     0: {
                         items: 1,
@@ -258,18 +212,12 @@
                         nav: false
                     },
                     1000: {
-                        items: 4,
+                        items: 5,
                         nav: true,
                         loop: false
                     }
                 }
-            });
+            })
         });
     </script>
-@endsection
-
-@section('css')
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="{{ asset('assets/libs/owlcarousel/assets/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/libs/owlcarousel/assets/owl.theme.default.min.css') }}">
 @endsection
