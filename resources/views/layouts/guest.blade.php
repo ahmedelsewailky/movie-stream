@@ -55,7 +55,7 @@
                     @endforeach
                 </ul>
                 <a href="" class="btn text-white"><i class="bx bx-search"></i></a>
-                <a href="" class="btn btn-success text-white">تسجيل الدخول</a>
+                <a href="" class="btn btn-sm btn-primary text-white">تسجيل الدخول</a>
             </div>
         </div>
     </nav>

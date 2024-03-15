@@ -128,7 +128,7 @@
                             <a href="">شاهد الآن</a>
                         </div>
                         <div class="post-content">
-                            <h6><a href="">Spiderman 3</a></h6>
+                            <h6><a href="">Taken 2</a></h6>
                             <div class="d-flex">
                                 <span>2024</span>
                                 <span>1 hr 25 mins</span>
@@ -144,7 +144,7 @@
                             <a href="">شاهد الآن</a>
                         </div>
                         <div class="post-content">
-                            <h6><a href="">Spiderman 3</a></h6>
+                            <h6><a href="">العارف</a></h6>
                             <div class="d-flex">
                                 <span>2024</span>
                                 <span>1 hr 25 mins</span>
@@ -160,7 +160,7 @@
                             <a href="">شاهد الآن</a>
                         </div>
                         <div class="post-content">
-                            <h6><a href="">Spiderman 3</a></h6>
+                            <h6><a href="">لا تراجع ولا استسلام</a></h6>
                             <div class="d-flex">
                                 <span>2024</span>
                                 <span>1 hr 25 mins</span>
@@ -176,7 +176,7 @@
                             <a href="">شاهد الآن</a>
                         </div>
                         <div class="post-content">
-                            <h6><a href="">Spiderman 3</a></h6>
+                            <h6><a href="">Pirates of the Caribbean</a></h6>
                             <div class="d-flex">
                                 <span>2024</span>
                                 <span>1 hr 25 mins</span>
@@ -189,12 +189,117 @@
             </div>
         </div>
     </section>
+
+    <section class="section latest-series my-5">
+        <div class="container">
+            <div class="section-header ">
+                <span><i class="bx bx-video-recording"></i></span>
+                <h3>جديد المسلسلات</h3>
+                <a href="" class="load-more">
+                    عرض المزيد
+                    <i class="bx bx-left-arrow-alt"></i>
+                </a>
+            </div>
+            <div class="section-body">
+                <div class="owl-carousel">
+                    <div class="post">
+                        <div class="post-thumbnail">
+                            <img src="https://via.placeholder.com/230x310" alt="">
+                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
+                            <a href="">شاهد الآن</a>
+                        </div>
+                        <div class="post-content">
+                            <h6><a href="">المداح 4</a></h6>
+                            <div class="d-flex">
+                                <span>2024</span>
+                                <span>1 hr 25 mins</span>
+                                <span>DVD-720</span>
+                            </div>
+                            <span>افلام عربية</span>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-thumbnail">
+                            <img src="https://via.placeholder.com/230x310" alt="">
+                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
+                            <a href="">شاهد الآن</a>
+                        </div>
+                        <div class="post-content">
+                            <h6><a href="">The Boys</a></h6>
+                            <div class="d-flex">
+                                <span>2024</span>
+                                <span>1 hr 25 mins</span>
+                                <span>DVD-720</span>
+                            </div>
+                            <span>افلام عربية</span>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-thumbnail">
+                            <img src="https://via.placeholder.com/230x310" alt="">
+                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
+                            <a href="">شاهد الآن</a>
+                        </div>
+                        <div class="post-content">
+                            <h6><a href="">جعفر العمدة</a></h6>
+                            <div class="d-flex">
+                                <span>2024</span>
+                                <span>1 hr 25 mins</span>
+                                <span>DVD-720</span>
+                            </div>
+                            <span>افلام عربية</span>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-thumbnail">
+                            <img src="https://via.placeholder.com/230x310" alt="">
+                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
+                            <a href="">شاهد الآن</a>
+                        </div>
+                        <div class="post-content">
+                            <h6><a href="">الحشاشين</a></h6>
+                            <div class="d-flex">
+                                <span>2024</span>
+                                <span>1 hr 25 mins</span>
+                                <span>DVD-720</span>
+                            </div>
+                            <span>افلام عربية</span>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-thumbnail">
+                            <img src="https://via.placeholder.com/230x310" alt="">
+                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
+                            <a href="">شاهد الآن</a>
+                        </div>
+                        <div class="post-content">
+                            <h6><a href="">طاقة نور</a></h6>
+                            <div class="d-flex">
+                                <span>2024</span>
+                                <span>1 hr 25 mins</span>
+                                <span>DVD-720</span>
+                            </div>
+                            <span>افلام عربية</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section attachment-section latest-tvshows my-5">
+        <div class="container">
+            <h5></h5>
+        </div>
+    </section>
 @endsection
 
+{{-- Owlcarousel Css --}}
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/libs/owlcarousel/assets/owl.carousel.min.css') }}">
 @endsection
 
+{{-- Required Owl Carousel For This Page --}}
 @section('js')
     <script src="{{ asset('assets/libs/owlcarousel/owl.carousel.min.js') }}"></script>
     <script>
