@@ -287,9 +287,104 @@
         </div>
     </section>
 
-    <section class="section attachment-section latest-tvshows my-5">
+    <section class="section news-section latest-tvshows my-5">
         <div class="container">
-            <h5></h5>
+            <div class="section-header ">
+                <span><i class="bx bx-news"></i></span>
+                <h3>آخر الأخبار</h3>
+            </div>
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0 me-3">
+                                <img src="https://via.placeholder.com/162x180" width="162" height="180" class="rounded-2" alt="">
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6>
+                                    <a href="">الست اللي بتظهر لحسن الصباح من هي ؟</a>
+                                </h6>
+                                <div class="d-flex align-items-center my-2">
+                                    <span class="author">
+                                        <img src="https://via.placeholder.com/40" width="40" height="40" class="rounded-circle me-2" alt="John Doe">
+                                        احمد محمد
+                                    </span>
+                                    <span class="ms-3">15 مارس 2024</span>
+                                </div>
+                                <p>
+                                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0 me-3">
+                                <img src="https://via.placeholder.com/162x180" width="162" height="180" class="rounded-2" alt="">
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6>
+                                    <a href="">محمد القس عن تقديم دور صعيدي في «بـ100 راجل»: «اللهجة شبه السوري»</a>
+                                </h6>
+                                <div class="d-flex align-items-center my-2">
+                                    <span class="author">
+                                        <img src="https://via.placeholder.com/40" width="40" height="40" class="rounded-circle me-2" alt="John Doe">
+                                        احمد محمد
+                                    </span>
+                                    <span class="ms-3">15 مارس 2024</span>
+                                </div>
+                                <p>
+                                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0 me-3">
+                                <img src="https://via.placeholder.com/162x180" width="162" height="180" class="rounded-2" alt="">
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6>
+                                    <a href="">بعد مرور 22 عامًا.. مخرج «عائلة الحاج متولى» يكشف سرًا عن نهاية المسلسل (فيديو)</a>
+                                </h6>
+                                <div class="d-flex align-items-center my-2">
+                                    <span class="author">
+                                        <img src="https://via.placeholder.com/40" width="40" height="40" class="rounded-circle me-2" alt="John Doe">
+                                        احمد محمد
+                                    </span>
+                                    <span class="ms-3">15 مارس 2024</span>
+                                </div>
+                                <p>
+                                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0 me-3">
+                                <img src="https://via.placeholder.com/162x180" width="162" height="180" class="rounded-2" alt="">
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6>
+                                    <a href="">هل تقبيل الزوج لزوجته في نهار رمضان يفسد الصيام؟ سعاد صالح توضح</a>
+                                </h6>
+                                <div class="d-flex align-items-center my-2">
+                                    <span class="author">
+                                        <img src="https://via.placeholder.com/40" width="40" height="40" class="rounded-circle me-2" alt="John Doe">
+                                        احمد محمد
+                                    </span>
+                                    <span class="ms-3">15 مارس 2024</span>
+                                </div>
+                                <p>
+                                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 @endsection

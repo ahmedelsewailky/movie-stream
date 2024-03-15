@@ -665,3 +665,33 @@ span.play-overlay::after {
     visibility: visible;
     transform: translateX(0);
 }
+
+.news-section {
+    background: #1f1d2f;
+    padding: 2rem;
+}
+
+.news-section h6 {
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.news-section p {
+    opacity: 0.5;
+    font-size: 12px;
+    line-height: 23px;
+}
+
+.news-section h6 a {
+    background: linear-gradient(to bottom, #5352ed, #198754);
+    background-repeat: no-repeat;
+    background-size: 0 2px;
+    background-position: right 100%;
+    transition: 0.3s ease;
+    line-height: 30px;
+}
+
+.news-section h6 a:hover {
+    background-size: 100% 2px;
+}
