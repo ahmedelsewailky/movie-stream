@@ -313,6 +313,16 @@ form.position-relative button {
     left: 0;
     top: 0;
     z-index: 9;
+    transition: 0.3s;
+}
+
+.navbar.wide {
+    background: #000;
+    z-index: 99;
+}
+
+.navbar.hide {
+    transform: translateY(-100px);
 }
 
 /* ====================================================== Website: Slider Post Trailer */
@@ -329,7 +339,7 @@ form.position-relative button {
     bottom: 0;
     width: 100%;
     background: linear-gradient(to top, #000, transparent);
-    height: 240px;
+    height: 200px;
     z-index: 1;
 }
 
@@ -579,11 +589,22 @@ span.play-overlay i {
     width: 100%;
 }
 
-.post-content>a {
+.post-content h6 {
     font-size: 22px;
     font-weight: 600;
-    margin: 5px 0;
-    display: block;
+    margin: .75rem 0 1rem;
+}
+
+.post-content h6 a {
+    background: linear-gradient(to bottom, white, white);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: 0 1px;
+    transition: 0.3s ease;
+}
+
+.post:hover .post-content h6 a {
+    background-size: 100% 1px;
 }
 
 .post-content div {
@@ -594,6 +615,13 @@ span.play-overlay i {
 
 .post-content {
     text-align: center;
+}
+
+.post-content>div>span:last-of-type {
+    background-color: #ffffff36;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 2px;
 }
 
 span.play-overlay {
@@ -666,4 +694,21 @@ span.play-overlay::after {
 
 .section-header span i {
     font-size: inherit;
+}
+
+.section-header a.load-more {
+    margin-right: auto;
+}
+
+.section-header a.load-more i {
+    transform: translateX(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.section-header a.load-more:hover > i {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
 }

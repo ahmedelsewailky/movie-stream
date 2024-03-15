@@ -93,12 +93,15 @@
         </div>
     </section>
 
-    <section class="section latest-movies">
-        <div class="container-fluid">
+    <section class="section latest-movies my-5">
+        <div class="container">
             <div class="section-header ">
                 <span><i class="bx bxl-play-store"></i></span>
                 <h3>جديد الأفلام</h3>
-                <a href="" class="ms-auto">عرض المزيد</a>
+                <a href="" class="load-more">
+                    عرض المزيد
+                    <i class="bx bx-left-arrow-alt"></i>
+                </a>
             </div>
             <div class="section-body">
                 <div class="owl-carousel">
@@ -109,7 +112,7 @@
                             <a href="">شاهد الآن</a>
                         </div>
                         <div class="post-content">
-                            <a href="">Spiderman 3</a>
+                            <h6><a href="">Spiderman 3</a></h6>
                             <div class="d-flex">
                                 <span>2024</span>
                                 <span>1 hr 25 mins</span>
@@ -125,7 +128,7 @@
                             <a href="">شاهد الآن</a>
                         </div>
                         <div class="post-content">
-                            <a href="">Spiderman 3</a>
+                            <h6><a href="">Spiderman 3</a></h6>
                             <div class="d-flex">
                                 <span>2024</span>
                                 <span>1 hr 25 mins</span>
@@ -141,7 +144,7 @@
                             <a href="">شاهد الآن</a>
                         </div>
                         <div class="post-content">
-                            <a href="">Spiderman 3</a>
+                            <h6><a href="">Spiderman 3</a></h6>
                             <div class="d-flex">
                                 <span>2024</span>
                                 <span>1 hr 25 mins</span>
@@ -157,7 +160,7 @@
                             <a href="">شاهد الآن</a>
                         </div>
                         <div class="post-content">
-                            <a href="">Spiderman 3</a>
+                            <h6><a href="">Spiderman 3</a></h6>
                             <div class="d-flex">
                                 <span>2024</span>
                                 <span>1 hr 25 mins</span>
@@ -173,7 +176,7 @@
                             <a href="">شاهد الآن</a>
                         </div>
                         <div class="post-content">
-                            <a href="">Spiderman 3</a>
+                            <h6><a href="">Spiderman 3</a></h6>
                             <div class="d-flex">
                                 <span>2024</span>
                                 <span>1 hr 25 mins</span>
@@ -193,7 +196,6 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('assets/libs/jquery/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('assets/libs/owlcarousel/owl.carousel.min.js') }}"></script>
     <script>
         $(function() {

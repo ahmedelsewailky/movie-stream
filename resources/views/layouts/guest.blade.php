@@ -70,8 +70,12 @@
         </div>
     </footer>
 
+    <!-- jQuery -->
+    <script src="{{ asset('assets/libs/jquery/jquery-3.7.1.min.js') }}"></script>
     <!-- Bootstrap Bundle Js File -->
     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Required Custom Js File -->
+    <script src="{{ asset('assets/js/main.js') }}"></script>
     @yield('js')
 </body>
 
