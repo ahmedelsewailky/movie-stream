@@ -596,6 +596,7 @@ span.play-overlay i {
 .post.inner-post-effect:hover .post-content {
     transform: translateX(0);
 }
+
 span.play-overlay {
     position: absolute;
     top: 20%;
@@ -686,7 +687,6 @@ span.play-overlay::after {
 }
 
 .news-section {
-    background: #1f1d2f;
     padding: 2rem;
 }
 
@@ -756,7 +756,7 @@ span.play-overlay::after {
     border-color: #00BCD4;
 }
 
-.post.inner-post-effect .post-content > div {
+.post.inner-post-effect .post-content>div {
     display: flex;
     margin-bottom: 11px;
     justify-content: space-around;
@@ -783,4 +783,74 @@ a.page-link {
 ul.pagination {
     margin: 1rem 0;
     justify-content: center;
+}
+
+footer.footer {
+    background: #242137;
+    padding: 1rem 0;
+}
+
+.footer .logo {
+    text-align: center;
+}
+
+.footer .social-items {
+    text-align: center;
+}
+
+.footer .social-items a {
+    display: inline-block;
+    width: 35px;
+    text-align: center;
+}
+
+.footer .main-pages {
+    text-align: center;
+}
+
+.footer .main-pages a {
+    display: inline-block;
+    margin: 0.5rem 1rem;
+}
+
+.footer .rights {
+    text-align: center;
+    font-size: 11px;
+}
+
+
+.back-to-top {
+    display: inline-block;
+    background: linear-gradient(45deg, #009688, #CDDC39);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s,
+        opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    line-height: 45px;
+}
+
+.back-to-top:hover {
+    cursor: pointer;
+    background-color: #333;
+}
+
+.back-to-top:active {
+    background-color: #555;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top i {
+    font-size: 22px;
 }

@@ -64,19 +64,19 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="text-center my-3">
+            <div class="logo my-3">
                 <a href="">
                     <img src="{{ asset('logo.png') }}" alt="{{ env('APP_NAME') }}">
                 </a>
             </div>
 
-            <div class="text-center mb-3">
+            <div class="social-items mb-3">
                 <a href="" target="_blank"><i class="bx bxl-facebook"></i></a>
                 <a href="" target="_blank"><i class="bx bxl-twitter"></i></a>
                 <a href="" target="_blank"><i class="bx bxl-youtube"></i></a>
             </div>
 
-            <div class="text-center mb-3">
+            <div class="main-pages mb-3">
                 <a href="">الرئيسية</a>
                 <a href="">من نحن</a>
                 <a href="">سياسة الخصوصية</a>
@@ -84,11 +84,15 @@
                 <a href="">اتصل بنا</a>
             </div>
 
-            <div class="text-center">
+            <div class="rights">
                 <p>جميع الحقوق محفوظة لـ {{ env('APP_NAME') }} © {{ date('Y') }}</p>
             </div>
         </div>
     </footer>
+
+    <a class="back-to-top">
+        <i class="bx bxs-up-arrow"></i>
+    </a>
 
     <!-- jQuery -->
     <script src="{{ asset('assets/libs/jquery/jquery-3.7.1.min.js') }}"></script>
