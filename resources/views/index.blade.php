@@ -93,11 +93,11 @@
         </div>
     </section>
 
-    <section class="section latest-movies my-5">
+    <section class="section trending-movies my-5 py-4">
         <div class="container">
             <div class="section-header ">
-                <span><i class="bx bxl-play-store"></i></span>
-                <h3>جديد الأفلام</h3>
+                <span><i class="bx bx-trending-up"></i></span>
+                <h3>الأكثر تداولاً</h3>
                 <a href="" class="load-more">
                     عرض المزيد
                     <i class="bx bx-left-arrow-alt"></i>
@@ -190,7 +190,7 @@
         </div>
     </section>
 
-    <section class="section latest-series my-5">
+    <section class="section latest-series my-5 py-4">
         <div class="container">
             <div class="section-header ">
                 <span><i class="bx bx-video-recording"></i></span>
@@ -287,7 +287,89 @@
         </div>
     </section>
 
-    <section class="section news-section latest-tvshows my-5">
+    <section class="section latest-movies my-5 py-4">
+        <div class="container">
+            <div class="section-header ">
+                <span><i class="bx bxl-play-store"></i></span>
+                <h3>الأكثر تداولاً</h3>
+                <a href="" class="load-more">
+                    عرض المزيد
+                    <i class="bx bx-left-arrow-alt"></i>
+                </a>
+            </div>
+            <div class="section-body">
+                <div class="filter-content-bar">
+                    <a href="" class="filter-item active">
+                        <i class="bx bx-camera-movie"></i>
+                        الكل
+                    </a>
+                    <a href="" class="filter-item">
+                        <i class="bx bx-camera-movie"></i>
+                        افلام عربي
+                    </a>
+                    <a href="" class="filter-item">
+                        <i class="bx bx-camera-movie"></i>
+                        افلام هندي
+                    </a>
+                    <a href="" class="filter-item">
+                        <i class="bx bx-camera-movie"></i>
+                        افلام تركي
+                    </a>
+                    <a href="" class="filter-item">
+                        <i class="bx bx-camera-movie"></i>
+                        افلام اجنبي
+                    </a>
+                    <a href="" class="filter-item">
+                        <i class="bx bx-camera-movie"></i>
+                        افلام اسيوية
+                    </a>
+                    <a href="" class="filter-item">
+                        <i class="bx bx-camera-movie"></i>
+                        افلام انمي
+                    </a>
+                </div>
+
+                <div class="row">
+                    @for ($i = 0; $i < 18; $i++)
+                        <div class="col-md-2 mb-3">
+                            <div class="post inner-post-effect">
+                                <div class="post-thumbnail">
+                                    <img src="https://via.placeholder.com/280x370" alt="">
+                                </div>
+                                <div class="post-content">
+                                    <h6>
+                                        <a href="">Madame Web 2024</a>
+                                    </h6>
+                                    <div class="d-flex">
+                                        <span>2024</span>
+                                        <span>1 hr 25 mins</span>
+                                    </div>
+                                    <p>
+                                        هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
+                                        النص
+                                        العربى
+                                    </p>
+                                    <a href="" class="btn btn-outline-primary">مشاهدة الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section news-section latest-tvshows my-5 py-4">
         <div class="container">
             <div class="section-header ">
                 <span><i class="bx bx-news"></i></span>
@@ -298,7 +380,8 @@
                     <div class="col-md-6 mb-4">
                         <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
-                                <img src="https://via.placeholder.com/162x180" width="162" height="180" class="rounded-2" alt="">
+                                <img src="https://via.placeholder.com/162x180" width="162" height="180"
+                                    class="rounded-2" alt="">
                             </div>
                             <div class="flex-grow-1">
                                 <h6>
@@ -306,13 +389,16 @@
                                 </h6>
                                 <div class="d-flex align-items-center my-2">
                                     <span class="author">
-                                        <img src="https://via.placeholder.com/40" width="40" height="40" class="rounded-circle me-2" alt="John Doe">
+                                        <img src="https://via.placeholder.com/40" width="40" height="40"
+                                            class="rounded-circle me-2" alt="John Doe">
                                         احمد محمد
                                     </span>
                                     <span class="ms-3">15 مارس 2024</span>
                                 </div>
                                 <p>
-                                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص
+                                    العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
+                                    الحروف التى يولدها التطبيق.
                                 </p>
                             </div>
                         </div>
@@ -320,7 +406,8 @@
                     <div class="col-md-6 mb-4">
                         <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
-                                <img src="https://via.placeholder.com/162x180" width="162" height="180" class="rounded-2" alt="">
+                                <img src="https://via.placeholder.com/162x180" width="162" height="180"
+                                    class="rounded-2" alt="">
                             </div>
                             <div class="flex-grow-1">
                                 <h6>
@@ -328,13 +415,16 @@
                                 </h6>
                                 <div class="d-flex align-items-center my-2">
                                     <span class="author">
-                                        <img src="https://via.placeholder.com/40" width="40" height="40" class="rounded-circle me-2" alt="John Doe">
+                                        <img src="https://via.placeholder.com/40" width="40" height="40"
+                                            class="rounded-circle me-2" alt="John Doe">
                                         احمد محمد
                                     </span>
                                     <span class="ms-3">15 مارس 2024</span>
                                 </div>
                                 <p>
-                                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص
+                                    العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
+                                    الحروف التى يولدها التطبيق.
                                 </p>
                             </div>
                         </div>
@@ -342,21 +432,26 @@
                     <div class="col-md-6 mb-4">
                         <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
-                                <img src="https://via.placeholder.com/162x180" width="162" height="180" class="rounded-2" alt="">
+                                <img src="https://via.placeholder.com/162x180" width="162" height="180"
+                                    class="rounded-2" alt="">
                             </div>
                             <div class="flex-grow-1">
                                 <h6>
-                                    <a href="">بعد مرور 22 عامًا.. مخرج «عائلة الحاج متولى» يكشف سرًا عن نهاية المسلسل (فيديو)</a>
+                                    <a href="">بعد مرور 22 عامًا.. مخرج «عائلة الحاج متولى» يكشف سرًا عن نهاية
+                                        المسلسل (فيديو)</a>
                                 </h6>
                                 <div class="d-flex align-items-center my-2">
                                     <span class="author">
-                                        <img src="https://via.placeholder.com/40" width="40" height="40" class="rounded-circle me-2" alt="John Doe">
+                                        <img src="https://via.placeholder.com/40" width="40" height="40"
+                                            class="rounded-circle me-2" alt="John Doe">
                                         احمد محمد
                                     </span>
                                     <span class="ms-3">15 مارس 2024</span>
                                 </div>
                                 <p>
-                                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص
+                                    العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
+                                    الحروف التى يولدها التطبيق.
                                 </p>
                             </div>
                         </div>
@@ -364,7 +459,8 @@
                     <div class="col-md-6 mb-4">
                         <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
-                                <img src="https://via.placeholder.com/162x180" width="162" height="180" class="rounded-2" alt="">
+                                <img src="https://via.placeholder.com/162x180" width="162" height="180"
+                                    class="rounded-2" alt="">
                             </div>
                             <div class="flex-grow-1">
                                 <h6>
@@ -372,13 +468,16 @@
                                 </h6>
                                 <div class="d-flex align-items-center my-2">
                                     <span class="author">
-                                        <img src="https://via.placeholder.com/40" width="40" height="40" class="rounded-circle me-2" alt="John Doe">
+                                        <img src="https://via.placeholder.com/40" width="40" height="40"
+                                            class="rounded-circle me-2" alt="John Doe">
                                         احمد محمد
                                     </span>
                                     <span class="ms-3">15 مارس 2024</span>
                                 </div>
                                 <p>
-                                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص
+                                    العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
+                                    الحروف التى يولدها التطبيق.
                                 </p>
                             </div>
                         </div>
