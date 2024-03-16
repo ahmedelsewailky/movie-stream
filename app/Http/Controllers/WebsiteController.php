@@ -13,11 +13,13 @@ class WebsiteController extends Controller
      */
     public function index()
     {
-        $movies = Movie::orderByDesc('id')->take(8)->get();
+        $slider_movies = Movie::orderByDesc('id')->take(5)->get();
 
         $tvshows = TvshowEpisode::orderByDesc('id')->take(5)->get();
 
         $series = SeriesEpisode::orderByDesc('id')->take(10)->get();
+
+        return $slider_movies;
 
         return view('index', get_defined_vars());
     }
