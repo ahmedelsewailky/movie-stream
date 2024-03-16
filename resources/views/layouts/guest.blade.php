@@ -71,9 +71,9 @@
             </div>
 
             <div class="social-items mb-3">
-                <a href="" target="_blank"><i class="bx bxl-facebook"></i></a>
-                <a href="" target="_blank"><i class="bx bxl-twitter"></i></a>
-                <a href="" target="_blank"><i class="bx bxl-youtube"></i></a>
+                <a href="" target="_blank" title="facebook" data-bs-toggle="tooltip"><i class="bx bxl-facebook"></i></a>
+                <a href="" target="_blank" title="twitter" data-bs-toggle="tooltip"><i class="bx bxl-twitter"></i></a>
+                <a href="" target="_blank" title="youtube" data-bs-toggle="tooltip"><i class="bx bxl-youtube"></i></a>
             </div>
 
             <div class="main-pages mb-3">

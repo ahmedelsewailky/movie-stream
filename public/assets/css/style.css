@@ -854,3 +854,7 @@ footer.footer {
 .back-to-top i {
     font-size: 22px;
 }
+
+.tooltip {
+    --bs-tooltip-bg: #4CAF50;
+}
