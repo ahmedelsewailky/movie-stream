@@ -7,8 +7,8 @@
 @section('content')
     <div class="row">
         {{-- Visitings --}}
-        <div class="col-md-3">
-            <div class="card">
+        <div class="col-md-4">
+            <div class="card static-card visits-static-card">
                 <div class="card-body">
                     <div class="d-flex">
                         <div class="flex-shrink-0 me-3">
@@ -23,8 +23,8 @@
             </div>
         </div>
         {{-- Downloads --}}
-        <div class="col-md-3">
-            <div class="card">
+        <div class="col-md-4">
+            <div class="card static-card downloads-static-card">
                 <div class="card-body">
                     <div class="d-flex">
                         <div class="flex-shrink-0 me-3">
@@ -39,8 +39,8 @@
             </div>
         </div>
         {{-- Watchs --}}
-        <div class="col-md-3">
-            <div class="card">
+        <div class="col-md-4">
+            <div class="card static-card views-static-card">
                 <div class="card-body">
                     <div class="d-flex">
                         <div class="flex-shrink-0 me-3">
@@ -58,7 +58,7 @@
 
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5 h-100">
             <div class="card">
                 <div class="card-body">
                     <h6>اجمالي المنشورات</h6>
@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-7">
             <div class="card">
                 <div class="card-body">
                     <div id="bar"></div>

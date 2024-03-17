@@ -54,7 +54,7 @@ h6 {
 .card {
     margin-bottom: 1.5rem;
     border: none;
-    background-color: white;
+    background-color: #29263d;
     box-shadow: 1px 2px 5px rgb(0 0 0 / 3%);
 }
 
@@ -259,8 +259,70 @@ form.position-relative button {
     line-height: 2rem;
 }
 
+/* ====================================================== Dashboard: Static Card */
+.dashboard-nav-menu {
+    margin-bottom: 2rem;
+}
+
+.card.static-card i {
+    color: hsla(0, 0%, 100%, 0.40);
+    position: absolute;
+    font-size: 110px !important;
+    left: -14px;
+    bottom: -21px;
+    transform: rotate(-25deg);
+}
+
+.card.static-card {
+    position: relative;
+    overflow: hidden;
+    height: 110px;
+}
+
+.card.static-card p {
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.card.static-card h6 {
+    font-size: 10px !important;
+    margin-bottom: .5rem;
+}
+
+.card.static-card .flex-grow-1 {
+    z-index: 1;
+}
+
+.card.static-card.visits-static-card {
+    background: linear-gradient(45deg, #E91E63, #FF9800);
+}
+
+.card.static-card.downloads-static-card {
+    background: linear-gradient(45deg, #009688, #CDDC39);
+}
+
+.card.static-card.views-static-card {
+    background: linear-gradient(45deg, #9C27B0, #673AB7);
+}
+
+.dashboard-menu-list a.nav-link {
+    margin-bottom: 1rem;
+    border-radius: 50px;
+    padding: 1rem 1.5rem;
+    border: 1px solid transparent;
+}
+
+.dashboard-menu-list a.nav-link:hover {
+    border: 1px solid #1f88c5;
+    color: #fff;
+}
+
+.dashboard-menu-list a.nav-link.active {
+    background: linear-gradient(45deg, #3F51B5, #00BCD4);
+}
+
 /* ====================================================== Website: Navbar */
-.navbar {
+.navbar:not(.dashboard-nav-menu) {
     position: fixed;
     width: 100%;
     left: 0;
@@ -457,6 +519,7 @@ span.meta-quality>span {
     font-size: 10px;
     margin-bottom: 1rem;
 }
+
 .auth-login-form label.form-check-label {
     font-size: 12px;
 }

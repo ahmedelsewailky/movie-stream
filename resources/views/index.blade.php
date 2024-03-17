@@ -14,43 +14,39 @@
                 </div>
             </div>
             <div class="carousel-inner">
-                @forelse ($slider_movies as $movie)
-                    <div class="carousel-item">
-                        <div class="trailer-video">
-                            <video autoplay muted loop>
-                                <source src="{{ asset('storage/movies/trailers/trailer-1.mp4') }}">
-                            </video>
-                        </div>
-                        <span class="blur"></span>
-                        <div class="slide-post-content">
-                            <span class="meta-category">افلام اجنبي</span>
-                            <h2>Spider Man 3</h2>
-                            <div class="align-items-center d-flex my-4 post-meta">
-                                <span class="meta-rate"><i class="bx bx-star"></i> 8</span>
-                                <span class="meta-date">2023</span>
-                                <span class="meta-duration">1 hr 25 mins</span>
-                                <span class="meta-quality"><span>الجودة</span> WEB-DL 720P</span>
-                            </div>
-                            <p>
-                                هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
-                                حيث
-                                يمكنك أن
-                                تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
-                                إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص
-                                لن
-                                يبدو
-                                مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج
-                                العميل فى
-                                كثير من
-                                الأحيان أن يطلع على صورة حقيقية لتصميم الموقع.
-                            </p>
-                            <a href="" class="btn btn-primary"><i class="bx bx-play-circle"></i> مشاهدة الآن</a>
-                            <a href="" class="btn btn-outline-primary"><i class="bx bx-bookmark"></i> مشاهدة لاحقا</a>
-                        </div>
+                <div class="carousel-item active">
+                    <div class="trailer-video">
+                        <video autoplay muted loop>
+                            <source src="{{ asset('storage/movies/trailers/trailer-1.mp4') }}">
+                        </video>
                     </div>
-                @empty
-                    <p class="text-center">لا توجد افلام</p>
-                @endforelse
+                    <span class="blur"></span>
+                    <div class="slide-post-content">
+                        <span class="meta-category">افلام اجنبي</span>
+                        <h2>Spider Man 3</h2>
+                        <div class="align-items-center d-flex my-4 post-meta">
+                            <span class="meta-rate"><i class="bx bx-star"></i> 8</span>
+                            <span class="meta-date">2023</span>
+                            <span class="meta-duration">1 hr 25 mins</span>
+                            <span class="meta-quality"><span>الجودة</span> WEB-DL 720P</span>
+                        </div>
+                        <p>
+                            هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
+                            حيث
+                            يمكنك أن
+                            تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                            إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص
+                            لن
+                            يبدو
+                            مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج
+                            العميل فى
+                            كثير من
+                            الأحيان أن يطلع على صورة حقيقية لتصميم الموقع.
+                        </p>
+                        <a href="" class="btn btn-primary"><i class="bx bx-play-circle"></i> مشاهدة الآن</a>
+                        <a href="" class="btn btn-outline-primary"><i class="bx bx-bookmark"></i> مشاهدة لاحقا</a>
+                    </div>
+                </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#slide-post-trailer" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
