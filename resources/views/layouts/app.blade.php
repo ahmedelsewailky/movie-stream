@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'en' ? 'ltr' : 'rtl' }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,108 +21,104 @@
     <link rel="stylesheet" href="{{ asset('assets/libs/boxicons/css/boxicons.min.css') }}">
 
     <!-- Css File -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}">
 
     @yield('css')
 </head>
+
 <body>
-    <div id="app">
-        <div class="dashboard-wrap-content">
-            <nav class="navbar navbar-expand-md navbar-light dashboard-nav-menu">
-                <div class="container">
-                    <a class="navbar-brand" href="{{ route('dashboard') }}">
-                        <img src="{{ asset('logo.png') }}" alt="">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav me-auto">
-
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ms-auto">
-                            <!-- Authentication Links -->
-                            @guest
-                                @if (Route::has('login'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                    </li>
-                                @endif
-
-                                @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    </li>
-                                @endif
-                            @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('profile.index') }}">
-                                            <i class="bx bx-user"></i>
-                                            الملف الشخصي
-                                        </a>
-
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            <i class="bx bx-log-out"></i>
-                                            تسجيل الخروج
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                        </ul>
+    <div id="app" class="dashboard">
+        <div class="dashboard-wrapper">
+            <aside class="sidebar">
+                <div class="sidebar-inner">
+                    <div class="sidebar-logo">
+                        <a href="">
+                            <img src="{{ asset('logo.png') }}" alt="{{ env('APP_NAME') }}">
+                        </a>
                     </div>
-                </div>
-            </nav>
 
-            <main class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="dashboard-menu-list w-75">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a href="{{ url('/') }}" class="nav-link active" target="_blank">عرض الموقع</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{{ route('categories.index') }}" @class(['nav-link', 'active' => Request::routeIs('categories.*')])>الأقسام</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{{ route('actors.index') }}" @class(['nav-link', 'active' => Request::routeIs('actors.*')])>الممثلين</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{{ route('movies.index') }}" @class(['nav-link', 'active' => Request::routeIs('movies.*')])>الافلام</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{{ route('series.index') }}" @class(['nav-link', 'active' => Request::routeIs('series.*')])>مسلسلات</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{{ route('tvshows.index') }}" @class(['nav-link', 'active' => Request::routeIs('tvshows.*')])>برامج تلفزيونية</a>
-                                </li>
-                            </ul>
+                    <div class="sidebar-author">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <img src="https://via.placeholder.com/45" width="45" height="45"
+                                    class="rounded-circle me-3" alt="{{ auth()->user()->name }}">
+                            </div>
+                            <div class="flex-grow-1">
+                                <a href="">{{ auth()->user()->name }}</a>
+                                <p>{{ auth()->user()->email }}</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="col-md-9">
-                        @yield('content')
+                    <div class="sidebar-menu">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('dashboard') }}" @class(['nav-link', 'active' => Request::routeIs('dashboard')])>
+                                    <i class="bx bxs-dashboard"></i>
+                                    الرئيسية
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ url('/') }}" class="nav-link" target="_blank">
+                                    <i class="bx bx-globe"></i>
+                                    عرض الموقع
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('categories.index') }}" @class(['nav-link', 'active' => Request::routeIs('categories.*')])>
+                                    <i class="bx bx-category"></i>
+                                    الأقسام
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('actors.index') }}" @class(['nav-link', 'active' => Request::routeIs('actors.*')])>
+                                    <i class="bx bx-group"></i>
+                                    الممثلين
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('movies.index') }}" @class(['nav-link', 'active' => Request::routeIs('movies.*')])>
+                                    <i class="bx bx-movie-play"></i>
+                                    الافلام
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('series.index') }}" @class(['nav-link', 'active' => Request::routeIs('series.*')])>
+                                    <i class="bx bx-movie"></i>
+                                    مسلسلات
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('tvshows.index') }}" @class(['nav-link', 'active' => Request::routeIs('tvshows.*')])>
+                                    <i class="bx bx-camera-movie"></i>
+                                    برامج تلفزيونية
+                                </a>
+                            </li>
+                        </ul>
                     </div>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <div class="page-header">
+                    <div class="page-breadcrumb">
+                        <h6>الرئيسية</h6>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active" aria-current="page">الصفحة الرئيسية</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <button class="btn btn-sm btn-success">
+                        <i class="bx bx-download"></i>
+                        عرض التقرير
+                    </button>
                 </div>
             </main>
         </div>
@@ -132,8 +129,6 @@
 
     <!-- Bootstrap Bundle Js File -->
     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    @yield('js')
-    @include('sweetalert::alert')
 </body>
+
 </html>

@@ -64,7 +64,7 @@
                     <h6>اجمالي المنشورات</h6>
                     <p>{{ number_format(1350) }}</p>
 
-                    <div id="pie"></div>
+                    {{-- <div id="pie"></div> --}}
                 </div>
             </div>
         </div>
@@ -110,7 +110,7 @@
         </div>
     </div>
 @endsection
-
+{{--
 @php
     $totalMovies = \App\Models\Movie::get()->count();
     $totalSeries = \App\Models\Series::get()->count();
@@ -120,28 +120,6 @@
 @section('js')
     <script src="{{ asset('assets/libs/apexchart/apexcharts.min.js') }}"></script>
     <script>
-        var options = {
-            series: [{{ $totalMovies }}, {{ $totalSeries }}, {{ $totalTvShows }}],
-            chart: {
-                width: 380,
-                type: 'pie',
-            },
-            labels: {!! Category::whereNull('parent_id')->pluck('name') !!},
-            responsive: [{
-                breakpoint: 480,
-                options: {
-                    chart: {
-                        width: 200
-                    },
-                    legend: {
-                        position: 'bottom'
-                    }
-                }
-            }]
-        };
-
-        var chart = new ApexCharts(document.querySelector("#pie"), options);
-        chart.render();
 
 
 
@@ -228,4 +206,4 @@
         var chart = new ApexCharts(document.querySelector("#bar"), options);
         chart.render();
     </script>
-@endsection
+@endsection --}}
