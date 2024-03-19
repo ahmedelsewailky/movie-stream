@@ -51,9 +51,135 @@ h6 {
 }
 
 /* ====================================================== Bootstrap Form Cards */
-.card {
-    margin-bottom: 1.5rem;
+aside.sidebar {
+    width: 290px;
+    height: 100vh;
+    background-color: #322e49;
+}
+
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+main.main-content {
+    width: 100%;
+    padding: 1rem;
+}
+
+.sidebar-logo {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgb(60 56 87);
+    height: 68px;
+    display: grid;
+    place-content: center;
+}
+
+.sidebar-logo a {
+    font-size: 18px;
+    letter-spacing: 5px;
+}
+
+.sidebar-author {
+    position: relative;
+    padding: 1.5rem 1rem;
+    background: url("../img/cinema.png");
+    background-size: cover;
+    background-position: center;
+}
+
+
+.sidebar-author a {
+    font-weight: 700;
+}
+
+.sidebar-menu .nav-link {
+    padding: 0.75rem 1rem;
+    opacity: 0.8;
+    font-size: 12px;
+    width: 90%;
+    font-weight: 700;
+    border-radius: 50px 0 0 50px;
+}
+
+.sidebar-menu .nav-link i {
+    margin-left: .5rem;
+    font-size: 22px;
+}
+
+.sidebar-menu {
+    padding: 1rem 0;
+}
+
+.sidebar-menu .nav-link.active {
+    background: linear-gradient(45deg, #009688 25%, #CDDC39);
+    opacity: 1;
+}
+
+.sidebar-menu .nav-link:hover {
+    background-color: hsla(0, 0%, 100%, 0.10);
+    color: white;
+    opacity: 1;
+}
+
+.page-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem .5rem;
+    align-items: center;
+    border-bottom: 1px solid #45405f;
+}
+
+.page-header ol.breadcrumb {
+    margin: 6px 0 0;
+    font-size: 12px;
+}
+
+.page-header .btn,
+.page-header .btn:hover,
+.page-header .btn:focus {
+    font-size: 11px;
+    padding: 8px 15px !important;
+    background: linear-gradient(45deg, #FFC107, #FF5722);
     border: none;
-    background-color: #29263d;
-    box-shadow: 1px 2px 5px rgb(0 0 0 / 3%);
+    font-weight: 600;
+}
+
+.page-header div .bx {
+    color: #615e71;
+    font-size: 30px !important;
+}
+
+.card {
+    background-color: #322e49;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.static-card .static-card-title {
+    font-size: 13px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.static-card .static-card-title i {
+    color: #009688;
+    font-size: 23px;
+    margin-left: .5rem;
+}
+
+.static-card h5 {
+    font-size: 2rem;
+    padding: 0 3rem;
+}
+
+.static-card p {
+    font-size: 11px;
+    padding: 0.5rem 1rem;
+    line-height: 20px;
+    opacity: 0.5;
 }

@@ -20,6 +20,8 @@
     <!-- Boxicons Css File -->
     <link rel="stylesheet" href="{{ asset('assets/libs/boxicons/css/boxicons.min.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('assets/libs/apexchart/apexcharts.css') }}">
+
     <!-- Css File -->
     <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}">
 
@@ -32,9 +34,7 @@
             <aside class="sidebar">
                 <div class="sidebar-inner">
                     <div class="sidebar-logo">
-                        <a href="">
-                            <img src="{{ asset('logo.png') }}" alt="{{ env('APP_NAME') }}">
-                        </a>
+                        <a href="">{{ env('APP_NAME') }}</a>
                     </div>
 
                     <div class="sidebar-author">
@@ -107,18 +107,42 @@
 
             <main class="main-content">
                 <div class="page-header">
-                    <div class="page-breadcrumb">
-                        <h6>الرئيسية</h6>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item active" aria-current="page">الصفحة الرئيسية</li>
-                            </ol>
-                        </nav>
+                    <div class="d-flex">
+                        <div class="flex-shrink-0 me-2">
+                            <i class="bx bx-sm bx-home"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="page-breadcrumb">
+                                <h6>الرئيسية</h6>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">الصفحة الرئيسية</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
                     <button class="btn btn-sm btn-success">
                         <i class="bx bx-download"></i>
                         عرض التقرير
                     </button>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-lg-4">
+                        <div class="card static-card visits-chart-card">
+                            <div class="card-body p-0">
+                                <div class="static-card-title">
+                                    <i class="bx bx-bar-chart"></i>
+                                    إجمالي الزيارات
+                                </div>
+                                <h5>{{ number_format(8509850) }}</h5>
+                                <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
+                                    النص العربى</p>
+                                <div id="visits-chart"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>
@@ -129,6 +153,28 @@
 
     <!-- Bootstrap Bundle Js File -->
     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Apexchart Js -->
+    <script src="{{ asset('assets/libs/apexchart/apexcharts.min.js') }}"></script>
+    <script>
+        var options = {
+            series: [{
+                name: 'Visits Chart',
+                data: [31, 40, 28, 51, 42, 109, 100]
+            }],
+            chart: {
+                height: 100,
+                type: 'area',
+                sparkline: {
+                    enabled: true
+                }
+            },
+            colors: ['#009688'],
+        };
+
+        var chart = new ApexCharts(document.querySelector("#visits-chart"), options);
+        chart.render();
+    </script>
 </body>
 
 </html>
