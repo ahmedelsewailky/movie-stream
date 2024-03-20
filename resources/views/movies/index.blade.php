@@ -3,29 +3,35 @@
 
 @use('\App\Models\Category', 'Category')
 
-{{-- Page content --}}
-@section('content')
+{{-- Breadcrumb --}}
+@section('breadcrumb')
+    <h6>الأفلام</h6>
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
-            <li class="breadcrumb-item active" aria-current="page">الأفلام</li>
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item">
+                <a href="{{ route('dashboard') }}">لوحة التحكم</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">قائمة الأفلام</li>
         </ol>
     </nav>
+@endsection
 
-    <div class="mb-3">
-        <a href="{{ route('movies.create') }}" class="btn btn-sm btn-primary">اضافة فيلم جديد</a>
+{{-- Page content --}}
+@section('content')
+    <div class="text-end my-4">
+        <a href="{{ route('movies.create') }}" class="btn btn-sm btn-success">اضافة فيلم جديد</a>
     </div>
 
     <div class="row">
         <div class="col-md-3">
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <h6>ابحث باسم الفيلم</h6>
                 <form action="?" method="get" class="d-flex">
                     <input type="search" class="form-control" id="search" name="q"
                         value="{{ request()->get('q') ?? false }}">
                     <button type="submit" class="btn btn-sm btn-primary">بحث</button>
                 </form>
-            </div>
+            </div> --}}
 
             <div class="filter-form-card">
                 <form action="?" method="get" class="mb-3">
@@ -170,10 +176,10 @@
 
 @php
     $categories = Category::whereParentId(1)->get();
-        $data = collect([]);
-        foreach ($categories as $category) {
-            $data->push($category->movies->count());
-        }
+    $data = collect([]);
+    foreach ($categories as $category) {
+        $data->push($category->movies->count());
+    }
 @endphp
 
 @section('js')
@@ -196,6 +202,29 @@
                     color: '#255aee',
                     shadeTo: 'light',
                     shadeIntensity: 0.65
+                }
+            },
+            plotOptions: {
+                bar: {
+                    isDumbbell: true,
+                    columnWidth: 5,
+                }
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    type: 'vertical',
+                    gradientToColors: ['#009688', '#CDDC39'],
+                    inverseColors: true,
+                    stops: [0, 100]
+                }
+            },
+            grid: {
+                row: {
+                    colors: ['#F44336', '#E91E63', '#9C27B0']
+                },
+                column: {
+                    colors: ['#F44336', '#E91E63', '#9C27B0']
                 }
             }
         }

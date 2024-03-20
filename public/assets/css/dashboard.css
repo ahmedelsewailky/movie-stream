@@ -147,15 +147,53 @@ main.main-content {
 }
 
 .sidebar-menu .nav-link:hover {
-    background-color: hsla(0, 0%, 100%, 0.10);
+    background-color: rgb(61 58 87);
     color: white;
     opacity: 1;
+}
+
+.sidebar h6 {
+    font-size: 10px;
+    margin: 16px;
+    color: #757189;
+    position: relative;
+}
+
+.sidebar h6::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 1px;
+    background-color: #757189;
+    top: 50%;
+    right: -25px;
 }
 
 .card {
     background-color: #322e49;
     border-radius: 1rem;
     margin-bottom: 1.5rem;
+}
+
+.table {
+    color: white;
+    background-color: #322e49;
+    border-radius: 0.5rem;
+}
+
+.table tr {
+    border-color: #322e49;
+    color: inherit;
+}
+
+.table td {
+    color: white !important;
+    vertical-align: middle;
+    padding: 1rem;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    --bs-table-accent-bg: rgb(41 38 63);
 }
 
 .static-card {
@@ -217,4 +255,139 @@ main.main-content {
     font-size: 18px;
     margin-top: 4px;
     font-weight: 500;
+}
+
+.breadcrumb-item {
+    font-size: 11px;
+}
+
+.page-breadcrumb h6 {
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #3F51B5, #9C27B0);
+    border: none;
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #009688, #8BC34A);
+    border: none;
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #F44336, #9C27B0);
+    border: none;
+}
+
+.btn-sm {
+    font-size: 12px;
+    padding: .5rem 1rem;
+}
+
+.filter-form-card {
+    background-color: #322e49;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.filter-form-card .dropdown-toggle {
+    background-color: #484361;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+    line-height: 28px;
+    color: #f5f3ff;
+    border: none;
+}
+
+.filter-form-card h6 {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 14px;
+    border-bottom: 1px solid #484361;
+    padding-bottom: 1rem;
+}
+
+.filter-form-card {
+    background-color: #322e49;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.filter-form-card .dropdown-toggle {
+    background-color: #484361;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+    line-height: 28px;
+    color: #f5f3ff;
+    border: none;
+}
+
+.filter-form-card h6 {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 14px;
+    border-bottom: 1px solid #484361;
+    padding-bottom: 1rem;
+}
+
+.filter-form-card .filter-menu {
+    width: 100%;
+    font-size: 13px;
+    background-color: #484361;
+    overflow-y: scroll;
+    padding: 1rem;
+    color: white;
+}
+
+.filter-form-card .filter-menu::-webkit-scrollbar {
+    width: 5px;
+}
+
+.filter-form-card .filter-menu::-webkit-scrollbar-track {
+    background-color: #484361;
+}
+
+.filter-form-card .filter-menu::-webkit-scrollbar-thumb {
+    background-color: #5b576f;
+}
+
+.filter-form-card .filter-menu label {
+    padding: 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.filter-form-card .filter-menu label input {
+    width: 15px;
+    height: 15px;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.filter-form-card .filter-menu label:hover input {
+    border-color: #CDDC39;
+}
+
+.filter-form-card .form-check-input:checked {
+    background-color: #8BC34A;
+    border-color: #CDDC39;
+}
+
+.filter-form-card .form-check-input:focus {
+    border-color: #CDDC39;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(205 220 57 / 10%);
 }
