@@ -52,8 +52,9 @@ h6 {
 
 /* ====================================================== Bootstrap Form Cards */
 .navbar {
-    background-color: #322e49;
+    /* background-color: #3c3857; */
     color: white;
+    height: 68px;
 }
 
 .navbar .nav-link.active {
@@ -73,9 +74,25 @@ h6 {
     margin-left: 4px;
 }
 
+.nav-link:focus,
+.nav-link:hover {
+    color: white;
+}
+
 .navbar .nav-link:hover {
     background-color: #4d4965;
     color: white;
+}
+
+ul.dropdown-menu {
+    background-color: #322e49;
+    color: white;
+    border-radius: 5px;
+}
+
+a.dropdown-item {
+    font-size: 14px;
+    color: inherit;
 }
 
 aside.sidebar {
@@ -91,13 +108,12 @@ aside.sidebar {
 
 main.main-content {
     width: 100%;
-    padding: 1rem;
 }
 
 .sidebar-logo {
     text-align: center;
     padding: 1rem;
-    background-color: rgb(60 56 87);
+    background-color: rgb(72 67 103);
     height: 68px;
     display: grid;
     place-content: center;
@@ -108,26 +124,12 @@ main.main-content {
     letter-spacing: 5px;
 }
 
-.sidebar-author {
-    position: relative;
-    padding: 1.5rem 1rem;
-    background: url("../img/cinema.png");
-    background-size: cover;
-    background-position: center;
-}
-
-
-.sidebar-author a {
-    font-weight: 700;
-}
-
 .sidebar-menu .nav-link {
-    padding: 0.75rem 1rem;
     opacity: 0.8;
     font-size: 12px;
-    width: 90%;
     font-weight: 700;
-    border-radius: 50px 0 0 50px;
+    border-radius: .5rem;
+    padding: .75rem;
 }
 
 .sidebar-menu .nav-link i {
@@ -136,11 +138,11 @@ main.main-content {
 }
 
 .sidebar-menu {
-    padding: 1rem 0;
+    padding: 1rem;
 }
 
 .sidebar-menu .nav-link.active {
-    background: linear-gradient(45deg, #009688 25%, #CDDC39);
+    background: linear-gradient(45deg, #009688, #CDDC39);
     opacity: 1;
 }
 
@@ -150,39 +152,15 @@ main.main-content {
     opacity: 1;
 }
 
-.page-header {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding: 1rem .5rem;
-    align-items: center;
-    border-bottom: 1px solid #45405f;
-}
-
-.page-header ol.breadcrumb {
-    margin: 6px 0 0;
-    font-size: 12px;
-}
-
-.page-header .btn,
-.page-header .btn:hover,
-.page-header .btn:focus {
-    font-size: 11px;
-    padding: 8px 15px !important;
-    background: linear-gradient(45deg, #FFC107, #FF5722);
-    border: none;
-    font-weight: 600;
-}
-
-.page-header div .bx {
-    color: #615e71;
-    font-size: 30px !important;
-}
-
 .card {
     background-color: #322e49;
     border-radius: 1rem;
     margin-bottom: 1.5rem;
+}
+
+.static-card {
+    border-radius: 3px;
+    height: 250px;
 }
 
 .static-card .static-card-title {
@@ -194,9 +172,15 @@ main.main-content {
 }
 
 .static-card .static-card-title i {
-    color: #009688;
+    color: #8bc34a;
     font-size: 23px;
     margin-left: .5rem;
+}
+
+.downloads-chart-card {
+    /* background: linear-gradient(45deg, #CDDC39, #009688); */
+    background: transparent;
+    border: 2px dashed #585472;
 }
 
 .static-card h5 {
@@ -217,12 +201,12 @@ main.main-content {
     place-content: center;
     text-align: center;
     background-color: #46425d;
-    border-top: 1px solid #9490ab;
+    border-top: 1px solid #605c72;
 }
 
 .static-card .col:nth-child(2) .count-item {
-    border-right: 1px solid #9490ab;
-    border-left: 1px solid #9490ab;
+    border-right: 1px solid #605c72;
+    border-left: 1px solid #605c72;
 }
 
 .count-item span {
