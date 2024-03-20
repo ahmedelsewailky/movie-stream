@@ -183,3 +183,27 @@ main.main-content {
     line-height: 20px;
     opacity: 0.5;
 }
+
+.count-item {
+    height: 80px;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    background-color: #46425d;
+    border-top: 1px solid #9490ab;
+}
+
+.static-card .col:nth-child(2) .count-item {
+    border-right: 1px solid #9490ab;
+    border-left: 1px solid #9490ab;
+}
+
+.count-item span {
+    font-size: 10px;
+}
+
+.count-item strong {
+    font-size: 18px;
+    margin-top: 4px;
+    font-weight: 500;
+}

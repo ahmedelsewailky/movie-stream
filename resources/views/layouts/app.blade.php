@@ -129,7 +129,7 @@
                 </div>
 
                 <div class="row my-3">
-                    <div class="col-lg-4">
+                    <div class="col-lg-5">
                         <div class="card static-card visits-chart-card">
                             <div class="card-body p-0">
                                 <div class="static-card-title">
@@ -140,6 +140,48 @@
                                 <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
                                     النص العربى</p>
                                 <div id="visits-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="card static-card posts-chart-card">
+                            <div class="card-body p-0">
+                                <div class="static-card-title">
+                                    <i class="bx bx-bar-chart"></i>
+                                    إجمالي المنشورات
+                                </div>
+                                <div class="d-flex">
+                                    <div class="flex-grow-1">
+                                        <h5>{{ number_format(4500) }}</h5>
+                                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من
+                                            مولد
+                                            النص العربى</p>
+                                    </div>
+                                    <div class="flex-shrink-0">
+                                        <div id="posts-chart"></div>
+                                    </div>
+                                </div>
+                                <div class="row g-0">
+                                    <div class="col">
+                                        <div class="count-item">
+                                            <span>فيلم</span>
+                                            <strong>315</strong>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="count-item">
+                                            <span>مسلسل</span>
+                                            <strong>45</strong>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="count-item">
+                                            <span>برنامج</span>
+                                            <strong>25</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -171,8 +213,36 @@
             },
             colors: ['#009688'],
         };
-
         var chart = new ApexCharts(document.querySelector("#visits-chart"), options);
+        chart.render();
+
+        var options = {
+            series: [44, 55, 13],
+            chart: {
+                width: 150,
+                type: 'pie',
+            },
+            legend: {
+                show: false
+            },
+            labels: ['فيلم', 'مسلسل', 'برنامج'],
+            dataLabels: {
+                enabled: false
+            },
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200
+                    },
+                    legend: {
+                        position: 'top'
+                    }
+                }
+            }]
+        };
+
+        var chart = new ApexCharts(document.querySelector("#posts-chart"), options);
         chart.render();
     </script>
 </body>
