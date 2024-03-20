@@ -51,6 +51,33 @@ h6 {
 }
 
 /* ====================================================== Bootstrap Form Cards */
+.navbar {
+    background-color: #322e49;
+    color: white;
+}
+
+.navbar .nav-link.active {
+    background: linear-gradient(45deg, #5352ed, #9e61ff);
+    color: white;
+}
+
+.navbar .nav-link {
+    font-size: 12px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.navbar .nav-link .bx {
+    font-size: 18px;
+    margin-left: 4px;
+}
+
+.navbar .nav-link:hover {
+    background-color: #4d4965;
+    color: white;
+}
+
 aside.sidebar {
     width: 290px;
     height: 100vh;

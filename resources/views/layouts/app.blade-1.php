@@ -30,82 +30,109 @@
 
 <body>
     <div id="app" class="dashboard">
-        <div class="dashboard-wrapper">
-            <aside class="sidebar">
-                <div class="sidebar-inner">
-                    <div class="sidebar-logo">
-                        <a href="">{{ env('APP_NAME') }}</a>
-                    </div>
+        <nav class="navbar navbar-expand-md navbar-light dashboard-nav-menu">
+            <div class="container">
+                <a class="navbar-brand" href="{{ route('dashboard') }}">
+                    <img src="{{ asset('logo.png') }}" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <div class="sidebar-author">
-                        <div class="d-flex">
-                            <div class="flex-shrink-0">
-                                <img src="https://via.placeholder.com/45" width="45" height="45"
-                                    class="rounded-circle me-3" alt="{{ auth()->user()->name }}">
-                            </div>
-                            <div class="flex-grow-1">
-                                <a href="">{{ auth()->user()->name }}</a>
-                                <p>{{ auth()->user()->email }}</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="{{ url('/') }}" class="nav-link" target="_blank">عرض
+                                الموقع</a>
+                        </li>
 
-                    <div class="sidebar-menu">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a href="{{ route('dashboard') }}" @class(['nav-link', 'active' => Request::routeIs('dashboard')])>
-                                    <i class="bx bxs-dashboard"></i>
-                                    الرئيسية
+                        <li class="nav-item">
+                            <a href="{{ route('categories.index') }}" @class(['nav-link', 'active' => Request::routeIs('categories.*')])>
+                                <i class="bx bx-category"></i>
+                                الأقسام
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('actors.index') }}" @class(['nav-link', 'active' => Request::routeIs('actors.*')])>
+                                <i class="bx bx-group"></i>
+                                الممثلين
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('movies.index') }}" @class(['nav-link', 'active' => Request::routeIs('movies.*')])>
+                                <i class="bx bx-movie-play"></i>
+                                الافلام
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('series.index') }}" @class(['nav-link', 'active' => Request::routeIs('series.*')])>
+                                <i class="bx bx-movie"></i>
+                                مسلسلات
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('tvshows.index') }}" @class(['nav-link', 'active' => Request::routeIs('tvshows.*')])>
+                                <i class="bx bx-camera-movie"></i>
+                                برامج تلفزيونية
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
                                 </a>
-                            </li>
 
-                            <li class="nav-item">
-                                <a href="{{ url('/') }}" class="nav-link" target="_blank">
-                                    <i class="bx bx-globe"></i>
-                                    عرض الموقع
-                                </a>
-                            </li>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('profile.index') }}">
+                                        <i class="bx bx-user"></i>
+                                        الملف الشخصي
+                                    </a>
 
-                            <li class="nav-item">
-                                <a href="{{ route('categories.index') }}" @class(['nav-link', 'active' => Request::routeIs('categories.*')])>
-                                    <i class="bx bx-category"></i>
-                                    الأقسام
-                                </a>
-                            </li>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <i class="bx bx-log-out"></i>
+                                        تسجيل الخروج
+                                    </a>
 
-                            <li class="nav-item">
-                                <a href="{{ route('actors.index') }}" @class(['nav-link', 'active' => Request::routeIs('actors.*')])>
-                                    <i class="bx bx-group"></i>
-                                    الممثلين
-                                </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
                             </li>
-
-                            <li class="nav-item">
-                                <a href="{{ route('movies.index') }}" @class(['nav-link', 'active' => Request::routeIs('movies.*')])>
-                                    <i class="bx bx-movie-play"></i>
-                                    الافلام
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{ route('series.index') }}" @class(['nav-link', 'active' => Request::routeIs('series.*')])>
-                                    <i class="bx bx-movie"></i>
-                                    مسلسلات
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{ route('tvshows.index') }}" @class(['nav-link', 'active' => Request::routeIs('tvshows.*')])>
-                                    <i class="bx bx-camera-movie"></i>
-                                    برامج تلفزيونية
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                        @endguest
+                    </ul>
                 </div>
-            </aside>
+            </div>
+        </nav>
 
-            <main class="main-content">
+        <main class="main-content">
+            <div class="container">
                 <div class="page-header">
                     <div class="d-flex">
                         <div class="flex-shrink-0 me-2">
@@ -186,10 +213,8 @@
                         </div>
                     </div>
                 </div>
-
-                @yield('content')
-            </main>
-        </div>
+            </div>
+        </main>
     </div>
 
     <!-- jQuery -->
