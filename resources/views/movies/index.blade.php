@@ -8,7 +8,7 @@
     {{-- Page Breadcrumbs --}}
     <div class="d-flex align-items-center my-4">
         <div class="me-auto">
-            <h6 class="mb-2">الأفلام</h6>
+            <h6 class="mb-2">قائمة الأفلام</h6>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item">
@@ -160,6 +160,7 @@
                 </tbody>
             </table>
 
+            {{-- Paginations --}}
             <div class="table-pagination">
                 {!! $movies->links('pagination::bootstrap-5') !!}
             </div>

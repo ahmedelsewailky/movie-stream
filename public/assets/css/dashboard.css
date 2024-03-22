@@ -19,10 +19,6 @@ a:hover,
     font-size: inherit;
 }
 
-span {
-    display: inline-block;
-}
-
 td {
     vertical-align: middle;
 }
@@ -325,6 +321,46 @@ main.main-content {
 
 label.form-check-label {
     font-size: 12px;
+    cursor: pointer;
+}
+
+.form-check-input:focus,
+.form-control:focus,
+.form-select:focus {
+    border-color: #706fd3 !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(112 111 211 / 35%) !important;
+}
+
+.invalid-feedback {
+    color: #FFC107;
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid,
+.was-validated .form-select:invalid,
+.was-validated .form-control:invalid {
+    border: 1px solid #FF9800 !important;
+    padding-left: calc(1.5em + .75rem);
+    background-image: url("../img/invalid.png") !important;
+    background-repeat: no-repeat;
+    background-position: left calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+.form-control.is-invalid:focus,
+.form-select.is-invalid:focus,
+.was-validated .form-control:invalid:focus,
+.was-validated .form-select:invalid:focus {
+    border-color: #FFC107;
+    box-shadow: 0 0 0 0.25rem rgb(255 193 7 / 21%);
+}
+
+.form-select.is-invalid:not([multiple]):not([size]),
+.form-select.is-invalid:not([multiple])[size="1"],
+.was-validated .form-select:invalid:not([multiple]):not([size]),
+.was-validated .form-select:invalid:not([multiple])[size="1"] {
+    background-size: 16px;
 }
 
 /*  =====================================================   Bootstrap Table */
@@ -473,6 +509,16 @@ label.form-check-label {
     border-color: #4b6be3;
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgb(205 220 57 / 10%);
+}
+
+button#addLink {
+    margin-top: 1rem;
+    background-color: #607D8B;
+    color: white;
+    border: none;
+    font-size: 11px;
+    line-height: 32px;
+    padding: 0 15px;
 }
 
 /*  =====================================================   Sidebar Search Form */
