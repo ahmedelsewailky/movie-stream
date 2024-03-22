@@ -7,7 +7,7 @@ body {
     color: #ecf0f1;
     font-size: 0.8125rem;
     font-family: "Noto Kufi Arabic", sans-serif;
-    background-color: #181625;
+    background-color: #ededed;
     /* # */
 }
 
@@ -48,8 +48,8 @@ h6 {
 
 /* ====================================================== Bootstrap Form Cards */
 .navbar {
-    background-color: #322e49;
-    color: white;
+    background-color: #ffffff;
+    color: #5b5f95;
     height: 68px;
 }
 
@@ -93,8 +93,7 @@ a.dropdown-item {
 
 aside.sidebar {
     width: 290px;
-    background-color: #322e49;
-    min-height: 100vh;
+    background-color: #706fd3;
 }
 
 .dashboard-wrapper {
@@ -106,7 +105,6 @@ main.main-content {
     width: 100%;
 }
 
-/*  =====================================================   Sidebar */
 .sidebar-logo {
     text-align: center;
     padding: 1rem;
@@ -146,7 +144,7 @@ main.main-content {
 }
 
 .sidebar-menu .nav-link:hover {
-    background-color: rgb(61 58 87);
+    background-color: rgb(153 152 227);
     color: white;
     opacity: 1;
 }
@@ -154,7 +152,7 @@ main.main-content {
 .sidebar h6 {
     font-size: 10px;
     margin: 16px;
-    color: #757189;
+    color: white;
     position: relative;
 }
 
@@ -163,15 +161,17 @@ main.main-content {
     position: absolute;
     width: 18px;
     height: 1px;
-    background-color: #757189;
+    background-color: white;
     top: 50%;
     right: -25px;
 }
 
 .card {
-    background-color: #322e49;
-    border-radius: 0;
+    background-color: white;
+    border-radius: 10px;
     margin-bottom: 1.5rem;
+    border: none;
+    box-shadow: 0 5px 6px rgb(201 201 201);
 }
 
 .card-header {
@@ -301,7 +301,7 @@ main.main-content {
 /*  =====================================================   Bootstrap Form Elements */
 .form-control,
 .form-select {
-    background-color: #5e5a74;
+    /* background-color: #5e5a74; */
     font-size: inherit;
     border: none;
     border-radius: 3px;
@@ -367,8 +367,8 @@ label.form-check-label {
 
 /*  =====================================================   Bootstrap Table */
 .table {
-    color: white;
-    background-color: #322e49;
+    color: #686d8b;
+    background-color: transparent;
     border-radius: 0.5rem;
 }
 
@@ -383,13 +383,13 @@ label.form-check-label {
 }
 
 .table td {
-    color: white !important;
+    color: #686d8b !important;
     vertical-align: middle;
     padding: 1rem;
 }
 
 .table-striped>tbody>tr:nth-of-type(odd)>* {
-    --bs-table-accent-bg: rgb(41 38 63);
+    --bs-table-accent-bg: whitesmoke;
 }
 
 .table .dropdown button {
@@ -399,7 +399,7 @@ label.form-check-label {
 }
 
 .table .dropdown i {
-    color: inherit;
+    color: #686d8b;
 }
 
 .table h6 {
@@ -450,8 +450,8 @@ label.form-check-label {
     padding: 1rem;
     display: flex;
     width: 100%;
-    border-bottom: 1px solid #181625;
-    background-color: #48445e;
+    border-bottom: 1px solid #e8e5e5;
+    background-color: white;
 }
 
 .table-filter-element .dropdown .btn {
@@ -460,8 +460,9 @@ label.form-check-label {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #6c697e;
-    border: none;
+    background-color: transparent;
+    border: 1px solid #e8e5e5;
+    color: #686d8b;
 }
 
 .table-filter-element .filter-menu {
