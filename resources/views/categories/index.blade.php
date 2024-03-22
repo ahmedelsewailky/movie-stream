@@ -36,8 +36,8 @@
                                     @endif
                                 </h6>
                                 <div class="d-flex ms-auto">
-                                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-success me-1">تعديل</a>
-                                    <a href="javascript:void('0')" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $category->id }}" class="btn btn-sm btn-danger">حذف</a>
+                                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-success me-1">تعديل</a>
+                                    <a href="javascript:void('0')" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $category->id }}" class="btn btn-danger">حذف</a>
                                 </div>
                             </div>
                             @include('categories.confirm-modal')

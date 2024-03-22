@@ -5,8 +5,14 @@
                 @csrf
                 @method('DELETE')
                 <div class="modal-body">
-                    <i class='bx bx-error'></i>
-                    <p>انت الآن علي وشك حذف هذا السجل، <strong>هل أنت متأكد من هذا الإجراء؟</strong></p>
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <i class='bx bx-error'></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <p>انت الآن علي وشك حذف هذا السجل، <strong>هل أنت متأكد من هذا الإجراء؟</strong></p>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">إلغاء</button>

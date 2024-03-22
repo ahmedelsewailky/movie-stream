@@ -30,6 +30,13 @@
                     <a href="">{{ env('APP_NAME') }}</a>
                 </div>
 
+                <div class="sidebar-search-form">
+                    <form action="" method="get">
+                        <input type="text" class="form-control" placeholder="هل تبحث عن شئ ما؟">
+                        <button type="submit" class="btn"><i class="bx bx-search"></i></button>
+                    </form>
+                </div>
+
                 <div class="sidebar-menu">
                     <ul class="nav flex-column">
                         <h6>اساسي</h6>
@@ -91,35 +98,32 @@
         </aside>
 
         <main class="main-content">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg">
-                    <div class="container-fluid">
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <div class="page-breadcrumb">
-                                @yield('breadcrumb')
-                            </div>
-                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="https://via.placeholder.com/32" width="32" height="32"
-                                            class="rounded-circle me-2" alt="{{ auth()->user()->name }}">
-                                        {{ auth()->user()->name }}
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="https://via.placeholder.com/32" width="32" height="32"
+                                        class="rounded-circle me-2" alt="{{ auth()->user()->name }}">
+                                    {{ auth()->user()->name }}
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
-                </nav>
+                </div>
+            </nav>
 
+            <div class="container">
                 @yield('content')
             </div>
         </main>

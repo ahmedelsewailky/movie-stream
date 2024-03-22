@@ -1,44 +1,32 @@
 {{-- Extend master app layout --}}
 @extends('layouts.app')
 
-@use('\App\Models\Category', 'Category')
-
-{{-- Breadcrumb --}}
-@section('breadcrumb')
-    <h6>الأفلام</h6>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item">
-                <a href="{{ route('dashboard') }}">لوحة التحكم</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">قائمة الأفلام</li>
-        </ol>
-    </nav>
-@endsection
+@use('App\Models\Category', 'Category')
 
 {{-- Page content --}}
 @section('content')
-    <div class="text-end my-4">
-        <a href="{{ route('movies.create') }}" class="btn btn-sm btn-success">اضافة فيلم جديد</a>
+    {{-- Page Breadcrumbs --}}
+    <div class="d-flex align-items-center my-4">
+        <div class="me-auto">
+            <h6 class="mb-2">الأفلام</h6>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('dashboard') }}">لوحة التحكم</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">قائمة الأفلام</li>
+                </ol>
+            </nav>
+        </div>
+        <a href="{{ route('movies.create') }}" class="btn btn-sm btn-outline-success">+ اضافة فيلم جديد</a>
     </div>
 
-    <div class="row">
-        <div class="col-md-3">
-            {{-- <div class="mb-3">
-                <h6>ابحث باسم الفيلم</h6>
-                <form action="?" method="get" class="d-flex">
-                    <input type="search" class="form-control" id="search" name="q"
-                        value="{{ request()->get('q') ?? false }}">
-                    <button type="submit" class="btn btn-sm btn-primary">بحث</button>
-                </form>
-            </div> --}}
-
-            <div class="filter-form-card">
-                <form action="?" method="get" class="mb-3">
-                    <h6>فلاتر البحث</h6>
-
-                    {{-- Filter by categories --}}
-                    <div class="dropdown">
+    <div class="card">
+        <div class="card-body p-0">
+            {{-- Table Filter --}}
+            <div class="table-filter-element">
+                <form action="?" method="get">
+                    <div class="dropdown me-3">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside"
                             data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                             عرض حسب القسم
@@ -54,8 +42,7 @@
                         </div>
                     </div>
 
-                    {{-- Filter by language --}}
-                    <div class="dropdown">
+                    <div class="dropdown me-3">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside"
                             data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                             عرض حسب اللغة
@@ -71,8 +58,7 @@
                         </div>
                     </div>
 
-                    {{-- Filter by year --}}
-                    <div class="dropdown">
+                    <div class="dropdown me-3">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside"
                             data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                             حسب التاريخ
@@ -88,43 +74,27 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-sm btn-primary">عرض النتائج</button>
-                    <a href="{{ route('movies.index') }}" class="btn btn-sm btn-danger">إزالة الفلاتر</a>
+                    <div class="align-items-center d-flex ms-auto">
+                        <button type="submit" class="btn btn-sm btn-primary me-2">عرض النتائج</button>
+                        <a href="{{ route('movies.index') }}" class="btn btn-sm btn-danger">إزالة الفلاتر</a>
+                    </div>
                 </form>
             </div>
-        </div>
 
-        <div class="col-md-9">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h6>إجمالي الأفلام</h6>
-                            <p>{{ number_format(\App\Models\Movie::get()->count()) }} /فيلم</p>
-                        </div>
-
-                        <div class="col-md-8">
-                            <div id="chart"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <table class="table table-striped table-hover">
+            {{-- Movies Table --}}
+            <table class="table table-striped table-hover table-borderless">
                 <thead>
                     <tr>
-                        <th>#</th>
                         <th>البيان</th>
                         <th>المشاهدات</th>
                         <th>التحميلات</th>
                         <th>الخيارات</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     @forelse ($movies as $movie)
                         <tr>
-                            <td>{{ $loop->index }}</td>
                             <td>
                                 <div class="d-flex">
                                     <div class="flex-shrink-0 me-3">
@@ -132,7 +102,9 @@
                                             width="120" height="70" alt="{{ $movie->title }}">
                                     </div>
                                     <div class="flex-grow-1">
-                                        <h6>{{ $movie->title }}</h6>
+                                        <h6>
+                                            <a href="">{{ $movie->title }}</a>
+                                        </h6>
                                         <div class="d-flex">
                                             <div class="meta-category">
                                                 <i class="bx bx-folder"></i>
@@ -152,13 +124,31 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>{{ number_format($movie->views) }}</td>
-                            <td>0</td>
                             <td>
-                                <a href="{{ route('movies.edit', $movie->id) }}" class="btn btn-sm btn-success">تعديل</a>
-                                <a href="javascript:void(0)" data-bs-toggle="modal"
-                                    data-bs-target="#confirmDelete{{ $movie->id }}"
-                                    class="btn btn-sm btn-danger">حذف</a>
+                                <i class="bx bx-bar-chart-alt-2 me-1"></i>
+                                {{ number_format($movie->views) }}
+                            </td>
+                            <td>
+                                <i class="bx bx-download"></i>
+                                0
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="" data-bs-toggle="dropdown"><i
+                                            class="bx bx-dots-vertical-rounded"></i></button>
+                                    <div class="dropdown-menu">
+                                        <a href="{{ route('movies.edit', $movie->id) }}" class="dropdown-item">
+                                            <i class="bx bx-edit"></i>
+                                            تعديل
+                                        </a>
+
+                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                            data-bs-target="#confirmDelete{{ $movie->id }}" class="dropdown-item">
+                                            <i class="bx bx-trash-alt"></i>
+                                            حذف
+                                        </a>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         @include('movies.confirm-modal')
@@ -169,66 +159,10 @@
                     @endforelse
                 </tbody>
             </table>
-            {!! $movies->links('pagination::bootstrap-5') !!}
+
+            <div class="table-pagination">
+                {!! $movies->links('pagination::bootstrap-5') !!}
+            </div>
         </div>
     </div>
-@endsection
-
-@php
-    $categories = Category::whereParentId(1)->get();
-    $data = collect([]);
-    foreach ($categories as $category) {
-        $data->push($category->movies->count());
-    }
-@endphp
-
-@section('js')
-    <script src="{{ asset('assets/libs/apexchart/apexcharts.min.js') }}"></script>
-    <script>
-        var options = {
-            chart: {
-                type: 'bar',
-            },
-            series: [{
-                name: 'sales',
-                data: {!! $data !!}
-            }],
-            xaxis: {
-                categories: {!! Category::whereParentId(1)->pluck('name') !!}
-            },
-            theme: {
-                monochrome: {
-                    enabled: true,
-                    color: '#255aee',
-                    shadeTo: 'light',
-                    shadeIntensity: 0.65
-                }
-            },
-            plotOptions: {
-                bar: {
-                    isDumbbell: true,
-                    columnWidth: 5,
-                }
-            },
-            fill: {
-                type: 'gradient',
-                gradient: {
-                    type: 'vertical',
-                    gradientToColors: ['#009688', '#CDDC39'],
-                    inverseColors: true,
-                    stops: [0, 100]
-                }
-            },
-            grid: {
-                row: {
-                    colors: ['#F44336', '#E91E63', '#9C27B0']
-                },
-                column: {
-                    colors: ['#F44336', '#E91E63', '#9C27B0']
-                }
-            }
-        }
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
-        chart.render();
-    </script>
 @endsection

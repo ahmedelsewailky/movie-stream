@@ -21,15 +21,16 @@
 
     <div class="row">
         <div class="col-md-3">
-            <div class="filter-widget">
-                <form action="?" method="get" class="position-relative">
-                    <input type="search"
-                        class="form-control"
-                        name="q"
-                        placeholder="ابحث باسم الممثل"
-                        value="{{ request()->has('q') ? request()->get('q') : false }}">
-                    <button type="submit"><i class="bx bx-search"></i></button>
-                </form>
+            <form action="?" method="get" class="filter-search-form">
+                <input type="search"
+                    class="form-control"
+                    name="q"
+                    placeholder="ابحث باسم الممثل"
+                    value="{{ request()->has('q') ? request()->get('q') : false }}">
+                <button type="submit"><i class="bx bx-search"></i></button>
+            </form>
+
+            <div class="filter-form-card">
                 <form class="filter-box" method="get" action="?">
                     <div class="dropdown mt-2">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">

@@ -52,7 +52,7 @@ h6 {
 
 /* ====================================================== Bootstrap Form Cards */
 .navbar {
-    /* background-color: #3c3857; */
+    background-color: #322e49;
     color: white;
     height: 68px;
 }
@@ -97,7 +97,6 @@ a.dropdown-item {
 
 aside.sidebar {
     width: 290px;
-    height: 100vh;
     background-color: #322e49;
 }
 
@@ -113,7 +112,7 @@ main.main-content {
 .sidebar-logo {
     text-align: center;
     padding: 1rem;
-    background-color: rgb(72 67 103);
+    background-color: #ffffff1a;
     height: 68px;
     display: grid;
     place-content: center;
@@ -128,8 +127,8 @@ main.main-content {
     opacity: 0.8;
     font-size: 12px;
     font-weight: 700;
-    border-radius: .5rem;
     padding: .75rem;
+    border-radius: .25rem;
 }
 
 .sidebar-menu .nav-link i {
@@ -139,10 +138,12 @@ main.main-content {
 
 .sidebar-menu {
     padding: 1rem;
+    padding-top: 0;
 }
 
-.sidebar-menu .nav-link.active {
-    background: linear-gradient(45deg, #009688, #CDDC39);
+.sidebar-menu .nav-link.active,
+.sidebar-menu .nav-link.active:hover {
+    background: #706fd3;
     opacity: 1;
 }
 
@@ -171,29 +172,29 @@ main.main-content {
 
 .card {
     background-color: #322e49;
-    border-radius: 1rem;
+    border-radius: 0;
     margin-bottom: 1.5rem;
 }
 
-.table {
-    color: white;
-    background-color: #322e49;
-    border-radius: 0.5rem;
+.card-header {
+    background: #4a4564;
 }
 
-.table tr {
-    border-color: #322e49;
-    color: inherit;
+.card-header h6 {
+    font-weight: 600;
+    line-height: 35px;
+    position: relative;
 }
 
-.table td {
-    color: white !important;
+.card-header h6::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border: 6px solid;
+    display: inline-block;
+    margin-left: 8px;
+    border-color: transparent #009688 transparent transparent;
     vertical-align: middle;
-    padding: 1rem;
-}
-
-.table-striped>tbody>tr:nth-of-type(odd)>* {
-    --bs-table-accent-bg: rgb(41 38 63);
 }
 
 .static-card {
@@ -216,7 +217,6 @@ main.main-content {
 }
 
 .downloads-chart-card {
-    /* background: linear-gradient(45deg, #CDDC39, #009688); */
     background: transparent;
     border: 2px dashed #585472;
 }
@@ -267,83 +267,166 @@ main.main-content {
     margin-bottom: 5px;
 }
 
-.btn-primary {
-    background: linear-gradient(45deg, #3F51B5, #9C27B0);
-    border: none;
-}
-
-.btn-success {
-    background: linear-gradient(45deg, #009688, #8BC34A);
-    border: none;
-}
-
-.btn-danger {
-    background: linear-gradient(45deg, #F44336, #9C27B0);
-    border: none;
-}
-
-.btn-sm {
+.btn {
     font-size: 12px;
-    padding: .5rem 1rem;
+    padding: 5px 12px;
+    border-radius: 3px;
 }
 
-.filter-form-card {
+.btn:hover {
+    font-size: 12px;
+}
+
+.modal-content {
     background-color: #322e49;
-    padding: 1rem;
+    text-align: center;
+}
+
+.modal-footer {
+    border: none;
+    background: rgb(255 255 255 / 5%);
+    justify-content: center;
+}
+
+.confirm-modal .btn:not(.btn-danger) {
+    background: #9E9E9E;
+    border: none;
+    color: white;
+}
+
+.confirm-modal .bx {
+    font-size: 58px;
+    color: #E91E63;
+    margin-bottom: 1.5rem;
+}
+
+/*  =====================================================   Bootstrap Form Elements */
+.form-control,
+.form-select {
+    background-color: #5e5a74;
+    font-size: inherit;
+    border: none;
+    border-radius: 3px;
+    line-height: 30px;
+    color: white;
+}
+
+.form-check-input {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0 !important;
+    margin-left: .25rem;
+}
+
+.form-check-input:checked {
+    background-color: #706fd3;
+    border-color: #706fd3;
+}
+
+label.form-check-label {
+    font-size: 12px;
+}
+
+/*  =====================================================   Bootstrap Table */
+.table {
+    color: white;
+    background-color: #322e49;
     border-radius: 0.5rem;
 }
 
-.filter-form-card .dropdown-toggle {
-    background-color: #484361;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.table tr {
+    color: inherit;
+}
+
+.table thead tr th {
+    line-height: 25px;
     font-size: 12px;
-    border-radius: 2px;
-    margin-bottom: 1rem;
-    line-height: 28px;
-    color: #f5f3ff;
-    border: none;
+    font-weight: 400;
 }
 
-.filter-form-card h6 {
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-    font-size: 14px;
-    border-bottom: 1px solid #484361;
-    padding-bottom: 1rem;
-}
-
-.filter-form-card {
-    background-color: #322e49;
+.table td {
+    color: white !important;
+    vertical-align: middle;
     padding: 1rem;
-    border-radius: 0.5rem;
 }
 
-.filter-form-card .dropdown-toggle {
-    background-color: #484361;
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    --bs-table-accent-bg: rgb(41 38 63);
+}
+
+.table .dropdown button {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.table .dropdown i {
+    color: inherit;
+}
+
+.table h6 {
+    font-size: 16px;
+    margin-bottom: .5rem;
+}
+
+.table h6:hover a {
+    text-decoration: underline;
+}
+
+.table [class^="meta"] {
+    font-size: 10px;
+    opacity: 0.7;
+    margin-left: 1rem;
+}
+
+.table i {
+    margin-left: 0.25rem;
+    color: #FF9800;
+    vertical-align: top;
+}
+
+.table .dropdown .dropdown-menu {
+    background-color: #726d8d;
+    font-size: inherit;
+    border-radius: 0;
+    padding: 0;
+}
+
+.table .dropdown .dropdown-menu .dropdown-item {
+    font-size: 12px;
+    color: #e2e1ed;
+    border-bottom: 1px solid #000;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+}
+
+.table .dropdown .dropdown-menu .dropdown-item:hover,
+.table .dropdown .dropdown-menu .dropdown-item.active,
+.table .dropdown .dropdown-menu .dropdown-item:focus {
+    background-color: #706fd3;
+}
+
+/*  =====================================================   Table Filter Element */
+.table-filter-element form {
+    padding: 1rem;
+    display: flex;
     width: 100%;
+    border-bottom: 1px solid #181625;
+    background-color: #48445e;
+}
+
+.table-filter-element .dropdown .btn {
+    width: 240px;
+    line-height: 35px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 12px;
-    border-radius: 2px;
-    margin-bottom: 1rem;
-    line-height: 28px;
-    color: #f5f3ff;
+    background-color: #6c697e;
     border: none;
 }
 
-.filter-form-card h6 {
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-    font-size: 14px;
-    border-bottom: 1px solid #484361;
-    padding-bottom: 1rem;
-}
-
-.filter-form-card .filter-menu {
+.table-filter-element .filter-menu {
     width: 100%;
     font-size: 13px;
     background-color: #484361;
@@ -352,42 +435,221 @@ main.main-content {
     color: white;
 }
 
-.filter-form-card .filter-menu::-webkit-scrollbar {
+.table-filter-element .filter-menu::-webkit-scrollbar {
     width: 5px;
 }
 
-.filter-form-card .filter-menu::-webkit-scrollbar-track {
+.table-filter-element .filter-menu::-webkit-scrollbar-track {
     background-color: #484361;
 }
 
-.filter-form-card .filter-menu::-webkit-scrollbar-thumb {
+.table-filter-element .filter-menu::-webkit-scrollbar-thumb {
     background-color: #5b576f;
 }
 
-.filter-form-card .filter-menu label {
+.table-filter-element .filter-menu label {
     padding: 6px;
     font-size: 12px;
     cursor: pointer;
 }
 
-.filter-form-card .filter-menu label input {
+.table-filter-element .filter-menu label input {
     width: 15px;
     height: 15px;
     border-radius: 0;
     background-color: transparent;
 }
 
-.filter-form-card .filter-menu label:hover input {
-    border-color: #CDDC39;
+.table-filter-element .filter-menu label:hover input {
+    border-color: #706fd3;
 }
 
-.filter-form-card .form-check-input:checked {
-    background-color: #8BC34A;
-    border-color: #CDDC39;
+.table-filter-element .form-check-input:checked {
+    background-color: #706fd3;
+    border-color: #706fd3;
 }
 
-.filter-form-card .form-check-input:focus {
-    border-color: #CDDC39;
+.table-filter-element .form-check-input:focus {
+    border-color: #4b6be3;
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgb(205 220 57 / 10%);
+}
+
+/*  =====================================================   Sidebar Search Form */
+.sidebar-search-form form {
+    position: relative;
+    padding: 1rem;
+    /* border-bottom: 1px solid #59546e; */
+}
+
+.sidebar-search-form form button {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    opacity: 0.5;
+}
+
+.sidebar-search-form form .form-control {
+    border-radius: 0;
+    font-size: inherit;
+    line-height: 26px;
+}
+
+/*  =====================================================   Boostarp Pagination */
+.table-pagination .page-link {
+    width: 35px;
+    height: 35px;
+    font-size: inherit;
+    background-color: transparent;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+}
+
+.table-pagination .active>.page-link,
+.table-pagination .page-link.active {
+    background-color: #4b6be3;
+    border-radius: 50%;
+    margin: 0 8px;
+    border-color: #4b6be3;
+}
+
+.table-pagination .page-item:first-child .page-link {
+    display: none;
+}
+
+.table-pagination .page-item:last-child .page-link {
+    display: none;
+}
+
+.table-pagination .pagination {
+    margin: 0;
+}
+
+.table-pagination nav {
+    padding: 1rem !important;
+    background-color: #454060;
+    color: white;
+}
+
+.table-pagination nav .text-muted {
+    color: white !important;
+}
+
+/*  =====================================================   Updating Poster Image */
+.poster-image img {
+    margin-bottom: 1rem;
+}
+
+.poster-image {
+    text-align: center;
+    position: relative;
+}
+
+label.update-poster-label {
+    background-color: rgb(0 0 0 / 50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    padding: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.update-poster-image:hover label {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+/*  =====================================================   Boostarp Buttons */
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #706fd3;
+    --bs-btn-border-color: #706fd3;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #8381df;
+    --bs-btn-hover-border-color: #8381df;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #8381df;
+    --bs-btn-active-border-color: #8381df;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #706fd3;
+    --bs-btn-disabled-border-color: #706fd3;
+}
+
+.btn-success {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #009688;
+    --bs-btn-border-color: #009688;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #15b5a7;
+    --bs-btn-hover-border-color: #15b5a7;
+    --bs-btn-focus-shadow-rgb: 60, 153, 110;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #15b5a7;
+    --bs-btn-active-border-color: #15b5a7;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #009688;
+    --bs-btn-disabled-border-color: #009688;
+}
+
+.btn-outline-success {
+    --bs-btn-color: #009688;
+    --bs-btn-border-color: #009688;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #009688;
+    --bs-btn-hover-border-color: #009688;
+    --bs-btn-focus-shadow-rgb: 25, 135, 84;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #009688;
+    --bs-btn-active-border-color: #009688;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #009688;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #009688;
+    --bs-gradient: none;
+}
+
+.btn-danger {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #E91E63;
+    --bs-btn-border-color: #E91E63;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #fd4d89;
+    --bs-btn-hover-border-color: #fd4d89;
+    --bs-btn-focus-shadow-rgb: 225, 83, 97;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #fd4d89;
+    --bs-btn-active-border-color: #fd4d89;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #E91E63;
+    --bs-btn-disabled-border-color: #E91E65;
+}
+
+.btn-warning {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #ffc048;
+    --bs-btn-border-color: #ffc048;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #dfb127;
+    --bs-btn-hover-border-color: #dfb127;
+    --bs-btn-focus-shadow-rgb: 217, 164, 6;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #dfb127;
+    --bs-btn-active-border-color: #dfb127;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #ffc107;
+    --bs-btn-disabled-border-color: #ffc107;
 }
