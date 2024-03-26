@@ -1,6 +1,6 @@
 ::selection {
     color: white;
-    background-color: #ff6b81;
+    background-color: #009688;
 }
 
 body {
@@ -52,7 +52,7 @@ h6 {
     color: white;
     height: 68px;
     box-shadow: 0 0.125rem 0.5rem rgb(0 0 0 / 0.16);
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
 }
 
 .navbar .nav-link.active {
@@ -178,7 +178,7 @@ a.dropdown-item {
     background-color: #2b2c40;
     margin-bottom: 1.5rem;
     box-shadow: 0 0.125rem 0.5rem rgb(0 0 0 / .16);
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
 }
 
 .card-header {
@@ -203,7 +203,7 @@ a.dropdown-item {
 }
 
 .static-card {
-    border-radius: 3px;
+    /* border-radius: 3px; */
     height: 250px;
 }
 
@@ -243,13 +243,13 @@ a.dropdown-item {
     display: grid;
     place-content: center;
     text-align: center;
-    background-color: #46425d;
-    border-top: 1px solid #605c72;
+    /* background-color: #46425d; */
+    border-top: 1px solid #39354a;
 }
 
 .static-card .col:nth-child(2) .count-item {
-    border-right: 1px solid #605c72;
-    border-left: 1px solid #605c72;
+    border-right: 1px solid #413c52;
+    border-left: 1px solid #413c52;
 }
 
 .count-item span {
