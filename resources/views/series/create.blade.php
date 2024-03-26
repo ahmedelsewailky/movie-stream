@@ -6,7 +6,7 @@
     {{-- Page Breadcrumbs --}}
     <div class="d-flex align-items-center my-4">
         <div class="me-auto">
-            <h6 class="mb-2">قائمة المسلسلات</h6>
+            <h6 class="mb-2 fw-bold">قائمة المسلسلات</h6>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
@@ -176,7 +176,7 @@
                     <div class="col-md-4 offset-1 py-4">
                         <div class="poster-image update-poster-image">
                             <img src="https://via.placeholder.com/300x370" class="rounded-2" alt="البوستر الإعلاني للفيلم">
-                            <label for="poster" class="update-poster-label">تغيير صورة الفيلم</label>
+                            <label for="poster" class="update-poster-label">تحميل بوستر المسلسل</label>
                             <input type="file" class="form-control @error('poster') is-invalid @enderror"
                                 id="poster" name="poster" hidden>
                             @error('poster')

@@ -152,7 +152,7 @@ a.dropdown-item {
 }
 
 .sidebar-menu .nav-link:hover {
-    background-color: rgb(61 58 87);
+    background-color: rgb(53 54 78);
     color: white;
     opacity: 1;
 }
@@ -283,14 +283,13 @@ a.dropdown-item {
 }
 
 .modal-content {
-    background-color: #322e49;
+    background-color: #35364e;
     text-align: center;
 }
 
 .modal-footer {
     border: none;
     background: rgb(255 255 255 / 5%);
-    justify-content: center;
 }
 
 .confirm-modal .btn:not(.btn-danger) {
@@ -301,7 +300,7 @@ a.dropdown-item {
 
 .confirm-modal .bx {
     font-size: 58px;
-    color: #E91E63;
+    color: #009688;
     margin-bottom: 1.5rem;
 }
 
@@ -315,11 +314,13 @@ a.dropdown-item {
     color: white;
     border: 1px solid #444564;
 }
+
 select {
     -webkit-appearance: menulist-button;
 }
+
 select option {
-    color:black
+    color: black
 }
 
 
@@ -405,10 +406,13 @@ label.form-check-label {
     border-bottom: 1px solid #444564;
 }
 
-.table thead tr th {
+.table th {
     line-height: 25px;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 400;
+    background-color: #35364e;
+    font-weight: 700;
+    color: #7a7aa1;
 }
 
 .table td {
@@ -453,25 +457,26 @@ label.form-check-label {
 }
 
 .table .dropdown .dropdown-menu {
-    background-color: #726d8d;
+    background-color: #41425c;
     font-size: inherit;
-    border-radius: 0;
-    padding: 0;
+    border-radius: 0.5rem;
+    padding: 1rem;
 }
 
 .table .dropdown .dropdown-menu .dropdown-item {
     font-size: 12px;
     color: #e2e1ed;
-    border-bottom: 1px solid #000;
     line-height: 26px;
     display: flex;
     align-items: center;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
 }
 
 .table .dropdown .dropdown-menu .dropdown-item:hover,
 .table .dropdown .dropdown-menu .dropdown-item.active,
 .table .dropdown .dropdown-menu .dropdown-item:focus {
-    background-color: #706fd3;
+    background-color: #009688;
 }
 
 /*  =====================================================   Table Filter Element */
@@ -587,7 +592,8 @@ button#addLink {
     line-height: 25px;
 }
 
-.table-pagination .active>.page-link, .table-pagination .page-link.active {
+.table-pagination .active>.page-link,
+.table-pagination .page-link.active {
     background-color: #009688;
     border-radius: 50%;
     margin: 0 8px;
@@ -648,19 +654,19 @@ label.update-poster-label {
 /*  =====================================================   Boostarp Buttons */
 .btn-primary {
     --bs-btn-color: #fff;
-    --bs-btn-bg: #706fd3;
-    --bs-btn-border-color: #706fd3;
+    --bs-btn-bg: #3F51B5;
+    --bs-btn-border-color: #3F51B5;
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #8381df;
-    --bs-btn-hover-border-color: #8381df;
+    --bs-btn-hover-bg: #5466c7;
+    --bs-btn-hover-border-color: #5466C7;
     --bs-btn-focus-shadow-rgb: 49, 132, 253;
     --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #8381df;
-    --bs-btn-active-border-color: #8381df;
+    --bs-btn-active-bg: #5466c7;
+    --bs-btn-active-border-color: #5466c7;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: #706fd3;
-    --bs-btn-disabled-border-color: #706fd3;
+    --bs-btn-disabled-bg: #3F51B5;
+    --bs-btn-disabled-border-color: #3F51B5;
 }
 
 .btn-success {

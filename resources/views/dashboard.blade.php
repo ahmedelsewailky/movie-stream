@@ -93,7 +93,7 @@
             </h6>
         </div>
         <div class="section-body">
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -119,6 +119,15 @@
                         <td>منذ اسبوع</td>
                     </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>البيان</th>
+                        <th>القسم</th>
+                        <th>المشاهدات</th>
+                        <th>تاريخ الإضافة</th>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </section>
