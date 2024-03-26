@@ -82,7 +82,7 @@
             </div>
 
             {{-- Movies Table --}}
-            <table class="table table-striped table-hover table-borderless">
+            <table class="table table-hover table-borderless">
                 <thead>
                     <tr>
                         <th>البيان</th>

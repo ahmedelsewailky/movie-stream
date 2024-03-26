@@ -30,16 +30,8 @@
                     <a href="">{{ env('APP_NAME') }}</a>
                 </div>
 
-                <div class="sidebar-search-form">
-                    <form action="" method="get">
-                        <input type="text" class="form-control" placeholder="هل تبحث عن شئ ما؟">
-                        <button type="submit" class="btn"><i class="bx bx-search"></i></button>
-                    </form>
-                </div>
-
                 <div class="sidebar-menu">
                     <ul class="nav flex-column">
-                        <h6>اساسي</h6>
                         <li class="nav-item">
                             <a href="{{ route('dashboard') }}" @class(['nav-link', 'active' => Request::routeIs('dashboard')])>
                                 <i class="bx bxs-dashboard"></i>
@@ -54,7 +46,7 @@
                             </a>
                         </li>
 
-                        <h6>التبويبات</h6>
+                        <h6>اساسي</h6>
 
                         <li class="nav-item">
                             <a href="{{ route('movies.index') }}" @class(['nav-link', 'active' => Request::routeIs('movies.*')])>
@@ -123,9 +115,7 @@
                 </div>
             </nav>
 
-            <div class="container">
-                @yield('content')
-            </div>
+            @yield('content')
         </main>
     </div>
 

@@ -2,3 +2,14 @@ Important Links:
 ------------------
     https://arabseed.show/category/arabic-movies-5/
     https://web171.faselhd.cafe/
+
+
+
+# Series:
+--------
+- Edit series page.
+- Change series index to card menu list.
+- Add pagination to series
+
+# Programs:
+----------

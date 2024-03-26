@@ -59,7 +59,7 @@
                             <div class="col-md-9">
                                 <div class="row">
                                     @foreach (DataArray::TYPES as $key => $value)
-                                        <div class="col-md-3 mb-1">
+                                        <div class="col-md-6 mb-1">
                                             <input type="checkbox" name="types[]" id="type-{{ $value }}" value="{{ $key }}" class="form-check-input" @checked(is_array(old('types')) && in_array($key, old('types')))>
                                             <label for="type-{{ $value }}"
                                                 class="form-check-label">{{ $value }}</label>
@@ -126,17 +126,17 @@
                         <div class="row mb-4">
                             <div class="col-md-9 offset-3">
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <input type="radio" name="dubbed_status" class="form-check-input"
                                             id="dubded_status_0" value="0" @checked(old('dubbed_status') == 0)>
                                         <label for="dubded_status_0" class="form-check-label">اللغة الأصلية</label>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <input type="radio" name="dubbed_status" class="form-check-input"
                                             id="dubded_status_1" value="1" @checked(old('dubbed_status') == 1)>
                                         <label for="dubded_status_1" class="form-check-label">مدبلج</label>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <input type="radio" name="dubbed_status" class="form-check-input"
                                             id="dubded_status_2" value="2" @checked(old('dubbed_status') == 2)>
                                         <label for="dubded_status_2" class="form-check-label">مترجم</label>
@@ -210,7 +210,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 offset-1" style="background-color: #403c57;padding: 1rem;">
+                    <div class="col-md-4 offset-1 py-5">
                         {{-- Poster --}}
                         <div class="poster-image update-poster-image">
                             <img src="https://via.placeholder.com/300x370" class="rounded-2" alt="البوستر الإعلاني للفيلم">
