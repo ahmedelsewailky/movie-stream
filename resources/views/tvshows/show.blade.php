@@ -1,6 +1,14 @@
 {{-- Extend master app layout --}}
 @extends('layouts.app')
 
+{{-- Search form --}}
+@section('search')
+    <form action="{{ route('tvshows.index') }}" method="get">
+        <input type="search" class="form-control" id="search" name="q" value="{{ request()->has('q') ? request()->get('q') : '' }}" placeholder="ابحث داخل العروض التلفزيونية">
+        <i class="bx bx-search"></i>
+    </form>
+@endsection
+
 {{-- Page content --}}
 @section('content')
     {{-- Page Breadcrumbs --}}
