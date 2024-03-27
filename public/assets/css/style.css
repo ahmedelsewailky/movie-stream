@@ -604,6 +604,7 @@ span.play-overlay i {
     background-repeat: no-repeat;
     background-size: 0 1px;
     transition: 0.3s ease;
+    line-height: 28px;
 }
 
 .post:hover .post-content h6 a {

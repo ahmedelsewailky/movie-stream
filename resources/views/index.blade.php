@@ -71,86 +71,26 @@
             </div>
             <div class="section-body">
                 <div class="owl-carousel">
-                    <div class="post">
-                        <div class="post-thumbnail">
-                            <img src="https://via.placeholder.com/230x310" alt="">
-                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
-                            <a href="">شاهد الآن</a>
-                        </div>
-                        <div class="post-content">
-                            <h6><a href="">Spiderman 3</a></h6>
-                            <div class="d-flex">
-                                <span>2024</span>
-                                <span>1 hr 25 mins</span>
-                                <span>DVD-720</span>
+                    @forelse (\App\Models\Movie::orderByDesc('views')->take(10)->get() as $movie)
+                        <div class="post">
+                            <div class="post-thumbnail">
+                                <img src="https://via.placeholder.com/230x310" alt="">
+                                <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
+                                <a href="">شاهد الآن</a>
                             </div>
-                            <span>افلام عربية</span>
-                        </div>
-                    </div>
-                    <div class="post">
-                        <div class="post-thumbnail">
-                            <img src="https://via.placeholder.com/230x310" alt="">
-                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
-                            <a href="">شاهد الآن</a>
-                        </div>
-                        <div class="post-content">
-                            <h6><a href="">Taken 2</a></h6>
-                            <div class="d-flex">
-                                <span>2024</span>
-                                <span>1 hr 25 mins</span>
-                                <span>DVD-720</span>
+                            <div class="post-content">
+                                <h6><a href="">{{ str($movie->title)->words(3) }}</a></h6>
+                                <div class="d-flex">
+                                    <span>{{ $movie->year }}</span>
+                                    <span>1 hr 25 mins</span>
+                                    <span>{{ DataArray::QUALITIES[$movie->quality] }}</span>
+                                </div>
+                                <span>{{ $movie->category->name }}</span>
                             </div>
-                            <span>افلام عربية</span>
                         </div>
-                    </div>
-                    <div class="post">
-                        <div class="post-thumbnail">
-                            <img src="https://via.placeholder.com/230x310" alt="">
-                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
-                            <a href="">شاهد الآن</a>
-                        </div>
-                        <div class="post-content">
-                            <h6><a href="">العارف</a></h6>
-                            <div class="d-flex">
-                                <span>2024</span>
-                                <span>1 hr 25 mins</span>
-                                <span>DVD-720</span>
-                            </div>
-                            <span>افلام عربية</span>
-                        </div>
-                    </div>
-                    <div class="post">
-                        <div class="post-thumbnail">
-                            <img src="https://via.placeholder.com/230x310" alt="">
-                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
-                            <a href="">شاهد الآن</a>
-                        </div>
-                        <div class="post-content">
-                            <h6><a href="">لا تراجع ولا استسلام</a></h6>
-                            <div class="d-flex">
-                                <span>2024</span>
-                                <span>1 hr 25 mins</span>
-                                <span>DVD-720</span>
-                            </div>
-                            <span>افلام عربية</span>
-                        </div>
-                    </div>
-                    <div class="post">
-                        <div class="post-thumbnail">
-                            <img src="https://via.placeholder.com/230x310" alt="">
-                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
-                            <a href="">شاهد الآن</a>
-                        </div>
-                        <div class="post-content">
-                            <h6><a href="">Pirates of the Caribbean</a></h6>
-                            <div class="d-flex">
-                                <span>2024</span>
-                                <span>1 hr 25 mins</span>
-                                <span>DVD-720</span>
-                            </div>
-                            <span>افلام عربية</span>
-                        </div>
-                    </div>
+                    @empty
+                        <p class="text-center">لا توجد مشاركات</p>
+                    @endforelse
                 </div>
             </div>
         </div>
