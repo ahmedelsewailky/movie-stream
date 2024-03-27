@@ -116,7 +116,7 @@
                                             <i class="bx bx-trash-alt"></i>
                                             حذف
                                         </a>
-                                        <a href="{{ route('tvshows.episodes.create', $tvshow->id) }}"
+                                        <a href="{{ route('tvshows.episodes.create') }}?tvshow_id={{ $tvshow->id }}"
                                             class="dropdown-item">
                                             <i class="bx bx-plus"></i>
                                             اضافة حلقة

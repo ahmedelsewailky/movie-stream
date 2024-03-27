@@ -13,7 +13,7 @@ class TvshowEpisodeController  extends Controller
      */
     public function create()
     {
-        if (request()->has('series_id')) {
+        if (request()->has('tvshow_id')) {
             $tvshow = Tvshow::find(request()->get('tvshow_id'));
             return view('tvshows.episodes.create', compact('tvshow'));
         }
