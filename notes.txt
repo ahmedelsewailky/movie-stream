@@ -5,11 +5,5 @@ Important Links:
 
 
 
-# Series:
---------
-- Edit series page.
-- Change series index to card menu list.
-- Add pagination to series
-
-# Programs:
-----------
+- Search at series, movies and episodes
+- Responsive

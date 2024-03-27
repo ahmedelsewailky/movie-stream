@@ -80,46 +80,19 @@
             </div>
 
             {{-- Series Table --}}
-            <table class="table table-hover table-borderless">
-                <thead>
-                    <tr>
-                        <th>البيان</th>
-                        <th>الحلقات</th>
-                        <th>المشاهدات</th>
-                        <th>التحميلات</th>
-                        <th>الخيارات</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <section class="p-3">
+                <div class="row">
                     @forelse ($series as $ser)
-                        <tr>
-                            <td>
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0 me-3">
-                                        <img src="{{ $ser->get_poster() ?? 'https://via.placeholder.com/120x80' }}"
-                                            width="120" height="70" alt="{{ $ser->title }}">
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h6><a href="{{ route('series.show', $ser->id) }}">{{ $ser->title }}</a></h6>
-                                        <div class="d-flex">
-                                            <div class="meta-category">
-                                                <i class="bx bx-folder"></i>
-                                                {{ $ser->category->name }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>{{ $ser->episodes->count() }}</td>
-                            <td>
-                                <i class="bx bx-bar-chart-alt-2"></i>
-                                {{ number_format($ser->views) }}
-                            </td>
-                            <td>
-                                <i class="bx bx-download"></i>
-                                0
-                            </td>
-                            <td>
+                        <div class="col-md-3 mb-3">
+                            <div class="card post-card h-100">
+                                <img src="{{ $ser->get_poster() ?? 'https://via.placeholder.com/285x190?text=Poster' }}"
+                                    class="card-img-top" alt="series poster">
+
+                                <a href="#" class="episodes-count">
+                                    <i class="bx bx-layer"></i>
+                                    {{ $ser->episodes->count() }} حلقة
+                                </a>
+
                                 <div class="dropdown">
                                     <button class="" data-bs-toggle="dropdown"><i
                                             class="bx bx-dots-vertical-rounded"></i></button>
@@ -130,28 +103,50 @@
                                         </a>
 
                                         <a href="javascript:void(0)" data-bs-toggle="modal"
-                                            data-bs-target="#confirmDelete{{ $ser->id }}"
-                                            class="dropdown-item">
+                                            data-bs-target="#confirmDelete{{ $ser->id }}" class="dropdown-item">
                                             <i class="bx bx-trash-alt"></i>
                                             حذف
                                         </a>
-                                        <a href="{{ route('series.episodes.create', $ser->id) }}"
-                                            class="dropdown-item">
+                                        <a href="{{ route('series.episodes.create') }}?series_id={{ $ser->id }}" class="dropdown-item">
                                             <i class="bx bx-plus"></i>
                                             اضافة حلقة
                                         </a>
                                     </div>
                                 </div>
-                            </td>
-                        </tr>
-                        @include('series.confirm-modal')
+
+                                <div class="card-body">
+                                    <h6 class="fs-6">
+                                        <a href="{{ route('series.show', $ser->id) }}">{{ $ser->title }}</a>
+                                    </h6>
+
+                                    <div class="post-meta">
+                                        <div class="small me-3 meta-category">
+                                            <i class="bx text-warning me-1 bxs-folder-open"></i>
+                                            {{ $ser->category->name }}
+                                        </div>
+                                        <div class="small me-3 meta-views">
+                                            <i class="bx text-warning me-1 bx-bar-chart-alt-2"></i>
+                                            {{ number_format($ser->views) }}
+                                        </div>
+                                        <div class="small me-3 meta-download ms-auto">
+                                            <i class="bx text-warning me-1 bx-download"></i>
+                                            0
+                                        </div>
+                                    </div>
+
+                                    <p>
+                                        هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     @empty
-                        <tr>
-                            <td colspan="6" class="text-center">لا توجد منشورات</td>
-                        </tr>
+                        <p class="text-center">
+                            لا توجد منشورات
+                        </p>
                     @endforelse
-                </tbody>
-            </table>
+                </div>
+            </section>
 
             {{-- Paginations --}}
             <div class="table-pagination">

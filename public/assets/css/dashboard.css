@@ -82,13 +82,14 @@ h6 {
     color: white;
 }
 
-ul.dropdown-menu {
-    background-color: #322e49;
+.dropdown-menu {
+    background-color: #33344a;
     color: white;
-    border-radius: 5px;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
 }
 
-a.dropdown-item {
+.dropdown-item {
     font-size: 14px;
     color: inherit;
 }
@@ -651,6 +652,85 @@ label.update-poster-label {
     transform: translate(-50%, -50%);
 }
 
+/*  =====================================================   Post Card */
+.card.post-card {
+    position: relative;
+}
+
+.card.post-card .episodes-count {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(0 0 0 /.5);
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.card.post-card p {
+    color: #a4a5b5;
+    font-size: 11px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+.post-meta {
+    display: flex;
+    background-color: #404158;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: .125rem;
+}
+
+.post-card .card-body {
+    background-color: #33344a;
+    border-radius: 0 0 .5rem .5rem;
+}
+
+.post-card .dropdown {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.post-card .dropdown button {
+    background-color: transparent;
+    border: none;
+}
+
+.post-card .dropdown button i {
+    font-size: 22px;
+    color: white;
+}
+
+.post-card .dropdown-menu {
+    background-color: #33344a;
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0;
+}
+
+.post-card .dropdown-item {
+    font-size: 12px;
+    color: inherit;
+    border-bottom: 1px solid #4a4b62;
+    border-top: 1px solid #212236;
+    padding: .5rem .75rem;
+}
+
+.post-card .dropdown-item:hover {
+    background-color: transparent;
+    color: #009688;
+}
+
+.post-card .dropdown-item:nth-child(1) {
+    border-top: 0;
+}
+
+.post-card .dropdown-item:last-of-type {
+    border-bottom: 0;
+}
+
 /*  =====================================================   Boostarp Buttons */
 .btn-primary {
     --bs-btn-color: #fff;
@@ -735,4 +815,9 @@ label.update-poster-label {
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: #ffc107;
     --bs-btn-disabled-border-color: #ffc107;
+}
+
+.text-success {
+    --bs-text-opacity: 1;
+    color: #009688 !important;
 }
