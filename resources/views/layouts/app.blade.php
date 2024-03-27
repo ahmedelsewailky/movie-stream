@@ -27,7 +27,9 @@
         <aside class="sidebar">
             <div class="sidebar-inner">
                 <div class="sidebar-logo">
-                    <a href="">{{ env('APP_NAME') }}</a>
+                    <a href="">
+                        <img src="{{ asset('logo.png') }}" alt="App Logo">
+                    </a>
                 </div>
 
                 <div class="sidebar-menu">

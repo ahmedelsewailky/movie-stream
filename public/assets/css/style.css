@@ -131,12 +131,12 @@ h6 {
 .navbar-nav .nav-link.active,
 .nav-link:focus,
 .nav-link:hover {
-    color: rgb(151 95 253);
+    color: #4CAF50;
 }
 
 .dropdown-menu {
     background-color: rgb(30 30 43 / 50%);
-    border: 1px solid #494083;
+    border: 1px solid #009688;
     color: white;
     padding: 0;
     width: 200px;
@@ -146,7 +146,7 @@ h6 {
 .dropdown-item.active,
 .dropdown-item:active,
 .dropdown-item:focus {
-    color: #8a57ea;
+    color: #4CAF50;
     background-color: transparent;
     padding-right: 1.25rem;
 }
@@ -184,7 +184,7 @@ a.dropdown-item {
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, #5352ed, #9e61ff);
+    background: linear-gradient(45deg, #1abc9c 25%, #1a4cbc);
 }
 
 .btn-primary:hover {
@@ -633,7 +633,7 @@ span.play-overlay i {
     left: 0;
     height: 100%;
     width: 100%;
-    background: linear-gradient(45deg, #20308b, #673AB7);
+    background: linear-gradient(45deg, #1abc9c 25%, #1a4cbc);
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -705,7 +705,7 @@ span.play-overlay::after {
 }
 
 .section-header span {
-    background: linear-gradient(#5352ed, #9e61ff);
+    background: linear-gradient(45deg, #1abc9c 25%, #1a4cbc);
     width: 35px;
     height: 35px;
     text-align: center;
@@ -780,7 +780,7 @@ span.play-overlay::after {
 }
 
 .filter-item.active {
-    background: linear-gradient(45deg, #673AB7, #5c54ef);
+    background: linear-gradient(45deg, #1abc9c 25%, #1a4cbc);
     border: none;
 }
 
