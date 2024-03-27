@@ -93,6 +93,10 @@
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="search-form">
+                            @yield('search')
+                        </div>
+
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
@@ -124,6 +128,7 @@
     <!-- Bootstrap Bundle Js File -->
     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     @yield('js')
+    @include('sweetalert::alert')
 </body>
 
 </html>

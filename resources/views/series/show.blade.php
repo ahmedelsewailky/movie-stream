@@ -1,6 +1,14 @@
 {{-- Extend master app layout --}}
 @extends('layouts.app')
 
+{{-- Search form --}}
+@section('search')
+    <form action="{{ route('series.index') }}" method="get">
+        <input type="search" class="form-control" id="search" name="q" value="{{ request()->has('q') ? request()->get('q') : '' }}" placeholder="ابحث داخل المسلسلات">
+        <i class="bx bx-search"></i>
+    </form>
+@endsection
+
 {{-- Page content --}}
 @section('content')
     {{-- Page Breadcrumbs --}}
@@ -19,7 +27,7 @@
     </div>
 
     <div class="row">
-        @foreach ($series->episodes as $episode)
+        @forelse ($series->episodes as $episode)
             <div class="col-md-3">
                 <div class="card mb-3">
                     <div class="card-body d-flex align-items-center">
@@ -37,6 +45,10 @@
                 </div>
             </div>
             @include('series.episodes.confirm-modal')
-        @endforeach
+        @empty
+            <p class="text-center">
+                لا توجد حلقات
+            </p>
+        @endforelse
     </div>
 @endsection

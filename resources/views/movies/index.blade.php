@@ -3,6 +3,14 @@
 
 @use('App\Models\Category', 'Category')
 
+{{-- Search form --}}
+@section('search')
+    <form action="؟" method="get">
+        <input type="search" class="form-control" id="search" name="q" value="{{ request()->has('q') ? request()->get('q') : '' }}" placeholder="ابحث داخل الأفلام">
+        <i class="bx bx-search"></i>
+    </form>
+@endsection
+
 {{-- Page content --}}
 @section('content')
     {{-- Page Breadcrumbs --}}

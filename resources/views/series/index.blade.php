@@ -3,6 +3,14 @@
 
 @use('\App\Models\Category', 'Category')
 
+{{-- Search form --}}
+@section('search')
+    <form action="?" method="get">
+        <input type="search" class="form-control" id="search" name="q" value="{{ request()->has('q') ? request()->get('q') : '' }}" placeholder="ابحث داخل المسلسلات">
+        <i class="bx bx-search"></i>
+    </form>
+@endsection
+
 {{-- Page content --}}
 @section('content')
     {{-- Page Breadcrumbs --}}
@@ -74,7 +82,7 @@
 
                     <div class="align-items-center d-flex ms-auto">
                         <button type="submit" class="btn btn-sm btn-primary me-2">عرض النتائج</button>
-                        <a href="{{ route('movies.index') }}" class="btn btn-sm btn-danger">إزالة الفلاتر</a>
+                        <a href="{{ route('series.index') }}" class="btn btn-sm btn-danger">إزالة الفلاتر</a>
                     </div>
                 </form>
             </div>

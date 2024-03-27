@@ -82,6 +82,23 @@ h6 {
     color: white;
 }
 
+.navbar .search-form form {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .search-form form input {
+    padding-right: 2.5rem;
+}
+
+.navbar .search-form form i {
+    position: absolute;
+    right: 12px;
+    font-size: 16px;
+    color: #87889b;
+}
+
 .dropdown-menu {
     background-color: #33344a;
     color: white;
@@ -503,7 +520,7 @@ label.form-check-label {
 .table-filter-element .filter-menu {
     width: 100%;
     font-size: 13px;
-    background-color: #484361;
+    background-color: #3d3e52;
     overflow-y: scroll;
     padding: 1rem;
     color: white;
@@ -514,11 +531,11 @@ label.form-check-label {
 }
 
 .table-filter-element .filter-menu::-webkit-scrollbar-track {
-    background-color: #484361;
+    background-color: #3d3e52;
 }
 
 .table-filter-element .filter-menu::-webkit-scrollbar-thumb {
-    background-color: #5b576f;
+    background-color: #53545c;
 }
 
 .table-filter-element .filter-menu label {

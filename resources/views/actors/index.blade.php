@@ -3,61 +3,61 @@
 
 @use('\App\Models\Actor', 'Actor')
 
+{{-- Search form --}}
+@section('search')
+    <form action="{{ route('actors.index') }}" method="get">
+        <input type="search" class="form-control" id="search" name="q"
+            value="{{ request()->has('q') ? request()->get('q') : '' }}" placeholder="ابحث عن ممثل">
+        <i class="bx bx-search"></i>
+    </form>
+@endsection
+
 {{-- Page content --}}
 @section('content')
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
-            <li class="breadcrumb-item active" aria-current="page">قائمة الممثلين</li>
-        </ol>
-    </nav>
-
-    <div class="mb-3">
-        <a href="{{ route('actors.create') }}" class="btn btn-primary">
-            <i class="bx bx-save"></i>
-            اضافة ممثل
-        </a>
+    {{-- Page Breadcrumbs --}}
+    <div class="d-flex align-items-center my-4">
+        <div class="me-auto">
+            <h6 class="mb-2 fw-bold">قائمة الممثلين</h6>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">قائمة الممثلين</li>
+                </ol>
+            </nav>
+        </div>
+        <a href="{{ route('actors.create') }}" class="btn btn-sm btn-outline-success">اضافة ممثل</a>
     </div>
 
-    <div class="row">
-        <div class="col-md-3">
-            <form action="?" method="get" class="filter-search-form">
-                <input type="search"
-                    class="form-control"
-                    name="q"
-                    placeholder="ابحث باسم الممثل"
-                    value="{{ request()->has('q') ? request()->get('q') : false }}">
-                <button type="submit"><i class="bx bx-search"></i></button>
-            </form>
-
-            <div class="filter-form-card">
-                <form class="filter-box" method="get" action="?">
-                    <div class="dropdown mt-2">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="card">
+        <div class="card-body p-0">
+            {{-- Table Filter --}}
+            <div class="table-filter-element">
+                <form action="?" method="get">
+                    <div class="dropdown me-3">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside"
+                            data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                             عرض حسب الدولة
-                          </button>
+                        </button>
                         <div class="dropdown-menu filter-menu" style="height: 250px; overflow-y: scroll">
                             @foreach (DataArray::COUNTRIES as $country)
                                 <label for="county-{{ $country }}" class="form-label d-flex">
-                                    <input type="checkbox"
-                                        id="county-{{ $country }}"
-                                        class="form-check-input me-2"
-                                        name="country[]"
-                                        value="{{ $country }}"
-                                        @checked(request()->has('country') && in_array($country, request()->get('country')))>
+                                    <input type="checkbox" id="county-{{ $country }}" class="form-check-input me-2"
+                                        name="country[]" value="{{ $country }}" @checked(request()->has('country') && in_array($country, request()->get('country')))>
                                     {{ $country }} ({{ Actor::where('country', $country)->count() }})
                                 </label>
                             @endforeach
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-sm btn-success">تطبيق الفلتر</button>
-                    <a href="{{ route('actors.index') }}" class="btn btn-sm btn-danger">تصفية الفلاتر</a>
+
+                    <div class="align-items-center d-flex ms-auto">
+                        <button type="submit" class="btn btn-sm btn-primary me-2">عرض النتائج</button>
+                        <a href="{{ route('movies.index') }}" class="btn btn-sm btn-danger">إزالة الفلاتر</a>
+                    </div>
                 </form>
             </div>
-        </div>
 
-        <div class="col-md-9">
-            <table class="table table-striped table-hover">
+            {{-- Movies Table --}}
+            <table class="table table-hover table-borderless">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -71,8 +71,9 @@
                 <tbody>
                     @forelse ($actors as $actor)
                         <tr>
-                            <td>{{ $loop->index+1 }}</td>
-                            <td><img src="{{ $actor->get_image_avatar() ?? 'https://via.placeholder.com/65' }}" width="65" height="65" alt="{{ $actor->name }}"></td>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td><img src="{{ $actor->get_image_avatar() ?? 'https://via.placeholder.com/65' }}"
+                                    width="65" height="65" alt="{{ $actor->name }}"></td>
                             <td><a href="{{ route('actors.show', $actor->id) }}">{{ $actor->name }}</a></td>
                             <td>{{ $actor->country }}</td>
                             <td>
@@ -80,8 +81,11 @@
                                 مسلسل: {{ $actor->get_actor_series()->count() }}
                             </td>
                             <td>
-                                <a href="{{ route('actors.edit', $actor->id) }}" class="btn btn-sm btn-success me-1">تعديل</a>
-                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $actor->id }}" class="btn btn-sm btn-danger">حذف</a>
+                                <a href="{{ route('actors.edit', $actor->id) }}"
+                                    class="btn btn-sm btn-success me-1">تعديل</a>
+                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                    data-bs-target="#confirmDelete{{ $actor->id }}"
+                                    class="btn btn-sm btn-danger">حذف</a>
                             </td>
                         </tr>
                         @include('actors.confirm-modal')
@@ -91,8 +95,17 @@
                         </tr>
                     @endforelse
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>الصورة</th>
+                        <th>اسم الممثل</th>
+                        <th>الدولة</th>
+                        <th>عدد الأعمال بالموقع</th>
+                        <th>الخيارات</th>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </div>
-
 @endsection
