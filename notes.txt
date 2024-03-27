@@ -7,3 +7,4 @@ Important Links:
 
 - Search at series, movies and episodes
 - Responsive
+- Logo
