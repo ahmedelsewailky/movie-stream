@@ -5,16 +5,9 @@
 @section('content')
     <section class="section slider-post-trailer">
         <div id="slide-post-trailer" class="carousel slide">
-            <div class="indicators">
-                @foreach ($slider_movies as $movie)
-                    <div class="indicator-image {{ $loop->index == 0 ? 'active' : false }}" data-bs-target="#slide-post-trailer" data-bs-slide-to="{{ $loop->index }}">
-                        <img src="{{ get_poster($movie->poster, '100') }}" alt="">
-                    </div>
-                @endforeach
-            </div>
             <div class="carousel-inner">
                 @foreach ($slider_movies as $movie)
-                    <div class="carousel-item {{ $loop->index == 0 ? 'active' : false }}">
+                    <div @class(['active' => $loop->index == 0, 'carousel-item'])>
                         <div class="trailer-video">
                             <video autoplay muted loop>
                                 <source src="{{ asset('storage/movies/trailers/trailer-1.mp4') }}">

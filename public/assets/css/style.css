@@ -131,7 +131,7 @@ h6 {
 .navbar-nav .nav-link.active,
 .nav-link:focus,
 .nav-link:hover {
-    color: #4CAF50;
+    color: #00BCD4;
 }
 
 .dropdown-menu {
@@ -146,7 +146,7 @@ h6 {
 .dropdown-item.active,
 .dropdown-item:active,
 .dropdown-item:focus {
-    color: #4CAF50;
+    color: #00BCD4;
     background-color: transparent;
     padding-right: 1.25rem;
 }
@@ -313,6 +313,14 @@ form.position-relative button {
     transform: translateY(-50%);
     right: 15%;
     width: 40%;
+    z-index: 2;
+}
+
+.slide-post-content .meta-category {
+    background: linear-gradient(to top, #FF9800, #FFC107);
+    padding: 3px 7px;
+    border-radius: 2px;
+    font-size: 10px;
 }
 
 .slider-post-trailer .slide-post-content p {
@@ -333,8 +341,11 @@ form.position-relative button {
     align-items: center;
 }
 
-span.meta-quality {
+.slider-post-trailer .meta-quality {
     border: 1px solid white;
+}
+
+span.meta-quality {
     font-size: 11px !important;
     padding-left: 6px;
     line-height: 20px;
@@ -510,7 +521,7 @@ span.meta-quality>span {
     bottom: 0;
     width: 100%;
     padding: 1rem;
-    background: linear-gradient(to top, #000 15%, transparent);
+    background: linear-gradient(to top, #000000 15%, transparent);
 }
 
 .post .post-title {
@@ -732,8 +743,8 @@ span.meta-quality>span {
 .page-link:focus {
     z-index: 2;
     color: white;
-    background-color: #3F51B5;
-    border-color: #3F51B5;
+    background-color: #009688;
+    border-color: #009688;
 }
 
 a.page-link {
@@ -745,9 +756,21 @@ a.page-link {
     margin: 0 .75rem;
 }
 
-ul.pagination {
+.page-item:not(:first-child) .page-link {
+    margin-right: -1px;
+}
+
+.page-item:first-child .page-link {
+    display: none;
+}
+
+.page-item:last-child .page-link {
+    display: none;
+}
+
+.pagination {
     margin: 1rem 0;
-    justify-content: center;
+    justify-content: end;
 }
 
 footer.footer {
