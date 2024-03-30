@@ -19,7 +19,7 @@
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('movies.index') }}">الافلام</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">اضافة فيلم جديد</li>
+                    <li class="breadcrumb-item active" aria-current="page">تعديل بيانات فيلم: {{ $movie->title }}</li>
                 </ol>
             </nav>
         </div>

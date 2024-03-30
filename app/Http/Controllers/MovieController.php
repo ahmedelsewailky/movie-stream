@@ -40,7 +40,7 @@ class MovieController extends Controller
     public function store(StoreMovieRequest $request)
     {
         $inputs = $request->except('actors');
-        $inputs['poster'] = $request->poster->store('movies', 'public');
+        $inputs['poster'] = $request->poster->store('movies/poster', 'public');
         $movie = Movie::create($inputs);
         if ($movie) {
             foreach ($request->actors as $movieActor) {
@@ -86,8 +86,9 @@ class MovieController extends Controller
          * Handling movie image poster updating operation
          */
         if ($request->has('poster')) {
-            unlink(storage_path('app\\public\\' . $movie->poster ));
-            $inputs['poster'] = $request->poster->store('movies', 'public');
+            if ($movie->poster)
+                unlink(storage_path('app\\public\\' . $movie->poster ));
+            $inputs['poster'] = $request->poster->store('movies/poster', 'public');
         } else {
             $inputs = $request->except('poster', 'actors');
         }

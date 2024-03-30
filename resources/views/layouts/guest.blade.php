@@ -27,7 +27,7 @@
 
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route('website') }}">
                 <img src="{{ asset('logo.png') }}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -55,7 +55,7 @@
                     @endforeach
                 </ul>
                 <a href="" class="btn text-white"><i class="bx bx-search"></i></a>
-                <a href="" class="btn btn-sm btn-primary text-white">تسجيل الدخول</a>
+                <a href="{{ route('login') }}" class="btn btn-sm btn-success text-white">تسجيل الدخول</a>
             </div>
         </div>
     </nav>
@@ -71,17 +71,17 @@
             </div>
 
             <div class="social-items mb-3">
-                <a href="" target="_blank" title="facebook" data-bs-toggle="tooltip"><i class="bx bxl-facebook"></i></a>
-                <a href="" target="_blank" title="twitter" data-bs-toggle="tooltip"><i class="bx bxl-twitter"></i></a>
-                <a href="" target="_blank" title="youtube" data-bs-toggle="tooltip"><i class="bx bxl-youtube"></i></a>
+                <a href="https://facebook.com/ahmedelsewailky" target="_blank" title="facebook" data-bs-toggle="tooltip"><i class="bx bxl-facebook"></i></a>
+                <a href="https://twitter.com/elsewailky" target="_blank" title="twitter" data-bs-toggle="tooltip"><i class="bx bxl-twitter"></i></a>
+                <a href="https://youtube.com/" target="_blank" title="youtube" data-bs-toggle="tooltip"><i class="bx bxl-youtube"></i></a>
             </div>
 
             <div class="main-pages mb-3">
-                <a href="">الرئيسية</a>
-                <a href="">من نحن</a>
-                <a href="">سياسة الخصوصية</a>
-                <a href="">بنود الخدمة</a>
-                <a href="">اتصل بنا</a>
+                <a href="{{ route('website') }}">الرئيسية</a>
+                <a href="#">من نحن</a>
+                <a href="#">سياسة الخصوصية</a>
+                <a href="#">بنود الخدمة</a>
+                <a href="#">اتصل بنا</a>
             </div>
 
             <div class="rights">

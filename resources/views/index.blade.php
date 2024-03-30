@@ -6,47 +6,36 @@
     <section class="section slider-post-trailer">
         <div id="slide-post-trailer" class="carousel slide carousel-fade">
             <div class="indicators">
-                <div class="indicator-image active" data-bs-target="#slide-post-trailer" data-bs-slide-to="0">
-                    <img src="{{ asset('storage/movies/posters/poster-1.jpg') }}" alt="">
-                </div>
-                <div class="indicator-image" data-bs-target="#slide-post-trailer" data-bs-slide-to="1">
-                    <img src="{{ asset('storage/movies/posters/poster-2.jpg') }}" alt="">
-                </div>
+                @foreach ($slider_movies as $movie)
+                    <div class="indicator-image {{ $loop->index == 0 ? 'active' : false }}" data-bs-target="#slide-post-trailer" data-bs-slide-to="{{ $loop->index }}">
+                        <img src="{{ get_poster($movie->poster, '100') }}" alt="">
+                    </div>
+                @endforeach
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="trailer-video">
-                        <video autoplay muted loop>
-                            <source src="{{ asset('storage/movies/trailers/trailer-1.mp4') }}">
-                        </video>
-                    </div>
-                    <span class="blur"></span>
-                    <div class="slide-post-content">
-                        <span class="meta-category">افلام اجنبي</span>
-                        <h2>Spider Man 3</h2>
-                        <div class="align-items-center d-flex my-4 post-meta">
-                            <span class="meta-rate"><i class="bx bx-star"></i> 8</span>
-                            <span class="meta-date">2023</span>
-                            <span class="meta-duration">1 hr 25 mins</span>
-                            <span class="meta-quality"><span>الجودة</span> WEB-DL 720P</span>
+                @foreach ($slider_movies as $movie)
+                    <div class="carousel-item {{ $loop->index == 0 ? 'active' : false }}">
+                        <div class="trailer-video">
+                            <video autoplay muted loop>
+                                <source src="{{ asset('storage/movies/trailers/trailer-1.mp4') }}">
+                            </video>
                         </div>
-                        <p>
-                            هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
-                            حيث
-                            يمكنك أن
-                            تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
-                            إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص
-                            لن
-                            يبدو
-                            مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج
-                            العميل فى
-                            كثير من
-                            الأحيان أن يطلع على صورة حقيقية لتصميم الموقع.
-                        </p>
-                        <a href="" class="btn btn-primary"><i class="bx bx-play-circle"></i> مشاهدة الآن</a>
-                        <a href="" class="btn btn-outline-primary"><i class="bx bx-bookmark"></i> مشاهدة لاحقا</a>
+                        <span class="blur"></span>
+                        <div class="slide-post-content">
+                            <span class="meta-category">{{ $movie->category->name }}</span>
+                            <h2>{{ $movie->title }}</h2>
+                            <div class="align-items-center d-flex my-4 post-meta">
+                                <span class="meta-rate"><i class="bx bx-star"></i> 8</span>
+                                <span class="meta-date">{{ $movie->year }}</span>
+                                <span class="meta-duration">1 hr 25 mins</span>
+                                <span class="meta-quality"><span>الجودة</span> WEB-DL 720P</span>
+                            </div>
+                            <p>{{ $movie->story }}</p>
+                            <a href="" class="btn btn-primary"><i class="bx bx-play-circle"></i> مشاهدة الآن</a>
+                            <a href="" class="btn btn-outline-primary"><i class="bx bx-bookmark"></i> مشاهدة لاحقا</a>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#slide-post-trailer" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -73,19 +62,16 @@
                 <div class="owl-carousel">
                     @forelse (\App\Models\Movie::orderByDesc('views')->take(10)->get() as $movie)
                         <div class="post">
-                            <div class="post-thumbnail">
-                                <img src="https://via.placeholder.com/230x310" alt="">
-                                <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
-                                <a href="">شاهد الآن</a>
-                            </div>
+                            <div class="post-thumbnail" style="background-image: url('{{ get_poster($movie->poster, '280x370') }}')"></div>
+                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
+                            <span class="meta meta-quality">{{ DataArray::QUALITIES[$movie->quality] }}</span>
                             <div class="post-content">
-                                <h6><a href="">{{ str($movie->title)->words(3) }}</a></h6>
-                                <div class="d-flex">
-                                    <span>{{ $movie->year }}</span>
-                                    <span>1 hr 25 mins</span>
-                                    <span>{{ DataArray::QUALITIES[$movie->quality] }}</span>
-                                </div>
-                                <span>{{ $movie->category->name }}</span>
+                                <span class="meta meta-category">{{ $movie->category->name }}</span>
+                                <h6 class="post-title"><a href="">تحميل ومشاهدة فيلم {{ str($movie->title)->words(3) }}</a></h6>
+                                <span class="meta meta-durations ">
+                                    <i class="bx bx-time-five"></i>
+                                    1 hr 25 mins
+                                </span>
                             </div>
                         </div>
                     @empty
@@ -108,86 +94,23 @@
             </div>
             <div class="section-body">
                 <div class="owl-carousel">
-                    <div class="post">
-                        <div class="post-thumbnail">
-                            <img src="https://via.placeholder.com/230x310" alt="">
+                    @forelse (\App\Models\SeriesEpisode::orderByDesc('id')->take(10)->get() as $s_episode)
+                        <div class="post">
+                            <div class="post-thumbnail" style="background-image: url('{{ get_poster($s_episode->poster, '280x370') }}')"></div>
                             <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
-                            <a href="">شاهد الآن</a>
-                        </div>
-                        <div class="post-content">
-                            <h6><a href="">المداح 4</a></h6>
-                            <div class="d-flex">
-                                <span>2024</span>
-                                <span>1 hr 25 mins</span>
-                                <span>DVD-720</span>
+                            <span class="meta meta-quality">{{ DataArray::QUALITIES[$s_episode->quality] }}</span>
+                            <div class="post-content">
+                                <span class="meta meta-category">{{ $s_episode->series->category->name }}</span>
+                                <h6 class="post-title"><a href=""> {{ $s_episode->series->title }}</a></h6>
+                                <span class="meta meta-durations ">
+                                    <i class="bx bx-time-five"></i>
+                                    1 hr 25 mins
+                                </span>
                             </div>
-                            <span>افلام عربية</span>
                         </div>
-                    </div>
-                    <div class="post">
-                        <div class="post-thumbnail">
-                            <img src="https://via.placeholder.com/230x310" alt="">
-                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
-                            <a href="">شاهد الآن</a>
-                        </div>
-                        <div class="post-content">
-                            <h6><a href="">The Boys</a></h6>
-                            <div class="d-flex">
-                                <span>2024</span>
-                                <span>1 hr 25 mins</span>
-                                <span>DVD-720</span>
-                            </div>
-                            <span>افلام عربية</span>
-                        </div>
-                    </div>
-                    <div class="post">
-                        <div class="post-thumbnail">
-                            <img src="https://via.placeholder.com/230x310" alt="">
-                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
-                            <a href="">شاهد الآن</a>
-                        </div>
-                        <div class="post-content">
-                            <h6><a href="">جعفر العمدة</a></h6>
-                            <div class="d-flex">
-                                <span>2024</span>
-                                <span>1 hr 25 mins</span>
-                                <span>DVD-720</span>
-                            </div>
-                            <span>افلام عربية</span>
-                        </div>
-                    </div>
-                    <div class="post">
-                        <div class="post-thumbnail">
-                            <img src="https://via.placeholder.com/230x310" alt="">
-                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
-                            <a href="">شاهد الآن</a>
-                        </div>
-                        <div class="post-content">
-                            <h6><a href="">الحشاشين</a></h6>
-                            <div class="d-flex">
-                                <span>2024</span>
-                                <span>1 hr 25 mins</span>
-                                <span>DVD-720</span>
-                            </div>
-                            <span>افلام عربية</span>
-                        </div>
-                    </div>
-                    <div class="post">
-                        <div class="post-thumbnail">
-                            <img src="https://via.placeholder.com/230x310" alt="">
-                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
-                            <a href="">شاهد الآن</a>
-                        </div>
-                        <div class="post-content">
-                            <h6><a href="">طاقة نور</a></h6>
-                            <div class="d-flex">
-                                <span>2024</span>
-                                <span>1 hr 25 mins</span>
-                                <span>DVD-720</span>
-                            </div>
-                            <span>افلام عربية</span>
-                        </div>
-                    </div>
+                    @empty
+                        <p class="text-center">لا توجد بيانات</p>
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -236,30 +159,21 @@
                 </div>
 
                 <div class="row">
-                    @for ($i = 0; $i < 18; $i++)
-                        <div class="col-md-2 mb-3">
-                            <div class="post inner-post-effect">
-                                <div class="post-thumbnail">
-                                    <img src="https://via.placeholder.com/280x370" alt="">
-                                </div>
+                    @forelse ($movies as $movie)
+                        <div class="col-md-3 mb-3">
+                            <div class="post">
+                                <div class="post-thumbnail" style="background-image: url('{{ get_poster($movie->poster, '270x195?text=') }}')"></div>
+                                <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
+                                <span class="meta meta-quality">{{ DataArray::QUALITIES[$movie->quality] }}</span>
                                 <div class="post-content">
-                                    <h6>
-                                        <a href="">Madame Web 2024</a>
-                                    </h6>
-                                    <div class="d-flex">
-                                        <span>2024</span>
-                                        <span>1 hr 25 mins</span>
-                                    </div>
-                                    <p>
-                                        هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
-                                        النص
-                                        العربى
-                                    </p>
-                                    <a href="" class="btn btn-outline-primary">مشاهدة الآن</a>
+                                    <span class="meta meta-category">{{ $movie->category->name }}</span>
+                                    <h6 class="post-title"><a href="">فيلم {{ $movie->title }}</a></h6>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @empty
+                        <p class="text-center">لا توجد بيانات</p>
+                    @endforelse
 
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">

@@ -103,12 +103,24 @@ h6 {
     background-color: #33344a;
     color: white;
     border-radius: 0.5rem;
-    padding: 0.5rem;
+    padding: 1rem;
 }
 
 .dropdown-item {
-    font-size: 14px;
-    color: inherit;
+    font-size: 12px;
+    color: #e2e1ed;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    padding: 2px 10px;
+    border-radius: 0.25rem;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    color: #fff;
+    background-color: #009688;
+    font-size: 12px;
 }
 
 .sidebar {
@@ -474,23 +486,6 @@ label.form-check-label {
     vertical-align: top;
 }
 
-.table .dropdown .dropdown-menu {
-    background-color: #41425c;
-    font-size: inherit;
-    border-radius: 0.5rem;
-    padding: 1rem;
-}
-
-.table .dropdown .dropdown-menu .dropdown-item {
-    font-size: 12px;
-    color: #e2e1ed;
-    line-height: 26px;
-    display: flex;
-    align-items: center;
-    padding: 0.125rem 0.25rem;
-    border-radius: 0.25rem;
-}
-
 .table .dropdown .dropdown-menu .dropdown-item:hover,
 .table .dropdown .dropdown-menu .dropdown-item.active,
 .table .dropdown .dropdown-menu .dropdown-item:focus {
@@ -643,6 +638,7 @@ button#addLink {
 /*  =====================================================   Updating Poster Image */
 .poster-image img {
     margin-bottom: 1rem;
+    max-width: 310px;
 }
 
 .poster-image {
@@ -718,13 +714,6 @@ label.update-poster-label {
 .post-card .dropdown button i {
     font-size: 22px;
     color: white;
-}
-
-.post-card .dropdown-menu {
-    background-color: #33344a;
-    color: white;
-    border-radius: 0.5rem;
-    padding: 0;
 }
 
 .post-card .dropdown-item {

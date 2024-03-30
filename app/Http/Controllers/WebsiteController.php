@@ -19,6 +19,8 @@ class WebsiteController extends Controller
 
         $series = SeriesEpisode::orderByDesc('id')->take(10)->get();
 
+        $movies = Movie::orderByDesc('id')->paginate(18);
+
         return view('index', get_defined_vars());
     }
 
