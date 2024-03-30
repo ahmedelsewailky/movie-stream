@@ -333,11 +333,20 @@ form.position-relative button {
     align-items: center;
 }
 
+span.meta-quality {
+    border: 1px solid white;
+    font-size: 11px !important;
+    padding-left: 6px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
 span.meta-quality>span {
     background-color: white;
     color: #000;
     padding: 0 .5rem;
     margin-left: .5rem;
+    font-weight: 400;
 }
 
 .slider-post-trailer .btn {
@@ -483,7 +492,7 @@ span.meta-quality>span {
     overflow: hidden;
 }
 
-.post-thumbnail {
+.post .post-thumbnail {
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -496,7 +505,7 @@ span.meta-quality>span {
     filter: grayscale(1);
 }
 
-.post-content {
+.post .post-content {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -504,13 +513,13 @@ span.meta-quality>span {
     background: linear-gradient(to top, #000 15%, transparent);
 }
 
-.post-title {
+.post .post-title {
     font-size: 16px;
     font-weight: 700;
     margin: 0.25rem 0;
 }
 
-.post-title a {
+.post .post-title a {
     background: linear-gradient(45deg, #fff, #fff);
     background-position: right bottom;
     background-size: 0 1px;
@@ -519,27 +528,27 @@ span.meta-quality>span {
     line-height: 1.75;
 }
 
-.post-title a:hover {
+.post .post-title a:hover {
     background-size: 100% 1px;
 }
 
-.post-meta {
+.post .post-meta {
     display: flex;
     align-items: center;
 }
 
-.meta {
+.post .meta {
     display: inline-block;
     font-size: 11px;
 }
 
-.meta-category {
+.post .meta-category {
     background-color: #009688;
     padding: 2px 8px;
     border-radius: 2px;
 }
 
-.meta-quality {
+.post .meta-quality {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -550,7 +559,7 @@ span.meta-quality>span {
     line-height: 15px;
 }
 
-.play-overlay {
+.post .play-overlay {
     display: grid;
     font-size: 50px;
     position: absolute;
@@ -568,13 +577,13 @@ span.meta-quality>span {
     visibility: visible;
 }
 
-.play-overlay i {
+.post .play-overlay i {
     font-size: inherit;
     z-index: 1;
 }
 
-.play-overlay::before,
-.play-overlay::after {
+.post .play-overlay::before,
+.post .play-overlay::after {
     content: '';
     position: absolute;
     background-color: rgb(255 255 255 / 30%);
@@ -584,11 +593,11 @@ span.meta-quality>span {
     height: 100%;
 }
 
-.play-overlay::before {
+.post .play-overlay::before {
     animation: pulse 2s infinite ease-out;
 }
 
-.play-overlay::after {
+.post .play-overlay::after {
     animation: pulse 2s 1s infinite ease-out;
 }
 

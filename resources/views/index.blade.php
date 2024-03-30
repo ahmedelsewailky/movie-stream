@@ -4,7 +4,7 @@
 {{-- Page content --}}
 @section('content')
     <section class="section slider-post-trailer">
-        <div id="slide-post-trailer" class="carousel slide carousel-fade">
+        <div id="slide-post-trailer" class="carousel slide">
             <div class="indicators">
                 @foreach ($slider_movies as $movie)
                     <div class="indicator-image {{ $loop->index == 0 ? 'active' : false }}" data-bs-target="#slide-post-trailer" data-bs-slide-to="{{ $loop->index }}">
