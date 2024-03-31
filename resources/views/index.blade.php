@@ -60,7 +60,7 @@
                             <span class="meta meta-quality">{{ DataArray::QUALITIES[$movie->quality] }}</span>
                             <div class="post-content">
                                 <span class="meta meta-category">{{ $movie->category->name }}</span>
-                                <h6 class="post-title"><a href="">تحميل ومشاهدة فيلم {{ str($movie->title)->words(3) }}</a></h6>
+                                <h6 class="post-title"><a href="{{ route('movie.show', $movie->slug) }}">تحميل ومشاهدة فيلم {{ str($movie->title)->words(3) }}</a></h6>
                                 <span class="meta meta-durations ">
                                     <i class="bx bx-time-five"></i>
                                     1 hr 25 mins

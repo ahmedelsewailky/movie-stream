@@ -278,6 +278,17 @@ form.position-relative button {
     transform: translateY(-100px);
 }
 
+.navbar.wide .nav-link.active {
+    background-color: white;
+    border-radius: 3px;
+    color: #009688;
+    font-size: 13px;
+}
+
+.navbar.wide .btn-success {
+    background: #FF9800;
+}
+
 /* ====================================================== Website: Slider Post Trailer */
 .slider-post-trailer {
     height: 100vh;
@@ -360,26 +371,14 @@ span.meta-quality>span {
     font-weight: 400;
 }
 
-.slider-post-trailer .btn {
-    padding: .75rem 1.5rem;
-    margin-top: 1.5rem;
-    font-weight: 700;
-    font-size: 14px;
+.slider-post-trailer .btn-primary:hover {
+    background: linear-gradient(45deg, #3F51B5, #009688);
 }
 
 .slider-post-trailer .btn>i {
     font-size: 24px;
     margin-left: .25rem;
 }
-
-/* .slider-post-trailer .btn-primary {
-    border-color: #1abc9c;
-    background: linear-gradient(45deg, #1abc9c 25%, #1a4cbc);
-}
-
-.slider-post-trailer .btn-primary:hover {
-    background: linear-gradient(45deg, #1a4cbc 25%, #1abc9c);
-} */
 
 .slider-post-trailer .btn-outline-primary {
     border-color: #1a95a7;

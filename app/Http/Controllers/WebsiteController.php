@@ -24,26 +24,9 @@ class WebsiteController extends Controller
         return view('index', get_defined_vars());
     }
 
-    /**
-     * Display single post page based on uri.
-     *
-     * @return \Illuminate\Contracts\View\View
-     */
-    public function show($post_identifier)
+    public function movie(string $slug)
     {
-        $request_uri = explode('/', trim(request()->getRequestUri()));
-
-        if ($request_uri[1] == 'movie') {
-            $post = \App\Models\Movie::where('slug', $post_identifier)->first();
-        }
-
-        if ($request_uri[1] == 'series') {
-            $post = \App\Models\SeriesEpisode::where('episode', $post_identifier)->first();
-        }
-
-        if ($request_uri[1] == 'tvshow') {
-            $post = \App\Models\TvshowEpisode::where('episode', $post_identifier)->first();
-        }
-        return view('singles.' . $request_uri[1] . '-single', compact('post'));
+        $movie = \App\Models\Movie::where('slug', $slug)->first();
+        return view('movies.single', $movie);
     }
 }
