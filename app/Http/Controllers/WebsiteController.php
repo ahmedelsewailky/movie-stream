@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\{Movie, TvshowEpisode, SeriesEpisode};
+use Illuminate\Support\Facades\DB;
 
 class WebsiteController extends Controller
 {
@@ -27,6 +28,7 @@ class WebsiteController extends Controller
     public function movie(string $slug)
     {
         $movie = \App\Models\Movie::where('slug', $slug)->first();
-        return view('movies.single', $movie);
+        $movie_actors = DB::table('movie_actor')->where('movie_id', $movie->id)->get();
+        return view('movies.single', compact('movie', 'movie_actors'));
     }
 }
