@@ -859,3 +859,93 @@ footer.footer {
     border-top: 1px solid #464357;
     margin: 0;
 }
+
+section.single-post-section {
+    margin: 4rem 0;
+    padding: 4rem 0;
+}
+
+.single-post-section .row span {
+    line-height: 1rem;
+    margin: .5rem 0;
+    font-size: 12px;
+}
+
+.single-post-section .row span i {
+    color: #009688;
+    margin-left: .5rem;
+}
+
+span.actor-badge {
+    display: inline-block;
+    padding: .25rem .75rem;
+    background-color: #2d2b3b;
+    border-radius: 50px;
+}
+
+h6.sub-section-title {
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgb(255 255 255 / .25);
+}
+
+h6.sub-section-title i {
+    color: #009688;
+}
+
+span.movie-tag {
+    font-size: 11px !important;
+    position: relative;
+}
+
+span.movie-tag:not(:last-child)::after {
+    content: '،';
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.single-post-section .btn {
+    font-size: 11px;
+    color: white;
+    border-radius: 60px;
+}
+
+.single-post-section .btn:first-of-type {
+    background-color: #2196F3;
+}
+
+.single-post-section .btn:last-of-type {
+    background-color: green;
+    margin-right: .5rem;
+}
+
+.votes {
+    font-size: 12px;
+    margin-right: 1rem;
+}
+
+.votes span {
+    margin-right: .5rem;
+}
+
+.votes i {
+    font-size: 15px;
+    display: inline-block;
+    margin: 0 -2px;
+}
+
+h6.sub-section-title::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 5px;
+    background-color: #009688;
+    bottom: -3px;
+    right: 29px;
+    border-radius: 10px;
+}
+
+.single-post-section p {
+    font-size: 13px;
+    line-height: 23px;
+}
