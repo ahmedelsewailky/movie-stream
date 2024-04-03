@@ -84,7 +84,7 @@
                         </div>
                     </div>
 
-                    <div class="actors-box mt-3">
+                    <div class="actors-card mt-3">
                         <h6 class="sub-section-title">
                             <i class="bx bx-party me-2"></i>
                             فريق العمل
@@ -105,7 +105,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-3">
+                    <div class="socials-card">
                         <h6>تابعنا علي مواقع التواصل الإجتماعي</h6>
                         <div class="mt-2">
                             <a href="#" class="social-item"><i class="bx bxl-facebook"></i></a>

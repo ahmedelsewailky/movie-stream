@@ -884,6 +884,7 @@ span.actor-badge {
 }
 
 h6.sub-section-title {
+    position: relative;
     margin-bottom: 1rem;
     padding-bottom: 0.75rem;
     border-bottom: 1px solid rgb(255 255 255 / .25);
@@ -948,4 +949,10 @@ h6.sub-section-title::after {
 .single-post-section p {
     font-size: 13px;
     line-height: 23px;
+}
+
+.socials-card {
+    padding: 1.5rem;
+    background-color: rgb(255 255 255 / 6%);
+    border-radius: .5rem;
 }
