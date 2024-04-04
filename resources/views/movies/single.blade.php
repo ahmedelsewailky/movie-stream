@@ -13,7 +13,14 @@
                 </div>
                 <div class="flex-grow-1">
                     <h1 class="mb-3 fs-2">{{ $movie->title }}</h1>
-                    <div class="row">
+                    <div class="row">   
+                        <div class="col-md-6">
+                            <span>
+                                <i class="bx bx-hash"></i>
+                                رقم الفيلم:
+                                M000{{ $movie->id }}
+                            </span>
+                        </div>
                         <div class="col-md-6">
                             <span>
                                 <i class="bx bx-category"></i>
@@ -49,13 +56,6 @@
                                 {{ DataArray::DUBBED_STATUS[$movie->dubbed_status] }}
                             </span>
                         </div>
-                        <div class="col-md-6">
-                            <span>
-                                <i class="bx bx-hash"></i>
-                                رقم الفيلم:
-                                M000{{ $movie->id }}
-                            </span>
-                        </div>
                         <div class="col-md-12">
                             <span>
                                 <i class="bx bx-tag"></i>
@@ -84,9 +84,9 @@
                         </div>
                     </div>
 
-                    <div class="actors-card mt-3">
+                    <div class="actors-card my-5">
                         <h6 class="sub-section-title">
-                            <i class="bx bx-party me-2"></i>
+                            <i class="bx bx-group me-2"></i>
                             فريق العمل
                         </h6>
                         <div class="row">
@@ -105,7 +105,7 @@
                         </div>
                     </div>
 
-                    <div class="socials-card">
+                    <div class="socials-card my-5">
                         <h6>تابعنا علي مواقع التواصل الإجتماعي</h6>
                         <div class="mt-4 text-center">
                             <a href="#" class="social-item"><i class="bx bxl-facebook"></i></a>
@@ -114,6 +114,26 @@
                             <a href="#" class="social-item"><i class="bx bxl-youtube"></i></a>
                             <a href="#" class="social-item"><i class="bx bxl-telegram"></i></a>
                         </div>
+                    </div>
+
+                    <div class="my-5">
+                        <h6 class="sub-section-title">
+                            <i class="bx bx-tv me-2"></i>
+                            مشاهدة مباشرة
+                        </h6>
+                        
+                        <video autoplay muted loop>
+                            <source src="{{ asset('storage/movies/trailers/trailer-1.mp4') }}">
+                        </video>
+                    </div>
+
+                    <div class="my-5">
+                        <h6 class="sub-section-title">
+                            <i class="bx bx-download me-2"></i>
+                            روابط التحميل
+                        </h6>
+
+                        
                     </div>
                 </div>
             </div>
