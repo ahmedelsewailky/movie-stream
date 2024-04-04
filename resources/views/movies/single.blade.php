@@ -107,7 +107,7 @@
 
                     <div class="socials-card">
                         <h6>تابعنا علي مواقع التواصل الإجتماعي</h6>
-                        <div class="mt-2">
+                        <div class="mt-4 text-center">
                             <a href="#" class="social-item"><i class="bx bxl-facebook"></i></a>
                             <a href="#" class="social-item"><i class="bx bxl-twitter"></i></a>
                             <a href="#" class="social-item"><i class="bx bxl-instagram"></i></a>

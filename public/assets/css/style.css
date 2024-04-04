@@ -956,3 +956,27 @@ h6.sub-section-title::after {
     background-color: rgb(255 255 255 / 6%);
     border-radius: .5rem;
 }
+
+.socials-card h6 {
+    text-align: center;
+    color: orange;
+    margin: 1rem 0;
+}
+
+.socials-card .social-item {
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    line-height: 55px;
+    background-color: rgb(255 255 255 / 6%);
+    border-radius: .25rem;
+}
+
+.socials-card .social-item:hover {
+    background: linear-gradient(45deg, #009688, #8BC34A);
+}
+
+.socials-card .social-item i {
+    font-size: 1.25rem;
+}
