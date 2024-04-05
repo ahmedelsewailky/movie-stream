@@ -25,7 +25,8 @@
                             </div>
                             <p>{{ $movie->story }}</p>
                             <a href="" class="btn btn-primary"><i class="bx bx-play-circle"></i> مشاهدة الآن</a>
-                            <a href="" class="btn btn-outline-primary"><i class="bx bx-bookmark"></i> مشاهدة لاحقا</a>
+                            <a href="" class="btn btn-outline-primary"><i class="bx bx-bookmark"></i> مشاهدة
+                                لاحقا</a>
                         </div>
                     </div>
                 @endforeach
@@ -55,16 +56,21 @@
                 <div class="owl-carousel">
                     @forelse (\App\Models\Movie::orderByDesc('views')->take(10)->get() as $movie)
                         <div class="post">
-                            <div class="post-thumbnail" style="background-image: url('{{ get_poster($movie->poster, '280x370') }}')"></div>
-                            <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
-                            <span class="meta meta-quality">{{ DataArray::QUALITIES[$movie->quality] }}</span>
+                            <div class="post-thumbnail"
+                                style="background-image: url('{{ get_poster($movie->poster, '280x370') }}')"></div>
                             <div class="post-content">
-                                <span class="meta meta-category">{{ $movie->category->name }}</span>
-                                <h6 class="post-title"><a href="{{ route('movie.show', $movie->slug) }}">تحميل ومشاهدة فيلم {{ str($movie->title)->words(3) }}</a></h6>
-                                <span class="meta meta-durations ">
-                                    <i class="bx bx-time-five"></i>
-                                    1 hr 25 mins
-                                </span>
+                                <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
+                                <div class="top-post-content">
+                                    <span class="meta meta-quality">{{ DataArray::QUALITIES[$movie->quality] }}</span>
+                                    <span class="meta meta-category">{{ $movie->category->name }}</span>
+                                </div>
+                                <div class="bottom-post-content">
+                                    <h6 class="post-title"><a href="{{ route('movie.show', $movie->slug) }}">{{ str($movie->title)->words(3) }}</a></h6>
+                                    <span class="meta meta-durations ">
+                                        <i class="bx bx-time-five"></i>
+                                        1 hr 25 mins
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     @empty
@@ -80,7 +86,7 @@
             <div class="section-header ">
                 <span><i class="bx bx-video-recording"></i></span>
                 <h3>جديد المسلسلات</h3>
-                <a href="" class="load-more">
+                <a href="#" class="load-more">
                     عرض المزيد
                     <i class="bx bx-left-arrow-alt"></i>
                 </a>
@@ -89,16 +95,21 @@
                 <div class="owl-carousel">
                     @forelse (\App\Models\SeriesEpisode::orderByDesc('id')->take(10)->get() as $s_episode)
                         <div class="post">
-                            <div class="post-thumbnail" style="background-image: url('{{ get_poster($s_episode->poster, '280x370') }}')"></div>
+                            <div class="post-thumbnail"
+                                style="background-image: url('{{ get_poster($s_episode->poster, '280x370') }}')"></div>
                             <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
-                            <span class="meta meta-quality">{{ DataArray::QUALITIES[$s_episode->quality] }}</span>
                             <div class="post-content">
-                                <span class="meta meta-category">{{ $s_episode->series->category->name }}</span>
-                                <h6 class="post-title"><a href=""> {{ $s_episode->series->title }}</a></h6>
-                                <span class="meta meta-durations ">
-                                    <i class="bx bx-time-five"></i>
-                                    1 hr 25 mins
-                                </span>
+                                <div class="top-post-content">
+                                    <span class="meta meta-quality">{{ DataArray::QUALITIES[$s_episode->quality] }}</span>
+                                    <span class="meta meta-category">{{ $s_episode->series->category->name }}</span>
+                                </div>
+                                <div class="bottom-post-content">
+                                    <h6 class="post-title"><a href="{{ route('web.series.show', $s_episode->series->slug) }}"> {{ $s_episode->series->title }}</a></h6>
+                                    <span class="meta meta-durations ">
+                                        <i class="bx bx-time-five"></i>
+                                        1 hr 25 mins
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     @empty
@@ -155,12 +166,22 @@
                     @forelse ($movies as $movie)
                         <div class="col-md-3 mb-3">
                             <div class="post">
-                                <div class="post-thumbnail" style="background-image: url('{{ get_poster($movie->poster, '270x195?text=') }}')"></div>
+                                <div class="post-thumbnail"
+                                    style="background-image: url('{{ get_poster($movie->poster, '270x195?text=') }}')">
+                                </div>
                                 <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
-                                <span class="meta meta-quality">{{ DataArray::QUALITIES[$movie->quality] }}</span>
                                 <div class="post-content">
-                                    <span class="meta meta-category">{{ $movie->category->name }}</span>
-                                    <h6 class="post-title"><a href="">فيلم {{ $movie->title }}</a></h6>
+                                    <div class="top-post-content">
+                                        <span class="meta meta-quality">{{ DataArray::QUALITIES[$movie->quality] }}</span>
+                                        <span class="meta meta-category">{{ $movie->category->name }}</span>
+                                    </div>
+                                    <div class="bottom-post-content">
+                                        <h6 class="post-title"><a href="">فيلم {{ $movie->title }}</a></h6>
+                                        <span class="meta meta-durations ">
+                                            <i class="bx bx-time-five"></i>
+                                            1 hr 25 mins
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

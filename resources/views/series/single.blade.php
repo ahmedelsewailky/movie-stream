@@ -9,66 +9,59 @@
         <div class="container">
             <div class="d-flex">
                 <div class="flex-shrink-0 me-4">
-                    <img src="{{ get_poster($movie->poster, '295x380') }}" width="380" class="rounded-3"
+                    <img src="{{ get_poster($series->poster, '295x380') }}" width="380" class="rounded-3"
                         alt="Single Post Poster">
                 </div>
                 <div class="flex-grow-1">
-                    <h1 class="mb-3 fs-2">{{ $movie->title }}</h1>
+                    <h1 class="mb-3 fs-2">{{ $series->title }}</h1>
                     <div class="row">
                         <div class="col-md-6">
                             <span>
                                 <i class="bx bx-hash"></i>
                                 رقم الفيلم:
-                                M000{{ $movie->id }}
+                                M000{{ $series->id }}
                             </span>
                         </div>
                         <div class="col-md-6">
                             <span>
                                 <i class="bx bx-category"></i>
                                 القسم:
-                                {{ $movie->category->name }}
-                            </span>
-                        </div>
-                        <div class="col-md-6">
-                            <span>
-                                <i class="bx bx-play-circle"></i>
-                                جودة الفيلم:
-                                {{ DataArray::QUALITIES[$movie->quality] }}
+                                {{ $series->category->name }}
                             </span>
                         </div>
                         <div class="col-md-6">
                             <span>
                                 <i class="bx bx-calendar"></i>
                                 سنة الإنتاج:
-                                {{ $movie->year }}
+                                {{ $series->year }}
                             </span>
                         </div>
                         <div class="col-md-6">
                             <span>
                                 <i class="bx bx-play-circle"></i>
                                 لغة الفيلم:
-                                {{ $movie->language }}
+                                {{ $series->language }}
                             </span>
                         </div>
                         <div class="col-md-6">
                             <span>
                                 <i class="bx bx-play-circle"></i>
                                 الترحمة:
-                                {{ DataArray::DUBBED_STATUS[$movie->dubbed_status] }}
+                                {{ DataArray::DUBBED_STATUS[$series->dubbed_status] }}
                             </span>
                         </div>
                         <div class="col-md-12">
                             <span>
                                 <i class="bx bx-tag"></i>
                                 الوسوم:
-                                @foreach ($movie->types as $key => $value)
+                                @foreach ($series->types as $key => $value)
                                     <span class="movie-tag">{{ DataArray::TYPES[$key] }}</span>
                                 @endforeach
                             </span>
                         </div>
                     </div>
 
-                    <p>{{ $movie->story }}</p>
+                    <p>{{ $series->story }}</p>
 
                     <div class="my-5 d-flex align-items-center">
                         <a href="#" class="btn btn-like"><i class="bx bx-like"></i> اعجبني</a>
@@ -91,7 +84,7 @@
                             فريق العمل
                         </h6>
                         <div class="row">
-                            @foreach ($movie_actors as $actor)
+                            @foreach ($series_actors as $actor)
                                 <div class="col-md-4">
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-shrink-0">
@@ -101,6 +94,20 @@
                                             <a href="#">{{ Actor::find($actor->actor_id)->name }}</a>
                                         </div>
                                     </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    <div class="single-section-card actors-card my-5">
+                        <h6 class="sub-section-title">
+                            <i class="bx bx-layer me-2"></i>
+                            الحلقات
+                        </h6>
+                        <div class="row">
+                            @foreach ($series->episodes as $episode)
+                                <div class="col-md-4">
+                                    الحلقة رقم {{ $episode->episode }}
                                 </div>
                             @endforeach
                         </div>
@@ -117,63 +124,7 @@
                         </div>
                     </div>
 
-                    <div class="single-section-card my-5">
-                        <h6 class="sub-section-title">
-                            <i class="bx bx-tv me-2"></i>
-                            سيرفرات المشاهدة
-                        </h6>
-
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
-                                    data-bs-target="#home-tab-pane" type="button" role="tab"
-                                    aria-controls="home-tab-pane" aria-selected="true">سيرفر المشاهدة 1</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
-                                    data-bs-target="#profile-tab-pane" type="button" role="tab"
-                                    aria-controls="profile-tab-pane" aria-selected="false">سيرفر المشاهدة 2</button>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
-                                aria-labelledby="home-tab" tabindex="0">
-                                <iframe width="100%" height="515"
-                                    src="https://www.youtube.com/embed/QboLH9ZY6NU?si=FHQEI5Ar4v6pDx6U"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                            </div>
-
-                            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel"
-                                aria-labelledby="profile-tab" tabindex="0">
-                                <iframe width="100%" height="515"
-                                    src="https://www.youtube.com/embed/va4jPDLj8NI?si=0vQj7yONqHDZ_U3u"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="single-section-card my-5">
-                        <h6 class="sub-section-title">
-                            <i class="bx bx-download me-2"></i>
-                            سيرفرات التحميل
-                        </h6>
-
-                        @foreach ($movie->links as $key => $value)
-                            <div class="sds-link">
-                                <a href="{{ $value }}"></a>
-                                <div class="flex-shrink-0 me-3">
-                                    <i class="bx bx-download"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <small>سيرفر التحميل {{ $key+1 }}</small>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -193,20 +144,18 @@
                     </div>
                     <div class="section-body">
                         <div class="owl-carousel">
-                            @forelse (\App\Models\Movie::where('category_id', '!=', $movie->category_id)->take(10)->get() as $movie)
+                            @forelse (\App\Models\Series::where('category_id', '!=', $series->category_id)->take(10)->get() as $series)
                                 <div class="post">
                                     <div class="post-thumbnail"
-                                        style="background-image: url('{{ get_poster($movie->poster, '280x370') }}')">
+                                        style="background-image: url('{{ get_poster($series->poster, '280x370') }}')">
                                     </div>
                                     <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
                                     <div class="post-content">
                                         <div class="top-post-content">
-                                            <span
-                                                class="meta meta-quality">{{ DataArray::QUALITIES[$movie->quality] }}</span>
-                                            <span class="meta meta-category">{{ $movie->category->name }}</span>
+                                            <span class="meta meta-category">{{ $series->category->name }}</span>
                                         </div>
                                         <div class="bottom-post-content">
-                                            <h6 class="post-title"><a href=""> {{ $movie->title }}</a>
+                                            <h6 class="post-title"><a href=""> {{ $series->title }}</a>
                                             </h6>
                                             <span class="meta meta-durations ">
                                                 <i class="bx bx-time-five"></i>

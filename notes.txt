@@ -5,6 +5,5 @@ Important Links:
 
 
 
-- Search at series, movies and episodes
-- Responsive
-- Logo
+- صفحة مشاهدة الحلقات في صفحة مشاهدة المسلسل
+- صفحة عرض اعمال كل فنان من افلام ومسلسلات

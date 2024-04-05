@@ -31,4 +31,11 @@ class WebsiteController extends Controller
         $movie_actors = DB::table('movie_actor')->where('movie_id', $movie->id)->get();
         return view('movies.single', compact('movie', 'movie_actors'));
     }
+
+    public function series(string $slug)
+    {
+        $series = \App\Models\Series::where('slug', $slug)->first();
+        $series_actors = DB::table('series_actor')->where('series_id', $series->id)->get();
+        return view('series.single', compact('series', 'series_actors'));
+    }
 }

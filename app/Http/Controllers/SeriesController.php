@@ -81,7 +81,8 @@ class SeriesController extends Controller
     {
         $inputs = $request->except('actors');
         if ($request->has('poster')) {
-            unlink(storage_path('app\\public\\' . $series->poster ));
+            if ($series->poster)
+                unlink(storage_path('app\\public\\' . $series->poster ));
             $inputs['poster'] = $request->poster->store('series', 'public');
         } else {
             $inputs = $request->except(['poster', 'actors']);

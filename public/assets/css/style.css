@@ -517,10 +517,20 @@ span.meta-quality>span {
 
 .post .post-content {
     position: absolute;
-    bottom: 0;
     width: 100%;
-    padding: 1rem;
-    background: linear-gradient(to top, #000000 15%, transparent);
+    top: 0;
+    background: linear-gradient(to bottom, #009688, transparent);
+    height: 100%;
+    transition: 0.3s ease;
+    transform: scale(1.1);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.post:hover .post-content {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
 }
 
 .post .post-title {
@@ -553,20 +563,20 @@ span.meta-quality>span {
 }
 
 .post .meta-category {
-    background-color: #009688;
+    background-color: #FF5722;
     padding: 2px 8px;
     border-radius: 2px;
+    display: block;
 }
 
 .post .meta-quality {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: rgb(0 0 0 / .5);
+    background-color: rgb(0 0 0 / 34%);
     font-size: 11px;
-    padding: 2px 8px;
+    padding: 5px 8px;
     border-radius: 2px;
     line-height: 15px;
+    display: inline-block;
+    margin-bottom: 4px;
 }
 
 .post .play-overlay {
@@ -578,7 +588,22 @@ span.meta-quality>span {
     transform: translate(-50%, -100%);
     transition: 0.3s ease;
     opacity: 0;
+    z-index: 1;
     visibility: hidden;
+}
+
+.bottom-post-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    right: 0;
+    padding: 1rem;
+}
+
+.top-post-content {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .post:hover .play-overlay {
@@ -979,4 +1004,56 @@ h6.sub-section-title::after {
 
 .socials-card .social-item i {
     font-size: 1.25rem;
+}
+
+.single-section-card .nav {
+    border-bottom: none;
+    margin-bottom: 1rem;
+}
+
+.single-section-card .nav .nav-link.active {
+    background-color: #009688;
+}
+
+.single-section-card .nav .nav-link {
+    border: 2px solid #009688;
+    border-radius: 50px;
+    margin-left: .5rem;
+    color: white;
+}
+
+.single-section-card .nav .nav-link:hover {
+    background-color: #009688;
+}
+
+.sds-link {
+    position: relative;
+    display: inline-flex;
+    background-color: rgb(255 255 255 / 5%);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    align-items: center;
+    color: white;
+    border: 1px solid #009688;
+    margin-left: 4px;
+}
+
+.sds-link a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.sds-link i {
+    font-size: 2rem;
+    opacity: 0.3;
+    color: #009688;
+}
+
+.sds-link:hover {
+    background-color: #009688;
+}
+
+.sds-link:hover i {
+    color: white;
 }

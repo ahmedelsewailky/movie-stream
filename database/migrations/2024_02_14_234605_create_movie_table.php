@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('poster')->nullable();
             $table->text('story');
             $table->json('links');
-            $table->string('watch_link');
+            $table->mediumText('watch_link');
             $table->string('dubbed_status')->nullable();
             $table->unsignedInteger('views')->default(0);
             $table->timestamps();
