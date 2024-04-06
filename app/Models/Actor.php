@@ -16,7 +16,7 @@ class Actor extends Model
      * @var array<string>
      */
     protected $fillable = [
-        'name', 'country', 'avatar', 'created_at', 'updated_at'
+        'name', 'slug', 'country', 'avatar', 'created_at', 'updated_at'
     ];
 
     /**
@@ -27,6 +27,20 @@ class Actor extends Model
     protected $hidden = [
         'created_at', 'updated_at'
     ];
+
+    /**
+     * Bootstrap the model and its traits.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        self::creating(function($actor) {
+            return $actor->slug = str($actor->name)->slug();
+        });
+    }
 
     /**
      * HanRetrieve the actor's avatar from the storage folder

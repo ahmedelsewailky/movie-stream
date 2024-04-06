@@ -20,8 +20,14 @@ Route::get('/', 'WebsiteController@index')->name('website');
 Route::get('movie/{slug}', 'WebsiteController@movie')
     ->name('movie.show');
 
+Route::get('actors/{slug}', 'WebsiteController@actors')
+    ->name('web.actor.works');
+
 Route::get('series/{slug}', 'WebsiteController@series')
     ->name('web.series.show');
+
+Route::get('series/{slug}/episode/{id}', 'WebsiteController@seriesEpisode')
+    ->name('web.series.episode');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function () {
 

@@ -25,6 +25,12 @@ class WebsiteController extends Controller
         return view('index', get_defined_vars());
     }
 
+    public function actors(string $slug)
+    {
+        $actor = \App\Models\Actor::where('slug', $slug)->first();
+        return view('actor-works', compact('actor'));
+    }
+
     public function movie(string $slug)
     {
         $movie = \App\Models\Movie::where('slug', $slug)->first();
@@ -37,5 +43,12 @@ class WebsiteController extends Controller
         $series = \App\Models\Series::where('slug', $slug)->first();
         $series_actors = DB::table('series_actor')->where('series_id', $series->id)->get();
         return view('series.single', compact('series', 'series_actors'));
+    }
+
+    public function seriesEpisode(string $slug, int $id)
+    {
+        $episode = \App\Models\SeriesEpisode::find($id)->first();
+        $series = \App\Models\Series::where('slug', $slug)->first();
+        return view('series.single-episode', compact('episode', 'series'));
     }
 }

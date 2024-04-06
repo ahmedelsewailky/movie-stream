@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('actors', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name');
+            $table->string('slug')->unique();
             $table->string('country')->nullable();
             $table->string('avatar')->nullable();
             $table->timestamps();

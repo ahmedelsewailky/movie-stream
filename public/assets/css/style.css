@@ -1,6 +1,6 @@
 ::selection {
     color: white;
-    background-color: #ff6b81;
+    background-color: #009688;
 }
 
 body {
@@ -519,7 +519,7 @@ span.meta-quality>span {
     position: absolute;
     width: 100%;
     top: 0;
-    background: linear-gradient(to bottom, #009688, transparent);
+    background: linear-gradient(to bottom, rgb(0 150 136 / 35%), black);
     height: 100%;
     transition: 0.3s ease;
     transform: scale(1.1);
@@ -1011,18 +1011,25 @@ h6.sub-section-title::after {
     margin-bottom: 1rem;
 }
 
-.single-section-card .nav .nav-link.active {
-    background-color: #009688;
+.nav-tabs {
+    margin-bottom: 1rem;
+    border: none;
 }
 
-.single-section-card .nav .nav-link {
+.nav-tabs .nav-link.active {
+    background-color: #009688;
+    border-color: #009688;
+    color: white;
+}
+
+.nav-tabs .nav-link {
     border: 2px solid #009688;
     border-radius: 50px;
     margin-left: .5rem;
     color: white;
 }
 
-.single-section-card .nav .nav-link:hover {
+.nav-tabs .nav-link:hover {
     background-color: #009688;
 }
 

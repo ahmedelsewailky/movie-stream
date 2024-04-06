@@ -98,7 +98,7 @@
                                             <img src="https://via.placeholder.com/40" class="rounded-2" alt="Actor image">
                                         </div>
                                         <div class="flex-grow-1 ms-2">
-                                            <a href="#">{{ Actor::find($actor->actor_id)->name }}</a>
+                                            <a href="{{ route('web.actor.works', Actor::find($actor->actor_id)->slug) }}">{{ Actor::find($actor->actor_id)->name }}</a>
                                         </div>
                                     </div>
                                 </div>
