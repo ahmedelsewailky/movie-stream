@@ -84,14 +84,14 @@
                             فريق العمل
                         </h6>
                         <div class="row">
-                            @foreach ($series_actors as $actor)
+                            @foreach ($series->actors as $actor)
                                 <div class="col-md-4">
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-shrink-0">
-                                            <img src="https://via.placeholder.com/40" class="rounded-2" alt="Actor image">
+                                            <img src="{{ get_poster($actor->avatar, '80') }}" width="80" height="80" class="rounded-circle me-3" alt="Actor image">
                                         </div>
                                         <div class="flex-grow-1 ms-2">
-                                            <a href="{{ route('web.actor.works', Actor::find($actor->actor_id)->slug) }}">{{ Actor::find($actor->actor_id)->name }}</a>
+                                            <a href="{{ route('web.actor.works', $actor->slug) }}">{{ $actor->name }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@
                         <div class="row">
                             @foreach ($series->episodes as $episode)
                                 <div class="col-md-4">
-                                    <a href="{{ route('web.series.episode', [$series->slug, $episode->id]) }}">
+                                    <a href="{{ route('web.series.episode', [$series->slug, $episode->id]) }}" class="episode-item">
                                         الحلقة رقم {{ $episode->episode }}
                                     </a>
                                 </div>

@@ -972,8 +972,10 @@ h6.sub-section-title::after {
 }
 
 .single-post-section p {
-    font-size: 13px;
-    line-height: 23px;
+    font-size: 12px;
+    line-height: 30px;
+    text-align: justify;
+    color: #607D8B;
 }
 
 .socials-card {
@@ -1063,4 +1065,18 @@ h6.sub-section-title::after {
 
 .sds-link:hover i {
     color: white;
+}
+
+a.episode-item {
+    display: block;
+    padding: 8px 15px;
+    margin-bottom: 8px;
+    line-height: 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    border: 1px solid #272435;
+}
+
+a.episode-item:hover {
+    background: #272435;
 }

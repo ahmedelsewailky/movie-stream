@@ -94,7 +94,7 @@
                         <div class="col-md-3 mb-3">
                             <div class="card post-card h-100">
                                 <img src="{{ $ser->get_poster() ?? 'https://via.placeholder.com/285x190?text=Poster' }}"
-                                    class="card-img-top" alt="series poster">
+                                    width="285" height="190" class="card-img-top" alt="series poster">
 
                                 <a href="#" class="episodes-count">
                                     <i class="bx bx-layer"></i>
@@ -106,17 +106,17 @@
                                             class="bx bx-dots-vertical-rounded"></i></button>
                                     <div class="dropdown-menu">
                                         <a href="{{ route('series.edit', $ser->id) }}" class="dropdown-item">
-                                            <i class="bx bx-edit"></i>
+                                            <i class="bx me-2 bx-edit"></i>
                                             تعديل
                                         </a>
 
                                         <a href="javascript:void(0)" data-bs-toggle="modal"
                                             data-bs-target="#confirmDelete{{ $ser->id }}" class="dropdown-item">
-                                            <i class="bx bx-trash-alt"></i>
+                                            <i class="bx me-2 bx-trash-alt"></i>
                                             حذف
                                         </a>
                                         <a href="{{ route('series.episodes.create') }}?series_id={{ $ser->id }}" class="dropdown-item">
-                                            <i class="bx bx-plus"></i>
+                                            <i class="bx me-2 bx-plus"></i>
                                             اضافة حلقة
                                         </a>
                                     </div>

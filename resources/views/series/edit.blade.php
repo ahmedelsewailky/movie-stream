@@ -52,9 +52,9 @@
                                 <div class="row">
                                     @foreach (DataArray::TYPES as $key => $value)
                                         <div class="col-md-6 mb-2">
-                                            <input type="checkbox" name="types[]" id="type-{{ $value }}" value="{{ $value }}"
-                                                class="form-check-input" @checked(is_array($series->types) && in_array($value, $series->types))>
-                                            <label for="type-{{ $value }}" class="form-check-label">{{ $value }}</label>
+                                            <input type="checkbox" name="types[]" id="type-{{ $key }}" value="{{ $key }}"
+                                                class="form-check-input" @checked(is_array($series->types) && in_array($key, $series->types))>
+                                            <label for="type-{{ $key }}" class="form-check-label">{{ $value }}</label>
                                         </div>
                                     @endforeach
                                     @error('types.*')
@@ -113,7 +113,7 @@
                                     multiple="multiple">
                                     <option value="" hidden>--اختار--</option>
                                     @foreach ($actors as $actor)
-                                        <option value="{{ $actor->id }}" @selected(is_array($series->actors) && in_array($actor->id, $series->actors))>{{ $actor->name }}</option>
+                                        <option value="{{ $actor->id }}" @selected(in_array($actor->id, $series->actors->pluck('pivot.actor_id')->toArray()))>{{ $actor->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('actors')

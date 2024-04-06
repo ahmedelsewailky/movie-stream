@@ -18,7 +18,7 @@ class WebsiteController extends Controller
 
         $tvshows = TvshowEpisode::orderByDesc('id')->take(5)->get();
 
-        $series = SeriesEpisode::orderByDesc('id')->take(10)->get();
+        $episodes = SeriesEpisode::orderByDesc('id')->take(10)->get();
 
         $movies = Movie::orderByDesc('id')->paginate(18);
 
@@ -40,9 +40,9 @@ class WebsiteController extends Controller
 
     public function series(string $slug)
     {
-        $series = \App\Models\Series::where('slug', $slug)->first();
-        $series_actors = DB::table('series_actor')->where('series_id', $series->id)->get();
-        return view('series.single', compact('series', 'series_actors'));
+        return view('series.single', [
+            'series' => \App\Models\Series::where('slug', $slug)->first()
+        ]);
     }
 
     public function seriesEpisode(string $slug, int $id)

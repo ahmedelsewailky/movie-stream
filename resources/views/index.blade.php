@@ -65,7 +65,9 @@
                                     <span class="meta meta-category">{{ $movie->category->name }}</span>
                                 </div>
                                 <div class="bottom-post-content">
-                                    <h6 class="post-title"><a href="{{ route('movie.show', $movie->slug) }}">{{ str($movie->title)->words(3) }}</a></h6>
+                                    <h6 class="post-title"><a
+                                            href="{{ route('movie.show', $movie->slug) }}">{{ str($movie->title)->words(3) }}</a>
+                                    </h6>
                                     <span class="meta meta-durations ">
                                         <i class="bx bx-time-five"></i>
                                         1 hr 25 mins
@@ -93,10 +95,11 @@
             </div>
             <div class="section-body">
                 <div class="owl-carousel">
-                    @forelse (\App\Models\SeriesEpisode::orderByDesc('id')->take(10)->get() as $s_episode)
+                    @forelse ($episodes as $s_episode)
                         <div class="post">
                             <div class="post-thumbnail"
-                                style="background-image: url('{{ get_poster($s_episode->poster, '280x370') }}')"></div>
+                                style="background-image: url('{{ get_poster($s_episode->series->poster, '280x370') }}')">
+                            </div>
                             <span class="play-overlay"><i class="bx bx-play-circle"></i></span>
                             <div class="post-content">
                                 <div class="top-post-content">
@@ -104,7 +107,9 @@
                                     <span class="meta meta-category">{{ $s_episode->series->category->name }}</span>
                                 </div>
                                 <div class="bottom-post-content">
-                                    <h6 class="post-title"><a href="{{ route('web.series.show', $s_episode->series->slug) }}"> {{ $s_episode->series->title }}</a></h6>
+                                    <h6 class="post-title"><a
+                                            href="{{ route('web.series.show', $s_episode->series->slug) }}">
+                                            {{ $s_episode->series->title }}</a></h6>
                                     <span class="meta meta-durations ">
                                         <i class="bx bx-time-five"></i>
                                         1 hr 25 mins
@@ -348,7 +353,7 @@
                     },
                     1000: {
                         items: 5,
-                        nav: true,
+                        nav: false,
                         loop: false
                     }
                 }

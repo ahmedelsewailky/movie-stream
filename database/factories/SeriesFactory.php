@@ -23,7 +23,7 @@ class SeriesFactory extends Factory
         return [
             'title' => $title,
             'slug' => str($title)->slug(),
-            'category_id' => Category::all()->random()->id,
+            'category_id' => rand(10,20),
             'year' => rand(2005,2024),
             'language' => $this->faker->randomElement(DataArray::LANGUAGES),
             'types' => array_keys(DataArray::TYPES),

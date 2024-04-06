@@ -47,6 +47,16 @@ class Series extends Model
     }
 
     /**
+     * Relation with actors.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
+     */
+    public function actors(): \Illuminate\Database\Eloquent\Relations\belongsToMany
+    {
+        return $this->belongsToMany(Actor::class, 'series_actor');
+    }
+
+    /**
      * The relation with episodes table
      * one of series has many of episodes
      *
