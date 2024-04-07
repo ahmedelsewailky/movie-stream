@@ -101,7 +101,7 @@
 
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <img src="https://via.placeholder.com/32" width="32" height="32"
                                         class="rounded-circle me-2" alt="{{ auth()->user()->name }}">
@@ -109,7 +109,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="{{ route('profile.index') }}">
                                             <i class="bx bx-user me-2"></i>
                                             الملف الشخصي
                                         </a>

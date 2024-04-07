@@ -29,10 +29,27 @@ Route::get('series/{slug}', 'WebsiteController@series')
 Route::get('series/{slug}/episode/{id}', 'WebsiteController@seriesEpisode')
     ->name('web.series.episode');
 
+Route::get('category/{slug}', 'WebsiteController@category')
+    ->name('web.category');
+
 Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function () {
 
     Route::get('/', 'HomeController@index')
         ->name('dashboard');
+
+    Route::resource('categories', 'CategoryController');
+
+    Route::resource('actors', 'ActorController');
+
+    Route::resource('movies', 'MovieController');
+
+    Route::resource('series', 'SeriesController');
+
+    Route::resource('tvshows', 'TvshowController');
+
+    Route::name('series')->resource('series/episodes', 'SeriesEpisodeController');
+
+    Route::name('tvshows')->resource('tvshows/episodes', 'TvshowEpisodeController');
 
     Route::group(['middleware' => 'verified','prefix' => 'profile','as' => 'profile.',], function () {
         Route::get('/', 'HomeController@profile')
@@ -48,19 +65,5 @@ Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function () {
             ->name('update.password');
 
     });
-
-    Route::resource('categories', 'CategoryController');
-
-    Route::resource('actors', 'ActorController');
-
-    Route::resource('movies', 'MovieController');
-
-    Route::resource('series', 'SeriesController');
-
-    Route::resource('tvshows', 'TvshowController');
-
-    Route::name('series')->resource('series/episodes', 'SeriesEpisodeController');
-
-    Route::name('tvshows')->resource('tvshows/episodes', 'TvshowEpisodeController');
 
 });

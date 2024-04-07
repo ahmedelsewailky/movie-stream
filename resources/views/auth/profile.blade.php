@@ -3,12 +3,18 @@
 
 {{-- Page content --}}
 @section('content')
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
-            <li class="breadcrumb-item active" aria-current="page">الملف الشخصي</li>
-        </ol>
-    </nav>
+    {{-- Page Breadcrumbs --}}
+    <div class="d-flex align-items-center my-4">
+        <div class="me-auto">
+            <h6 class="mb-2 fw-bold">{{ auth()->user()->name }}</h6>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">الملف الشخصي</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
 
     {{-- Image card --}}
     <section class="mt-5">

@@ -96,7 +96,7 @@
                                 <img src="{{ $ser->get_poster() ?? 'https://via.placeholder.com/285x190?text=Poster' }}"
                                     width="285" height="190" class="card-img-top" alt="series poster">
 
-                                <a href="#" class="episodes-count">
+                                <a href="{{ route('series.show', $ser->id) }}?series_id={{ $ser->id }}" class="episodes-count">
                                     <i class="bx bx-layer"></i>
                                     {{ $ser->episodes->count() }} حلقة
                                 </a>

@@ -48,7 +48,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 @foreach (\App\Models\Category::whereParentId($parent->id)->get() as $category)
-                                    <li><a class="dropdown-item" href="#">{{ $category->name }}</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('web.category', $category->slug) }}">{{ $category->name }}</a></li>
                                 @endforeach
                             </ul>
                         </li>

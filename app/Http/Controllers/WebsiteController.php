@@ -73,4 +73,22 @@ class WebsiteController extends Controller
             'series' => \App\Models\Series::where('slug', $slug)->first()
         ]);
     }
+
+    /**
+     * Get all posts based on it's category.
+     * 
+     * @param string $slug
+     * @return \Illuminate\View\View
+     */
+    public function category(string $slug)
+    {
+        $category = \App\Models\Category::where('slug', $slug)->first();
+        $posts = \App\Models\Movie::whereCategoryId($category->id)->get();
+        if ($posts->count() > 0) {
+            $posts = $posts;
+        } else {
+            $posts = \App\Models\Series::whereCategoryId($category->id)->get();
+        }
+        return view('category-posts', compact('posts', 'category'));
+    }
 }
