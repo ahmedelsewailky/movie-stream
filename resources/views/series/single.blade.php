@@ -88,7 +88,7 @@
                                 <div class="col-md-4">
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-shrink-0">
-                                            <img src="{{ get_poster($actor->avatar, '80') }}" width="80" height="80" class="rounded-circle me-3" alt="Actor image">
+                                            <img src="{{ get_poster($actor->avatar, '64') }}" width="64" height="64" class="rounded-circle me-3" alt="Actor image">
                                         </div>
                                         <div class="flex-grow-1 ms-2">
                                             <a href="{{ route('web.actor.works', $actor->slug) }}">{{ $actor->name }}</a>
@@ -157,7 +157,7 @@
                                             <span class="meta meta-category">{{ $series->category->name }}</span>
                                         </div>
                                         <div class="bottom-post-content">
-                                            <h6 class="post-title"><a href=""> {{ $series->title }}</a>
+                                            <h6 class="post-title"><a href="{{ route('web.series.show', $series->slug) }}"> {{ $series->title }}</a>
                                             </h6>
                                             <span class="meta meta-durations ">
                                                 <i class="bx bx-time-five"></i>

@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="bottom-post-content">
                                     <h6 class="post-title"><a
-                                            href="{{ route('movie.show', $movie->slug) }}">{{ str($movie->title)->words(3) }}</a>
+                                            href="{{ route('web.movie.show', $movie->slug) }}">{{ str($movie->title)->words(3) }}</a>
                                     </h6>
                                     <span class="meta meta-durations ">
                                         <i class="bx bx-time-five"></i>
@@ -181,7 +181,7 @@
                                         <span class="meta meta-category">{{ $movie->category->name }}</span>
                                     </div>
                                     <div class="bottom-post-content">
-                                        <h6 class="post-title"><a href="">فيلم {{ $movie->title }}</a></h6>
+                                        <h6 class="post-title"><a href="{{ route('web.movie.show', $movie->slug) }}">فيلم {{ $movie->title }}</a></h6>
                                         <span class="meta meta-durations ">
                                             <i class="bx bx-time-five"></i>
                                             1 hr 25 mins

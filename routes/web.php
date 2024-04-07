@@ -18,7 +18,7 @@ Auth::routes(['register' => false, 'verify' => true]);
 Route::get('/', 'WebsiteController@index')->name('website');
 
 Route::get('movie/{slug}', 'WebsiteController@movie')
-    ->name('movie.show');
+    ->name('web.movie.show');
 
 Route::get('actors/{slug}', 'WebsiteController@actors')
     ->name('web.actor.works');

@@ -95,4 +95,8 @@ class Movie extends Model
         return null;
     }
 
+    public function actors()
+    {
+        return $this->belongsToMany(Actor::class, 'movie_actor');
+    }
 }

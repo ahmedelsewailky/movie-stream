@@ -91,14 +91,14 @@
                             فريق العمل
                         </h6>
                         <div class="row">
-                            @foreach ($movie_actors as $actor)
+                            @foreach ($movie->actors as $actor)
                                 <div class="col-md-4">
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-shrink-0">
-                                            <img src="https://via.placeholder.com/40" class="rounded-2" alt="Actor image">
+                                            <img src="{{ get_poster($actor->avatar, '64') }}" width="64" height="64" class="rounded-circle me-3" alt="Actor image">
                                         </div>
                                         <div class="flex-grow-1 ms-2">
-                                            <a href="{{ route('web.actor.works', Actor::find($actor->actor_id)->slug) }}">{{ Actor::find($actor->actor_id)->name }}</a>
+                                            <a href="{{ route('web.actor.works', $actor->slug) }}">{{ $actor->name }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +206,7 @@
                                             <span class="meta meta-category">{{ $movie->category->name }}</span>
                                         </div>
                                         <div class="bottom-post-content">
-                                            <h6 class="post-title"><a href=""> {{ $movie->title }}</a>
+                                            <h6 class="post-title"><a href="{{ route('web.movie.show', $movie->slug) }}"> {{ $movie->title }}</a>
                                             </h6>
                                             <span class="meta meta-durations ">
                                                 <i class="bx bx-time-five"></i>
