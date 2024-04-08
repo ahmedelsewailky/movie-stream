@@ -20,8 +20,8 @@
                                 <span class="meta-quality"><span>الجودة</span> WEB-DL 720P</span>
                             </div>
                             <p>{{ $movie->story }}</p>
-                            <a href="" class="btn btn-success"><i class="bx bx-play-circle"></i> مشاهدة الآن</a>
-                            <a href="" class="btn btn-outline-success"><i class="bx bx-bookmark"></i> مشاهدة
+                            <a href="{{ route('web.movie.show', $movie->slug) }}" class="btn btn-success"><i class="bx bx-play-circle"></i> مشاهدة الآن</a>
+                            <a href="#" class="btn btn-outline-success"><i class="bx bx-bookmark"></i> مشاهدة
                                 لاحقا</a>
                         </div>
                     </div>

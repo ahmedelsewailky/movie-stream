@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rules\Password;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -59,9 +57,11 @@ class HomeController extends Controller
             'image.max' => 'حجم الملف كبير'
         ]);
         $user = auth()->user();
+        
         if ($user->image) {
             unlink(storage_path('app\\public\\') . $user->image);
         }
+
         $user->update([
             'image' => $request->image->store('users', 'public')
         ]);
