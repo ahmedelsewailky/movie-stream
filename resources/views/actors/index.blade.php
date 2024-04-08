@@ -74,7 +74,7 @@
                             <td>{{ $loop->index + 1 }}</td>
                             <td><img src="{{ $actor->get_image_avatar() ?? 'https://via.placeholder.com/65' }}"
                                     width="65" height="65" alt="{{ $actor->name }}"></td>
-                            <td><a href="{{ route('actors.show', $actor->id) }}">{{ $actor->name }}</a></td>
+                            <td>{{ $actor->name }}</td>
                             <td>{{ $actor->country }}</td>
                             <td>
                                 فيلم: {{ $actor->get_actor_movies()->count() }}

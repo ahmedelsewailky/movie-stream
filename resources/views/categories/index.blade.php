@@ -3,18 +3,18 @@
 
 {{-- Page content --}}
 @section('content')
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
-            <li class="breadcrumb-item active" aria-current="page">الأقسام</li>
-        </ol>
-    </nav>
-
-    <div class="mb-3">
-        <a href="{{ route('categories.create') }}" class="btn btn-primary">
-            <i class="bx bx-sm bx-list-plus"></i>
-            اضافة قسم جديد
-        </a>
+    {{-- Page Breadcrumbs --}}
+    <div class="d-flex align-items-center my-4">
+        <div class="me-auto">
+            <h6 class="mb-2 fw-bold">قائمة الأقسام</h6>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">الأقسام</li>
+                </ol>
+            </nav>
+        </div>
+        <a href="{{ route('categories.create') }}" class="btn btn-sm btn-outline-success">+ اضافة قسم جديد</a>
     </div>
 
     <div class="row">

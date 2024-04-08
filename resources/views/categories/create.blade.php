@@ -3,13 +3,19 @@
 
 {{-- Page content --}}
 @section('content')
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">الأقسام</a></li>
-            <li class="breadcrumb-item active" aria-current="page">اضافة قسم جديد</li>
-        </ol>
-    </nav>
+    {{-- Page Breadcrumbs --}}
+    <div class="d-flex align-items-center my-4">
+        <div class="me-auto">
+            <h6 class="mb-2 fw-bold">قائمة الأقسام</h6>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">الأقسام</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">اضافة قسم جديد</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
 
     <div class="position-relative">
         <form action="{{ route('categories.store') }}" method="post" class="border border-2 border-dashed ms-auto mt-5 p-4 translate-middle-x w-50">
