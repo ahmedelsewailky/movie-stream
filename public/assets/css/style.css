@@ -797,6 +797,15 @@ a.page-link {
     justify-content: end;
 }
 
+.active>.page-link,
+.page-link.active {
+    z-index: 3;
+    color: var(--bs-pagination-active-color);
+    background-color: #009688;
+    border-color: #009688;
+    border-radius: 50%;
+}
+
 footer.footer {
     background: #242137;
     padding: 1rem 0;

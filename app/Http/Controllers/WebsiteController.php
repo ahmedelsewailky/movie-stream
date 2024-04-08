@@ -17,7 +17,14 @@ class WebsiteController extends Controller
 
         $episodes = \App\Models\SeriesEpisode::orderByDesc('id')->take(10)->get();
 
-        $movies = \App\Models\Movie::orderByDesc('id')->paginate(18);
+        $movies = new \App\Models\Movie;
+
+        if (request()->has('tag')) {
+            $categoryId = \App\Models\Category::where('slug', request()->get('tag'))->first()->id;
+            $movies = $movies->whereCategoryId($categoryId);
+        }
+
+        $movies = $movies->orderByDesc('id')->paginate(18);
 
         return view('index', get_defined_vars());
     }
