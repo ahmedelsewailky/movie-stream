@@ -233,7 +233,7 @@
                     <div class="col-md-4 offset-1" style="background-color: #403c57;padding: 1rem;">
                         {{-- Poster --}}
                         <div class="poster-image update-poster-image">
-                            <img src="{{ get_poster($movie->poster, '300x370') }}" class="rounded-2" alt="البوستر الإعلاني للفيلم">
+                            <img src="{{ get_poster($movie->poster, '300x370') }}" id="poster-image" class="rounded-2" alt="البوستر الإعلاني للفيلم">
 
                             <label for="poster" class="update-poster-label">تغيير صورة الفيلم</label>
                             <input type="file" class="form-control @error('poster') is-invalid @enderror"
@@ -266,6 +266,23 @@
 
             $("#addLink").on("click", function() {
                 $(".links-fields").append(new_input_link);
+            });
+
+            $('#poster').change(function() {
+                var input = this;
+                var url = $(this).val();
+                var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+                if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" ||
+                        ext == "jpg")) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#poster-image').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                } else {
+                    $('#poster-image').attr('src', '/assets/no_preview.png');
+                }
             });
         });
     </script>

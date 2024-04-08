@@ -54,8 +54,15 @@
                         </li>
                     @endforeach
                 </ul>
-                <a href="" class="btn text-white"><i class="bx bx-search"></i></a>
-                <a href="{{ route('login') }}" class="btn btn-sm btn-success text-white">تسجيل الدخول</a>
+                <form action="" method="get">
+                    <input type="text" name="q" class="form-control" placeholder="هل تبحث عن شئ ما">
+                    <button type="submit" class="btn btn-success"><i class="bx bx-search"></i></button>
+                </form>
+                @guest
+                    <a href="{{ route('login') }}" class="btn btn-success text-white">تسجيل الدخول</a>
+                @else
+                    <a href="{{ route('dashboard') }}" class="btn btn-success text-white">لوحة التحكم</a>
+                @endguest
             </div>
         </div>
     </nav>

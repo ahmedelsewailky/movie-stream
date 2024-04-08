@@ -4,7 +4,8 @@
 {{-- Search form --}}
 @section('search')
     <form action="{{ route('movies.index') }}" method="get">
-        <input type="search" class="form-control" id="search" name="q" value="{{ request()->has('q') ? request()->get('q') : '' }}" placeholder="ابحث داخل الافلام">
+        <input type="search" class="form-control" id="search" name="q"
+            value="{{ request()->has('q') ? request()->get('q') : '' }}" placeholder="ابحث داخل الافلام">
         <i class="bx bx-search"></i>
     </form>
 @endsection
@@ -48,7 +49,8 @@
                         <div class="row mb-4">
                             <label for="category_id" class="col-md-3 col-form-label">القسم</label>
                             <div class="col-md-9">
-                                <select id="category_id" class="form-select @error('category_id') is-invalid @enderror" name="category_id">
+                                <select id="category_id" class="form-select @error('category_id') is-invalid @enderror"
+                                    name="category_id">
                                     <option value="" hidden>--حدد القسم--</option>
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}" @selected($category->id == old('category_id'))>
@@ -68,7 +70,9 @@
                                 <div class="row">
                                     @foreach (DataArray::TYPES as $key => $value)
                                         <div class="col-md-6 mb-1">
-                                            <input type="checkbox" name="types[]" id="type-{{ $value }}" value="{{ $key }}" class="form-check-input" @checked(is_array(old('types')) && in_array($key, old('types')))>
+                                            <input type="checkbox" name="types[]" id="type-{{ $value }}"
+                                                value="{{ $key }}" class="form-check-input"
+                                                @checked(is_array(old('types')) && in_array($key, old('types')))>
                                             <label for="type-{{ $value }}"
                                                 class="form-check-label">{{ $value }}</label>
                                         </div>
@@ -85,7 +89,8 @@
                         <div class="row mb-4">
                             <label for="quality" class="col-md-3 col-form-label">جودة الفيديو</label>
                             <div class="col-md-9">
-                                <select id="quality" class="form-select @error('quality') is-invalid @enderror" name="quality">
+                                <select id="quality" class="form-select @error('quality') is-invalid @enderror"
+                                    name="quality">
                                     <option value="" hidden>--اختار--</option>
                                     @foreach (DataArray::QUALITIES as $key => $value)
                                         <option value="{{ $key }}" @selected($key == old('quality'))>
@@ -172,7 +177,8 @@
                         <div class="row mb-4">
                             <label for="actors" class="col-md-3 col-form-label">فريق العمل</label>
                             <div class="col-md-9">
-                                <select id="actors" class="form-select select-2 @error('actors') is-invalid @enderror" name="actors[]" multiple="multiple">
+                                <select id="actors" class="form-select select-2 @error('actors') is-invalid @enderror"
+                                    name="actors[]" multiple="multiple">
                                     <option value="" hidden>--اختار--</option>
                                     @foreach ($actors as $actor)
                                         <option value="{{ $actor->id }}"
@@ -190,7 +196,8 @@
                         <div class="row mb-4">
                             <label for="" class="col-md-3 col-form-label">سيرفر المشاهدة</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control @error('watch_link') is-invalid @enderror" name="watch_link">
+                                <input type="text" class="form-control @error('watch_link') is-invalid @enderror"
+                                    name="watch_link">
                                 @error('watch_link')
                                     <p class="invalid-feedback">{{ $message }}</p>
                                 @enderror
@@ -202,7 +209,8 @@
                             <label for="" class="col-md-3 col-form-label">روابط التحميل</label>
                             <div class="col-md-9">
                                 <div class="links-fields">
-                                    <input type="text" class="form-control @error('links.*') is-invalid @enderror" name="links[]">
+                                    <input type="text" class="form-control @error('links.*') is-invalid @enderror"
+                                        name="links[]">
                                     @error('links.*')
                                         <p class="invalid-feedback">{{ $message }}</p>
                                     @enderror
@@ -221,7 +229,8 @@
                     <div class="col-md-4 offset-1 py-5">
                         {{-- Poster --}}
                         <div class="poster-image update-poster-image">
-                            <img src="https://via.placeholder.com/300x370" class="rounded-2" alt="البوستر الإعلاني للفيلم">
+                            <img src="https://via.placeholder.com/300x370" id="poster-image" class="rounded-2"
+                                alt="البوستر الإعلاني للفيلم">
                             <label for="poster" class="update-poster-label">تحميل بوستر الفيلم</label>
                             <input type="file" class="form-control @error('poster') is-invalid @enderror"
                                 id="poster" name="poster" hidden>
@@ -253,6 +262,23 @@
 
             $("#addLink").on("click", function() {
                 $(".links-fields").append(new_input_link);
+            });
+
+            $('#poster').change(function() {
+                var input = this;
+                var url = $(this).val();
+                var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+                if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" ||
+                        ext == "jpg")) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#poster-image').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                } else {
+                    $('#poster-image').attr('src', '/assets/no_preview.png');
+                }
             });
         });
     </script>

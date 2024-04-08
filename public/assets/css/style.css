@@ -3,6 +3,7 @@
     background-color: #009688;
 }
 
+
 body {
     color: #ecf0f1;
     font-size: 0.8125rem;
@@ -135,8 +136,8 @@ h6 {
 }
 
 .dropdown-menu {
-    background-color: rgb(30 30 43 / 50%);
-    border: 1px solid #009688;
+    background-color: rgb(30 30 43);
+    border: 1px solid #47475f;
     color: white;
     padding: 0;
     width: 200px;
@@ -162,17 +163,10 @@ a.dropdown-item {
 
 /* ====================================================== Bootstrap Form Buttons */
 .btn {
-    border: none;
-}
-
-.btn-sm {
+    border-color: #00BCD4;
+    font-size: 13px;
     border-radius: 3px;
-    font-size: 12px;
-    padding: 6px 12px;
-}
-
-.btn-sm:hover {
-    font-size: 0.75rem;
+    padding: 10px 16px;
 }
 
 .btn-success {
@@ -180,16 +174,38 @@ a.dropdown-item {
 }
 
 .btn-success:hover {
-    background: linear-gradient(45deg, #3498db 25%, #1abc9c);
+    box-shadow: 0px 0px 13px 4px rgb(3 169 244 / 32%) !important;
 }
 
-.btn-primary {
-    background: linear-gradient(45deg, #1abc9c 25%, #1a4cbc);
+.btn-outline-success {
+    color: white;
+    border-color: #009688;
 }
 
-.btn-primary:hover {
-    font-size: 0.75rem;
-    background: linear-gradient(45deg, #9e61ff, #5352ed);
+.btn-outline-success:hover {
+    background: linear-gradient(45deg, #1abc9c 25%, #3498db);
+    box-shadow: 0px 0px 13px 4px rgb(3 169 244 / 32%) !important;
+}
+
+.btn-like {
+    background-color: #009688;
+    color: white;
+    border: none;
+    margin-left: .5rem;
+}
+
+.btn-like:hover {
+    background-color: #097a6f;
+}
+
+.btn-dislike {
+    border: none;
+    color: white;
+    background-color: #E91E63;
+}
+
+.btn-dislike:hover {
+    background-color: #b41f51;
 }
 
 /* ====================================================== Custom Classess */
@@ -285,8 +301,26 @@ form.position-relative button {
     font-size: 13px;
 }
 
-.navbar.wide .btn-success {
-    background: #FF9800;
+.navbar form {
+    position: relative;
+    margin: 0 1rem;
+}
+
+.navbar form button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: transparent !important;
+    color: #009688;
+    border: none;
+}
+
+.navbar form input {
+    background-color: transparent;
+    border: 1px solid #2ca4c6;
+    color: white;
+    width: 250px;
 }
 
 /* ====================================================== Website: Slider Post Trailer */
@@ -318,6 +352,11 @@ form.position-relative button {
     background-color: #000;
 }
 
+.active.carousel-item img {
+    position: absolute;
+    width: 100%;
+}
+
 .slider-post-trailer .slide-post-content {
     position: absolute;
     top: 50%;
@@ -336,8 +375,9 @@ form.position-relative button {
 
 .slider-post-trailer .slide-post-content p {
     line-height: 24px;
-    text-align: justify;
+    /* text-align: justify; */
     opacity: 0.8;
+    margin-bottom: 1.5rem;
 }
 
 .slider-post-trailer .slide-post-content h2 {
@@ -371,26 +411,6 @@ span.meta-quality>span {
     font-weight: 400;
 }
 
-.slider-post-trailer .btn-primary:hover {
-    background: linear-gradient(45deg, #3F51B5, #009688);
-}
-
-.slider-post-trailer .btn>i {
-    font-size: 24px;
-    margin-left: .25rem;
-}
-
-.slider-post-trailer .btn-outline-primary {
-    border-color: #1a95a7;
-    color: white;
-    font-size: 13px;
-}
-
-.slider-post-trailer .btn-outline-primary:hover {
-    background: linear-gradient(45deg, #1abc9c 25%, #1a4cbc);
-    color: white;
-}
-
 .slider-post-trailer .trailer-video video {
     position: absolute;
     left: 0;
@@ -407,41 +427,19 @@ span.meta-quality>span {
     background: linear-gradient(45deg, transparent 30%, #181625);
 }
 
-.slider-post-trailer .indicator-image {
-    width: 100px;
-    overflow: hidden;
-    height: 100px;
-    border-radius: 10px;
-    margin: 0 5px;
-    cursor: pointer;
-    position: relative;
-    transition: 0.3s ease;
-}
-
-.slider-post-trailer .indicator-image img {
+.trailer-image {
     width: 100%;
-    filter: grayscale(1);
-    opacity: 0.3;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: auto;
 }
 
-.slider-post-trailer .indicator-image:hover,
-.slider-post-trailer .indicator-image.active {
-    transform: translateY(-10px);
-}
-
-.slider-post-trailer .indicator-image:hover img,
-.slider-post-trailer .indicator-image.active img {
-    filter: grayscale(0);
-    opacity: 1;
-}
-
-.slider-post-trailer .indicators {
+.trailer-image::before {
+    content: '';
     position: absolute;
-    z-index: 9;
-    bottom: 10px;
-    left: 50%;
-    display: flex;
-    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, #181625 50%, transparent);
 }
 
 /* ====================================================== Website: Login Page */
@@ -744,18 +742,6 @@ span.meta-quality>span {
     opacity: 0.6;
 }
 
-.post.inner-post-effect .post-content .btn {
-    font-size: 12px;
-    margin-top: auto;
-    color: white;
-    border: 1px solid white;
-}
-
-.post.inner-post-effect .post-content .btn:hover {
-    background: linear-gradient(45deg, #673AB7, #00BCD4);
-    border-color: #00BCD4;
-}
-
 .post.inner-post-effect .post-content>div {
     display: flex;
     margin-bottom: 11px;
@@ -781,7 +767,7 @@ a.page-link {
 }
 
 .page-item:not(:first-child) .page-link {
-    margin-right: -1px;
+    margin-right: 10px !important;
 }
 
 .page-item:first-child .page-link {
@@ -795,6 +781,7 @@ a.page-link {
 .pagination {
     margin: 1rem 0;
     justify-content: end;
+    --bs-pagination-font-size: 13px;
 }
 
 .active>.page-link,
@@ -804,6 +791,15 @@ a.page-link {
     background-color: #009688;
     border-color: #009688;
     border-radius: 50%;
+}
+
+.active>.page-link,
+.page-link.active {
+    z-index: 3;
+    color: var(--bs-pagination-active-color);
+    background: linear-gradient(#009688, #4CAF50);
+    border-radius: 50%;
+    border: none;
 }
 
 footer.footer {
@@ -937,21 +933,6 @@ span.movie-tag:not(:last-child)::after {
     content: '،';
     display: inline-block;
     margin-right: 5px;
-}
-
-.single-post-section .btn {
-    font-size: 11px;
-    color: white;
-    border-radius: 60px;
-}
-
-.single-post-section .btn:first-of-type {
-    background-color: #2196F3;
-}
-
-.single-post-section .btn:last-of-type {
-    background-color: green;
-    margin-right: .5rem;
 }
 
 .votes {

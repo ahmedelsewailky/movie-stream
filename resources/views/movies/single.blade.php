@@ -61,8 +61,8 @@
                             <span>
                                 <i class="bx bx-tag"></i>
                                 الوسوم:
-                                @foreach ($movie->types as $key => $value)
-                                    <span class="movie-tag">{{ DataArray::TYPES[$key] }}</span>
+                                @foreach ($movie->types as $type)
+                                    <span class="movie-tag">{{ DataArray::TYPES[$type] }}</span>
                                 @endforeach
                             </span>
                         </div>

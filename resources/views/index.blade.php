@@ -8,11 +8,7 @@
             <div class="carousel-inner">
                 @foreach ($slider_movies as $movie)
                     <div @class(['active' => $loop->index == 0, 'carousel-item'])>
-                        <div class="trailer-video">
-                            <video autoplay muted loop>
-                                <source src="{{ asset('storage/movies/trailers/trailer-1.mp4') }}">
-                            </video>
-                        </div>
+                        <div class="trailer-image" style="background-image: url('{{ asset('storage/' . $movie->poster) }}')"></div>
                         <span class="blur"></span>
                         <div class="slide-post-content">
                             <span class="meta-category">{{ $movie->category->name }}</span>
@@ -24,8 +20,8 @@
                                 <span class="meta-quality"><span>الجودة</span> WEB-DL 720P</span>
                             </div>
                             <p>{{ $movie->story }}</p>
-                            <a href="" class="btn btn-primary"><i class="bx bx-play-circle"></i> مشاهدة الآن</a>
-                            <a href="" class="btn btn-outline-primary"><i class="bx bx-bookmark"></i> مشاهدة
+                            <a href="" class="btn btn-success"><i class="bx bx-play-circle"></i> مشاهدة الآن</a>
+                            <a href="" class="btn btn-outline-success"><i class="bx bx-bookmark"></i> مشاهدة
                                 لاحقا</a>
                         </div>
                     </div>
