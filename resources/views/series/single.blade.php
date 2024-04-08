@@ -7,12 +7,12 @@
 @section('content')
     <section class="single-post-section">
         <div class="container">
-            <div class="d-flex">
-                <div class="flex-shrink-0 me-4">
+            <div class="d-md-flex">
+                <div class="flex-shrink-0 me-md-4 text-center text-md-start">
                     <img src="{{ get_poster($series->poster, '295x380') }}" width="380" class="rounded-3"
                         alt="Single Post Poster">
                 </div>
-                <div class="flex-grow-1">
+                <div class="flex-grow-1 text-start mt-4 mt-md-0">
                     <h1 class="mb-3 fs-2">{{ $series->title }}</h1>
                     <div class="row">
                         <div class="col-md-6">
