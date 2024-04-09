@@ -276,6 +276,10 @@ form.position-relative button {
 }
 
 /* ====================================================== Website: Navbar */
+.navbar {
+    background-color: #181625;
+}
+
 .navbar:not(.dashboard-nav-menu) {
     position: fixed;
     width: 100%;
@@ -331,6 +335,12 @@ form.position-relative button {
     position: relative;
 }
 
+@media screen and (max-width: 992px) {
+    .slider-post-trailer {
+        padding-top: 61px;
+    }
+}
+
 .slider-post-trailer::after {
     content: '';
     position: absolute;
@@ -340,6 +350,13 @@ form.position-relative button {
     height: 200px;
     z-index: 1;
 }
+
+@media screen and (max-width: 500px) {
+    .slider-post-trailer::after {
+        content: unset
+    }
+}
+
 
 .slider-post-trailer .carousel {
     position: relative;
@@ -357,13 +374,15 @@ form.position-relative button {
     width: 100%;
 }
 
-.slider-post-trailer .slide-post-content {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 15%;
-    width: 40%;
-    z-index: 2;
+@media screen and (min-width: 992px) {
+    .slider-post-trailer .slide-post-content {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 15%;
+        width: 40%;
+        z-index: 2;
+    }
 }
 
 .slide-post-content .meta-category {
@@ -411,6 +430,20 @@ span.meta-quality>span {
     font-weight: 400;
 }
 
+@media screen and (max-width: 992px) {
+    span.meta-quality>span {
+        display: none;
+    }
+
+    span.meta-quality {
+        font-size: 11px !important;
+        padding: 1px 8px;
+        line-height: 25px;
+        border-radius: 2px;
+        font-weight: 400;
+    }
+}
+
 .slider-post-trailer .trailer-video video {
     position: absolute;
     left: 0;
@@ -427,6 +460,17 @@ span.meta-quality>span {
     background: linear-gradient(45deg, transparent 30%, #181625);
 }
 
+@media screen and (max-width: 992px) {
+    .slider-post-trailer span.blur {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(7px);
+        background: linear-gradient(45deg, transparent 30%, #181625);
+        background: #181625;
+    }
+}
+
 .trailer-image {
     width: 100%;
     height: 100%;
@@ -440,6 +484,24 @@ span.meta-quality>span {
     width: 100%;
     height: 100%;
     background: linear-gradient(235deg, #181625 50%, transparent 150%);
+}
+
+@media screen and (max-width: 992px) {
+
+    .carousel-item-next,
+    .carousel-item-prev,
+    .carousel-item.active {
+        display: grid;
+        place-content: center;
+    }
+
+    .slider-post-trailer .slide-post-content {
+        width: 80%;
+        padding: 2rem;
+        position: relative;
+        z-index: 2;
+        margin: 0 auto;
+    }
 }
 
 /* ====================================================== Website: Login Page */
@@ -723,8 +785,10 @@ span.meta-quality>span {
     background-color: #181625;
     border-radius: 50px;
     margin-left: 4px;
+    margin-bottom: 0.5rem;
     background-color: #4a4763;
     font-size: 12px;
+    display: inline-block;
 }
 
 .filter-item.active {
@@ -1069,4 +1133,24 @@ a.episode-item {
 
 a.episode-item:hover {
     background: #272435;
+}
+
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel button.owl-dot {
+    padding: 0 !important;
+    width: 35px;
+    height: 35px;
+    line-height: 0;
+    background-color: #312e43;
+    border: none;
+    margin-left: 2px;
+    font-size: 25px;
+    color: white;
+    border-radius: 3px;
+    margin-top: 1rem;
+}
+
+.owl-dots {
+    display: none;
 }
