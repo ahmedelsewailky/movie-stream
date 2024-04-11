@@ -278,9 +278,6 @@ form.position-relative button {
 /* ====================================================== Website: Navbar */
 .navbar {
     background-color: #181625;
-}
-
-.navbar:not(.dashboard-nav-menu) {
     position: fixed;
     width: 100%;
     left: 0;
@@ -327,48 +324,86 @@ form.position-relative button {
     width: 250px;
 }
 
-@media screen and (min-width: 992px) {
-    .mobile-navbar {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 991px) {
-    .mobile-navbar {
-        background-color: #2f2c43;
-        height: 70px;
-        align-items: center;
-        display: flex;
-    }
-
+@media screen and (max-width: 992px) {
     .navbar {
+        background: linear-gradient(45deg, #009688, #00BCD4);
+        position: relative;
+    }
+
+    .navbar .btn-success {
+        position: absolute;
+        top: 10px;
+        left: 80px;
+        background: transparent;
+        border: none;
+    }
+
+    .navbar .nav-link {
+        padding: 1rem;
+        border-radius: .5rem;
+        margin-top: 0.5rem;
+        transition: 0.3s ease;
+    }
+
+    .navbar-nav .nav-link.active,
+    .nav-link:focus,
+    .nav-link:hover {
+        color: #ffffff;
+        background-color: #59c5c9;
+        padding-right: 2rem;
+    }
+
+    .navbar .nav-link.active,
+    .navbar .nav-link:hover {
+        background-color: #59c5c9;
+    }
+
+    .navbar form {
         display: none;
     }
 
-    .mobile-navbar .nav {
-        display: flex;
-        align-items: center;
-        padding: 0 1rem;
-        justify-content: space-between;
+    .navbar-nav {
+        border-top: 1px solid #e1e1e1;
+        margin-top: 0.5rem;
+    }
+
+    .navbar-nav .dropdown-menu {
+        position: static;
         width: 100%;
+        background: linear-gradient(45deg, #8BC34A, #00BCD4);
+        border: none;
     }
 
-    .mobile-navbar .nav i {
-        font-size: 25px;
+    a.dropdown-item {
+        color: inherit;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px dashed rgb(255 255 255 / 33%);
+        font-size: 12px;
+        font-weight: 600;
+        transition: 0.3s ease;
     }
-}
 
-.offcanvas {
-    background-color: #2f2c43;
-    width: 260px !important;
-}
+    .dropdown-item:hover,
+    .dropdown-item.active,
+    .dropdown-item:active,
+    .dropdown-item:focus {
+        color: white;
+        background-color: transparent;
+        padding-right: 2rem;
+    }
 
-.offcanvas-header {
-    background-color: #403d55;
-}
+    .navbar-toggler span.bx {
+        font-size: 22px !important;
+        color: white;
+    }
 
-.offcanvas .nav-link {
-    padding: .5rem .5rem;
+    .navbar-toggler {
+        border: none;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
 }
 
 /* ====================================================== Website: Slider Post Trailer */
