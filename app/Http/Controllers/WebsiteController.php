@@ -38,7 +38,7 @@ class WebsiteController extends Controller
     public function actors(string $slug)
     {
         $actor = \App\Models\Actor::where('slug', $slug)->first();
-        return view('actor-works', compact('actor'));
+        return view('web_pages.actor-works', compact('actor'));
     }
 
     /**
@@ -96,6 +96,27 @@ class WebsiteController extends Controller
         } else {
             $posts = \App\Models\Series::whereCategoryId($category->id)->get();
         }
-        return view('category-posts', compact('posts', 'category'));
+        return view('web_pages.category-posts', compact('posts', 'category'));
+    }
+
+    /**
+     * Get all posts based on user searching key words.
+     * 
+     * @param string $slug
+     * @return \Illuminate\View\View
+     */
+    public function search()
+    {
+        $key = request()->get('q');
+        if ($key) {
+            $is_movie = \App\Models\Movie::where('title', 'like', '%' . $key . '%')->get();
+            if ($is_movie->count() > 0) {
+                $posts = $is_movie;
+            } else {
+                $posts = \App\Models\Series::where('title', 'like', '%' . $key . '%')->get();
+            }
+            return view('web_pages.search', compact('posts'));
+        }
+        return redirect()->route('website');
     }
 }

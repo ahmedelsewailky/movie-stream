@@ -3,6 +3,9 @@
 
 @use('App\Models\Actor', 'Actor')
 
+{{-- Define page title --}}
+@section('title', $movie->title)
+
 {{-- Page content --}}
 @section('content')
     <section class="single-post-section">

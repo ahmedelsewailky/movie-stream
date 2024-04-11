@@ -1,11 +1,15 @@
+{{-- This page is used to display all the works of a particular actor, and is used in the front-end of the website --}}
 {{-- Extend master guest layout --}}
 @extends('layouts.guest')
+
+{{-- Define page title --}}
+@section('title', 'مشاهدة اعمال ' . $actor->name)
 
 {{-- Page content --}}
 @section('content')
     <section class="my-5 py-5">
         <div class="container">
-            <h2 class="text-center my-4">تصفح جميع أعمال <span class="fw-bold text-warning">{{ $actor->name }}</span></h2>
+            <h2 class="text-start my-4 fs-5 fw-lighter">تصفح جميع أعمال <span class="fw-bold text-warning">{{ $actor->name }}</span></h2>
 
             <div class="mt-5 pt-4">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -65,7 +69,7 @@
                                             </div>
                                             <div class="bottom-post-content">
                                                 <h6 class="post-title"><a
-                                                        href="{{ route('series.show', $series->slug) }}">{{ str($series->title)->words(3) }}</a>
+                                                        href="{{ route('web.series.show', $series->slug) }}">{{ str($series->title)->words(3) }}</a>
                                                 </h6>
                                                 <span class="meta meta-durations ">
                                                     <i class="bx bx-time-five"></i>

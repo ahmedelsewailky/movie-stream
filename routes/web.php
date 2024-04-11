@@ -32,6 +32,9 @@ Route::get('series/{slug}/episode/{id}', 'WebsiteController@seriesEpisode')
 Route::get('category/{slug}', 'WebsiteController@category')
     ->name('web.category');
 
+Route::get('search', 'WebsiteController@search')
+    ->name('web.search');
+
 Route::group(['middleware' => 'auth', 'prefix' => 'panel'], function () {
 
     Route::get('/', 'HomeController@index')

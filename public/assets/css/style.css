@@ -51,6 +51,9 @@ h6 {
     font-size: 11px;
 }
 
+.tooltip {
+    --bs-tooltip-bg: #4CAF50;
+}
 /* ====================================================== Bootstrap Form Cards */
 .card {
     margin-bottom: 1.5rem;
@@ -129,12 +132,6 @@ h6 {
 }
 
 /* ====================================================== Bootstrap Dropdown */
-.navbar-nav .nav-link.active,
-.nav-link:focus,
-.nav-link:hover {
-    color: #00BCD4;
-}
-
 .dropdown-menu {
     background-color: rgb(30 30 43);
     border: 1px solid #47475f;
@@ -209,73 +206,11 @@ a.dropdown-item {
 }
 
 /* ====================================================== Custom Classess */
-.absolute-position {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.border {
-    border-color: #ddd !important;
-}
-
 .border-dashed {
     border-style: dashed !important;
 }
 
-/* ====================================================== Confirm Deletion Modal */
-.confirm-modal .modal-dialog {
-    max-width: 35% !important;
-}
-
-.confirm-modal .modal-content {
-    border-radius: 5px;
-    text-align: center;
-}
-
-.confirm-modal .modal-footer {
-    justify-content: center;
-    border: none;
-}
-
-.confirm-modal .bx {
-    font-size: 5rem;
-    text-align: center;
-    width: 100%;
-    margin: 2rem 0;
-    color: #c9d1d9;
-}
-
-/* ====================================================== Confirm Deletion Modal */
-form.position-relative button {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    border: none;
-    background-color: transparent;
-    width: 50px;
-    color: #858484;
-    pointer-events: none;
-}
-
-.filter-widget form {
-    padding: 1.25rem;
-    border: 2px dashed #d1d1d1;
-    margin-bottom: 1.25rem;
-}
-
-.filter-box .dropdown button {
-    width: 100%;
-    display: block;
-    background-color: transparent;
-    color: red;
-    text-align: right;
-    line-height: 2rem;
-}
-
-/* ====================================================== Website: Navbar */
+/* ====================================================== Navbar */
 .navbar {
     background-color: #181625;
     position: fixed;
@@ -322,6 +257,12 @@ form.position-relative button {
     border: 1px solid #2ca4c6;
     color: white;
     width: 250px;
+}
+
+.navbar-nav .nav-link.active,
+.nav-link:focus,
+.nav-link:hover {
+    color: #00BCD4;
 }
 
 @media screen and (max-width: 992px) {
@@ -406,7 +347,7 @@ form.position-relative button {
     }
 }
 
-/* ====================================================== Website: Slider Post Trailer */
+/* ====================================================== Slider Post Trailer */
 .slider-post-trailer {
     height: 100vh;
     width: 100%;
@@ -467,7 +408,6 @@ form.position-relative button {
 
 .slider-post-trailer .slide-post-content p {
     line-height: 24px;
-    /* text-align: justify; */
     opacity: 0.8;
     margin-bottom: 1.5rem;
 }
@@ -560,7 +500,6 @@ span.meta-quality>span {
 }
 
 @media screen and (max-width: 992px) {
-
     .carousel-item-next,
     .carousel-item-prev,
     .carousel-item.active {
@@ -577,7 +516,7 @@ span.meta-quality>span {
     }
 }
 
-/* ====================================================== Website: Login Page */
+/* ====================================================== Login Page */
 .auth-login-form {
     width: 100%;
     height: 100vh;
@@ -627,7 +566,7 @@ span.meta-quality>span {
     padding: 8px 16px;
 }
 
-/* ====================================================== Website: Post */
+/* ====================================================== Post */
 .post {
     position: relative;
     height: 370px;
@@ -776,7 +715,7 @@ span.meta-quality>span {
     }
 }
 
-/* ====================================================== Website: Section */
+/* ====================================================== Section */
 .section-header {
     display: flex;
     padding: 1.5rem;
@@ -848,6 +787,7 @@ span.meta-quality>span {
     background-size: 100% 2px;
 }
 
+/* ====================================================== Filter content at index page  */
 .filter-content-bar {
     padding: 1.5rem 0;
     margin-bottom: 1rem;
@@ -873,17 +813,12 @@ span.meta-quality>span {
     background: linear-gradient(45deg, #607D8B, #9E9E9E);
 }
 
-.post.inner-post-effect .post-content p {
-    font-size: 12px;
-    line-height: 20px;
-    opacity: 0.6;
-}
 
-.post.inner-post-effect .post-content>div {
-    display: flex;
-    margin-bottom: 11px;
-    justify-content: space-around;
-    width: 100%;
+/* ====================================================== Paginations */
+.pagination {
+    margin: 1rem 0;
+    justify-content: end;
+    --bs-pagination-font-size: 13px;
 }
 
 .page-link:hover,
@@ -915,12 +850,6 @@ a.page-link {
     display: none;
 }
 
-.pagination {
-    margin: 1rem 0;
-    justify-content: end;
-    --bs-pagination-font-size: 13px;
-}
-
 .active>.page-link,
 .page-link.active {
     z-index: 3;
@@ -939,6 +868,8 @@ a.page-link {
     border: none;
 }
 
+
+/* ====================================================== Footer */
 footer.footer {
     background: #242137;
     padding: 1rem 0;
@@ -973,6 +904,8 @@ footer.footer {
 }
 
 
+
+/* ====================================================== Back To Top */
 .back-to-top {
     display: inline-block;
     background: linear-gradient(45deg, #009688, #CDDC39);
@@ -983,8 +916,7 @@ footer.footer {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    transition: background-color .3s,
-        opacity .5s, visibility .5s;
+    transition: background-color .3s, opacity .5s, visibility .5s;
     opacity: 0;
     visibility: hidden;
     z-index: 1000;
@@ -1009,24 +941,8 @@ footer.footer {
     font-size: 22px;
 }
 
-.tooltip {
-    --bs-tooltip-bg: #4CAF50;
-}
 
-.filter-form-card .dropdown button {
-    background-color: transparent !important;
-    font-size: inherit;
-    padding: .75rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    border-bottom: 1px solid #464357;
-    border-radius: 0;
-    border-top: 1px solid #464357;
-    margin: 0;
-}
-
+/* ====================================================== Single Post Page */
 section.single-post-section {
     margin: 4rem 0;
     padding: 4rem 0;
@@ -1208,6 +1124,8 @@ a.episode-item:hover {
     background: #272435;
 }
 
+
+/* ====================================================== Owl Carousel */
 .owl-carousel .owl-nav button.owl-next,
 .owl-carousel .owl-nav button.owl-prev,
 .owl-carousel button.owl-dot {

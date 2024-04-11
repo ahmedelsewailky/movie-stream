@@ -3,6 +3,9 @@
 
 @use('App\Models\Actor', 'Actor')
 
+{{-- Define page title --}}
+@section('title', $series->title)
+
 {{-- Page content --}}
 @section('content')
     <section class="single-post-section">
@@ -125,8 +128,6 @@
                             <a href="#" class="social-item"><i class="bx bxl-telegram"></i></a>
                         </div>
                     </div>
-
-                    
                 </div>
             </div>
         </div>
