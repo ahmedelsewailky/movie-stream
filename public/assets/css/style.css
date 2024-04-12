@@ -112,8 +112,8 @@ h6 {
 }
 
 .form-check-input:checked {
-    background-color: #5352ed;
-    border-color: #5352ed;
+    background-color: #009688;
+    border-color: #009688;
 }
 
 .form-check-input[type=checkbox] {
@@ -126,9 +126,9 @@ h6 {
 }
 
 .form-check-input:focus {
-    border-color: #86b7fe;
+    border-color: #009688;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgb(83 82 237 / 25%);
+    box-shadow: 0 0 0 0.25rem rgb(0 150 136 / 17%);
 }
 
 /* ====================================================== Bootstrap Dropdown */
@@ -231,9 +231,9 @@ a.dropdown-item {
 }
 
 .navbar.wide .nav-link.active {
-    background-color: white;
+    background-color: #3f3d51;
     border-radius: 3px;
-    color: #009688;
+    color: #ffffff;
     font-size: 13px;
 }
 
@@ -404,6 +404,7 @@ a.dropdown-item {
     padding: 3px 7px;
     border-radius: 2px;
     font-size: 10px;
+    color: #392d1d;
 }
 
 .slider-post-trailer .slide-post-content p {
@@ -551,6 +552,7 @@ span.meta-quality>span {
 
 .auth-login-form label.form-check-label {
     font-size: 12px;
+    cursor: pointer;
 }
 
 .auth-login-form .form-control {

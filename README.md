@@ -34,6 +34,10 @@ cp .env.example .env
 ```bash
 php artisan key:generate
 ```
+- Publishing storage.
+```bash
+php artisan storage:link
+```
 - Create database with name `laravel`.
 ```bash
 php artisan migrate --seed

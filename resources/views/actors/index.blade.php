@@ -51,7 +51,7 @@
 
                     <div class="align-items-center d-flex ms-auto">
                         <button type="submit" class="btn btn-sm btn-primary me-2">عرض النتائج</button>
-                        <a href="{{ route('movies.index') }}" class="btn btn-sm btn-danger">إزالة الفلاتر</a>
+                        <a href="?" class="btn btn-sm btn-danger">إزالة الفلاتر</a>
                     </div>
                 </form>
             </div>

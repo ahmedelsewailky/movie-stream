@@ -53,6 +53,13 @@
                                 {{ DataArray::DUBBED_STATUS[$series->dubbed_status] }}
                             </span>
                         </div>
+                        <div class="col-md-6">
+                            <span>
+                                <i class="bx bx-download"></i>
+                                مرات التحميل:
+                                135
+                            </span>
+                        </div>
                         <div class="col-md-12">
                             <span>
                                 <i class="bx bx-tag"></i>
@@ -121,11 +128,11 @@
                     <div class="single-section-card socials-card my-5">
                         <h6>تابعنا علي مواقع التواصل الإجتماعي</h6>
                         <div class="mt-4 text-center">
-                            <a href="#" class="social-item"><i class="bx bxl-facebook"></i></a>
-                            <a href="#" class="social-item"><i class="bx bxl-twitter"></i></a>
-                            <a href="#" class="social-item"><i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="social-item"><i class="bx bxl-youtube"></i></a>
-                            <a href="#" class="social-item"><i class="bx bxl-telegram"></i></a>
+                            <a href="https://facebook.com/ahmedelsewailky" class="social-item" target="_blank"><i class="bx bxl-facebook"></i></a>
+                            <a href="https://twitter.com/elsewailky" class="social-item" target="_blank"><i class="bx bxl-twitter"></i></a>
+                            <a href="https://instagram.com/elsewailky" class="social-item" target="_blank"><i class="bx bxl-instagram"></i></a>
+                            <a href="https://youtube.com" class="social-item" target="_blank"><i class="bx bxl-youtube"></i></a>
+                            <a href="https://telegram.com" class="social-item" target="_blank"><i class="bx bxl-telegram"></i></a>
                         </div>
                     </div>
                 </div>

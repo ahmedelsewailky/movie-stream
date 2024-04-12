@@ -1,6 +1,9 @@
 {{-- Extend master guest layout --}}
 @extends('layouts.guest')
 
+{{-- Define page title --}}
+@section('title', 'الرئيسية')
+
 {{-- Page content --}}
 @section('content')
     <section class="section slider-post-trailer">
@@ -8,19 +11,21 @@
             <div class="carousel-inner">
                 @foreach ($slider_movies as $movie)
                     <div @class(['active' => $loop->index == 0, 'carousel-item'])>
-                        <div class="trailer-image" style="background-image: url('{{ asset('storage/' . $movie->poster) }}')"></div>
+                        <div class="trailer-image" style="background-image: url('{{ asset('storage/' . $movie->poster) }}')">
+                        </div>
                         <span class="blur"></span>
                         <div class="slide-post-content">
                             <span class="meta-category">{{ $movie->category->name }}</span>
                             <h2>{{ $movie->title }}</h2>
                             <div class="align-items-center d-flex my-4 post-meta">
-                                <span class="meta-rate"><i class="bx bx-star"></i> 8</span>
+                                <span class="meta-rate"><i class="bx bxs-star text-warning me-1"></i> 8</span>
                                 <span class="meta-date">{{ $movie->year }}</span>
-                                <span class="meta-duration">1 hr 25 mins</span>
+                                <span class="meta-duration">{{ \Carbon\CarbonInterval::minute($movie->duration)->cascade()->forHumans() }}</span>
                                 <span class="meta-quality"><span>الجودة</span> WEB-DL 720P</span>
                             </div>
                             <p>{{ $movie->story }}</p>
-                            <a href="{{ route('web.movie.show', $movie->slug) }}" class="btn btn-success"><i class="bx bx-play-circle"></i> مشاهدة الآن</a>
+                            <a href="{{ route('web.movie.show', $movie->slug) }}" class="btn btn-success"><i
+                                    class="bx bx-play-circle"></i> مشاهدة الآن</a>
                             <a href="#" class="btn btn-outline-success"><i class="bx bx-bookmark"></i> مشاهدة
                                 لاحقا</a>
                         </div>
@@ -66,7 +71,7 @@
                                     </h6>
                                     <span class="meta meta-durations ">
                                         <i class="bx bx-time-five"></i>
-                                        1 hr 25 mins
+                                        {{ \Carbon\CarbonInterval::minute($movie->duration)->cascade()->forHumans() }}
                                     </span>
                                 </div>
                             </div>
@@ -106,10 +111,6 @@
                                     <h6 class="post-title"><a
                                             href="{{ route('web.series.show', $s_episode->series->slug) }}">
                                             {{ $s_episode->series->title }}</a></h6>
-                                    <span class="meta meta-durations ">
-                                        <i class="bx bx-time-five"></i>
-                                        1 hr 25 mins
-                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -133,27 +134,33 @@
             </div>
             <div class="section-body">
                 <div class="filter-content-bar">
-                    <a href="{{ route('website') }}#latest-movies" class="filter-item {{ !request()->has('tag') ? 'active' : false }}">
+                    <a href="{{ route('website') }}#latest-movies"
+                        class="filter-item {{ !request()->has('tag') ? 'active' : false }}">
                         <i class="bx bx-camera-movie"></i>
                         الكل
                     </a>
-                    <a href="{{ route('website') }}?tag=arabic-movies#latest-movies" class="filter-item {{ request()->get('tag') == 'arabic-movies' ? 'active' : false }}">
+                    <a href="{{ route('website') }}?tag=arabic-movies#latest-movies"
+                        class="filter-item {{ request()->get('tag') == 'arabic-movies' ? 'active' : false }}">
                         <i class="bx bx-camera-movie"></i>
                         افلام عربي
                     </a>
-                    <a href="{{ route('website') }}?tag=indian-movies#latest-movies" class="filter-item {{ request()->get('tag') == 'indian-movies' ? 'active' : false }}">
+                    <a href="{{ route('website') }}?tag=indian-movies#latest-movies"
+                        class="filter-item {{ request()->get('tag') == 'indian-movies' ? 'active' : false }}">
                         <i class="bx bx-camera-movie"></i>
                         افلام هندي
                     </a>
-                    <a href="{{ route('website') }}?tag=turkish-movie#latest-movies" class="filter-item {{ request()->get('tag') == 'turkish-movie' ? 'active' : false }}">
+                    <a href="{{ route('website') }}?tag=turkish-movie#latest-movies"
+                        class="filter-item {{ request()->get('tag') == 'turkish-movie' ? 'active' : false }}">
                         <i class="bx bx-camera-movie"></i>
                         افلام تركي
                     </a>
-                    <a href="{{ route('website') }}?tag=foreign-movies#latest-movies" class="filter-item {{ request()->get('tag') == 'foreign-movies' ? 'active' : false }}">
+                    <a href="{{ route('website') }}?tag=foreign-movies#latest-movies"
+                        class="filter-item {{ request()->get('tag') == 'foreign-movies' ? 'active' : false }}">
                         <i class="bx bx-camera-movie"></i>
                         افلام اجنبي
                     </a>
-                    <a href="{{ route('website') }}?tag=asian-movies#latest-movies" class="filter-item {{ request()->get('tag') == 'asian-movies' ? 'active' : false }}">
+                    <a href="{{ route('website') }}?tag=asian-movies#latest-movies"
+                        class="filter-item {{ request()->get('tag') == 'asian-movies' ? 'active' : false }}">
                         <i class="bx bx-camera-movie"></i>
                         افلام اسيوية
                     </a>
@@ -173,10 +180,11 @@
                                         <span class="meta meta-category">{{ $movie->category->name }}</span>
                                     </div>
                                     <div class="bottom-post-content">
-                                        <h6 class="post-title"><a href="{{ route('web.movie.show', $movie->slug) }}">فيلم {{ $movie->title }}</a></h6>
+                                        <h6 class="post-title"><a href="{{ route('web.movie.show', $movie->slug) }}">فيلم
+                                                {{ $movie->title }}</a></h6>
                                         <span class="meta meta-durations ">
                                             <i class="bx bx-time-five"></i>
-                                            1 hr 25 mins
+                                            {{ \Carbon\CarbonInterval::minute($movie->duration)->cascade()->forHumans() }}
                                         </span>
                                     </div>
                                 </div>
@@ -191,7 +199,6 @@
             </div>
         </div>
     </section>
-
 @endsection
 
 {{-- Owlcarousel Css --}}

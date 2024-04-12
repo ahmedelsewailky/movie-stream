@@ -42,7 +42,7 @@
                                         </h6>
                                         <span class="meta meta-durations ">
                                             <i class="bx bx-time-five"></i>
-                                            1 hr 25 mins
+                                            {{ \Carbon\CarbonInterval::minute($post->duration)->cascade()->forHumans() }}
                                         </span>
                                     </div>
                                 </div>

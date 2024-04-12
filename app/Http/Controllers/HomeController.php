@@ -25,7 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $movies = \App\Models\Movie::orderByDesc('id')->take(5)->get();
+        $series = \App\Models\Series::orderByDesc('id')->take(5)->get();
+        return view('dashboard', get_defined_vars());
     }
 
     /**

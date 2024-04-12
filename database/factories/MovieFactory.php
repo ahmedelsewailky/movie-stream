@@ -35,6 +35,7 @@ class MovieFactory extends Factory
                 $this->faker->url,
             ],
             'watch_link' => $this->faker->url,
+            'duration' => $this->faker->time,
             'dubbed_status' => array_rand(DataArray::DUBBED_STATUS),
             'views' => rand(0,85000)
         ];

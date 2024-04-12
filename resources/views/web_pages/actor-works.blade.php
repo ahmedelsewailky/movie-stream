@@ -43,7 +43,7 @@
                                                 </h6>
                                                 <span class="meta meta-durations ">
                                                     <i class="bx bx-time-five"></i>
-                                                    1 hr 25 mins
+                                                    {{ \Carbon\CarbonInterval::minute($movie->duration)->cascade()->forHumans() }}
                                                 </span>
                                             </div>
                                         </div>
@@ -73,7 +73,7 @@
                                                 </h6>
                                                 <span class="meta meta-durations ">
                                                     <i class="bx bx-time-five"></i>
-                                                    1 hr 25 mins
+                                                    {{ \Carbon\CarbonInterval::minute($series->duration)->cascade()->forHumans() }}
                                                 </span>
                                             </div>
                                         </div>

@@ -82,7 +82,7 @@ h6 {
 }
 
 .navbar .nav-link:hover {
-    background-color: #4d4965;
+    background-color: rgb(53 54 78);
     color: white;
 }
 

@@ -89,7 +89,7 @@
         <div class="section-title py-3 mb-1">
             <h6>
                 <i class="bx bx-trending-up me-2"></i>
-                الأعلي مشاهدة
+                أجدد المسلسلات
             </h6>
         </div>
         <div class="section-body">
@@ -104,20 +104,65 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @forelse ($series as $series)
+                        <tr>
+                            <td>{{ $loop->index+1 }}</td>
+                            <td>{{ $series->title }}</td>
+                            <td>{{ $series->category->name }}</td>
+                            <td>{{ $series->views }}</td>
+                            <td>{{ $series->created_at->diffForHumans() }}</td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="5">لا توجد منشورات</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+                <tfoot>
                     <tr>
-                        <td>1</td>
-                        <td>مسلسل لحظات حرجة الجزء الثاني</td>
-                        <td>مسلسلات عربية</td>
-                        <td>{{ number_format(85656) }}</td>
-                        <td>منذ شهر</td>
+                        <th>#</th>
+                        <th>البيان</th>
+                        <th>القسم</th>
+                        <th>المشاهدات</th>
+                        <th>تاريخ الإضافة</th>
                     </tr>
+                </tfoot>
+            </table>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title py-3 mb-1">
+            <h6>
+                <i class="bx bx-trending-up me-2"></i>
+                أجدد الأفلام
+            </h6>
+        </div>
+        <div class="section-body">
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>2</td>
-                        <td>الحلقة 15 من مسلسل جعفر العمدة</td>
-                        <td>مسلسلات عربية</td>
-                        <td>{{ number_format(85656) }}</td>
-                        <td>منذ اسبوع</td>
+                        <th>#</th>
+                        <th>البيان</th>
+                        <th>القسم</th>
+                        <th>المشاهدات</th>
+                        <th>تاريخ الإضافة</th>
                     </tr>
+                </thead>
+                <tbody>
+                    @forelse ($movies as $movie)
+                        <tr>
+                            <td>{{ $loop->index+1 }}</td>
+                            <td>{{ $movie->title }}</td>
+                            <td>{{ $movie->category->name }}</td>
+                            <td>{{ $movie->views }}</td>
+                            <td>{{ $movie->created_at->diffForHumans() }}</td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="5">لا توجد منشورات</td>
+                        </tr>
+                    @endforelse
                 </tbody>
                 <tfoot>
                     <tr>
