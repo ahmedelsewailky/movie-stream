@@ -11,11 +11,11 @@ The project consists of:
 - Dark Mode.
 - Fully Responsive.
 
-![alt text](https://github.com/ahmedelsewailky/movie-one/blob/master/public/screenshots/screen_dashboard.png?raw=true)
+![alt text](https://github.com/ahmedelsewailky/movie-one/blob/master/public/screenshots/screen_dashboard.PNG?raw=true)
 
 ![alt text](https://github.com/ahmedelsewailky/movie-one/blob/master/public/screenshots/screen_website.png?raw=true) 
 
-![alt text](https://github.com/ahmedelsewailky/movie-one/blob/master/public/screenshots/screen_single.png?raw=true)
+![alt text](https://github.com/ahmedelsewailky/movie-one/blob/master/public/screenshots/screen_single.PNG?raw=true)
 
 ## Installation
 - Make a clone from respository.
