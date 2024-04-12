@@ -89,7 +89,7 @@
         <div class="section-title py-3 mb-1">
             <h6>
                 <i class="bx bx-trending-up me-2"></i>
-                أجدد المسلسلات
+                جديد الأفلام
             </h6>
         </div>
         <div class="section-body">
@@ -104,13 +104,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($series as $series)
+                    @forelse ($movies as $movie)
                         <tr>
                             <td>{{ $loop->index+1 }}</td>
-                            <td>{{ $series->title }}</td>
-                            <td>{{ $series->category->name }}</td>
-                            <td>{{ $series->views }}</td>
-                            <td>{{ $series->created_at->diffForHumans() }}</td>
+                            <td>{{ $movie->title }}</td>
+                            <td><i class="bx bx-category text-success me-1"></i>{{ $movie->category->name }}</td>
+                            <td><i class="bx bx-bar-chart-alt text-success me-1"></i>{{ $movie->views }}</td>
+                            <td><i class="bx bx-time-five text-success me-1"></i>{{ $movie->created_at->diffForHumans() }}</td>
                         </tr>
                     @empty
                         <tr>
@@ -135,7 +135,7 @@
         <div class="section-title py-3 mb-1">
             <h6>
                 <i class="bx bx-trending-up me-2"></i>
-                أجدد الأفلام
+                جديد المسلسلات
             </h6>
         </div>
         <div class="section-body">
@@ -145,18 +145,18 @@
                         <th>#</th>
                         <th>البيان</th>
                         <th>القسم</th>
-                        <th>المشاهدات</th>
+                        <th>عدد الحلقات</th>
                         <th>تاريخ الإضافة</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($movies as $movie)
+                    @forelse ($series as $series)
                         <tr>
                             <td>{{ $loop->index+1 }}</td>
-                            <td>{{ $movie->title }}</td>
-                            <td>{{ $movie->category->name }}</td>
-                            <td>{{ $movie->views }}</td>
-                            <td>{{ $movie->created_at->diffForHumans() }}</td>
+                            <td>{{ $series->title }}</td>
+                            <td><i class="bx bx-category text-success me-1"></i>{{ $series->category->name }}</td>
+                            <td><i class="bx bx-layer text-success me-1"></i>{{ $series->episodes->count() }}</td>
+                            <td><i class="bx bx-time-five text-success me-1"></i>{{ $series->created_at->diffForHumans() }}</td>
                         </tr>
                     @empty
                         <tr>
