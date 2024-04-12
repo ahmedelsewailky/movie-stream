@@ -13,7 +13,7 @@ The project consists of:
 
 ![alt text](https://github.com/ahmedelsewailky/movie-one/blob/master/public/screenshots/screen_dashboard.PNG?raw=true)
 
-![alt text](https://github.com/ahmedelsewailky/movie-one/blob/master/public/screenshots/screen_website.PNG?raw=true)
+![alt text](https://github.com/ahmedelsewailky/movie-one/blob/master/public/screenshots/screen_website.PNG?raw=true) 
 
 ![alt text](https://github.com/ahmedelsewailky/movie-one/blob/master/public/screenshots/screen_single.PNG?raw=true)
 
