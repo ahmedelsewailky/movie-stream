@@ -39,10 +39,12 @@
                                                 <a href="#">{{ str($post->title)->words(3) }}</a>
                                             @endif
                                         </h6>
-                                        <span class="meta meta-durations ">
-                                            <i class="bx bx-time-five"></i>
-                                            1 hr 25 mins
-                                        </span>
+                                        @if ($post->duration)
+                                            <span class="meta meta-durations ">
+                                                <i class="bx bx-time-five"></i>
+                                                {{ $post->duration }}
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
