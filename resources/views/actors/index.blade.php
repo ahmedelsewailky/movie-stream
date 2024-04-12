@@ -33,7 +33,7 @@
             {{-- Table Filter --}}
             <div class="table-filter-element">
                 <form action="?" method="get">
-                    <div class="dropdown me-3">
+                    <div class="dropdown me-md-3">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside"
                             data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                             عرض حسب الدولة
@@ -49,7 +49,7 @@
                         </div>
                     </div>
 
-                    <div class="align-items-center d-flex ms-auto">
+                    <div class="align-items-md-center d-flex ms-md-auto justify-content-end mt-3">
                         <button type="submit" class="btn btn-sm btn-primary me-2">عرض النتائج</button>
                         <a href="?" class="btn btn-sm btn-danger">إزالة الفلاتر</a>
                     </div>
@@ -57,55 +57,57 @@
             </div>
 
             {{-- Movies Table --}}
-            <table class="table table-hover table-borderless">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>الصورة</th>
-                        <th>اسم الممثل</th>
-                        <th>الدولة</th>
-                        <th>عدد الأعمال بالموقع</th>
-                        <th>الخيارات</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($actors as $actor)
+            <div class="table-responsive">
+                <table class="table table-hover table-borderless">
+                    <thead>
                         <tr>
-                            <td>{{ $loop->index + 1 }}</td>
-                            <td><img src="{{ $actor->get_image_avatar() ?? 'https://via.placeholder.com/65' }}"
-                                    width="65" height="65" alt="{{ $actor->name }}"></td>
-                            <td>{{ $actor->name }}</td>
-                            <td>{{ $actor->country }}</td>
-                            <td>
-                                فيلم: {{ $actor->get_actor_movies()->count() }}
-                                مسلسل: {{ $actor->get_actor_series()->count() }}
-                            </td>
-                            <td>
-                                <a href="{{ route('actors.edit', $actor->id) }}"
-                                    class="btn btn-sm btn-success me-1">تعديل</a>
-                                <a href="javascript:void(0)" data-bs-toggle="modal"
-                                    data-bs-target="#confirmDelete{{ $actor->id }}"
-                                    class="btn btn-sm btn-danger">حذف</a>
-                            </td>
+                            <th>#</th>
+                            <th>الصورة</th>
+                            <th>اسم الممثل</th>
+                            <th>الدولة</th>
+                            <th>عدد الأعمال بالموقع</th>
+                            <th>الخيارات</th>
                         </tr>
-                        @include('actors.confirm-modal')
-                    @empty
+                    </thead>
+                    <tbody>
+                        @forelse ($actors as $actor)
+                            <tr>
+                                <td>{{ $loop->index + 1 }}</td>
+                                <td><img src="{{ $actor->get_image_avatar() ?? 'https://via.placeholder.com/65' }}"
+                                        width="65" height="65" alt="{{ $actor->name }}"></td>
+                                <td>{{ $actor->name }}</td>
+                                <td>{{ $actor->country }}</td>
+                                <td>
+                                    فيلم: {{ $actor->get_actor_movies()->count() }}
+                                    مسلسل: {{ $actor->get_actor_series()->count() }}
+                                </td>
+                                <td>
+                                    <a href="{{ route('actors.edit', $actor->id) }}"
+                                        class="btn btn-sm btn-success me-1">تعديل</a>
+                                    <a href="javascript:void(0)" data-bs-toggle="modal"
+                                        data-bs-target="#confirmDelete{{ $actor->id }}"
+                                        class="btn btn-sm btn-danger">حذف</a>
+                                </td>
+                            </tr>
+                            @include('actors.confirm-modal')
+                        @empty
+                            <tr>
+                                <td colspan="6">لا توجد بيانات</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                    <tfoot>
                         <tr>
-                            <td colspan="6">لا توجد بيانات</td>
+                            <th>#</th>
+                            <th>الصورة</th>
+                            <th>اسم الممثل</th>
+                            <th>الدولة</th>
+                            <th>عدد الأعمال بالموقع</th>
+                            <th>الخيارات</th>
                         </tr>
-                    @endforelse
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>#</th>
-                        <th>الصورة</th>
-                        <th>اسم الممثل</th>
-                        <th>الدولة</th>
-                        <th>عدد الأعمال بالموقع</th>
-                        <th>الخيارات</th>
-                    </tr>
-                </tfoot>
-            </table>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     </div>
 @endsection

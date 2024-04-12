@@ -24,14 +24,16 @@
 
 <body>
     <div class="dashboard-wrapper">
-        <aside class="sidebar">
-            <div class="sidebar-inner">
+        <aside class="sidebar offcanvas-sm offcanvas-start" id="sidebar" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1">
+            <div class="offcanvas-header">
                 <div class="sidebar-logo">
                     <a href="">
                         <img src="{{ asset('logo.png') }}" alt="App Logo">
                     </a>
                 </div>
+            </div>
 
+            <div class="offcanavs-body">
                 <div class="sidebar-menu">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -92,46 +94,43 @@
         </aside>
 
         <main class="main-content">
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <div class="search-form">
-                            @yield('search')
-                        </div>
+            <nav class="header">
+                <button type="button" class="toggler-sidebar-button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+                    <i class="bx bx-menu"></i>
+                </button>
 
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="https://via.placeholder.com/32" width="32" height="32"
-                                        class="rounded-circle me-2" alt="{{ auth()->user()->name }}">
-                                    {{ auth()->user()->name }}
+                @yield('search')
+
+                <ul class="nav ms-md-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link auth-nav-link dropdown-toggle" href="javascript:void(0)" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://via.placeholder.com/32" width="32" height="32"
+                                class="rounded-circle me-2" alt="{{ auth()->user()->name }}">
+                            <span>{{ auth()->user()->name }}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('profile.index') }}">
+                                    <i class="bx bx-user me-2"></i>
+                                    الملف الشخصي
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('profile.index') }}">
-                                            <i class="bx bx-user me-2"></i>
-                                            الملف الشخصي
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            <i class="bx bx-log-out me-2"></i>
-                                            تسجيل الخروج
-                                        </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    <i class="bx bx-log-out me-2"></i>
+                                    تسجيل الخروج
+                                </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
-                                    </li>
-                                </ul>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </li>
                         </ul>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </nav>
 
             @yield('content')

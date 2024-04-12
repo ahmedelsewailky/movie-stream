@@ -32,7 +32,7 @@
             {{-- Table Filter --}}
             <div class="table-filter-element">
                 <form action="?" method="get">
-                    <div class="dropdown me-2">
+                    <div class="dropdown me-md-2">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside"
                             data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                             عرض حسب اللغة
@@ -48,7 +48,7 @@
                         </div>
                     </div>
 
-                    <div class="dropdown me-2">
+                    <div class="dropdown me-md-2">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside"
                             data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                             حسب التاريخ
@@ -64,7 +64,7 @@
                         </div>
                     </div>
 
-                    <div class="align-items-center d-flex ms-auto">
+                    <div class="align-items-md-center d-flex ms-md-auto justify-content-end mt-3">
                         <button type="submit" class="btn btn-sm btn-primary me-2">عرض النتائج</button>
                         <a href="?" class="btn btn-sm btn-danger">إزالة الفلاتر</a>
                     </div>
@@ -72,75 +72,77 @@
             </div>
 
             {{-- Series Table --}}
-            <table class="table table-hover table-borderless">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>البيان</th>
-                        <th>الحلقات</th>
-                        <th>المشاهدات</th>
-                        <th>التحميلات</th>
-                        <th>الخيارات</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($tvshows as $tvshow)
+            <div class="table-reponsive">
+                <table class="table table-hover table-borderless">
+                    <thead>
                         <tr>
-                            <td>{{ $loop->index }}</td>
-                            <td>
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0 me-3">
-                                        <img src="{{ $tvshow->get_poster() ?? 'https://via.placeholder.com/120x80' }}"
-                                            width="120" height="70" alt="{{ $tvshow->title }}">
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h6><a href="{{ route('tvshows.show', $tvshow->id) }}">{{ $tvshow->title }}</a>
-                                        </h6>
-
-                                    </div>
-                                </div>
-                            </td>
-                            <td>{{ $tvshow->episodes->count() }}</td>
-                            <td>
-                                <i class="bx bx-bar-chart-alt-2"></i>
-                                {{ number_format($tvshow->views) }}
-                            </td>
-                            <td>
-                                <i class="bx bx-download"></i>
-                                0
-                            </td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="" data-bs-toggle="dropdown"><i
-                                            class="bx bx-dots-vertical-rounded"></i></button>
-                                    <div class="dropdown-menu">
-                                        <a href="{{ route('tvshows.edit', $tvshow->id) }}" class="dropdown-item">
-                                            <i class="bx bx-edit"></i>
-                                            تعديل
-                                        </a>
-
-                                        <a href="javascript:void(0)" data-bs-toggle="modal"
-                                            data-bs-target="#confirmDelete{{ $tvshow->id }}" class="dropdown-item">
-                                            <i class="bx bx-trash-alt"></i>
-                                            حذف
-                                        </a>
-                                        <a href="{{ route('tvshows.episodes.create') }}?tvshow_id={{ $tvshow->id }}"
-                                            class="dropdown-item">
-                                            <i class="bx bx-plus"></i>
-                                            اضافة حلقة
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
+                            <th>#</th>
+                            <th>البيان</th>
+                            <th>الحلقات</th>
+                            <th>المشاهدات</th>
+                            <th>التحميلات</th>
+                            <th>الخيارات</th>
                         </tr>
-                        @include('tvshows.confirm-modal')
-                    @empty
-                        <tr>
-                            <td colspan="6" class="text-center">لا توجد منشورات</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @forelse ($tvshows as $tvshow)
+                            <tr>
+                                <td>{{ $loop->index }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 me-3">
+                                            <img src="{{ $tvshow->get_poster() ?? 'https://via.placeholder.com/120x80' }}"
+                                                width="120" height="70" alt="{{ $tvshow->title }}">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6><a href="{{ route('tvshows.show', $tvshow->id) }}">{{ $tvshow->title }}</a>
+                                            </h6>
+    
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{ $tvshow->episodes->count() }}</td>
+                                <td>
+                                    <i class="bx bx-bar-chart-alt-2"></i>
+                                    {{ number_format($tvshow->views) }}
+                                </td>
+                                <td>
+                                    <i class="bx bx-download"></i>
+                                    0
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="" data-bs-toggle="dropdown"><i
+                                                class="bx bx-dots-vertical-rounded"></i></button>
+                                        <div class="dropdown-menu">
+                                            <a href="{{ route('tvshows.edit', $tvshow->id) }}" class="dropdown-item">
+                                                <i class="bx bx-edit"></i>
+                                                تعديل
+                                            </a>
+    
+                                            <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                data-bs-target="#confirmDelete{{ $tvshow->id }}" class="dropdown-item">
+                                                <i class="bx bx-trash-alt"></i>
+                                                حذف
+                                            </a>
+                                            <a href="{{ route('tvshows.episodes.create') }}?tvshow_id={{ $tvshow->id }}"
+                                                class="dropdown-item">
+                                                <i class="bx bx-plus"></i>
+                                                اضافة حلقة
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            @include('tvshows.confirm-modal')
+                        @empty
+                            <tr>
+                                <td colspan="6" class="text-center">لا توجد منشورات</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 @endsection

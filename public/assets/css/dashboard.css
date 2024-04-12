@@ -51,27 +51,31 @@ h6 {
 }
 
 /* ====================================================== Bootstrap Form Cards */
-.navbar {
+.header {
     background-color: #2b2c40;
     color: white;
     height: 68px;
     box-shadow: 0 0.125rem 0.5rem rgb(0 0 0 / 0.16);
     border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    justify-content: space-between;
 }
 
-.navbar .nav-link.active {
+.header .nav-link.active {
     background: linear-gradient(45deg, #5352ed, #9e61ff);
     color: white;
 }
 
-.navbar .nav-link {
+.header .nav-link {
     font-size: 12px;
     border-radius: 5px;
     text-align: center;
     font-weight: 600;
 }
 
-.navbar .nav-link .bx {
+.header .nav-link .bx {
     font-size: 18px;
     margin-left: 4px;
 }
@@ -81,22 +85,23 @@ h6 {
     color: white;
 }
 
-.navbar .nav-link:hover {
+.header .nav-link:hover {
     background-color: rgb(53 54 78);
     color: white;
 }
 
-.navbar .search-form form {
+.header form {
     position: relative;
     display: flex;
     align-items: center;
+    width: 250px;
 }
 
-.navbar .search-form form input {
+.header form input {
     padding-right: 2.5rem;
 }
 
-.navbar .search-form form i {
+.header form i {
     position: absolute;
     right: 12px;
     font-size: 16px;
@@ -131,6 +136,16 @@ h6 {
     width: 290px;
     background-color: #2b2c40;
     min-height: 100vh;
+}
+
+.offcanvas-sm {
+    --bs-offcanvas-width: 290px;
+}
+
+@media (min-width: 576px) {
+    .offcanvas-sm .offcanvas-header {
+        display: block;
+    }
 }
 
 .dashboard-wrapper {
@@ -207,6 +222,32 @@ h6 {
     top: 50%;
     right: -25px;
 }
+
+.toggler-sidebar-button {
+    display: none;
+    background: transparent;
+    border: none;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    color: #ecf0f1;
+    margin-left: .5rem;
+}
+
+@media screen and (max-width: 992px) {
+    .toggler-sidebar-button {
+        display: block;
+    }
+
+    .toggler-sidebar-button i {
+        font-size: 24px;
+    }
+
+    .header .auth-nav-link span {
+        display: none;
+    }
+}
+
 
 .card {
     background-color: #2b2c40;
@@ -349,14 +390,9 @@ h6 {
     border: 1px solid #444564;
 }
 
-select {
-    -webkit-appearance: menulist-button;
-}
-
 select option {
     color: black
 }
-
 
 .form-control:hover,
 .form-select:hover {
@@ -506,14 +542,27 @@ label.form-check-label {
     border-radius: 1rem 1rem 0 0;
 }
 
+@media screen and (max-width: 992px) {
+    .table-filter-element form {
+        display: block;
+    }
+}
+
 .table-filter-element .dropdown .btn {
     width: 240px;
     line-height: 35px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(255 255 255 / 6%);
+    background-color: rgb(60 61 85);
     border: none;
+}
+
+@media screen and (max-width: 992px) {
+    .table-filter-element .dropdown .btn {
+        width: 100%;
+        margin-bottom: .25rem;
+    }
 }
 
 .table-filter-element .filter-menu {
@@ -573,27 +622,6 @@ button#addLink {
     font-size: 11px;
     line-height: 32px;
     padding: 0 15px;
-}
-
-/*  =====================================================   Sidebar Search Form */
-.sidebar-search-form form {
-    position: relative;
-    padding: 1rem;
-    /* border-bottom: 1px solid #59546e; */
-}
-
-.sidebar-search-form form button {
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    opacity: 0.5;
-}
-
-.sidebar-search-form form .form-control {
-    border-radius: 0;
-    font-size: inherit;
-    line-height: 26px;
 }
 
 /*  =====================================================   Boostarp Pagination */
@@ -847,4 +875,24 @@ label.update-poster-label {
 .text-success {
     --bs-text-opacity: 1;
     color: #009688 !important;
+}
+
+.section-header.py-3.mb-1 {
+    display: flex;
+    align-items: center;
+}
+
+.section-header span {
+    background: linear-gradient(45deg, #1abc9c 25%, #1a4cbc);
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 33px;
+    border-radius: 100%;
+    font-size: 22px;
+    margin-left: 1rem;
+}
+
+.section-header span i {
+    font-size: inherit;
 }

@@ -32,7 +32,7 @@
             {{-- Table Filter --}}
             <div class="table-filter-element">
                 <form action="?" method="get">
-                    <div class="dropdown me-3">
+                    <div class="dropdown me-md-3">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside"
                             data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                             عرض حسب القسم
@@ -48,7 +48,7 @@
                         </div>
                     </div>
 
-                    <div class="dropdown me-3">
+                    <div class="dropdown me-md-3">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside"
                             data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                             عرض حسب اللغة
@@ -64,7 +64,7 @@
                         </div>
                     </div>
 
-                    <div class="dropdown me-3">
+                    <div class="dropdown me-md-3">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside"
                             data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                             حسب التاريخ
@@ -80,7 +80,7 @@
                         </div>
                     </div>
 
-                    <div class="align-items-center d-flex ms-auto">
+                    <div class="align-items-md-center d-flex ms-md-auto justify-content-end mt-3">
                         <button type="submit" class="btn btn-sm btn-primary me-2">عرض النتائج</button>
                         <a href="?" class="btn btn-sm btn-danger">إزالة الفلاتر</a>
                     </div>

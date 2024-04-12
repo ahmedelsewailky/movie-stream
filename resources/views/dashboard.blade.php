@@ -86,94 +86,94 @@
     </section>
 
     <section class="section">
-        <div class="section-title py-3 mb-1">
-            <h6>
-                <i class="bx bx-trending-up me-2"></i>
-                جديد الأفلام
-            </h6>
+        <div class="section-header py-3 mb-1">
+            <span><i class="bx bx-movie"></i></span>
+            <h6>جديد الأفلام</h6>
         </div>
         <div class="section-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>البيان</th>
-                        <th>القسم</th>
-                        <th>المشاهدات</th>
-                        <th>تاريخ الإضافة</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($movies as $movie)
+            <div class="table-reponsive">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>{{ $loop->index+1 }}</td>
-                            <td>{{ $movie->title }}</td>
-                            <td><i class="bx bx-category text-success me-1"></i>{{ $movie->category->name }}</td>
-                            <td><i class="bx bx-bar-chart-alt text-success me-1"></i>{{ $movie->views }}</td>
-                            <td><i class="bx bx-time-five text-success me-1"></i>{{ $movie->created_at->diffForHumans() }}</td>
+                            <th>#</th>
+                            <th>البيان</th>
+                            <th>القسم</th>
+                            <th>المشاهدات</th>
+                            <th>تاريخ الإضافة</th>
                         </tr>
-                    @empty
+                    </thead>
+                    <tbody>
+                        @forelse ($movies as $movie)
+                            <tr>
+                                <td>{{ $loop->index+1 }}</td>
+                                <td>{{ $movie->title }}</td>
+                                <td><i class="bx bx-category text-success me-1"></i>{{ $movie->category->name }}</td>
+                                <td><i class="bx bx-bar-chart-alt text-success me-1"></i>{{ $movie->views }}</td>
+                                <td><i class="bx bx-time-five text-success me-1"></i>{{ $movie->created_at->diffForHumans() }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5">لا توجد منشورات</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                    <tfoot>
                         <tr>
-                            <td colspan="5">لا توجد منشورات</td>
+                            <th>#</th>
+                            <th>البيان</th>
+                            <th>القسم</th>
+                            <th>المشاهدات</th>
+                            <th>تاريخ الإضافة</th>
                         </tr>
-                    @endforelse
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>#</th>
-                        <th>البيان</th>
-                        <th>القسم</th>
-                        <th>المشاهدات</th>
-                        <th>تاريخ الإضافة</th>
-                    </tr>
-                </tfoot>
-            </table>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     </section>
 
     <section class="section">
-        <div class="section-title py-3 mb-1">
-            <h6>
-                <i class="bx bx-trending-up me-2"></i>
-                جديد المسلسلات
-            </h6>
+        <div class="section-header py-3 mb-1">
+            <span><i class="bx bx-video-recording"></i></span>
+            <h6>جديد المسلسلات</h6>
         </div>
         <div class="section-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>البيان</th>
-                        <th>القسم</th>
-                        <th>عدد الحلقات</th>
-                        <th>تاريخ الإضافة</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($series as $series)
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>{{ $loop->index+1 }}</td>
-                            <td>{{ $series->title }}</td>
-                            <td><i class="bx bx-category text-success me-1"></i>{{ $series->category->name }}</td>
-                            <td><i class="bx bx-layer text-success me-1"></i>{{ $series->episodes->count() }}</td>
-                            <td><i class="bx bx-time-five text-success me-1"></i>{{ $series->created_at->diffForHumans() }}</td>
+                            <th>#</th>
+                            <th>البيان</th>
+                            <th>القسم</th>
+                            <th>عدد الحلقات</th>
+                            <th>تاريخ الإضافة</th>
                         </tr>
-                    @empty
+                    </thead>
+                    <tbody>
+                        @forelse ($series as $series)
+                            <tr>
+                                <td>{{ $loop->index+1 }}</td>
+                                <td>{{ $series->title }}</td>
+                                <td><i class="bx bx-category text-success me-1"></i>{{ $series->category->name }}</td>
+                                <td><i class="bx bx-layer text-success me-1"></i>{{ $series->episodes->count() }}</td>
+                                <td><i class="bx bx-time-five text-success me-1"></i>{{ $series->created_at->diffForHumans() }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5">لا توجد منشورات</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                    <tfoot>
                         <tr>
-                            <td colspan="5">لا توجد منشورات</td>
+                            <th>#</th>
+                            <th>البيان</th>
+                            <th>القسم</th>
+                            <th>المشاهدات</th>
+                            <th>تاريخ الإضافة</th>
                         </tr>
-                    @endforelse
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>#</th>
-                        <th>البيان</th>
-                        <th>القسم</th>
-                        <th>المشاهدات</th>
-                        <th>تاريخ الإضافة</th>
-                    </tr>
-                </tfoot>
-            </table>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     </section>
 @endsection
